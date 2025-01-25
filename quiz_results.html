@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Quiz Results</title>
+    <link rel="stylesheet" href="results.css">
+    <script src="results.js" defer></script>
+</head>
+<body>
+
+    <div class="results-container">
+        
+        <!-- Left Panel: Written Profile -->
+        <div class="text-panel">
+            <h1>Your Primary Archetype: <span id="primary-archetype"></span></h1>
+            <p id="archetype-description"></p>
+
+            <h2>Secondary Influence:</h2>
+            <p class="secondary-archetype" id="secondary-archetype"></p>
+
+            <h2>Affirming Message</h2>
+            <p id="affirming-message"></p>
+
+            <h2>Personalized Insights</h2>
+            <p id="personalized-insights"></p>
+
+            <!-- Reflection Questions -->
+            <div class="reflection-questions">
+                <h2>Self-Reflection Questions</h2>
+                <ul id="reflection-list"></ul>
+            </div>
+
+            <!-- Button Options -->
+            <div class="button-container">
+                <button id="export-pdf">Download PDF</button>
+                <button id="email-results">Email Results</button>
+            </div>
+        </div>
+
+        <!-- Right Panel: Visual Representation -->
+        <div class="visual-panel">
+            <h2>Archetype Preference Breakdown</h2>
+            <canvas id="spider-graph"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>
