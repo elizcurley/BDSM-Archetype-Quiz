@@ -1,30 +1,9 @@
-// Quiz Data Structure
-const quizQuestions = [
-    {
-        question: "How do you approach new experiences?",
-        options: [
-            { text: "With excitement and curiosity", archetype: "Explorer" },
-            { text: "By analyzing and preparing first", archetype: "Keystone" },
-            { text: "I challenge myself to take the lead", archetype: "Vanguard" },
-            { text: "I consider how it aligns with my deeper values", archetype: "Oracle" }
-        ]
-    },
-    {
-        question: "How do you handle challenges?",
-        options: [
-            { text: "By innovating and trying new approaches", archetype: "Catalyst" },
-            { text: "By relying on intuition and deeper wisdom", archetype: "Oracle" },
-            { text: "Through discipline and perseverance", archetype: "Keystone" },
-            { text: "By seeking excitement in the challenge itself", archetype: "Explorer" }
-        ]
-    }
-];
-
-// Quiz State Variables
+// 📌 Quiz State Variables
+let quizQuestions = [];
 let currentQuestionIndex = 0;
 let userResponses = {};
 
-// DOM Elements
+// 📌 DOM Elements
 const questionContainer = document.getElementById("question-container");
 const questionText = document.getElementById("question-text");
 const optionsContainer = document.getElementById("options-container");
@@ -32,7 +11,35 @@ const nextButton = document.getElementById("next-button");
 const backButton = document.getElementById("back-button");
 const resultsContainer = document.getElementById("results-container");
 
-// Load Question
+// 📌 Load Quiz Data from JSON
+fetch('quiz_data.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log("Quiz Data Loaded:", data);
+    quizQuestions = data.sections.foundational_assessment.questions; // Adjust based on how JSON is structured
+    loadProgress(); // Load stored progress
+    loadQuestion();
+  })
+  .catch(error => console.error("Error loading quiz data:", error));
+
+// 📌 Save Quiz Progress to Session Storage
+function saveProgress() {
+    sessionStorage.setItem("quizProgress", JSON.stringify({ 
+        currentQuestionIndex, 
+        userResponses 
+    }));
+}
+
+// 📌 Load Quiz Progress from Session Storage
+function loadProgress() {
+    const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
+    if (savedProgress) {
+        currentQuestionIndex = savedProgress.currentQuestionIndex || 0;
+        userResponses = savedProgress.userResponses || {};
+    }
+}
+
+// 📌 Load Question
 function loadQuestion() {
     if (currentQuestionIndex >= quizQuestions.length) {
         calculateResults();
@@ -40,28 +47,29 @@ function loadQuestion() {
     }
 
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    questionText.innerText = currentQuestion.question;
+    questionText.innerText = currentQuestion.question_text;
     optionsContainer.innerHTML = "";
 
-    currentQuestion.options.forEach((option, index) => {
+    currentQuestion.response_options.forEach((option, index) => {
         const button = document.createElement("button");
-        button.innerText = option.text;
+        button.innerText = option;
         button.classList.add("option-button");
-        button.onclick = () => selectOption(index, option.archetype);
+        button.onclick = () => selectOption(index, currentQuestion.id);
         optionsContainer.appendChild(button);
     });
 
     backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+    saveProgress(); // Save progress after loading question
 }
 
-// Select Option
-function selectOption(index, archetype) {
-    userResponses[currentQuestionIndex] = archetype;
+// 📌 Select Option
+function selectOption(index, questionId) {
+    userResponses[questionId] = index; // Store user answer
     currentQuestionIndex++;
     loadQuestion();
 }
 
-// Back Button Functionality
+// 📌 Back Button Functionality
 function goBack() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
@@ -69,7 +77,7 @@ function goBack() {
     }
 }
 
-// Calculate Results
+// 📌 Calculate Results
 function calculateResults() {
     let archetypeScores = {};
 
@@ -82,15 +90,7 @@ function calculateResults() {
     displayResults(sortedArchetypes);
 }
 
-// Display Results
+// 📌 Display Results
 function displayResults(sortedArchetypes) {
-    localStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
-    window.location.href = "quiz_results.html";
-}
-
-// Event Listeners
-nextButton.addEventListener("click", loadQuestion);
-backButton.addEventListener("click", goBack);
-
-// Initialize Quiz
-loadQuestion();
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    window.location.href = "
