@@ -1,5 +1,5 @@
 // 📌 Quiz State Variables (Declared Only Once)
-let quizQuestions = []; 
+let quizQuestions = [];
 let currentQuestionIndex = 0;
 let userResponses = {};
 
@@ -19,28 +19,18 @@ fetch('quiz_data.json')
   .then(response => response.json())
   .then(data => {
       console.log("✅ JSON Loaded Successfully:", data);
-      
+
       if (!data.sections || !data.sections.foundational_assessment) {
           console.error("❌ JSON Format Error: Sections missing.");
           return;
       }
-      
-      // ✅ Assign quizQuestions (No `let` redeclaration)
+
+      // ✅ Assign quizQuestions Correctly
       quizQuestions = data.sections.foundational_assessment.questions; 
       console.log("📌 Extracted Questions:", quizQuestions);
 
-      loadProgress();
-      loadQuestion();
-
-  .catch(error => console.error("❌ Error loading JSON:", error));
-
-    
-    // ✅ Assign quizQuestions (No `let` redeclaration)
-    quizQuestions = data.sections.foundational_assessment.questions; 
-    console.log("📌 Extracted Questions:", quizQuestions);
-
-    loadProgress();
-    loadQuestion();
+      loadProgress(); // ✅ Load any saved progress
+      loadQuestion(); // ✅ Start quiz
   })
   .catch(error => console.error("❌ Error loading JSON:", error));
 
@@ -66,7 +56,7 @@ function loadProgress() {
 // 📌 Load Question (Dynamically Updates UI)
 function loadQuestion() {
     console.log("📌 Loading Question Index:", currentQuestionIndex);
-    
+
     if (quizQuestions.length === 0) {
         console.error("❌ No Questions Found in JSON!");
         return;
@@ -78,9 +68,13 @@ function loadQuestion() {
         return;
     }
 
-    // ✅ Ensure question exists before trying to access it
     const currentQuestion = quizQuestions[currentQuestionIndex];
     console.log("🎯 Current Question:", currentQuestion);
+
+    if (!currentQuestion) {
+        console.error("❌ Current Question is Undefined! Check JSON format.");
+        return;
+    }
 
     questionText.innerText = currentQuestion.question_text;  
     optionsContainer.innerHTML = "";
@@ -125,7 +119,7 @@ function calculateResults() {
 
     // Process weighted scoring
     Object.entries(userResponses).forEach(([questionId, response]) => {
-        let question = quizQuestions.find(q => q.id === questionId); // ✅ Uses quizQuestions, doesn't redeclare it
+        let question = quizQuestions.find(q => q.id === questionId);
         if (question) {
             let archetype = question.archetype;
             let weight = response.weight || 1; // Default weight is 1 if missing
@@ -147,15 +141,15 @@ function displayResults(sortedArchetypes) {
     window.location.href = "quiz_results.html";
 }
 
-// 📌 Event Listeners
+// 📌 Event Listeners for Start Button
 document.addEventListener("DOMContentLoaded", () => {
     console.log("📌 DOM Fully Loaded!");
-    
+
     const startButton = document.getElementById("start-button");
     if (startButton) {
         console.log("🚀 Start Button Found!");
         startButton.addEventListener("click", () => {
-            console.log("🚀 Start Button Clicked!");
+            console.log("🚀 Start Button Clicked! Attempting to load first question...");
             loadQuestion();
         });
     } else {
@@ -163,5 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// 📌 Event Listeners for Next & Back Buttons
 nextButton.addEventListener("click", loadQuestion);
 backButton.addEventListener("click", goBack);
