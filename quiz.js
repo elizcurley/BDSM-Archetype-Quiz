@@ -56,6 +56,7 @@ if (window.quizLoaded) {
             userResponses = savedProgress.userResponses || {};
             console.log("🔄 Loaded Saved Progress:", savedProgress);
         }
+        loadQuestion(); // ✅ Start quiz only after loading progress
     }
 
     // 📌 Load Question (Dynamically Updates UI)
@@ -73,9 +74,10 @@ if (window.quizLoaded) {
             return;
         }
 
-        // ✅ Show the quiz container & hide the intro screen
-        document.getElementById("quiz-container").classList.remove("hidden");
-        document.querySelector(".container").classList.add("hidden");
+        // ✅ Reveal Quiz Section
+        document.getElementById("intro-container").style.display = "none";
+        questionContainer.style.display = "block";
+        resultsContainer.style.display = "none";
 
         const currentQuestion = quizQuestions[currentQuestionIndex];
         console.log("🎯 Current Question:", currentQuestion);
@@ -85,6 +87,7 @@ if (window.quizLoaded) {
             return;
         }
 
+        // ✅ Ensure question and options are displayed
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
 
@@ -158,12 +161,7 @@ if (window.quizLoaded) {
         if (startButton) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
-                console.log("🚀 Start Button Clicked! Attempting to load first question...");
-                
-                // ✅ Reveal quiz and hide intro
-                document.getElementById("quiz-container").classList.remove("hidden");
-                document.querySelector(".container").classList.add("hidden");
-
+                console.log("🚀 Start Button Clicked! Starting Quiz...");
                 loadQuestion();
             });
         } else {
