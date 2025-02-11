@@ -147,6 +147,62 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("❌ Error loading archetype details:", error));
 });
 </script>
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("📌 Results Page Loaded!");
 
+    const primaryArchetypeElement = document.getElementById("primary-archetype");
+    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
+
+    // 🔍 Retrieve saved results
+    const savedResults = sessionStorage.getItem("quizResults");
+
+    if (!savedResults || savedResults === "undefined") {
+        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
+        primaryArchetypeElement.innerText = "Error: No Results Found";
+        return;
+    }
+
+    const archetypes = JSON.parse(savedResults);
+    console.log("🏆 Retrieved Quiz Results:", archetypes);
+
+    if (!archetypes || archetypes.length === 0 || archetypes[0] === "undefined") {
+        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
+        primaryArchetypeElement.innerText = "Error: No Results Found";
+        return;
+    }
+
+    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
+    secondaryArchetypeElement.innerText = archetypes[1] || "None";
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("📌 Results Page Loaded!");
+
+    const primaryArchetypeElement = document.getElementById("primary-archetype");
+    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
+
+    // 🔍 Retrieve saved results
+    const savedResults = sessionStorage.getItem("quizResults");
+
+    if (!savedResults || savedResults === "undefined") {
+        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
+        primaryArchetypeElement.innerText = "Error: No Results Found";
+        return;
+    }
+
+    const archetypes = JSON.parse(savedResults);
+    console.log("🏆 Retrieved Quiz Results:", archetypes);
+
+    if (!archetypes || archetypes.length === 0 || archetypes[0] === "undefined") {
+        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
+        primaryArchetypeElement.innerText = "Error: No Results Found";
+        return;
+    }
+
+    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
+    secondaryArchetypeElement.innerText = archetypes[1] || "None";
+});
+
+    
 </body>
 </html>
