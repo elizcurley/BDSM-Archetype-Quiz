@@ -4,14 +4,15 @@ if (window.quizLoaded) {
 } else {
     window.quizLoaded = true; // ✅ Mark script as loaded
 
-    // 📌 Quiz State Variables (Declared Only Once)
+    // 📌 Quiz State Variables
     let quizQuestions = [];
     let currentQuestionIndex = 0;
     let userResponses = {};
 
     // 📌 DOM Elements
-    const introContainer = document.querySelector(".container"); // ✅ Grabs Intro
-    const questionContainer = document.getElementById("quiz-container");
+    const introContainer = document.getElementById("intro-container"); // ✅ Landing Page
+    const startButton = document.getElementById("start-button");
+    const quizContainer = document.getElementById("quiz-container");
     const questionText = document.getElementById("question-text");
     const optionsContainer = document.getElementById("options-container");
     const nextButton = document.getElementById("next-button");
@@ -35,39 +36,20 @@ if (window.quizLoaded) {
           // ✅ Assign quizQuestions Correctly
           quizQuestions = data.sections.foundational_assessment.questions;
           console.log("📌 Extracted Questions:", quizQuestions);
-
-          loadProgress(); // ✅ Load any saved progress
       })
       .catch(error => console.error("❌ Error loading JSON:", error));
 
-    // 📌 Save Quiz Progress to Session Storage
-    function saveProgress() {
-        sessionStorage.setItem("quizProgress", JSON.stringify({ 
-            currentQuestionIndex, 
-            userResponses 
-        }));
-        console.log("💾 Progress Saved:", sessionStorage.getItem("quizProgress"));
-    }
+    // 📌 Start Quiz (Reveals Questions)
+    startButton.addEventListener("click", () => {
+        console.log("🚀 Start Button Clicked!");
+        introContainer.classList.add("hidden");  // ✅ Hide the intro
+        quizContainer.classList.remove("hidden"); // ✅ Show the quiz
+        loadQuestion();
+    });
 
-    // 📌 Load Quiz Progress from Session Storage
-    function loadProgress() {
-        const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
-        if (savedProgress) {
-            currentQuestionIndex = savedProgress.currentQuestionIndex || 0;
-            userResponses = savedProgress.userResponses || {};
-            console.log("🔄 Loaded Saved Progress:", savedProgress);
-        }
-        loadQuestion(); // ✅ Start quiz after loading progress
-    }
-
-    // 📌 Load Question (Dynamically Updates UI)
+    // 📌 Load Question
     function loadQuestion() {
         console.log("📌 Loading Question Index:", currentQuestionIndex);
-
-        if (quizQuestions.length === 0) {
-            console.error("❌ No Questions Found in JSON!");
-            return;
-        }
 
         if (currentQuestionIndex >= quizQuestions.length) {
             console.log("✅ All Questions Answered – Calculating Results!");
@@ -75,20 +57,9 @@ if (window.quizLoaded) {
             return;
         }
 
-        // ✅ Hide the intro and show quiz
-        introContainer.style.display = "none"; 
-        questionContainer.style.display = "block"; // ✅ Ensure it's visible
-        resultsContainer.style.display = "none"; // ✅ Hide results
-
         const currentQuestion = quizQuestions[currentQuestionIndex];
         console.log("🎯 Current Question:", currentQuestion);
 
-        if (!currentQuestion) {
-            console.error("❌ Current Question is Undefined! Check JSON format.");
-            return;
-        }
-
-        // ✅ Ensure question and options are displayed
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
 
@@ -101,76 +72,16 @@ if (window.quizLoaded) {
         });
 
         backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
-        saveProgress();
     }
 
-    // 📌 Select Option (Stores Response & Moves to Next)
+    // 📌 Select Option
     function selectOption(index, questionId, weight) {
         console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
 
         userResponses[questionId] = { selectedOption: index, weight: weight };
         currentQuestionIndex++;
         console.log("➡ Moving to Next Question. New Index:", currentQuestionIndex);
-        
+
         loadQuestion();
     }
-
-    // 📌 Back Button Functionality
-    function goBack() {
-        if (currentQuestionIndex > 0) {
-            currentQuestionIndex--;
-            loadQuestion();
-        }
-    }
-
-    // 📌 Calculate Results (Weight-Based)
-    function calculateResults() {
-        console.log("📊 Calculating Results...");
-        console.log("🔍 User Responses:", userResponses);
-
-        let archetypeScores = {};
-
-        // Process weighted scoring
-        Object.entries(userResponses).forEach(([questionId, response]) => {
-            let question = quizQuestions.find(q => q.id === questionId);
-            if (question) {
-                let archetype = question.archetype;
-                let weight = response.weight || 1; // Default weight is 1 if missing
-                archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-            } else {
-                console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
-            }
-        });
-
-        let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
-
-        console.log("🏆 Final Archetypes:", sortedArchetypes);
-        displayResults(sortedArchetypes);
-    }
-
-    // 📌 Display Results (Navigates to results page)
-    function displayResults(sortedArchetypes) {
-        sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
-        window.location.href = "quiz_results.html";
-    }
-
-    // 📌 Event Listeners for Start Button
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("📌 DOM Fully Loaded!");
-
-        const startButton = document.getElementById("start-button");
-        if (startButton) {
-            console.log("🚀 Start Button Found!");
-            startButton.addEventListener("click", () => {
-                console.log("🚀 Start Button Clicked! Starting Quiz...");
-                loadQuestion();
-            });
-        } else {
-            console.error("❌ Start Button Not Found!");
-        }
-    });
-
-    // 📌 Event Listeners for Next & Back Buttons
-    nextButton.addEventListener("click", loadQuestion);
-    backButton.addEventListener("click", goBack);
 }
