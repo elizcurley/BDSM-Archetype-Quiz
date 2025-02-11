@@ -83,8 +83,8 @@ if (window.quizLoaded) {
         }
 
         // ✅ Show quiz container, hide intro
-        introContainer.style.display = "none";
-        quizContainer.style.display = "block";
+        if (introContainer) introContainer.style.display = "none";
+        if (quizContainer) quizContainer.style.display = "block";
 
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
@@ -167,6 +167,11 @@ if (window.quizLoaded) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
                 console.log("🚀 Start Button Clicked! Attempting to load first question...");
+
+                // ✅ Ensure quiz starts
+                if (introContainer) introContainer.style.display = "none";
+                if (quizContainer) quizContainer.style.display = "block";
+
                 loadQuestion();
             });
         } else {
