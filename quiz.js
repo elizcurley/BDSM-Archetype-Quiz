@@ -23,22 +23,22 @@ if (window.quizLoaded) {
 
     // 📌 Load Quiz Data from JSON
     fetch('quiz_data.json')
-      .then(response => response.json())
-      .then(data => {
-          console.log("✅ JSON Loaded Successfully:", data);
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ JSON Loaded Successfully:", data);
 
-          if (!data.sections || !data.sections.foundational_assessment) {
-              console.error("❌ JSON Format Error: Sections missing.");
-              return;
-          }
+            if (!data.sections || !data.sections.foundational_assessment) {
+                console.error("❌ JSON Format Error: Sections missing.");
+                return;
+            }
 
-          // ✅ Assign quizQuestions Correctly
-          quizQuestions = data.sections.foundational_assessment.questions;
-          console.log("📌 Extracted Questions:", quizQuestions);
+            // ✅ Assign quizQuestions Correctly
+            quizQuestions = data.sections.foundational_assessment.questions;
+            console.log("📌 Extracted Questions:", quizQuestions);
 
-          loadProgress(); // ✅ Load saved progress
-      })
-      .catch(error => console.error("❌ Error loading JSON:", error));
+            loadProgress(); // ✅ Load saved progress
+        })
+        .catch(error => console.error("❌ Error loading JSON:", error));
 
     // 📌 Save Progress to Session Storage
     function saveProgress() {
@@ -109,8 +109,15 @@ if (window.quizLoaded) {
         console.log("🔄 Updated User Responses:", userResponses);
 
         currentQuestionIndex++;
-        saveProgress();
-        loadQuestion();
+
+        // ✅ Check if quiz is finished before proceeding
+        if (currentQuestionIndex < quizQuestions.length) {
+            saveProgress();
+            loadQuestion();
+        } else {
+            console.log("✅ All Questions Answered – Redirecting to Results");
+            calculateResults();
+        }
     }
 
     // 📌 Back Button Functionality
@@ -126,18 +133,18 @@ if (window.quizLoaded) {
         console.log("📊 Calculating Results...");
         console.log("🔍 User Responses:", userResponses);
 
-        // ✅ Ensure enough responses exist before calculating results
+        // ✅ Ensure all questions are answered before calculating results
         if (Object.keys(userResponses).length < quizQuestions.length) {
             console.error("❌ Not enough responses to calculate results. Returning to quiz.");
             loadQuestion();
-            return; // ✅ Properly inside a function now
+            return;
         }
 
         let archetypeScores = {};
 
         Object.entries(userResponses).forEach(([questionId, response]) => {
             let question = quizQuestions.find(q => q.id === questionId);
-            if (question) {
+            if (question && question.archetype) {  // ✅ Check if question has an archetype
                 let archetype = question.archetype;
                 let weight = response.weight || 1;
                 archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
@@ -149,6 +156,13 @@ if (window.quizLoaded) {
         let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
 
         console.log("🏆 Final Archetypes:", sortedArchetypes);
+
+        // ✅ Prevent undefined results
+        if (sortedArchetypes.length === 0) {
+            console.error("❌ No valid archetypes calculated.");
+            return;
+        }
+
         displayResults(sortedArchetypes);
     }
 
