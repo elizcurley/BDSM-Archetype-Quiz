@@ -91,15 +91,33 @@ if (window.quizLoaded) {
         saveProgress();
     }
 
-    // 📌 Select Option
-    function selectOption(index, questionId, weight) {
-        console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
-        userResponses[questionId] = { selectedOption: index, weight: weight };
-        console.log("🔄 Updated User Responses:", userResponses);
-        currentQuestionIndex++;
-        saveProgress();
-        loadQuestion();
+  // 📌 Select Option (Stores Response & Moves to Next)
+function selectOption(index, questionId, weight) {
+    console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
+
+    if (typeof currentQuestionIndex === "undefined") {
+        console.error("❌ Error: currentQuestionIndex is NOT defined! Defaulting to 0.");
+        window.currentQuestionIndex = 0; // ✅ Default to 0
     }
+
+    userResponses[questionId] = { 
+        selectedOption: index, 
+        weight: weight, 
+        archetype: quizQuestions[currentQuestionIndex]?.archetype || "Undefined"
+    };
+
+    console.log("🔄 Updated User Responses:", userResponses); // ✅ Debugging log
+
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        saveProgress();  // ✅ Save progress before moving
+        loadQuestion();   // ✅ Load next question
+    } else {
+        console.log("✅ All questions answered – calculating results!");
+        calculateResults();
+    }
+}
+
 
     // 📌 Back Button
     function goBack() {
