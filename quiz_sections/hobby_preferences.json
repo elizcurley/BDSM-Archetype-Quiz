@@ -1,0 +1,108 @@
+{
+  "description": "Questions about creative pursuits, non-sexual interests, and hobbies that shape your overall identity. These questions help reveal how you express yourself outside of kink and how your interests might influence your archetype profile.",
+  "questions": [
+    {
+      "id": "H1",
+      "archetype": "Catalyst",
+      "question_text": "How important are creative or artistic hobbies in your life?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Extremely important",
+        "Very important",
+        "Somewhat important",
+        "Slightly important",
+        "Not important"
+      ]
+    },
+    {
+      "id": "H2",
+      "archetype": "Connoisseur",
+      "question_text": "Do you engage in hobbies that involve hands-on craftsmanship (e.g., art, music, dance)?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very frequently",
+        "Frequently",
+        "Occasionally",
+        "Rarely",
+        "Never"
+      ]
+    },
+    {
+      "id": "H3",
+      "archetype": "Keystone",
+      "question_text": "Does your choice of hobbies influence your approach to relationships?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Significantly",
+        "Moderately",
+        "Somewhat",
+        "Minimally",
+        "Not at all"
+      ],
+      "follow_up": "Please describe how your hobbies shape your interactions."
+    },
+    {
+      "id": "H4",
+      "archetype": "Explorer",
+      "question_text": "Are you more drawn to group-based or solitary hobbies?",
+      "type": "multiple_choice",
+      "weight": 3,
+      "response_options": [
+        "Group-based",
+        "Solitary",
+        "Both equally",
+        "Neither"
+      ]
+    },
+    {
+      "id": "H5",
+      "archetype": "Alchemist",
+      "question_text": "Do you often experiment with new hobbies or stick with familiar ones?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Always experiment",
+        "Often experiment",
+        "Sometimes experiment",
+        "Rarely experiment",
+        "Never experiment"
+      ]
+    },
+    {
+      "id": "H6",
+      "archetype": "Vanguard",
+      "question_text": "How important is collaboration in your creative pursuits?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Extremely important",
+        "Very important",
+        "Moderately important",
+        "Slightly important",
+        "Not important"
+      ]
+    },
+    {
+      "id": "H7",
+      "archetype": "Connoisseur",
+      "question_text": "Do you prefer structured creative activities or freeform artistic expression?",
+      "type": "multiple_choice",
+      "weight": 3,
+      "response_options": [
+        "Structured activities",
+        "Freeform expression",
+        "A mix of both"
+      ]
+    },
+    {
+      "id": "H8",
+      "archetype": "Oracle",
+      "question_text": "How do your hobbies help you unwind and recharge?",
+      "type": "open_ended",
+      "weight": 3
+    }
+  ]
+}
