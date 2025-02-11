@@ -1,0 +1,166 @@
+{
+  "description": "Preference Strength Questions – these measure the intensity of your preferences and help fine-tune your archetype profile. The questions are designed to capture how strongly you identify with or value key traits associated with each archetype.",
+  "questions": [
+    {
+      "id": "C_P1",
+      "archetype": "Catalyst",
+      "question_text": "On a scale from 1-10, how crucial is innovation in your kink practices?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "C_P2",
+      "archetype": "Catalyst",
+      "question_text": "How strongly do you desire to be a catalyst for change in your relationships?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    },
+    {
+      "id": "E_P1",
+      "archetype": "Explorer",
+      "question_text": "On a scale from 1-10, how much do you prioritize novelty in your interactions?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "E_P2",
+      "archetype": "Explorer",
+      "question_text": "How strong is your desire to explore uncharted territory in your kink practices?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strong",
+        "Strong",
+        "Moderate",
+        "Weak",
+        "Very weak"
+      ]
+    },
+    {
+      "id": "Kst_P1",
+      "archetype": "Keystone",
+      "question_text": "On a scale from 1-10, how committed are you to providing stability in your relationships?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "Kst_P2",
+      "archetype": "Keystone",
+      "question_text": "How strongly do you identify with a caregiving role in your dynamics?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    },
+    {
+      "id": "V_P1",
+      "archetype": "Vanguard",
+      "question_text": "On a scale from 1-10, how essential is innovation to your identity?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "V_P2",
+      "archetype": "Vanguard",
+      "question_text": "How strongly do you feel the need to lead and inspire in your relationships?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    },
+    {
+      "id": "O_P1",
+      "archetype": "Oracle",
+      "question_text": "On a scale from 1-10, how crucial is emotional insight in your kink practices?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "O_P2",
+      "archetype": "Oracle",
+      "question_text": "How strongly do you feel the need to guide or advise your partners?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    },
+    {
+      "id": "Cn_P1",
+      "archetype": "Connoisseur",
+      "question_text": "On a scale from 1-10, how central is precision to your identity?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "Cn_P2",
+      "archetype": "Connoisseur",
+      "question_text": "How strongly do you identify with the artistic aspects of your practices?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    },
+    {
+      "id": "A_P1",
+      "archetype": "Alchemist",
+      "question_text": "On a scale from 1-10, how vital is innovation to your identity?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "A_P2",
+      "archetype": "Alchemist",
+      "question_text": "How strongly do you prioritize blending various elements in your kink practices?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very strongly",
+        "Strongly",
+        "Moderately",
+        "Slightly",
+        "Not at all"
+      ]
+    }
+  ]
+}
