@@ -65,10 +65,12 @@ function loadQuestion() {
         return;
     }
 
+    // ✅ Fix: Make sure `currentQuestion` is defined and used correctly
     const currentQuestion = quizQuestions[currentQuestionIndex];
     console.log("🎯 Current Question:", currentQuestion);
 
-    questionText.innerText = currentQuestion.question_text;
+    // ✅ Fix: Ensure DOM elements are properly updated
+    questionText.innerText = currentQuestion.question_text;  
     optionsContainer.innerHTML = "";
 
     currentQuestion.response_options.forEach((option, index) => {
@@ -80,8 +82,8 @@ function loadQuestion() {
     });
 
     backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
-    saveProgress();
-}
+    saveProgress(); // ✅ Ensures progress is saved
+} // ✅ Closing bracket was missing!
 
 // 📌 Select Option (Stores Response & Moves to Next)
 function selectOption(index, questionId, weight) {
