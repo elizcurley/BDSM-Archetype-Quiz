@@ -107,11 +107,11 @@ if (window.quizLoaded) {
 
         userResponses[questionId] = { selectedOption: index, weight: weight };
 
-        console.log("🔄 Updated User Responses:", userResponses); // ✅ Debugging log
+        console.log("🔄 Updated User Responses:", userResponses);
 
         currentQuestionIndex++;
 
-        saveProgress(); // ✅ Make sure progress is saved before moving forward
+        saveProgress();
         loadQuestion();
     }
 
@@ -132,12 +132,12 @@ if (window.quizLoaded) {
 
         Object.entries(userResponses).forEach(([questionId, response]) => {
             let question = quizQuestions.find(q => q.id === questionId);
-            if (question) {
-                let archetype = question.archetype || "Unknown";
+            if (question && question.archetype) {
+                let archetype = question.archetype;
                 let weight = response.weight || 1;
                 archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
             } else {
-                console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+                console.warn("⚠️ Question ID Not Found in Quiz Data or missing archetype:", questionId);
             }
         });
 
