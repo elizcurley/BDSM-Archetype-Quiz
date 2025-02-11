@@ -82,7 +82,7 @@ if (window.quizLoaded) {
     }
 
     // 📌 Load Question
-    function loadQuestion() {
+  function loadQuestion() {
     console.log("📌 Loading Question Index:", currentQuestionIndex);
 
     if (!quizQuestions || quizQuestions.length === 0) {
@@ -109,6 +109,40 @@ if (window.quizLoaded) {
 
     questionText.innerText = currentQuestion.question_text;
     optionsContainer.innerHTML = ""; // Clear previous options
+
+    // ✅ Handle Open-Ended Questions
+    if (currentQuestion.type === "open_ended") {
+        const textBox = document.createElement("textarea");
+        textBox.id = "open-ended-response";
+        textBox.placeholder = "Type your response here...";
+        textBox.classList.add("open-ended-input");
+
+        // Load saved input if user is revisiting a question
+        if (userResponses[currentQuestion.id]) {
+            textBox.value = userResponses[currentQuestion.id];
+        }
+
+        optionsContainer.appendChild(textBox);
+    }
+    // ✅ Handle Multiple Choice / Likert Scale
+    else if (currentQuestion.response_options && Array.isArray(currentQuestion.response_options)) {
+        currentQuestion.response_options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("option-button");
+            button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight);
+            optionsContainer.appendChild(button);
+        });
+    } 
+    // ✅ Catch Missing Data
+    else {
+        console.error("⚠️ Missing response options for question:", currentQuestion);
+        questionText.innerText = "An error occurred displaying this question.";
+    }
+
+    backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+    saveProgress();
+}
 
     // ✅ Handle different question types:
     if (currentQuestion.type === "open_ended") {
