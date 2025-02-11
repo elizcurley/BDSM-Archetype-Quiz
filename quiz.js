@@ -15,8 +15,9 @@ const resultsContainer = document.getElementById("results-container");
 console.log("✅ quiz.js Loaded Successfully!");
 
 // 📌 Load Quiz Data from JSON
+// 📌 Load Quiz Data from JSON
 fetch('quiz_data.json')
-  .then(response => response.json())
+  .then(response => response.json()) 
   .then(data => {
       console.log("✅ JSON Loaded Successfully:", data);
 
@@ -31,8 +32,9 @@ fetch('quiz_data.json')
 
       loadProgress(); // ✅ Load any saved progress
       loadQuestion(); // ✅ Start quiz
-  }) // ✅ Closes correctly before .catch()
-  .catch(error => console.error("❌ Error loading JSON:", error)); // ✅ Correct placement
+  }) // ✅ This `})` properly closes the `.then()` before `.catch()`
+  .catch(error => console.error("❌ Error loading JSON:", error)); // ✅ `.catch()` now works
+
 
 
 // 📌 Save Quiz Progress to Session Storage
