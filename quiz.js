@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("✅ quiz.js is loaded successfully!");
+
+    // Ensure the Start button exists before adding event listener
+    const startButton = document.getElementById("start-button");
+
+    if (startButton) {
+        console.log("🚀 Start Button Found!");
+        startButton.addEventListener("click", () => {
+            console.log("🚀 Start Button Clicked!");
+            loadQuestion(); // Start the quiz when button is clicked
+        });
+    } else {
+        console.error("❌ Start Button Not Found in the DOM!");
+    }
+});
+
+
+
 // 📌 Quiz State Variables
 let quizQuestions = [];
 let currentQuestionIndex = 0;
@@ -94,3 +113,8 @@ function calculateResults() {
 function displayResults(sortedArchetypes) {
     sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
     window.location.href = "
+// 📌 Display Results (Ensures page navigation works)
+function displayResults(sortedArchetypes) {
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    window.location.href = "quiz_results.html"; // Navigate to results page
+}
