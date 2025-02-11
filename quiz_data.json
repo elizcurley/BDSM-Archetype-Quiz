@@ -15,15 +15,15 @@
       "reflection",
       "preference_strength",
       "detailed_kink_categories"
-    ],
-    "session_storage_enabled": true
+    ]
   },
   "sections": {
     "foundational_assessment": {
-      "description": "Personality and Psychological Context – these questions help determine broad archetype categories.",
+      "description": "Personality and Psychological Context – these questions help determine broad archetype categories by exploring core personality traits and decision‐making styles.",
       "questions": [
         {
           "id": "F1",
+          "archetype": "Catalyst",
           "question_text": "When faced with a new experience, do you prefer to plan carefully or dive in without hesitation?",
           "type": "likert_scale",
           "weight": 5,
@@ -35,15 +35,99 @@
             "Strongly prefer diving in"
           ],
           "follow_up": "Please explain what influences your approach."
+        },
+        {
+          "id": "F2",
+          "archetype": "Catalyst",
+          "question_text": "Do you consider yourself more creative or analytical?",
+          "type": "likert_scale",
+          "weight": 5,
+          "response_options": [
+            "Very creative",
+            "Somewhat creative",
+            "Balanced",
+            "Somewhat analytical",
+            "Very analytical"
+          ],
+          "follow_up": "What factors contribute to your tendency?"
+        },
+        {
+          "id": "F3",
+          "archetype": "Explorer",
+          "question_text": "Do you often seek out new experiences rather than sticking with the familiar?",
+          "type": "likert_scale",
+          "weight": 5,
+          "response_options": [
+            "Always seek new experiences",
+            "Often seek new experiences",
+            "Sometimes",
+            "Rarely",
+            "Never"
+          ]
+        },
+        {
+          "id": "F4",
+          "archetype": "Keystone",
+          "question_text": "How would you describe your approach to problem-solving?",
+          "type": "multiple_choice",
+          "weight": 4,
+          "response_options": [
+            "Methodical and structured",
+            "Intuitive and spontaneous",
+            "A mix of both"
+          ]
+        },
+        {
+          "id": "F5",
+          "archetype": "Oracle",
+          "question_text": "How much do you value self-reflection in your personal growth?",
+          "type": "likert_scale",
+          "weight": 4,
+          "response_options": [
+            "Very highly",
+            "Moderately",
+            "Neutral",
+            "Somewhat low",
+            "Not at all"
+          ]
+        },
+        {
+          "id": "F6",
+          "archetype": "Explorer",
+          "question_text": "How adaptable are you when circumstances change unexpectedly?",
+          "type": "likert_scale",
+          "weight": 5,
+          "response_options": [
+            "Extremely adaptable",
+            "Very adaptable",
+            "Moderately adaptable",
+            "Slightly adaptable",
+            "Not at all adaptable"
+          ]
+        },
+        {
+          "id": "F7",
+          "archetype": "Catalyst",
+          "question_text": "When starting a new project, do you set high, ambitious goals?",
+          "type": "likert_scale",
+          "weight": 4,
+          "response_options": [
+            "Always",
+            "Often",
+            "Sometimes",
+            "Rarely",
+            "Never"
+          ]
         }
       ]
     },
     "hobby_preferences": {
-      "description": "Questions about hobbies and creative pursuits.",
+      "description": "Questions about creative pursuits, non-sexual interests, and hobbies that shape your overall identity.",
       "questions": [
         {
           "id": "H1",
-          "question_text": "How important are creative hobbies in your life?",
+          "archetype": "Catalyst",
+          "question_text": "How important are creative or artistic hobbies in your life?",
           "type": "likert_scale",
           "weight": 3,
           "response_options": [
@@ -53,18 +137,1308 @@
             "Slightly important",
             "Not important"
           ]
+        },
+        {
+          "id": "H2",
+          "archetype": "Connoisseur",
+          "question_text": "Do you engage in hobbies that involve hands-on craftsmanship (e.g., art, music, dance)?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Very frequently",
+            "Frequently",
+            "Occasionally",
+            "Rarely",
+            "Never"
+          ]
+        },
+        {
+          "id": "H3",
+          "archetype": "Keystone",
+          "question_text": "Does your choice of hobbies influence your approach to relationships?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Significantly",
+            "Moderately",
+            "Somewhat",
+            "Minimally",
+            "Not at all"
+          ],
+          "follow_up": "Please describe how your hobbies shape your interactions."
+        },
+        {
+          "id": "H4",
+          "archetype": "Explorer",
+          "question_text": "Are you more drawn to group-based or solitary hobbies?",
+          "type": "multiple_choice",
+          "weight": 3,
+          "response_options": [
+            "Group-based",
+            "Solitary",
+            "Both equally",
+            "Neither"
+          ]
+        },
+        {
+          "id": "H5",
+          "archetype": "Explorer",
+          "question_text": "Do you often experiment with new hobbies or stick with familiar ones?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Always experiment",
+            "Often experiment",
+            "Sometimes experiment",
+            "Rarely experiment",
+            "Never experiment"
+          ]
+        },
+        {
+          "id": "H6",
+          "archetype": "Vanguard",
+          "question_text": "How important is collaboration in your creative pursuits?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Extremely important",
+            "Very important",
+            "Moderately important",
+            "Slightly important",
+            "Not important"
+          ]
         }
       ]
+    },
+    "general_kink_preferences": {
+      "description": "General questions about BDSM/kink preferences, boundaries, relationship dynamics, and overall kink interests.",
+      "questions": [
+        {
+          "id": "K1",
+          "archetype": "Vanguard",
+          "question_text": "Do you enjoy exploring power dynamics in your relationships?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Strongly agree",
+            "Somewhat agree",
+            "Neutral",
+            "Somewhat disagree",
+            "Strongly disagree"
+          ],
+          "follow_up": "Is this preference influenced by specific contexts or partners?"
+        },
+        {
+          "id": "K2",
+          "archetype": "Alchemist",
+          "question_text": "How comfortable are you with sensory play (e.g., textures, blindfolds)?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Very comfortable",
+            "Comfortable",
+            "Neutral",
+            "Uncomfortable",
+            "Very uncomfortable"
+          ]
+        },
+        {
+          "id": "K3",
+          "archetype": "Keystone",
+          "question_text": "What role does clear communication and consent play in your kink dynamics?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Essential",
+            "Very important",
+            "Moderately important",
+            "Slightly important",
+            "Not important"
+          ]
+        },
+        {
+          "id": "K4",
+          "archetype": "Vanguard",
+          "question_text": "Do you prefer structured scenes with clearly defined roles or spontaneous, evolving interactions?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Strongly prefer structured",
+            "Somewhat prefer structured",
+            "Neutral",
+            "Somewhat prefer spontaneous",
+            "Strongly prefer spontaneous"
+          ],
+          "follow_up": "Please explain your preference."
+        },
+        {
+          "id": "K5",
+          "archetype": "Vanguard",
+          "question_text": "How do you view the balance between control and submission in your relationships?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Control is paramount",
+            "Mostly control",
+            "Equal balance",
+            "Mostly submission",
+            "Submission is paramount"
+          ]
+        },
+        {
+          "id": "K6",
+          "archetype": "Alchemist",
+          "question_text": "How important is experimentation in your kink play?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Extremely important",
+            "Very important",
+            "Moderately important",
+            "Slightly important",
+            "Not important"
+          ]
+        },
+        {
+          "id": "K7",
+          "archetype": "Explorer",
+          "question_text": "Do you enjoy role reversal during scenes?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Always enjoy role reversal",
+            "Often enjoy role reversal",
+            "Sometimes",
+            "Rarely",
+            "Never"
+          ]
+        },
+        {
+          "id": "K8",
+          "archetype": "Keystone",
+          "question_text": "When it comes to consent, do you prefer detailed negotiation before play?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Always",
+            "Often",
+            "Sometimes",
+            "Rarely",
+            "Never"
+          ]
+        }
+      ]
+    },
+    "specific_kink_behaviors": {
+      "description": "Detailed questions that explore particular kink practices to help fine-tune your profile.",
+      "questions": [
+        {
+          "id": "SK1",
+          "archetype": "Catalyst",
+          "question_text": "In your scenes, do you prefer taking control of the flow or following the flow?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Always take control",
+            "Mostly take control",
+            "Equal balance",
+            "Mostly follow",
+            "Always follow"
+          ]
+        },
+        {
+          "id": "SK2",
+          "archetype": "Connoisseur",
+          "question_text": "How do you incorporate your personal style into your kink dynamics?",
+          "type": "open_ended",
+          "weight": 3
+        },
+        {
+          "id": "SK3",
+          "archetype": "Alchemist",
+          "question_text": "Do you lean more towards experimenting with new techniques or perfecting established methods?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Always experiment",
+            "Often experiment",
+            "Balanced",
+            "Often perfect methods",
+            "Always perfect methods"
+          ]
+        },
+        {
+          "id": "SK4",
+          "archetype": "Alchemist",
+          "question_text": "How frequently do you try new kink practices (e.g., impact play, sensory play, role reversals)?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Very frequently",
+            "Frequently",
+            "Occasionally",
+            "Rarely",
+            "Never"
+          ]
+        },
+        {
+          "id": "SK5",
+          "archetype": "Explorer",
+          "question_text": "Do you prefer following a predetermined script in your scenes or improvising on the spot?",
+          "type": "multiple_choice",
+          "weight": 3,
+          "response_options": [
+            "Always follow a script",
+            "Mostly follow a script",
+            "A mix of both",
+            "Mostly improvise",
+            "Always improvise"
+          ]
+        },
+        {
+          "id": "SK6",
+          "archetype": "Keystone",
+          "question_text": "How important is it for you to have a debrief with your partner after a session to discuss what worked or didn’t?",
+          "type": "likert_scale",
+          "weight": 3,
+          "response_options": [
+            "Extremely important",
+            "Very important",
+            "Moderately important",
+            "Slightly important",
+            "Not important"
+          ]
+        },
+        {
+          "id": "SK7",
+          "archetype": "Connoisseur",
+          "question_text": "When engaging in impact play, do you prefer a steady rhythm or variable intensity?",
+          "type": "multiple_choice",
+          "weight": 3,
+          "response_options": [
+            "Steady rhythm",
+            "Variable intensity",
+            "A mix of both"
+          ]
+        },
+        {
+          "id": "SK8",
+          "archetype": "Keystone",
+          "question_text": "How do you ensure that both you and your partner remain comfortable during a scene?",
+          "type": "open_ended",
+          "weight": 3
+        }
+      ]
+    },
+    "situational_questions": {
+      "description": "Scenario-based questions to gauge how you would respond in specific kink or relationship contexts.",
+      "questions": [
+        {
+          "id": "S1",
+          "archetype": "Explorer",
+          "question_text": "Imagine you are invited to a themed kink event with unfamiliar dynamics. How likely are you to participate?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Very likely",
+            "Likely",
+            "Neutral",
+            "Unlikely",
+            "Very unlikely"
+          ],
+          "follow_up": "What factors would most influence your decision?"
+        },
+        {
+          "id": "S2",
+          "archetype": "Alchemist",
+          "question_text": "If a partner suggests a kink practice you haven't tried before, how open are you to exploring it?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Extremely open",
+            "Somewhat open",
+            "Neutral",
+            "Somewhat hesitant",
+            "Not open at all"
+          ]
+        },
+        {
+          "id": "S3",
+          "archetype": "Explorer",
+          "question_text": "In a scenario where established roles are unexpectedly challenged, how comfortable are you with adapting on the spot?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Very comfortable",
+            "Comfortable",
+            "Neutral",
+            "Uncomfortable",
+            "Very uncomfortable"
+          ]
+        },
+        {
+          "id": "S4",
+          "archetype": "Explorer",
+          "question_text": "Imagine a situation where your usual role is reversed unexpectedly. How comfortable are you with this change?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Very comfortable",
+            "Comfortable",
+            "Neutral",
+            "Uncomfortable",
+            "Very uncomfortable"
+          ]
+        },
+        {
+          "id": "S5",
+          "archetype": "Alchemist",
+          "question_text": "If a new partner proposes an unconventional kink practice, how likely are you to try it?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Very likely",
+            "Likely",
+            "Neutral",
+            "Unlikely",
+            "Very unlikely"
+          ]
+        },
+        {
+          "id": "S6",
+          "archetype": "Keystone",
+          "question_text": "When faced with a high-risk scenario (e.g., edge play), how much do you rely on pre-established safety protocols?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Always rely on protocols",
+            "Usually rely on protocols",
+            "Sometimes rely on protocols",
+            "Rarely rely on protocols",
+            "Never rely on protocols"
+          ]
+        }
+      ]
+    },
+    "reflection_preference_strength": {
+      "description": "Introspective questions to assess the intensity of your preferences and your overall alignment with your archetypes.",
+      "questions": [
+        {
+          "id": "R1",
+          "archetype": "Catalyst",
+          "question_text": "What challenges do you seek in your personal relationships?",
+          "type": "open_ended",
+          "weight": 2,
+          "follow_up": "Why do you seek these challenges?"
+        },
+        {
+          "id": "R2",
+          "archetype": "Catalyst",
+          "question_text": "On a scale from 1-10, how strongly do you identify with your primary archetype?",
+          "type": "numeric_scale",
+          "weight": 3,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "id": "R3",
+          "archetype": "Oracle",
+          "question_text": "How often do you reflect on your personal growth and its impact on your dynamics?",
+          "type": "likert_scale",
+          "weight": 2,
+          "response_options": [
+            "Very frequently",
+            "Frequently",
+            "Occasionally",
+            "Rarely",
+            "Never"
+          ]
+        },
+        {
+          "id": "R4",
+          "archetype": "Keystone",
+          "question_text": "How do you balance the desire for new experiences with the need for emotional stability?",
+          "type": "open_ended",
+          "weight": 2
+        },
+        {
+          "id": "R5",
+          "archetype": "Connoisseur",
+          "question_text": "What aspect of your kink play do you find most fulfilling?",
+          "type": "open_ended",
+          "weight": 2
+        },
+        {
+          "id": "R6",
+          "archetype": "Keystone",
+          "question_text": "How do you ensure your boundaries remain respected over time?",
+          "type": "open_ended",
+          "weight": 2
+        }
+      ]
+    },
+    "detailed_kink_categories": {
+      "description": "Questions addressing specific BDSM/kink categories and subcategories, allowing you to express nuanced preferences.",
+      "questions": {
+        "Bondage": [
+          {
+            "id": "BKC1",
+            "archetype": "Connoisseur",
+            "question_text": "When engaging in rope bondage (Shibari), do you prioritize aesthetic patterns or the physical sensation of restraint?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Aesthetics are paramount",
+              "Slightly favor aesthetics",
+              "Neutral",
+              "Slightly favor sensation",
+              "Sensation is paramount"
+            ]
+          },
+          {
+            "id": "BKC2",
+            "archetype": "Keystone",
+            "question_text": "How important is clear communication about safety and comfort during your bondage sessions?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Discipline": [
+          {
+            "id": "DC1",
+            "archetype": "Vanguard",
+            "question_text": "In discipline dynamics, how do you balance strict rule enforcement with flexibility?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Strict enforcement is essential",
+              "Mostly strict with some flexibility",
+              "Balanced",
+              "Mostly flexible",
+              "Flexibility is essential"
+            ]
+          },
+          {
+            "id": "DC2",
+            "archetype": "Keystone",
+            "question_text": "Do you find that training protocols in discipline contribute to your personal growth?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Strongly agree",
+              "Agree",
+              "Neutral",
+              "Disagree",
+              "Strongly disagree"
+            ]
+          }
+        ],
+        "Dominance and Submission (D/s)": [
+          {
+            "id": "DSC1",
+            "archetype": "Keystone",
+            "question_text": "In a 24/7 D/s dynamic, how essential is continuous communication for you?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Somewhat important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "DSC2",
+            "archetype": "Keystone",
+            "question_text": "How appealing is service submission as a way to express devotion?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          }
+        ],
+        "Sadism and Masochism (S&M)": [
+          {
+            "id": "SMC1",
+            "archetype": "Alchemist",
+            "question_text": "When engaging in impact play, how do you balance pain with pleasure?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "SMC2",
+            "archetype": "Alchemist",
+            "question_text": "Do you prefer temperature play (e.g., hot wax, ice) to enhance sensation?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very much so",
+              "Somewhat so",
+              "Neutral",
+              "Not really",
+              "Not at all"
+            ]
+          }
+        ],
+        "Role-Play": [
+          {
+            "id": "RPC1",
+            "archetype": "Vanguard",
+            "question_text": "Which role-play scenario excites you the most: teacher/student, medical play, or pet play?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Teacher/Student",
+              "Medical Play",
+              "Pet Play"
+            ]
+          },
+          {
+            "id": "RPC2",
+            "archetype": "Vanguard",
+            "question_text": "How important is it that role-play scenarios are meticulously planned versus spontaneous?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Meticulously planned",
+              "Mostly planned",
+              "Balanced",
+              "Mostly spontaneous",
+              "Entirely spontaneous"
+            ]
+          }
+        ],
+        "Sensory Play": [
+          {
+            "id": "SPC1",
+            "archetype": "Oracle",
+            "question_text": "Do you enjoy blindfolding as a means to heighten your other senses?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "SPC2",
+            "archetype": "Explorer",
+            "question_text": "How do you feel about using soft materials (e.g., feathers) to stimulate you?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely positive",
+              "Very positive",
+              "Neutral",
+              "Somewhat negative",
+              "Very negative"
+            ]
+          }
+        ],
+        "Edge Play": [
+          {
+            "id": "EPC1",
+            "archetype": "Alchemist",
+            "question_text": "How willing are you to engage in high-risk activities such as knife play or breath control?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Extremely willing",
+              "Very willing",
+              "Moderately willing",
+              "Slightly willing",
+              "Not willing"
+            ]
+          },
+          {
+            "id": "EPC2",
+            "archetype": "Keystone",
+            "question_text": "Do you require extensive negotiation and safety protocols for edge play?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Absolutely",
+              "Mostly",
+              "Somewhat",
+              "Rarely",
+              "Not at all"
+            ]
+          }
+        ],
+        "Humiliation & Degradation": [
+          {
+            "id": "HDC1",
+            "archetype": "Vanguard",
+            "question_text": "How appealing is verbal humiliation (e.g., name-calling, insults) as part of your play?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "HDC2",
+            "archetype": "Oracle",
+            "question_text": "Do you prefer private humiliation over public humiliation?",
+            "type": "multiple_choice",
+            "weight": 2,
+            "response_options": [
+              "Private",
+              "Public",
+              "No preference"
+            ]
+          }
+        ],
+        "Age Play": [
+          {
+            "id": "APC1",
+            "archetype": "Keystone",
+            "question_text": "In age play, do you prefer scenarios that are strictly role-play or include caretaking elements?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Strictly role-play",
+              "Include caretaking",
+              "No strong preference"
+            ]
+          },
+          {
+            "id": "APC2",
+            "archetype": "Keystone",
+            "question_text": "How important is emotional aftercare in age play sessions?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Voyeurism & Exhibitionism": [
+          {
+            "id": "VEC1",
+            "archetype": "Explorer",
+            "question_text": "How comfortable are you with being observed during intimate moments?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Very comfortable",
+              "Comfortable",
+              "Neutral",
+              "Uncomfortable",
+              "Very uncomfortable"
+            ]
+          },
+          {
+            "id": "VEC2",
+            "archetype": "Explorer",
+            "question_text": "Do you prefer controlled public play with consent or more spontaneous exhibitionism?",
+            "type": "multiple_choice",
+            "weight": 2,
+            "response_options": [
+              "Controlled public play",
+              "Spontaneous exhibitionism",
+              "No preference"
+            ]
+          }
+        ],
+        "Pet Play": [
+          {
+            "id": "PPC1",
+            "archetype": "Explorer",
+            "question_text": "In pet play, do you identify more with the submissive (pet) role or the dominant (handler) role?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Submissive (pet)",
+              "Dominant (handler)",
+              "Both equally",
+              "Neither"
+            ]
+          },
+          {
+            "id": "PPC2",
+            "archetype": "Connoisseur",
+            "question_text": "How important is it that the play environment mimics realistic pet behavior?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Medical Play": [
+          {
+            "id": "MPC1",
+            "archetype": "Keystone",
+            "question_text": "How important is knowledge of proper techniques and hygiene in medical play?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "MPC2",
+            "archetype": "Oracle",
+            "question_text": "Do you find the clinical atmosphere of medical play enhances your experience?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          }
+        ],
+        "Fetishes": [
+          {
+            "id": "FETC1",
+            "archetype": "Connoisseur",
+            "question_text": "When it comes to foot fetishes, do you focus more on the visual or the tactile experience?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Visual focus",
+              "Tactile focus",
+              "Both equally",
+              "No preference"
+            ]
+          },
+          {
+            "id": "FETC2",
+            "archetype": "Vanguard",
+            "question_text": "Do you prefer leather/latex play as a visual focus or as part of a larger power dynamic?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Visual focus",
+              "Part of power dynamic",
+              "Both equally",
+              "No preference"
+            ]
+          }
+        ],
+        "Cuckolding & Hotwifing": [
+          {
+            "id": "CHC1",
+            "archetype": "Vanguard",
+            "question_text": "How appealing is the idea of deriving pleasure from your partner’s encounters with others?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "CHC2",
+            "archetype": "Keystone",
+            "question_text": "Do you require explicit communication of boundaries in cuckolding scenarios?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely necessary",
+              "Very necessary",
+              "Somewhat necessary",
+              "Slightly necessary",
+              "Not necessary"
+            ]
+          }
+        ],
+        "Chastity & Denial": [
+          {
+            "id": "CDC1",
+            "archetype": "Catalyst",
+            "question_text": "How central is the control of sexual release to your kink identity?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely central",
+              "Very central",
+              "Moderately central",
+              "Slightly central",
+              "Not central"
+            ]
+          },
+          {
+            "id": "CDC2",
+            "archetype": "Catalyst",
+            "question_text": "Do you find orgasm denial to be a tool for both physical and emotional intensity?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          }
+        ],
+        "Erotic Hypnosis": [
+          {
+            "id": "EHC1",
+            "archetype": "Oracle",
+            "question_text": "How intrigued are you by the idea of mind control or memory play through erotic hypnosis?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely intrigued",
+              "Very intrigued",
+              "Moderately intrigued",
+              "Slightly intrigued",
+              "Not intrigued"
+            ]
+          },
+          {
+            "id": "EHC2",
+            "archetype": "Keystone",
+            "question_text": "Do you consider clear post-hypnotic suggestions and aftercare essential?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Tickle Torture": [
+          {
+            "id": "TTC1",
+            "archetype": "Alchemist",
+            "question_text": "Do you find the combination of restraint and tickling to be particularly arousing?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely arousing",
+              "Very arousing",
+              "Moderately arousing",
+              "Slightly arousing",
+              "Not arousing"
+            ]
+          },
+          {
+            "id": "TTC2",
+            "archetype": "Keystone",
+            "question_text": "How important is it to negotiate sensitivity levels before engaging in tickle torture?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Uniform and Role-Specific Fetishes": [
+          {
+            "id": "URFC1",
+            "archetype": "Vanguard",
+            "question_text": "Which uniform or role appeals to you the most: military/police, maid/butler, or medical staff?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Military/Police",
+              "Maid/Butler",
+              "Medical Staff"
+            ]
+          },
+          {
+            "id": "URFC2",
+            "archetype": "Connoisseur",
+            "question_text": "How important is role authenticity (costume, mannerisms) in your play?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Objectification Play": [
+          {
+            "id": "OPC1",
+            "archetype": "Oracle",
+            "question_text": "How appealing is the idea of being used as a piece of furniture or a living doll?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "OPC2",
+            "archetype": "Oracle",
+            "question_text": "Do you find objectification play more fulfilling in private or public settings?",
+            "type": "multiple_choice",
+            "weight": 2,
+            "response_options": [
+              "Private",
+              "Public",
+              "No preference"
+            ]
+          }
+        ],
+        "Financial Domination (Findom)": [
+          {
+            "id": "FD1",
+            "archetype": "Vanguard",
+            "question_text": "How important is the exchange of money or gifts in establishing a power dynamic?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "FD2",
+            "archetype": "Vanguard",
+            "question_text": "Do you view financial domination as a core part of your kink identity?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely",
+              "Very much",
+              "Somewhat",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ],
+        "Erotic Asphyxiation": [
+          {
+            "id": "EA1",
+            "archetype": "Alchemist",
+            "question_text": "How willing are you to engage in activities that temporarily restrict oxygen for arousal?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Extremely willing",
+              "Very willing",
+              "Moderately willing",
+              "Slightly willing",
+              "Not willing"
+            ]
+          },
+          {
+            "id": "EA2",
+            "archetype": "Keystone",
+            "question_text": "Do you require extensive safety protocols for erotic asphyxiation?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Absolutely necessary",
+              "Very necessary",
+              "Somewhat necessary",
+              "Slightly necessary",
+              "Not necessary"
+            ]
+          }
+        ],
+        "Fetish Specific to Body Parts or Actions": [
+          {
+            "id": "FETB1",
+            "archetype": "Connoisseur",
+            "question_text": "When it comes to foot worship, do you focus more on the visual or the tactile experience?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Visual focus",
+              "Tactile focus",
+              "Both equally",
+              "No preference"
+            ]
+          },
+          {
+            "id": "FETB2",
+            "archetype": "Oracle",
+            "question_text": "Do you have a particular attraction to actions like hair pulling or smoking?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strong",
+              "Strong",
+              "Moderate",
+              "Weak",
+              "Very weak"
+            ]
+          }
+        ],
+        "Water Sports (Urolagnia)": [
+          {
+            "id": "WC1",
+            "archetype": "Catalyst",
+            "question_text": "How appealing is the idea of golden showers in your play?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "WC2",
+            "archetype": "Keystone",
+            "question_text": "Do you have strict hygiene requirements for water sports scenarios?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely",
+              "Very much",
+              "Somewhat",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ],
+        "Erotic Humiliation": [
+          {
+            "id": "EHC3",
+            "archetype": "Vanguard",
+            "question_text": "How appealing is verbal degradation as a form of erotic play?",
+            "type": "likert_scale",
+            "weight": 2,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "EHC4",
+            "archetype": "Oracle",
+            "question_text": "Do you prefer erotic humiliation in private or public settings?",
+            "type": "multiple_choice",
+            "weight": 2,
+            "response_options": [
+              "Private",
+              "Public",
+              "No preference"
+            ]
+          }
+        ],
+        "Sploshing": [
+          {
+            "id": "SPLC1",
+            "archetype": "Alchemist",
+            "question_text": "Do you enjoy messy play with food or other substances as part of your scenes?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely enjoy",
+              "Very enjoy",
+              "Moderately enjoy",
+              "Slightly enjoy",
+              "Do not enjoy"
+            ]
+          },
+          {
+            "id": "SPLC2",
+            "archetype": "Keystone",
+            "question_text": "How important is the cleanup process and safety when engaging in sploshing?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "Cuckqueaning/Cuckquean Play": [
+          {
+            "id": "CHQC1",
+            "archetype": "Vanguard",
+            "question_text": "How appealing is the idea of deriving pleasure from your partner’s encounters with others?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "CHQC2",
+            "archetype": "Keystone",
+            "question_text": "Do you require explicit communication of boundaries in these scenarios?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely necessary",
+              "Very necessary",
+              "Somewhat necessary",
+              "Slightly necessary",
+              "Not necessary"
+            ]
+          }
+        ],
+        "Religious/Blasphemy Play": [
+          {
+            "id": "RBP1",
+            "archetype": "Vanguard",
+            "question_text": "How appealing is subverting religious authority (e.g., Nun/Monk role-play) for you?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely appealing",
+              "Very appealing",
+              "Moderately appealing",
+              "Slightly appealing",
+              "Not appealing"
+            ]
+          },
+          {
+            "id": "RBP2",
+            "archetype": "Keystone",
+            "question_text": "Do you require a clear understanding of personal boundaries when engaging in religious play?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely",
+              "Very much",
+              "Somewhat",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ],
+        "Primal Play": [
+          {
+            "id": "PP1",
+            "archetype": "Alchemist",
+            "question_text": "In primal play, how important is physical roughness in expressing dominance or submission?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "PP2",
+            "archetype": "Explorer",
+            "question_text": "Do you prefer a predator/prey dynamic or more subtle primal behavior?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Predator/Prey",
+              "Subtle behavior",
+              "No strong preference"
+            ]
+          }
+        ],
+        "Sensation Deprivation/Deprivation Play": [
+          {
+            "id": "SDC1",
+            "archetype": "Oracle",
+            "question_text": "Do you enjoy hood play or sensory deprivation as a way to heighten your other senses?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Extremely enjoy",
+              "Very enjoy",
+              "Moderately enjoy",
+              "Slightly enjoy",
+              "Do not enjoy"
+            ]
+          },
+          {
+            "id": "SDC2",
+            "archetype": "Keystone",
+            "question_text": "How important is it for you to have a clear exit strategy during deprivation play?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ]
+      }
     }
   },
   "archetypes": {
     "Catalyst": {
-      "description": "Embodies transformation and creativity.",
-      "subtypes": ["Visionary", "Instigator", "Transformer"],
+      "description": "Embodies transformation, creativity, and trailblazing energy. Catalysts push boundaries and view challenges as opportunities for growth.",
+      "subtypes": [
+        "Visionary",
+        "Instigator",
+        "Transformer"
+      ],
       "questions": {
         "foundational": [
           {
             "id": "C_F1",
+            "archetype": "Catalyst",
             "question_text": "Do you often find yourself wanting to explore new facets of your identity?",
             "type": "likert_scale",
             "weight": 5,
@@ -75,9 +1449,1461 @@
               "Rarely",
               "Never"
             ]
+          },
+          {
+            "id": "C_F2",
+            "archetype": "Catalyst",
+            "question_text": "How frequently do you push beyond your comfort zone?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Very frequently",
+              "Frequently",
+              "Occasionally",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "C_F3",
+            "archetype": "Catalyst",
+            "question_text": "When starting a creative project, do you set high, ambitious goals?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "C_G1",
+            "archetype": "Catalyst",
+            "question_text": "How important is creativity in your play and personal interactions?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Somewhat important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "C_G2",
+            "archetype": "Catalyst",
+            "question_text": "Do you feel excitement when challenging conventional boundaries?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          },
+          {
+            "id": "C_G3",
+            "archetype": "Catalyst",
+            "question_text": "How do you react when your innovative ideas are met with resistance?",
+            "type": "open_ended",
+            "weight": 4
+          }
+        ],
+        "specific": [
+          {
+            "id": "C_S1",
+            "archetype": "Catalyst",
+            "question_text": "In your scenes, do you prefer initiating new dynamics or embracing them as they unfold?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Always initiate",
+              "Mostly initiate",
+              "Equal balance",
+              "Mostly follow",
+              "Always follow"
+            ]
+          },
+          {
+            "id": "C_S2",
+            "archetype": "Catalyst",
+            "question_text": "How do you integrate novel sensory experiences into your play?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "C_S3",
+            "archetype": "Catalyst",
+            "question_text": "When exploring a new idea, do you prefer experimenting on your own first or with a partner?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "On my own",
+              "With a partner",
+              "No preference"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "C_R1",
+            "archetype": "Catalyst",
+            "question_text": "How do you balance your drive for transformation with the need for stability?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "C_R2",
+            "archetype": "Catalyst",
+            "question_text": "What insights have you gained from pushing your personal limits?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "C_R3",
+            "archetype": "Catalyst",
+            "question_text": "Reflect on a time your innovative approach led to unexpected results. What did you learn?",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "C_P1",
+            "archetype": "Catalyst",
+            "question_text": "On a scale from 1-10, how crucial is innovation in your kink practices?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "C_P2",
+            "archetype": "Catalyst",
+            "question_text": "How strongly do you desire to be a catalyst for change in your relationships?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
           }
         ]
       }
+    },
+    "Explorer": {
+      "description": "Driven by adventure and discovery, the Explorer seeks novelty and thrives on pushing personal boundaries.",
+      "subtypes": [
+        "Thrill-Seeker",
+        "Adventurer",
+        "Risk Taker"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "E_F1",
+            "archetype": "Explorer",
+            "question_text": "Do you prefer staying within familiar territory or exploring new experiences?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Strongly prefer familiar",
+              "Somewhat prefer familiar",
+              "Neutral",
+              "Somewhat prefer exploring",
+              "Strongly prefer exploring"
+            ]
+          },
+          {
+            "id": "E_F2",
+            "archetype": "Explorer",
+            "question_text": "What motivates you more: the thrill of novelty or the comfort of mastery?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Thrill of novelty",
+              "Mostly novelty",
+              "Balanced",
+              "Mostly mastery",
+              "Comfort of mastery"
+            ]
+          },
+          {
+            "id": "E_F3",
+            "archetype": "Explorer",
+            "question_text": "When confronted with a challenging situation, do you seek out adventure or prefer a safe solution?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always seek adventure",
+              "Often seek adventure",
+              "Sometimes adventurous",
+              "Rarely adventurous",
+              "Never adventurous"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "E_G1",
+            "archetype": "Explorer",
+            "question_text": "How comfortable are you with stepping outside your comfort zone during play?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Very comfortable",
+              "Comfortable",
+              "Neutral",
+              "Uncomfortable",
+              "Very uncomfortable"
+            ]
+          },
+          {
+            "id": "E_G2",
+            "archetype": "Explorer",
+            "question_text": "How frequently do you incorporate new elements into your scenes?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Very frequently",
+              "Frequently",
+              "Occasionally",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "E_G3",
+            "archetype": "Explorer",
+            "question_text": "When you encounter an unexpected opportunity, do you jump in immediately?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "specific": [
+          {
+            "id": "E_S1",
+            "archetype": "Explorer",
+            "question_text": "Do you enjoy dynamic power shifts in your scenes?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "E_S2",
+            "archetype": "Explorer",
+            "question_text": "How do you initiate conversations about trying new experiences with your partners?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "E_S3",
+            "archetype": "Explorer",
+            "question_text": "Do you prefer adventure-driven scenarios that require spontaneity or structured challenges?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Spontaneous adventure",
+              "Structured challenges",
+              "No preference"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "E_R1",
+            "archetype": "Explorer",
+            "question_text": "How does your adventurous spirit influence your personal growth?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "E_R2",
+            "archetype": "Explorer",
+            "question_text": "What have you learned from stepping into uncharted territories in your dynamics?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "E_R3",
+            "archetype": "Explorer",
+            "question_text": "Describe a moment when taking a risk led to unexpected positive outcomes.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "E_P1",
+            "archetype": "Explorer",
+            "question_text": "On a scale from 1-10, how much do you prioritize novelty in your interactions?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "E_P2",
+            "archetype": "Explorer",
+            "question_text": "How strong is your desire to explore uncharted territory in your kink practices?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strong",
+              "Strong",
+              "Moderate",
+              "Weak",
+              "Very weak"
+            ]
+          }
+        ]
+      }
+    },
+    "Keystone": {
+      "description": "Provides stability, support, and guidance. Keystones value structure, care, and emotional security.",
+      "subtypes": [
+        "Guardian",
+        "Mentor",
+        "Supporter"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "Kst_F1",
+            "archetype": "Keystone",
+            "question_text": "How important is it for you to provide support in your relationships?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "Kst_F2",
+            "archetype": "Keystone",
+            "question_text": "Do you find fulfillment in guiding others both in and outside of kink?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Very fulfilled",
+              "Fulfilled",
+              "Neutral",
+              "Somewhat unfulfilled",
+              "Not fulfilled"
+            ]
+          },
+          {
+            "id": "Kst_F3",
+            "archetype": "Keystone",
+            "question_text": "When dealing with conflict, do you prioritize compromise and understanding?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "Kst_G1",
+            "archetype": "Keystone",
+            "question_text": "How do you ensure safety and structure in your dynamics?",
+            "type": "open_ended",
+            "weight": 4
+          },
+          {
+            "id": "Kst_G2",
+            "archetype": "Keystone",
+            "question_text": "Do you prefer established routines in your play?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Strongly prefer routines",
+              "Somewhat prefer routines",
+              "Neutral",
+              "Somewhat prefer spontaneity",
+              "Strongly prefer spontaneity"
+            ]
+          },
+          {
+            "id": "Kst_G3",
+            "archetype": "Keystone",
+            "question_text": "How do you balance your need to care for others with your own personal time?",
+            "type": "open_ended",
+            "weight": 4
+          }
+        ],
+        "specific": [
+          {
+            "id": "Kst_S1",
+            "archetype": "Keystone",
+            "question_text": "In scenes emphasizing care, do you lean more towards emotional or physical support?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Emotional support",
+              "Physical support",
+              "Equal mix",
+              "Depends on the context"
+            ]
+          },
+          {
+            "id": "Kst_S2",
+            "archetype": "Keystone",
+            "question_text": "How do you maintain boundaries while being supportive?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "Kst_S3",
+            "archetype": "Keystone",
+            "question_text": "Do you find that clear routines help in managing challenging moments in your relationships?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "Kst_R1",
+            "archetype": "Keystone",
+            "question_text": "How does your role as a caregiver affect your own sense of well-being?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "Kst_R2",
+            "archetype": "Keystone",
+            "question_text": "What challenges do you face when balancing support for others with self-care?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "Kst_R3",
+            "archetype": "Keystone",
+            "question_text": "Reflect on a time when your caregiving role significantly impacted your personal growth.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "Kst_P1",
+            "archetype": "Keystone",
+            "question_text": "On a scale from 1-10, how committed are you to providing stability in your relationships?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "Kst_P2",
+            "archetype": "Keystone",
+            "question_text": "How strongly do you identify with a caregiving role in your dynamics?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ]
+      }
+    },
+    "Vanguard": {
+      "description": "Bold, forward-thinking leaders who push boundaries, challenge the status quo, and inspire change.",
+      "subtypes": [
+        "Pioneer",
+        "Trailblazer",
+        "Champion"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "V_F1",
+            "archetype": "Vanguard",
+            "question_text": "Do you naturally take charge in both personal and kink settings?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "V_F2",
+            "archetype": "Vanguard",
+            "question_text": "How comfortable are you with leading new experiences?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Very comfortable",
+              "Comfortable",
+              "Neutral",
+              "Uncomfortable",
+              "Very uncomfortable"
+            ]
+          },
+          {
+            "id": "V_F3",
+            "archetype": "Vanguard",
+            "question_text": "Do you often find yourself initiating change in your personal or professional life?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "V_G1",
+            "archetype": "Vanguard",
+            "question_text": "How important is it for you to innovate and set new trends in your dynamics?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "V_G2",
+            "archetype": "Vanguard",
+            "question_text": "Do you thrive in roles where you challenge the status quo?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          },
+          {
+            "id": "V_G3",
+            "archetype": "Vanguard",
+            "question_text": "How do you inspire others to embrace change?",
+            "type": "open_ended",
+            "weight": 4
+          }
+        ],
+        "specific": [
+          {
+            "id": "V_S1",
+            "archetype": "Vanguard",
+            "question_text": "In your scenes, do you prefer to guide your partners into new territories?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Always guide",
+              "Mostly guide",
+              "Balanced",
+              "Mostly follow",
+              "Always follow"
+            ]
+          },
+          {
+            "id": "V_S2",
+            "archetype": "Vanguard",
+            "question_text": "How do you balance risk-taking with ensuring safety?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "V_S3",
+            "archetype": "Vanguard",
+            "question_text": "When leading a scene, do you rely on established protocols or do you innovate on the fly?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Established protocols",
+              "Innovate on the fly",
+              "A mix of both"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "V_R1",
+            "archetype": "Vanguard",
+            "question_text": "How does your leadership style influence your personal growth?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "V_R2",
+            "archetype": "Vanguard",
+            "question_text": "What insights have you gained from challenging traditional roles?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "V_R3",
+            "archetype": "Vanguard",
+            "question_text": "Reflect on a time when your leadership made a significant positive impact.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "V_P1",
+            "archetype": "Vanguard",
+            "question_text": "On a scale from 1-10, how essential is innovation to your identity?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "V_P2",
+            "archetype": "Vanguard",
+            "question_text": "How strongly do you feel the need to lead and inspire in your relationships?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ]
+      }
+    },
+    "Oracle": {
+      "description": "Rooted in wisdom and intuition, the Oracle offers clarity, insight, and emotional safety.",
+      "subtypes": [
+        "Sage",
+        "Empath",
+        "Seer"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "O_F1",
+            "archetype": "Oracle",
+            "question_text": "Do you often rely on your intuition to guide your interactions?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "O_F2",
+            "archetype": "Oracle",
+            "question_text": "How important is understanding emotions in your relationships?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "O_F3",
+            "archetype": "Oracle",
+            "question_text": "Do you often find yourself providing guidance or advice based on your intuition?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "O_G1",
+            "archetype": "Oracle",
+            "question_text": "How comfortable are you with offering guidance in both kink and personal contexts?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Very comfortable",
+              "Comfortable",
+              "Neutral",
+              "Uncomfortable",
+              "Very uncomfortable"
+            ]
+          },
+          {
+            "id": "O_G2",
+            "archetype": "Oracle",
+            "question_text": "Do you value deep emotional and psychological connections in your dynamics?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          },
+          {
+            "id": "O_G3",
+            "archetype": "Oracle",
+            "question_text": "How often do you offer support or advice to others in emotionally charged situations?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "specific": [
+          {
+            "id": "O_S1",
+            "archetype": "Oracle",
+            "question_text": "Do you prefer roles where you provide insight or follow your partner’s lead?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Prefer to provide insight",
+              "Prefer to follow",
+              "Balanced"
+            ]
+          },
+          {
+            "id": "O_S2",
+            "archetype": "Oracle",
+            "question_text": "How do you create a safe space for emotional growth during scenes?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "O_S3",
+            "archetype": "Oracle",
+            "question_text": "When engaging in emotionally intense scenes, do you take a more active or supportive role?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Active role",
+              "Supportive role",
+              "A mix of both"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "O_R1",
+            "archetype": "Oracle",
+            "question_text": "What have you learned about yourself from being an emotional guide?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "O_R2",
+            "archetype": "Oracle",
+            "question_text": "How does your intuitive nature shape your connections?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "O_R3",
+            "archetype": "Oracle",
+            "question_text": "Describe a moment when your insight significantly improved a situation.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "O_P1",
+            "archetype": "Oracle",
+            "question_text": "On a scale from 1-10, how crucial is emotional insight in your kink practices?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "O_P2",
+            "archetype": "Oracle",
+            "question_text": "How strongly do you feel the need to guide or advise your partners?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ]
+      }
+    },
+    "Connoisseur": {
+      "description": "Focused on mastery, precision, and refined aesthetics. Connoisseurs seek to craft experiences that are both technically and artistically exquisite.",
+      "subtypes": [
+        "Aesthete",
+        "Craftsman",
+        "Curator"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "Cn_F1",
+            "archetype": "Connoisseur",
+            "question_text": "Do you value precision and mastery in your personal interactions?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Very highly",
+              "Highly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          },
+          {
+            "id": "Cn_F2",
+            "archetype": "Connoisseur",
+            "question_text": "How important is aesthetic appeal to your overall experience?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "Cn_F3",
+            "archetype": "Connoisseur",
+            "question_text": "Do you actively seek opportunities to refine your technical skills?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "Cn_G1",
+            "archetype": "Connoisseur",
+            "question_text": "Do you focus more on the process or the outcome in your scenes?",
+            "type": "multiple_choice",
+            "weight": 4,
+            "response_options": [
+              "Process",
+              "Outcome",
+              "Both equally"
+            ]
+          },
+          {
+            "id": "Cn_G2",
+            "archetype": "Connoisseur",
+            "question_text": "How do you balance technical skill with emotional connection?",
+            "type": "open_ended",
+            "weight": 4
+          },
+          {
+            "id": "Cn_G3",
+            "archetype": "Connoisseur",
+            "question_text": "When planning a scene, do you spend more time on preparation or execution?",
+            "type": "multiple_choice",
+            "weight": 4,
+            "response_options": [
+              "Preparation",
+              "Execution",
+              "Both equally"
+            ]
+          }
+        ],
+        "specific": [
+          {
+            "id": "Cn_S1",
+            "archetype": "Connoisseur",
+            "question_text": "Do you lean towards practices that emphasize aesthetics, such as Shibari or impact play?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Strongly prefer aesthetic-focused practices",
+              "Somewhat prefer aesthetic-focused practices",
+              "Neutral",
+              "Somewhat prefer non-aesthetic practices",
+              "Strongly prefer non-aesthetic practices"
+            ]
+          },
+          {
+            "id": "Cn_S2",
+            "archetype": "Connoisseur",
+            "question_text": "How do you incorporate artistic elements into your dynamic setups?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "Cn_S3",
+            "archetype": "Connoisseur",
+            "question_text": "Do you prefer to work on technical perfection or let creativity flow naturally?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Technical perfection",
+              "Natural creativity",
+              "A balance of both"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "Cn_R1",
+            "archetype": "Connoisseur",
+            "question_text": "How does mastering a skill enhance your satisfaction in a scene?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "Cn_R2",
+            "archetype": "Connoisseur",
+            "question_text": "What challenges do you face in blending art with intimacy?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "Cn_R3",
+            "archetype": "Connoisseur",
+            "question_text": "Reflect on a time when your attention to detail transformed a scene.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "Cn_P1",
+            "archetype": "Connoisseur",
+            "question_text": "On a scale from 1-10, how central is precision to your identity?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "Cn_P2",
+            "archetype": "Connoisseur",
+            "question_text": "How strongly do you identify with the artistic aspects of your practices?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ]
+      }
+    },
+    "Alchemist": {
+      "description": "An innovator who transforms and evolves dynamics through experimentation. The Alchemist blends sensation, emotion, and power to create unique experiences.",
+      "subtypes": [
+        "Scientist",
+        "Mystic",
+        "Shapeshifter"
+      ],
+      "questions": {
+        "foundational": [
+          {
+            "id": "A_F1",
+            "archetype": "Alchemist",
+            "question_text": "How comfortable are you with experimenting in your personal and kink practices?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Very comfortable",
+              "Comfortable",
+              "Neutral",
+              "Uncomfortable",
+              "Very uncomfortable"
+            ]
+          },
+          {
+            "id": "A_F2",
+            "archetype": "Alchemist",
+            "question_text": "Do you often blend different elements to create new experiences?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "A_F3",
+            "archetype": "Alchemist",
+            "question_text": "Do you see experimentation as essential to personal growth?",
+            "type": "likert_scale",
+            "weight": 5,
+            "response_options": [
+              "Absolutely essential",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "id": "A_G1",
+            "archetype": "Alchemist",
+            "question_text": "How important is creativity and innovation in your dynamics?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Extremely important",
+              "Very important",
+              "Moderately important",
+              "Slightly important",
+              "Not important"
+            ]
+          },
+          {
+            "id": "A_G2",
+            "archetype": "Alchemist",
+            "question_text": "Do you enjoy shifting between different roles during a scene?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Always",
+              "Often",
+              "Sometimes",
+              "Rarely",
+              "Never"
+            ]
+          },
+          {
+            "id": "A_G3",
+            "archetype": "Alchemist",
+            "question_text": "How often do you integrate new, unconventional ideas into your sessions?",
+            "type": "likert_scale",
+            "weight": 4,
+            "response_options": [
+              "Very frequently",
+              "Frequently",
+              "Occasionally",
+              "Rarely",
+              "Never"
+            ]
+          }
+        ],
+        "specific": [
+          {
+            "id": "A_S1",
+            "archetype": "Alchemist",
+            "question_text": "Do you prefer ritualized scenes with symbolic elements or spontaneous interactions?",
+            "type": "multiple_choice",
+            "weight": 3,
+            "response_options": [
+              "Ritualized scenes",
+              "Spontaneous interactions",
+              "A mix of both"
+            ]
+          },
+          {
+            "id": "A_S2",
+            "archetype": "Alchemist",
+            "question_text": "How do you ensure that your experimental practices remain safe and consensual?",
+            "type": "open_ended",
+            "weight": 3
+          },
+          {
+            "id": "A_S3",
+            "archetype": "Alchemist",
+            "question_text": "Do you feel that the merging of different sensations amplifies your experience?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Strongly agree",
+              "Somewhat agree",
+              "Neutral",
+              "Somewhat disagree",
+              "Strongly disagree"
+            ]
+          }
+        ],
+        "reflection": [
+          {
+            "id": "A_R1",
+            "archetype": "Alchemist",
+            "question_text": "What have you learned from experimenting with new dynamics?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "A_R2",
+            "archetype": "Alchemist",
+            "question_text": "How do you balance control with spontaneity in your scenes?",
+            "type": "open_ended",
+            "weight": 2
+          },
+          {
+            "id": "A_R3",
+            "archetype": "Alchemist",
+            "question_text": "Reflect on a time when a successful experiment changed your perspective.",
+            "type": "open_ended",
+            "weight": 2
+          }
+        ],
+        "preference_strength": [
+          {
+            "id": "A_P1",
+            "archetype": "Alchemist",
+            "question_text": "On a scale from 1-10, how vital is innovation to your identity?",
+            "type": "numeric_scale",
+            "weight": 3,
+            "min": 1,
+            "max": 10
+          },
+          {
+            "id": "A_P2",
+            "archetype": "Alchemist",
+            "question_text": "How strongly do you prioritize blending various elements in your kink practices?",
+            "type": "likert_scale",
+            "weight": 3,
+            "response_options": [
+              "Very strongly",
+              "Strongly",
+              "Moderately",
+              "Slightly",
+              "Not at all"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "kink_categories": {
+    "Bondage": {
+      "description": "Physical restraint using ropes, chains, cuffs, or other devices to limit movement.",
+      "subcategories": {
+        "Rope Bondage": "Japanese rope tying (Shibari/Kinbaku) emphasizing aesthetic patterns.",
+        "Mummification": "Wrapping the entire body in materials like plastic wrap or tape.",
+        "Chair Bondage": "Restricting a person to a chair using various restraints."
+      },
+      "contextual_considerations": "Some prefer intricate, aesthetic ties while others focus on the sensation. Safety is paramount."
+    },
+    "Discipline": {
+      "description": "Enforcing rules and protocols, often involving punishment and reward dynamics.",
+      "subcategories": {
+        "Behavioral Correction": "Using rules and consequences to modify behavior.",
+        "Training Protocols": "Structured routines with power exchange elements."
+      },
+      "contextual_considerations": "Can range from strict regimens to casual role-play; emotional aftercare is essential."
+    },
+    "Dominance and Submission (D/s)": {
+      "description": "A power exchange dynamic where one person has authority over another.",
+      "subcategories": {
+        "24/7 D/s": "Continuous power exchange lifestyle.",
+        "Service Submission": "Focus on acts of service and obedience.",
+        "Primal Play": "Emphasizing animalistic behavior and instincts."
+      },
+      "contextual_considerations": "Boundaries, limits, and consent are central."
+    },
+    "Sadism and Masochism (S&M)": {
+      "description": "Deriving pleasure from inflicting or receiving pain.",
+      "subcategories": {
+        "Impact Play": "Spanking, flogging, caning, paddling.",
+        "Temperature Play": "Using hot wax, ice, or temperature contrasts.",
+        "Edge Play": "Pushing personal boundaries (e.g., knife or breath play)."
+      },
+      "contextual_considerations": "Pain tolerance and preferences vary; communication is key."
+    },
+    "Role-Play": {
+      "description": "Acting out scenarios and roles for erotic or psychological fulfillment.",
+      "subcategories": {
+        "Teacher/Student": "Exploring authority and submission.",
+        "Medical Play": "Nurse/Doctor scenarios with exams or procedures.",
+        "Pet Play": "One person assumes an animal role."
+      },
+      "contextual_considerations": "Clear role definitions and limits are important."
+    },
+    "Sensory Play": {
+      "description": "Stimulating the senses for pleasure or discomfort.",
+      "subcategories": {
+        "Blindfolding": "Removing sight to heighten other senses.",
+        "Feather/Sensory Play": "Using soft items to tease and stimulate.",
+        "Sound Play": "Using sounds to elicit emotional or physical responses."
+      },
+      "contextual_considerations": "Sensory overload or deprivation can be intense; negotiation is key."
+    },
+    "Edge Play": {
+      "description": "Riskier activities that push personal boundaries.",
+      "subcategories": {
+        "Breath Play": "Controlling or restricting breath.",
+        "Knife Play": "Using blades for sensation without intent to harm.",
+        "Consensual Non-Consent": "Simulated non-consensual encounters within negotiated limits."
+      },
+      "contextual_considerations": "Requires high trust and strict safety protocols."
+    },
+    "Humiliation & Degradation": {
+      "description": "Deriving pleasure from being humiliated or degrading another.",
+      "subcategories": {
+        "Verbal Humiliation": "Name-calling and insults.",
+        "Public Humiliation": "Embarrassing acts in public or semi-public settings.",
+        "Objectification": "Treating someone as an object."
+      },
+      "contextual_considerations": "Clear boundaries and aftercare are critical."
+    },
+    "Age Play": {
+      "description": "Role-playing with age regression or progression.",
+      "subcategories": {
+        "Littles/Bigs": "Submissives adopt childlike roles; Dominants as caretakers.",
+        "Adult Baby/Diaper Lover (ABDL)": "Role-playing as an infant with care-taking elements."
+      },
+      "contextual_considerations": "Focus on regression and emotional comfort; consent is essential."
+    },
+    "Voyeurism & Exhibitionism": {
+      "description": "Deriving pleasure from watching others or being watched during sexual activities.",
+      "subcategories": {
+        "Public Play": "Performing sexual acts in public spaces (with legal and consent considerations).",
+        "Peeping": "Watching others without their knowledge."
+      },
+      "contextual_considerations": "Consent is paramount and legal considerations apply."
+    },
+    "Pet Play": {
+      "description": "Role-playing as a pet.",
+      "subcategories": {
+        "Pony Play": "Acting as a pony with training and tack.",
+        "Kitten/Puppy Play": "Embodying a playful or submissive animal persona."
+      },
+      "contextual_considerations": "Often emphasizes headspace and behavior over physical acts."
+    },
+    "Medical Play": {
+      "description": "Scenarios involving medical roles, instruments, and procedures.",
+      "subcategories": {
+        "Needle Play": "Using needles for skin piercing.",
+        "Enemas": "Administering enemas for control or cleansing.",
+        "Catheter Play": "Insertion of catheters with caution."
+      },
+      "contextual_considerations": "Hygiene and consent are critical."
+    },
+    "Fetishes": {
+      "description": "Sexual fixation on specific objects, body parts, or materials.",
+      "subcategories": {
+        "Foot Fetish": "Attraction to feet or footwear.",
+        "Leather/Latex Fetish": "Attraction to leather or latex clothing.",
+        "Sploshing": "Erotic enjoyment of messy substances."
+      },
+      "contextual_considerations": "Focus can be sensory, visual, or symbolic."
+    },
+    "Cuckolding & Hotwifing": {
+      "description": "Deriving pleasure from one partner engaging sexually with others.",
+      "subcategories": {
+        "Cuckolding": "One partner finds arousal in being humiliated by the other's infidelity.",
+        "Hotwifing": "Encouraging encounters without necessarily involving humiliation."
+      },
+      "contextual_considerations": "Emotional complexity requires clear boundaries."
+    },
+    "Chastity & Denial": {
+      "description": "Control or restriction of sexual release.",
+      "subcategories": {
+        "Chastity Devices": "Using devices to prevent sexual release.",
+        "Orgasm Denial": "Teasing without allowing climax.",
+        "Ruined Orgasms": "Allowing climax without full satisfaction."
+      },
+      "contextual_considerations": "Consent and understanding of limits are key."
+    },
+    "Erotic Hypnosis": {
+      "description": "Using hypnosis techniques for trance states and control.",
+      "subcategories": {
+        "Mind Control Fantasy": "Exploring control of thoughts or actions.",
+        "Memory Play": "Temporarily altering or 'erasing' memories.",
+        "Trigger Words and Conditioning": "Using words to evoke responses."
+      },
+      "contextual_considerations": "Clear boundaries and ethical considerations are essential."
+    },
+    "Tickle Torture": {
+      "description": "Using tickling as a form of pleasurable or torturous sensation play.",
+      "subcategories": {
+        "Bondage Tickle Play": "Combining restraint with tickling.",
+        "Erotic Tickle Torture": "Using tickling to build sexual tension or control."
+      },
+      "contextual_considerations": "Negotiated sensitivity is crucial."
+    },
+    "Uniform and Role-Specific Fetishes": {
+      "description": "Attraction to or role-playing specific uniforms or roles.",
+      "subcategories": {
+        "Military/Police": "Role-play involving authority figures.",
+        "Maid/Butler": "Service roles focusing on submission and obedience.",
+        "Medical Staff": "Doctor, nurse, or patient roles with power dynamics."
+      },
+      "contextual_considerations": "Detailed role-play requires clear costuming and boundaries."
+    },
+    "Objectification Play": {
+      "description": "Treating a person as an object for another’s use.",
+      "subcategories": {
+        "Furniture Play": "Using a person as a chair, table, or footstool.",
+        "Living Doll Play": "Treating someone as a doll with strict control.",
+        "Mannequin Play": "Posing a partner as if they were a mannequin."
+      },
+      "contextual_considerations": "Emotional safety and thorough aftercare are necessary."
+    },
+    "Financial Domination (Findom)": {
+      "description": "A power dynamic where a submissive gives money or gifts as a form of control.",
+      "subcategories": {
+        "Cash Meets": "In-person money exchanges as submission.",
+        "Tribute and Gifting": "Regular financial exchanges as devotion.",
+        "Debt Contracts": "Consensual 'debt' agreements to be repaid."
+      },
+      "contextual_considerations": "Clear communication and defined boundaries are essential."
+    },
+    "Erotic Asphyxiation": {
+      "description": "Temporarily restricting oxygen for heightened arousal.",
+      "subcategories": {
+        "Choking/Strangulation": "Using hands or devices to apply pressure.",
+        "Bagging/Plastic Wrap": "Using plastic bags or wrap to induce a temporary sense of suffocation."
+      },
+      "contextual_considerations": "Extremely risky; safe words and emergency protocols are crucial."
+    },
+    "Fetish Specific to Body Parts or Actions": {
+      "description": "Sexual fixation on particular body parts or actions.",
+      "subcategories": {
+        "Foot Worship": "Adoration of feet or footwear.",
+        "Hair Fetish": "Focus on hair through pulling, brushing, etc.",
+        "Smoking Fetish": "Arousal from watching someone smoke."
+      },
+      "contextual_considerations": "Often incorporates ritualistic and sensory elements."
+    },
+    "Water Sports (Urolagnia)": {
+      "description": "Deriving sexual pleasure from urination or its presence.",
+      "subcategories": {
+        "Golden Showers": "Urinating on or being urinated on.",
+        "Clothes Wetting": "Arousal from urinating while clothed."
+      },
+      "contextual_considerations": "Health, hygiene, and sensitive negotiation are important."
+    },
+    "Erotic Humiliation": {
+      "description": "Deriving pleasure from being embarrassed or degraded.",
+      "subcategories": {
+        "Verbal Degradation": "Using humiliating language.",
+        "Public Humiliation": "Embarrassing acts in public or semi-public settings.",
+        "Cross-dressing Humiliation": "Forcing a partner to wear embarrassing clothing."
+      },
+      "contextual_considerations": "Emotional safety and clear limits are critical."
+    },
+    "Sploshing (Wet and Messy Play)": {
+      "description": "Using messy substances (e.g., food, mud) for tactile and erotic play.",
+      "subcategories": {
+        "Food Play": "Using edible substances like cream pies or syrup.",
+        "Mud/Clay Play": "Using mud or clay for tactile sensation.",
+        "Paint/Ink Play": "Using colorful substances to decorate the body."
+      },
+      "contextual_considerations": "Clean-up and informed consent are key."
+    },
+    "Cuckqueaning/Cuckquean Play": {
+      "description": "A female-identified person derives pleasure from her partner’s encounters with others.",
+      "subcategories": {
+        "Hotwife Dynamic": "Encouraging the female partner to engage with others.",
+        "Voyeuristic Cuckquean": "Deriving arousal by observing or learning about encounters."
+      },
+      "contextual_considerations": "Open communication and trust are essential."
+    },
+    "Religious/Blasphemy Play": {
+      "description": "Incorporating religious imagery or rituals in a sexualized context.",
+      "subcategories": {
+        "Nun/Monk Role-Play": "Subverting religious authority through role-play.",
+        "Blasphemous Acts": "Using religious symbols or language explicitly."
+      },
+      "contextual_considerations": "Can be triggering; careful negotiation is required."
+    },
+    "Primal Play": {
+      "description": "Engaging in raw, instinctual play that emphasizes animalistic behavior.",
+      "subcategories": {
+        "Predator/Prey": "One partner chases or captures the other.",
+        "Growling/Biting": "Using animalistic vocalizations and biting."
+      },
+      "contextual_considerations": "Physical roughness necessitates clear limits and safety protocols."
+    },
+    "Sensation Deprivation/Deprivation Play": {
+      "description": "Restricting one or more senses to heighten others or induce helplessness.",
+      "subcategories": {
+        "Hood Play": "Using hoods or masks to block senses.",
+        "Sensory Deprivation Tanks": "Isolating participants in a controlled, stimulus-free environment."
+      },
+      "contextual_considerations": "Requires clear exit strategies to avoid anxiety or panic."
     }
   },
   "kink_subcultures": {
@@ -88,22 +2914,70 @@
         "New Guard": "More inclusive and less hierarchical.",
         "Leather Families": "Close-knit groups with diverse roles."
       }
-    }
-  },
-  "quiz_final_elements": {
-    "session_storage": {
-      "enabled": true,
-      "description": "Allows users to resume quiz progress if they leave the page."
     },
-    "results_presentation": {
-      "spider_graph": true,
-      "affirmations": true,
-      "reflection_prompts": true
+    "LGBTQ+ Kink Communities": {
+      "description": "Inclusive spaces for LGBTQ+ individuals exploring BDSM and kink practices with respect for their identities.",
+      "subcultures": {
+        "Queer Kink": "Embraces fluidity in gender and sexuality.",
+        "Trans and Non-Binary Kink": "Ensures safe exploration without fetishizing identities.",
+        "Lesbian BDSM": "Centered on women and non-binary individuals within lesbian culture."
+      }
     },
-    "result_saving_options": {
-      "save_as_pdf": true,
-      "email_results": true,
-      "privacy_protection": true
+    "Polyamorous and Ethical Non-Monogamy Communities": {
+      "description": "Groups that practice multiple consensual relationships with an emphasis on communication.",
+      "subcultures": {
+        "Swingers": "Couples or individuals engaging in partner swapping or group encounters.",
+        "Relationship Anarchy": "Challenging traditional relationship structures with fluid dynamics."
+      }
+    },
+    "POC Kink Communities": {
+      "description": "Spaces prioritizing the experiences of people of color within kink and BDSM.",
+      "subcultures": {
+        "Black Kink/BDSM": "Addresses cultural and historical challenges for Black individuals.",
+        "Latinx, Asian, and Indigenous Kink": "Explores intersections between cultural heritage and kink practices."
+      }
+    },
+    "Neurodivergent Kink Communities": {
+      "description": "Spaces for neurodivergent individuals to explore BDSM in ways that accommodate their needs.",
+      "subcultures": {
+        "Sensory Play and Stimming": "Focus on safe, tailored sensory feedback.",
+        "Structure and Ritual Play": "Utilizes routines and rituals for comfort and predictability."
+      }
+    },
+    "Disability and Kink Communities": {
+      "description": "Inclusive spaces for people with disabilities to engage in kink in accessible ways.",
+      "subcultures": {
+        "Adaptive Kink": "Modifying tools and scenarios to meet various needs.",
+        "Disability Pride Kink": "Celebrating disability identity within the kink community."
+      }
+    },
+    "Spiritual and Sacred Kink": {
+      "description": "Integrates spiritual or religious beliefs with BDSM practices as forms of ritual and transformation.",
+      "subcultures": {
+        "Tantra and BDSM": "Combining tantric practices with BDSM.",
+        "Pagan and Occult Kink": "Incorporating symbolic, ritualistic elements in play."
+      }
+    },
+    "Age-Play Communities": {
+      "description": "Communities engaging in role-play involving age regression or progression.",
+      "subcultures": {
+        "Little/Big Community": "Submissives adopt childlike roles; Dominants act as caretakers.",
+        "Adult Baby/Diaper Lover (ABDL)": "Role-playing as an infant with associated care dynamics."
+      }
+    },
+    "Hypnokink Communities": {
+      "description": "Spaces focused on hypnosis and trance states to explore control and suggestibility.",
+      "subcultures": {
+        "Ericksonian Hypnosis": "Based on Milton Erickson’s methods.",
+        "Fantasy Hypnosis": "Incorporates fantasy elements such as mind control."
+      }
+    },
+    "Furry and Animal Role-Play Communities": {
+      "description": "Spaces for individuals who role-play or identify with anthropomorphic animal traits.",
+      "subcultures": {
+        "Furry Fandom": "Focuses on art, literature, and role-play with anthropomorphic animals.",
+        "Therian/Otherkin": "Individuals who feel a psychological or spiritual connection to animals."
+      }
     }
   }
 }
