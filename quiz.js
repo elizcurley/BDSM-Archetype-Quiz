@@ -10,6 +10,7 @@ if (window.quizLoaded) {
     let userResponses = {};
 
     // 📌 DOM Elements
+    const introContainer = document.querySelector(".container"); // ✅ Grabs Intro
     const questionContainer = document.getElementById("quiz-container");
     const questionText = document.getElementById("question-text");
     const optionsContainer = document.getElementById("options-container");
@@ -20,7 +21,7 @@ if (window.quizLoaded) {
     // 📌 Confirm Script is Running
     console.log("✅ quiz.js Loaded Successfully!");
 
-    // 📌 Load Quiz Data from JSON (Ensure It Only Runs Once)
+    // 📌 Load Quiz Data from JSON
     fetch('quiz_data.json')
       .then(response => response.json())
       .then(data => {
@@ -56,7 +57,7 @@ if (window.quizLoaded) {
             userResponses = savedProgress.userResponses || {};
             console.log("🔄 Loaded Saved Progress:", savedProgress);
         }
-        loadQuestion(); // ✅ Start quiz only after loading progress
+        loadQuestion(); // ✅ Start quiz after loading progress
     }
 
     // 📌 Load Question (Dynamically Updates UI)
@@ -74,10 +75,10 @@ if (window.quizLoaded) {
             return;
         }
 
-        // ✅ Reveal Quiz Section
-        document.getElementById("intro-container").style.display = "none";
-        questionContainer.style.display = "block";
-        resultsContainer.style.display = "none";
+        // ✅ Hide the intro and show quiz
+        introContainer.style.display = "none"; 
+        questionContainer.style.display = "block"; // ✅ Ensure it's visible
+        resultsContainer.style.display = "none"; // ✅ Hide results
 
         const currentQuestion = quizQuestions[currentQuestionIndex];
         console.log("🎯 Current Question:", currentQuestion);
