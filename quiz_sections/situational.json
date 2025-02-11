@@ -1,0 +1,177 @@
+{
+  "description": "Scenario-based questions to gauge how you respond in specific kink or relationship contexts. These questions help reveal your adaptability, communication style, and decision–making in dynamic situations—key for generating a nuanced and adaptable results profile.",
+  "questions": [
+    {
+      "id": "S1",
+      "archetype": "Explorer",
+      "question_text": "Imagine you are invited to a themed kink event with unfamiliar dynamics. How likely are you to participate?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Very likely",
+        "Likely",
+        "Neutral",
+        "Unlikely",
+        "Very unlikely"
+      ],
+      "follow_up": "What factors would most influence your decision?"
+    },
+    {
+      "id": "S2",
+      "archetype": "Alchemist",
+      "question_text": "If a partner suggests a kink practice you haven't tried before, how open are you to exploring it?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Extremely open",
+        "Somewhat open",
+        "Neutral",
+        "Somewhat hesitant",
+        "Not open at all"
+      ]
+    },
+    {
+      "id": "S3",
+      "archetype": "Explorer",
+      "question_text": "In a scenario where established roles are unexpectedly challenged, how comfortable are you with adapting on the spot?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Very comfortable",
+        "Comfortable",
+        "Neutral",
+        "Uncomfortable",
+        "Very uncomfortable"
+      ]
+    },
+    {
+      "id": "S4",
+      "archetype": "Explorer",
+      "question_text": "Imagine a situation where your usual role is reversed unexpectedly. How comfortable are you with this change?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Very comfortable",
+        "Comfortable",
+        "Neutral",
+        "Uncomfortable",
+        "Very uncomfortable"
+      ]
+    },
+    {
+      "id": "S5",
+      "archetype": "Alchemist",
+      "question_text": "If a new partner proposes an unconventional kink practice, how likely are you to try it?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Very likely",
+        "Likely",
+        "Neutral",
+        "Unlikely",
+        "Very unlikely"
+      ]
+    },
+    {
+      "id": "S6",
+      "archetype": "Keystone",
+      "question_text": "When faced with a high-risk scenario (e.g., edge play), how much do you rely on pre-established safety protocols?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Always rely on protocols",
+        "Usually rely on protocols",
+        "Sometimes rely on protocols",
+        "Rarely rely on protocols",
+        "Never rely on protocols"
+      ]
+    },
+    {
+      "id": "S7",
+      "archetype": "Oracle",
+      "question_text": "Imagine a scenario where communication breaks down mid-scene. How quickly do you work to re-establish clarity?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Immediately",
+        "Very quickly",
+        "Moderately quickly",
+        "Slowly",
+        "Very slowly"
+      ],
+      "follow_up": "What steps do you take to restore clear communication?"
+    },
+    {
+      "id": "S8",
+      "archetype": "Keystone",
+      "question_text": "If you are in a situation where your personal boundaries are being tested unexpectedly, how assertively do you communicate your limits?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Extremely assertively",
+        "Very assertively",
+        "Moderately assertively",
+        "Slightly assertively",
+        "Not assertively at all"
+      ]
+    },
+    {
+      "id": "S9",
+      "archetype": "Alchemist",
+      "question_text": "Imagine you are in a scene where the energy suddenly shifts from playful to intense. How do you manage the change?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "I adapt immediately and adjust the intensity",
+        "I adjust fairly quickly",
+        "Neutral",
+        "I struggle to adjust",
+        "I rarely adjust well"
+      ],
+      "follow_up": "Describe a method you use to manage such changes."
+    },
+    {
+      "id": "S10",
+      "archetype": "Keystone",
+      "question_text": "During a scene, if your partner appears hesitant to continue an activity, how do you respond?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Immediately pause and check in",
+        "Quickly pause to discuss",
+        "Neutral",
+        "Proceed but monitor closely",
+        "Continue without changing course"
+      ],
+      "follow_up": "What steps do you take to ensure safety and comfort?"
+    },
+    {
+      "id": "S11",
+      "archetype": "Vanguard",
+      "question_text": "At a public kink event, if you notice bystanders showing curiosity or interfering, how would you address the situation?",
+      "type": "multiple_choice",
+      "weight": 2,
+      "response_options": [
+        "Address it directly and assert boundaries",
+        "Signal to your partner to handle it",
+        "Ignore it unless it escalates",
+        "Prefer to have a moderator handle it"
+      ]
+    },
+    {
+      "id": "S12",
+      "archetype": "Oracle",
+      "question_text": "If digital communication (text or app-based) becomes necessary during a scene due to communication challenges, how comfortable are you with relying on it?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Extremely comfortable",
+        "Very comfortable",
+        "Neutral",
+        "Somewhat uncomfortable",
+        "Very uncomfortable"
+      ],
+      "follow_up": "Have you used digital safety signals before? Please elaborate."
+    }
+  ]
+}
