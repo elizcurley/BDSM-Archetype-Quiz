@@ -31,10 +31,8 @@ fetch('quiz_data.json')
 
       loadProgress();
       loadQuestion();
-  })  // ❌ REMOVE THIS LINE (it shouldn't be here)
 
   .catch(error => console.error("❌ Error loading JSON:", error));
-
 
     
     // ✅ Assign quizQuestions (No `let` redeclaration)
