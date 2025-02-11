@@ -204,19 +204,22 @@ function calculateResults() {
     }
 
     // 📌 Event Listeners
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("📌 DOM Fully Loaded!");
-        
-        if (startButton) {
-            console.log("🚀 Start Button Found!");
-            startButton.addEventListener("click", startQuiz);
-        } else {
-            console.error("❌ Start Button Not Found!");
-        }
-    });
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("📌 DOM Fully Loaded!");
 
-    backButton.addEventListener("click", goBack);
-}
+    const startButton = document.getElementById("start-button");
+    if (startButton) {
+        console.log("🚀 Start Button Found!");
+        startButton.addEventListener("click", () => {
+            console.log("🚀 Start Button Clicked! Attempting to load first question...");
+            document.getElementById("intro-container").style.display = "none"; // Hide Intro
+            document.getElementById("quiz-container").style.display = "block"; // Show Quiz
+            loadQuestion();
+        });
+    } else {
+        console.error("❌ Start Button Not Found!");
+    }
+});
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
