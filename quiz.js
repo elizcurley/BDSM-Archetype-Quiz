@@ -59,7 +59,35 @@ function loadProgress() {
 }
 
 // 📌 Load Question
+function loadQuestion() 
 function loadQuestion() {
+    console.log("📌 Loading Question Index:", currentQuestionIndex);
+    
+    if (currentQuestionIndex >= quizQuestions.length) {
+        console.log("✅ All Questions Answered – Calculating Results!");
+        calculateResults();
+        return;
+    }
+
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+    console.log("🎯 Current Question:", currentQuestion);
+
+    questionText.innerText = currentQuestion.question_text;
+    optionsContainer.innerHTML = "";
+
+    currentQuestion.response_options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.classList.add("option-button");
+        button.onclick = () => selectOption(index, currentQuestion.id);
+        optionsContainer.appendChild(button);
+    });
+
+    backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+    saveProgress();
+}
+
+{
     if (currentQuestionIndex >= quizQuestions.length) {
         calculateResults();
         return;
@@ -118,3 +146,5 @@ function displayResults(sortedArchetypes) {
     sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
     window.location.href = "quiz_results.html"; // Navigate to results page
 }
+
+console.log("✅ Loaded Questions:", quizQuestions);
