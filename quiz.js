@@ -126,10 +126,11 @@ if (window.quizLoaded) {
         console.log("📊 Calculating Results...");
         console.log("🔍 User Responses:", userResponses);
 
+        // ✅ Ensure enough responses exist before calculating results
         if (Object.keys(userResponses).length < quizQuestions.length) {
             console.error("❌ Not enough responses to calculate results. Returning to quiz.");
             loadQuestion();
-            return;
+            return; // ✅ Properly inside a function now
         }
 
         let archetypeScores = {};
