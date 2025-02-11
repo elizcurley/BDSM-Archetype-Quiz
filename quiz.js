@@ -83,40 +83,46 @@ if (window.quizLoaded) {
 
     // 📌 Load Question
     function loadQuestion() {
-        console.log("📌 Loading Question Index:", currentQuestionIndex);
+    console.log("📌 Loading Question Index:", currentQuestionIndex);
 
-        if (quizQuestions.length === 0) {
-            console.error("❌ No Questions Loaded!");
-            return;
-        }
-
-        if (currentQuestionIndex >= quizQuestions.length) {
-            console.log("✅ All Questions Answered – Calculating Results!");
-            calculateResults();
-            return;
-        }
-
-        const currentQuestion = quizQuestions[currentQuestionIndex];
-
-        if (!currentQuestion) {
-            console.error("❌ Current Question is Undefined!");
-            return;
-        }
-
-        questionText.innerText = currentQuestion.question_text;
-        optionsContainer.innerHTML = "";
-
-        currentQuestion.response_options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerText = option;
-            button.classList.add("option-button");
-            button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight, currentQuestion.archetype);
-            optionsContainer.appendChild(button);
-        });
-
-        backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
-        saveProgress();
+    // ✅ Ensure quizQuestions has loaded before displaying
+    if (!quizQuestions || quizQuestions.length === 0) {
+        console.error("❌ No Questions Found! Delaying question load.");
+        questionText.innerText = "Loading questions... Please wait.";
+        return;
     }
+
+    if (currentQuestionIndex >= quizQuestions.length) {
+        console.log("✅ All Questions Answered – Calculating Results!");
+        calculateResults();
+        return;
+    }
+
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+
+    // ✅ Ensure the current question is valid before displaying
+    if (!currentQuestion) {
+        console.error("❌ Current Question is Undefined! Skipping...");
+        questionText.innerText = "An error occurred loading this question.";
+        return;
+    }
+
+    console.log("🎯 Current Question:", currentQuestion);
+
+    questionText.innerText = currentQuestion.question_text;
+    optionsContainer.innerHTML = "";
+
+    currentQuestion.response_options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.classList.add("option-button");
+        button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight);
+        optionsContainer.appendChild(button);
+    });
+
+    backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+    saveProgress();
+}
 
     // 📌 Select Option
     function selectOption(index, questionId, weight, archetype) {
