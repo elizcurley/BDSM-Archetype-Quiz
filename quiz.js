@@ -125,12 +125,27 @@ if (window.quizLoaded) {
         }
     }
 
-    // 📌 Calculate Results
-    function calculateResults() {
+   // 📌 Calculate Results & Save to sessionStorage
+function calculateResults() {
     console.log("📊 Calculating Results...");
-    console.log("🔍 User Responses:", userResponses);
-
+    
     let archetypeScores = {};
+    
+    Object.values(userResponses).forEach(response => {
+        let archetype = response.archetype;
+        let weight = response.weight || 1;
+        archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+    });
+
+    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+    console.log("🏆 Final Archetypes:", sortedArchetypes);
+    
+    // ✅ Save results to sessionStorage
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    window.location.href = "quiz_results.html"; // Redirect to results page
+}
+
 
     // Process weighted scoring
     Object.entries(userResponses).forEach(([questionId, response]) => {
