@@ -10,7 +10,8 @@ if (window.quizLoaded) {
     let userResponses = {};
 
     // 📌 DOM Elements
-    const questionContainer = document.getElementById("quiz-container");
+    const introContainer = document.getElementById("intro-container");
+    const quizContainer = document.getElementById("quiz-container");
     const questionText = document.getElementById("question-text");
     const optionsContainer = document.getElementById("options-container");
     const nextButton = document.getElementById("next-button");
@@ -25,18 +26,21 @@ if (window.quizLoaded) {
       .then(response => response.json())
       .then(data => {
           console.log("✅ JSON Loaded Successfully:", data);
+
           if (!data.sections || !data.sections.foundational_assessment) {
               console.error("❌ JSON Format Error: Sections missing.");
               return;
           }
+
+          // ✅ Assign quizQuestions Correctly
           quizQuestions = data.sections.foundational_assessment.questions;
           console.log("📌 Extracted Questions:", quizQuestions);
-          loadProgress();
-          loadQuestion();
+
+          loadProgress(); // ✅ Load saved progress
       })
       .catch(error => console.error("❌ Error loading JSON:", error));
 
-    // 📌 Save Quiz Progress
+    // 📌 Save Progress to Session Storage
     function saveProgress() {
         sessionStorage.setItem("quizProgress", JSON.stringify({
             currentQuestionIndex,
@@ -45,7 +49,7 @@ if (window.quizLoaded) {
         console.log("💾 Progress Saved:", sessionStorage.getItem("quizProgress"));
     }
 
-    // 📌 Load Quiz Progress
+    // 📌 Load Progress from Session Storage
     function loadProgress() {
         const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
         if (savedProgress) {
@@ -55,13 +59,15 @@ if (window.quizLoaded) {
         }
     }
 
-    // 📌 Load Question
+    // 📌 Load Question (Handles Dynamic Flow)
     function loadQuestion() {
         console.log("📌 Loading Question Index:", currentQuestionIndex);
+
         if (quizQuestions.length === 0) {
             console.error("❌ No Questions Found in JSON!");
             return;
         }
+
         if (currentQuestionIndex >= quizQuestions.length) {
             console.log("✅ All Questions Answered – Calculating Results!");
             calculateResults();
@@ -75,6 +81,10 @@ if (window.quizLoaded) {
             console.error("❌ Current Question is Undefined!");
             return;
         }
+
+        // ✅ Show quiz container, hide intro
+        introContainer.style.display = "none";
+        quizContainer.style.display = "block";
 
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
@@ -91,33 +101,19 @@ if (window.quizLoaded) {
         saveProgress();
     }
 
-  // 📌 Select Option (Stores Response & Moves to Next)
-function selectOption(index, questionId, weight) {
-    console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
+    // 📌 Select Option (Tracks Responses & Advances)
+    function selectOption(index, questionId, weight) {
+        console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
 
-    // ✅ Ensure userResponses object is correctly updated
-    userResponses[questionId] = {
-        selectedOption: index,
-        weight: weight
-    };
+        userResponses[questionId] = { selectedOption: index, weight: weight };
+        console.log("🔄 Updated User Responses:", userResponses);
 
-    console.log("🔄 Updated User Responses:", userResponses); // Debugging log
-
-    // ✅ Move to the next question
-    currentQuestionIndex++;
-
-    // ✅ Check if there are more questions before moving to results
-    if (currentQuestionIndex < quizQuestions.length) {
-        saveProgress(); // ✅ Make sure progress is saved before moving forward
+        currentQuestionIndex++;
+        saveProgress();
         loadQuestion();
-    } else {
-        console.log("✅ All Questions Answered – Calculating Results!");
-        calculateResults();
     }
-}
 
-
-    // 📌 Back Button
+    // 📌 Back Button Functionality
     function goBack() {
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
@@ -125,113 +121,51 @@ function selectOption(index, questionId, weight) {
         }
     }
 
-    // 📌 Calculate Results
- // 📌 Calculate Results (Weight-Based)
-function calculateResults() {
-    console.log("📊 Calculating Results...");
-    console.log("🔍 User Responses:", userResponses);
+    // 📌 Calculate Results (Ensures Enough Data First)
+    function calculateResults() {
+        console.log("📊 Calculating Results...");
+        console.log("🔍 User Responses:", userResponses);
 
-    let archetypeScores = {};
-
-    // ✅ Ensure userResponses is not empty before proceeding
-    if (Object.keys(userResponses).length === 0) {
-        console.error("❌ No valid responses found. Retaking quiz...");
-        sessionStorage.setItem("quizResults", JSON.stringify(["Undefined"]));
-        window.location.href = "quiz_results.html";
-        return;
-    }
-
-    // ✅ Process weighted scoring
-    Object.entries(userResponses).forEach(([questionId, response]) => {
-        let question = quizQuestions.find(q => q.id === questionId);
-        if (question && question.archetype) {
-            let archetype = question.archetype; 
-            let weight = response.weight || 1; 
-            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-        } else {
-            console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+        if (Object.keys(userResponses).length < quizQuestions.length) {
+            console.error("❌ Not enough responses to calculate results. Returning to quiz.");
+            loadQuestion();
+            return;
         }
-    });
 
-    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+        let archetypeScores = {};
 
-    console.log("🏆 Final Archetypes:", sortedArchetypes);
+        Object.entries(userResponses).forEach(([questionId, response]) => {
+            let question = quizQuestions.find(q => q.id === questionId);
+            if (question) {
+                let archetype = question.archetype;
+                let weight = response.weight || 1;
+                archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+            } else {
+                console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+            }
+        });
 
-    // ✅ Ensure results are correctly stored
-    if (sortedArchetypes.length === 0) {
-        console.error("❌ No valid archetypes determined. Storing fallback value.");
-        sessionStorage.setItem("quizResults", JSON.stringify(["Undefined"]));
-    } else {
-        sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+        let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+        console.log("🏆 Final Archetypes:", sortedArchetypes);
+        displayResults(sortedArchetypes);
     }
 
-    // ✅ Redirect to results page
-    window.location.href = "quiz_results.html";
-}
-
-    // ✅ Make sure results are properly stored
-    if (sortedArchetypes.length === 0) {
-        console.error("❌ No valid archetypes determined. Storing fallback value.");
-        sessionStorage.setItem("quizResults", JSON.stringify(["undefined"]));
-    } else {
-        sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
-    }
-
-    // ✅ Redirect to results page
-    window.location.href = "quiz_results.html";
-}
-
-
-    // ✅ Ensure userResponses is not empty before processing
-    if (Object.keys(userResponses).length === 0) {
-        console.error("❌ No user responses found – cannot calculate results.");
-        return;
-    }
-
-    // ✅ Process responses and calculate weighted scores
-    Object.entries(userResponses).forEach(([questionId, response]) => {
-        if (response && response.weight) { 
-            let weight = response.weight || 1; 
-            let archetype = response.archetype || "Undefined"; 
-            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-        } else {
-            console.warn(`⚠️ Missing data for question: ${questionId}`);
-        }
-    });
-
-    // ✅ Sort archetypes based on highest score
-    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
-
-    if (sortedArchetypes.length === 0) {
-        console.error("❌ No valid archetypes found.");
-        return;
-    }
-
-    console.log("🏆 Final Archetypes:", sortedArchetypes);
-
-    // ✅ Store results safely in sessionStorage
-    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
-
-    // ✅ Redirect to results page
-    window.location.href = "quiz_results.html";
-}
-
-    // 📌 Display Results
+    // 📌 Display Results (Stores & Redirects)
     function displayResults(sortedArchetypes) {
         sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
         window.location.href = "quiz_results.html";
     }
 
-    // 📌 Event Listeners
+    // 📌 Start Button Event Listener
     document.addEventListener("DOMContentLoaded", () => {
         console.log("📌 DOM Fully Loaded!");
+
         const startButton = document.getElementById("start-button");
         if (startButton) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
-                console.log("🚀 Start Button Clicked!");
-                document.getElementById("quiz-container").style.display = "block";
-                document.getElementById("intro-container").style.display = "none";
+                console.log("🚀 Start Button Clicked! Attempting to load first question...");
                 loadQuestion();
             });
         } else {
@@ -239,6 +173,7 @@ function calculateResults() {
         }
     });
 
+    // 📌 Next & Back Button Listeners
     nextButton.addEventListener("click", loadQuestion);
     backButton.addEventListener("click", goBack);
-} // ✅ THIS is the correct ending brace (closes the `if` block)
+}
