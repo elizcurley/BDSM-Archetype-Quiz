@@ -110,26 +110,46 @@ if (window.quizLoaded) {
     }
 
     // 📌 Calculate Results
-    function calculateResults() {
-        console.log("📊 Calculating Results...");
-        console.log("🔍 User Responses:", userResponses);
-        let archetypeScores = {};
-        Object.entries(userResponses).forEach(([questionId, response]) => {
-            let question = quizQuestions.find(q => q.id === questionId);
-            if (question) {
-                let archetype = question.archetype;
-                let weight = response.weight || 1;
-                archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-            } else {
-                console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
-            }
-        });
+   // 📌 Calculate Results (Weight-Based)
+function calculateResults() {
+    console.log("📊 Calculating Results...");
+    console.log("🔍 User Responses:", userResponses);
 
-        let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+    let archetypeScores = {}; 
 
-        console.log("🏆 Final Archetypes:", sortedArchetypes);
-        displayResults(sortedArchetypes);
+    // ✅ Ensure userResponses is not empty before processing
+    if (Object.keys(userResponses).length === 0) {
+        console.error("❌ No user responses found – cannot calculate results.");
+        return;
     }
+
+    // ✅ Process responses and calculate weighted scores
+    Object.entries(userResponses).forEach(([questionId, response]) => {
+        if (response && response.weight) { 
+            let weight = response.weight || 1; 
+            let archetype = response.archetype || "Undefined"; 
+            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+        } else {
+            console.warn(`⚠️ Missing data for question: ${questionId}`);
+        }
+    });
+
+    // ✅ Sort archetypes based on highest score
+    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+    if (sortedArchetypes.length === 0) {
+        console.error("❌ No valid archetypes found.");
+        return;
+    }
+
+    console.log("🏆 Final Archetypes:", sortedArchetypes);
+
+    // ✅ Store results safely in sessionStorage
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+
+    // ✅ Redirect to results page
+    window.location.href = "quiz_results.html";
+}
 
     // 📌 Display Results
     function displayResults(sortedArchetypes) {
