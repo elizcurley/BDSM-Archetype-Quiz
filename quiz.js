@@ -10,7 +10,7 @@ if (window.quizLoaded) {
     let userResponses = {};
 
     // 📌 DOM Elements
-    const questionContainer = document.getElementById("question-container");
+    const questionContainer = document.getElementById("quiz-container");
     const questionText = document.getElementById("question-text");
     const optionsContainer = document.getElementById("options-container");
     const nextButton = document.getElementById("next-button");
@@ -36,7 +36,6 @@ if (window.quizLoaded) {
           console.log("📌 Extracted Questions:", quizQuestions);
 
           loadProgress(); // ✅ Load any saved progress
-          loadQuestion(); // ✅ Start quiz
       })
       .catch(error => console.error("❌ Error loading JSON:", error));
 
@@ -73,6 +72,10 @@ if (window.quizLoaded) {
             calculateResults();
             return;
         }
+
+        // ✅ Show the quiz container & hide the intro screen
+        document.getElementById("quiz-container").classList.remove("hidden");
+        document.querySelector(".container").classList.add("hidden");
 
         const currentQuestion = quizQuestions[currentQuestionIndex];
         console.log("🎯 Current Question:", currentQuestion);
@@ -156,6 +159,11 @@ if (window.quizLoaded) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
                 console.log("🚀 Start Button Clicked! Attempting to load first question...");
+                
+                // ✅ Reveal quiz and hide intro
+                document.getElementById("quiz-container").classList.remove("hidden");
+                document.querySelector(".container").classList.add("hidden");
+
                 loadQuestion();
             });
         } else {
