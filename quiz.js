@@ -25,6 +25,15 @@ fetch('quiz_data.json')
         return;
     }
     
+    quizQuestions = data.sections.foundational_assessment.questions; 
+    console.log("📌 Extracted Questions:", quizQuestions);  // ✅ This tells us if it worked!
+    
+    loadProgress();
+    loadQuestion();
+  })
+  .catch(error => console.error("❌ Error loading JSON:", error));
+
+    
     // ✅ Assign quizQuestions (No `let` redeclaration)
     quizQuestions = data.sections.foundational_assessment.questions; 
     console.log("📌 Extracted Questions:", quizQuestions);
