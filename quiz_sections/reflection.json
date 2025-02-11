@@ -1,0 +1,104 @@
+{
+  "description": "Introspective questions to assess the depth of your reflections on your relationships, personal growth, and kink experiences. These questions are designed to uncover underlying motivations, learning experiences, and emotional strategies, providing richer context for your dynamic archetype profile.",
+  "questions": [
+    {
+      "id": "R1",
+      "archetype": "Catalyst",
+      "question_text": "What challenges do you seek in your personal relationships?",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "Why do you seek these challenges?"
+    },
+    {
+      "id": "R2",
+      "archetype": "Catalyst",
+      "question_text": "On a scale from 1-10, how strongly do you identify with your primary archetype?",
+      "type": "numeric_scale",
+      "weight": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "id": "R3",
+      "archetype": "Oracle",
+      "question_text": "How often do you reflect on your personal growth and its impact on your dynamics?",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Very frequently",
+        "Frequently",
+        "Occasionally",
+        "Rarely",
+        "Never"
+      ]
+    },
+    {
+      "id": "R4",
+      "archetype": "Keystone",
+      "question_text": "How do you balance the desire for new experiences with the need for emotional stability?",
+      "type": "open_ended",
+      "weight": 2
+    },
+    {
+      "id": "R5",
+      "archetype": "Connoisseur",
+      "question_text": "What aspect of your kink play do you find most fulfilling?",
+      "type": "open_ended",
+      "weight": 2
+    },
+    {
+      "id": "R6",
+      "archetype": "Keystone",
+      "question_text": "How do you ensure your boundaries remain respected over time?",
+      "type": "open_ended",
+      "weight": 2
+    },
+    {
+      "id": "R7",
+      "archetype": "Vanguard",
+      "question_text": "Reflect on a time when your leadership or boundary-pushing positively changed your dynamic. What did you learn from that experience?",
+      "type": "open_ended",
+      "weight": 2
+    },
+    {
+      "id": "R8",
+      "archetype": "Oracle",
+      "question_text": "How do you process and learn from moments when communication during a scene breaks down?",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "What strategies do you use to restore clarity and trust?"
+    },
+    {
+      "id": "R9",
+      "archetype": "Explorer",
+      "question_text": "Describe a moment when taking a risk in your intimate life led to significant personal growth.",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "What did that risk teach you about yourself?"
+    },
+    {
+      "id": "R10",
+      "archetype": "Alchemist",
+      "question_text": "How do you reconcile spontaneity with the need for safety in your experimental practices?",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "Can you provide an example from a recent experience?"
+    },
+    {
+      "id": "R11",
+      "archetype": "Vanguard",
+      "question_text": "What feedback from your partners has most influenced your approach to leadership in kink play?",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "How have you adapted based on that feedback?"
+    },
+    {
+      "id": "R12",
+      "archetype": "Oracle",
+      "question_text": "How do you ensure that your emotional insights translate into effective communication during challenging moments?",
+      "type": "open_ended",
+      "weight": 2,
+      "follow_up": "What practices help you maintain clarity and connection?"
+    }
+  ]
+}
