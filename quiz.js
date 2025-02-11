@@ -105,13 +105,17 @@ if (window.quizLoaded) {
 
     // 📌 Select Option
     function selectOption(index, questionId, weight) {
-        console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
-        
-        userResponses[questionId] = { selectedOption: index, weight: weight };
-        currentQuestionIndex++;
-        
-        loadQuestion();
-    }
+    console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
+
+    userResponses[questionId] = { selectedOption: index, weight: weight };
+
+    console.log("🔄 Updated User Responses:", userResponses); // ✅ Debugging log
+
+    currentQuestionIndex++;
+    
+    saveProgress(); // ✅ Make sure progress is saved before moving forward
+    loadQuestion();
+}
 
     // 📌 Back Button Functionality
     function goBack() {
@@ -123,25 +127,33 @@ if (window.quizLoaded) {
 
     // 📌 Calculate Results
     function calculateResults() {
-        console.log("📊 Calculating Results...");
-        let archetypeScores = {};
+    console.log("📊 Calculating Results...");
+    console.log("🔍 User Responses:", userResponses);
 
-        Object.entries(userResponses).forEach(([questionId, response]) => {
-            let question = quizQuestions.find(q => q.id === questionId);
-            if (question) {
-                let archetype = question.archetype;
-                let weight = response.weight || 1;
-                archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-            } else {
-                console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
-            }
-        });
+    let archetypeScores = {};
 
-        let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+    // Process weighted scoring
+    Object.entries(userResponses).forEach(([questionId, response]) => {
+        let question = quizQuestions.find(q => q.id === questionId);
+        if (question) {
+            let archetype = question.archetype;
+            let weight = response.weight || 1; // Default weight is 1 if missing
+            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+        } else {
+            console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+        }
+    });
 
-        console.log("🏆 Final Archetypes:", sortedArchetypes);
-        displayResults(sortedArchetypes);
-    }
+    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+    console.log("🏆 Final Archetypes:", sortedArchetypes);
+
+    // ✅ FIX: Store final results properly before navigating
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    console.log("💾 Results Saved:", sessionStorage.getItem("quizResults"));
+
+    window.location.href = "quiz_results.html";
+}
 
     // 📌 Display Results
     function displayResults(sortedArchetypes) {
