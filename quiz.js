@@ -128,18 +128,32 @@ if (window.quizLoaded) {
         }
     }
 
-    // 📌 Calculate Results (Ensures Enough Data First)
-    function calculateResults() {
+  function calculateResults() {
     console.log("📊 Calculating Results...");
-    
-    // 🔍 Check if all questions have been answered
-    if (Object.keys(userResponses).length < quizQuestions.length) {
-        console.error("❌ Not enough responses to calculate results. Returning to quiz.");
-        loadQuestion();  // ✅ Go back to the quiz
-        return;
-    }
 
     let archetypeScores = {};
+
+    Object.entries(userResponses).forEach(([questionId, response]) => {
+        let question = quizQuestions.find(q => q.id === questionId);
+        if (question) {
+            let archetype = question.archetype || "Unknown";
+            let weight = response.weight || 1;
+            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+        } else {
+            console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+        }
+    });
+
+    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+    // ✅ Prevent undefined results
+    if (sortedArchetypes.length === 0) {
+        console.error("❌ No valid archetypes calculated.");
+        return;  // ✅ Now it's inside a function, so it's valid
+    }
+
+    displayResults(sortedArchetypes);
+}
 
     // Process weighted scoring
     Object.entries(userResponses).forEach(([questionId, response]) => {
