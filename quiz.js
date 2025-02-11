@@ -18,20 +18,23 @@ console.log("✅ quiz.js Loaded Successfully!");
 fetch('quiz_data.json')
   .then(response => response.json())
   .then(data => {
-    console.log("✅ JSON Loaded Successfully:", data);
-    
-    if (!data.sections || !data.sections.foundational_assessment) {
-        console.error("❌ JSON Format Error: Sections missing.");
-        return;
-    }
-    
-    quizQuestions = data.sections.foundational_assessment.questions; 
-    console.log("📌 Extracted Questions:", quizQuestions);  // ✅ This tells us if it worked!
-    
-    loadProgress();
-    loadQuestion();
-  })
+      console.log("✅ JSON Loaded Successfully:", data);
+      
+      if (!data.sections || !data.sections.foundational_assessment) {
+          console.error("❌ JSON Format Error: Sections missing.");
+          return;
+      }
+      
+      // ✅ Assign quizQuestions (No `let` redeclaration)
+      quizQuestions = data.sections.foundational_assessment.questions; 
+      console.log("📌 Extracted Questions:", quizQuestions);
+
+      loadProgress();
+      loadQuestion();
+  })  // ❌ REMOVE THIS LINE (it shouldn't be here)
+
   .catch(error => console.error("❌ Error loading JSON:", error));
+
 
     
     // ✅ Assign quizQuestions (No `let` redeclaration)
