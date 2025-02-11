@@ -104,16 +104,20 @@ if (window.quizLoaded) {
     }
 
     // 📌 Select Option
-    function selectOption(index, questionId, weight) {
+   function selectOption(index, questionId, weight) {
     console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
 
-    userResponses[questionId] = { selectedOption: index, weight: weight };
+    if (!userResponses) {
+        userResponses = {}; // ✅ Ensure it's an object
+    }
 
-    console.log("🔄 Updated User Responses:", userResponses); // ✅ Debugging log
+    userResponses[questionId] = { selectedOption: index, weight: weight };
+    console.log("🔄 Updated User Responses:", userResponses); 
 
     currentQuestionIndex++;
-    
-    saveProgress(); // ✅ Make sure progress is saved before moving forward
+    console.log("➡ Moving to Next Question. New Index:", currentQuestionIndex);
+
+    saveProgress(); // ✅ Ensure progress saves
     loadQuestion();
 }
 
