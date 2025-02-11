@@ -85,6 +85,60 @@ if (window.quizLoaded) {
     function loadQuestion() {
     console.log("📌 Loading Question Index:", currentQuestionIndex);
 
+    if (!quizQuestions || quizQuestions.length === 0) {
+        console.error("❌ No Questions Found! Delaying question load.");
+        questionText.innerText = "Loading questions... Please wait.";
+        return;
+    }
+
+    if (currentQuestionIndex >= quizQuestions.length) {
+        console.log("✅ All Questions Answered – Calculating Results!");
+        calculateResults();
+        return;
+    }
+
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+
+    if (!currentQuestion) {
+        console.error("❌ Current Question is Undefined! Skipping...");
+        questionText.innerText = "An error occurred loading this question.";
+        return;
+    }
+
+    console.log("🎯 Current Question:", currentQuestion);
+
+    questionText.innerText = currentQuestion.question_text;
+    optionsContainer.innerHTML = ""; // Clear previous options
+
+    // ✅ Handle different question types:
+    if (currentQuestion.type === "open_ended") {
+        // Create and display a text box for open-ended input
+        const textBox = document.createElement("textarea");
+        textBox.id = "open-ended-response";
+        textBox.placeholder = "Type your response here...";
+        textBox.classList.add("open-ended-input");
+        
+        // Load saved input if user is revisiting a question
+        if (userResponses[currentQuestion.id]) {
+            textBox.value = userResponses[currentQuestion.id];
+        }
+
+        optionsContainer.appendChild(textBox);
+    } else {
+        // Render multiple-choice buttons (for likert scale, multiple choice, etc.)
+        currentQuestion.response_options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("option-button");
+            button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight);
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+    saveProgress();
+}
+
     // ✅ Ensure quizQuestions has loaded before displaying
     if (!quizQuestions || quizQuestions.length === 0) {
         console.error("❌ No Questions Found! Delaying question load.");
@@ -147,19 +201,39 @@ if (window.quizLoaded) {
     }
 
     // 📌 Calculate Results
-    function calculateResults() {
-        console.log("📊 Calculating Results...");
-        console.log("🔍 User Responses:", userResponses);
+   function calculateResults() {
+    console.log("📊 Calculating Results...");
+    console.log("🔍 User Responses:", userResponses);
 
-        let sortedArchetypes = Object.keys(userResponses).sort((a, b) => userResponses[b] - userResponses[a]);
+    let archetypeScores = {};
 
-        if (sortedArchetypes.length === 0) {
-            console.error("❌ No valid archetypes calculated.");
+    // Process only multiple-choice & scale-based responses for scoring
+    Object.entries(userResponses).forEach(([questionId, response]) => {
+        let question = quizQuestions.find(q => q.id === questionId);
+
+        if (!question) {
+            console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
             return;
         }
 
-        displayResults(sortedArchetypes);
-    }
+        if (question.type !== "open_ended") {
+            let archetype = question.archetype;
+            let weight = response.weight || 1; // Default weight is 1 if missing
+            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+        }
+    });
+
+    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
+
+    console.log("🏆 Final Archetypes:", sortedArchetypes);
+    
+    // ✅ Store results
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    sessionStorage.setItem("openEndedResponses", JSON.stringify(userResponses)); // Store open-ended answers separately
+
+    window.location.href = "quiz_results.html";
+}
+
 
     // 📌 Display Results
     function displayResults(sortedArchetypes) {
