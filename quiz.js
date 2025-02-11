@@ -134,18 +134,39 @@ if (window.quizLoaded) {
    // 📌 Calculate Results & Save to sessionStorage
 function calculateResults() {
     console.log("📊 Calculating Results...");
-    
+    console.log("🔍 User Responses:", userResponses);
+
     let archetypeScores = {};
-    
-    Object.values(userResponses).forEach(response => {
-        let archetype = response.archetype;
-        let weight = response.weight || 1;
-        archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+
+    // ✅ Process weighted scoring
+    Object.entries(userResponses).forEach(([questionId, response]) => {
+        let question = quizQuestions.find(q => q.id === questionId);
+        if (question) {
+            let archetype = question.archetype;
+            let weight = response.weight || 1; // Default weight is 1 if missing
+            archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
+        } else {
+            console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
+        }
     });
 
     let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
 
     console.log("🏆 Final Archetypes:", sortedArchetypes);
+
+    // 🚨 If no valid archetypes found, redirect to quiz start
+    if (sortedArchetypes.length === 0) {
+        console.error("❌ No valid results found. Redirecting to quiz.");
+        window.location.href = "index.html";
+        return;
+    }
+
+    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    console.log("✅ Quiz Results Saved:", sessionStorage.getItem("quizResults"));
+
+    window.location.href = "quiz_results.html";
+}
+    
     
     // ✅ Save results to sessionStorage
     sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
@@ -196,3 +217,65 @@ function calculateResults() {
 
     backButton.addEventListener("click", goBack);
 }
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("📌 Results Page Loaded!");
+
+    const primaryArchetypeElement = document.getElementById("primary-archetype");
+    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
+    const archetypeDescriptionElement = document.getElementById("archetype-description");
+    const affirmingMessageElement = document.getElementById("affirming-message");
+    const personalizedInsightsElement = document.getElementById("personalized-insights");
+    const reflectionListElement = document.getElementById("reflection-list");
+
+    // 🔍 Retrieve saved results from sessionStorage
+    const savedResults = sessionStorage.getItem("quizResults");
+
+    if (!savedResults || savedResults === "undefined") {
+        console.error("❌ Error: No quiz results found. Redirecting to quiz.");
+        window.location.href = "index.html";
+        return;
+    }
+
+    const archetypes = JSON.parse(savedResults);
+    console.log("🏆 Retrieved Quiz Results:", archetypes);
+
+    if (!archetypes || archetypes.length === 0) {
+        console.error("⚠️ No valid archetype found.");
+        primaryArchetypeElement.innerText = "Error: No Results Found";
+        return;
+    }
+
+    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
+    secondaryArchetypeElement.innerText = archetypes[1] || "None";
+
+    // ✅ Fetch additional details based on the results
+    fetch("quiz_data.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Archetype Data Loaded:", data.archetypes);
+            const archetypeDetails = data.archetypes[archetypes[0]];
+
+            if (archetypeDetails) {
+                archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
+                affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
+                personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
+
+                // ✅ Load Reflection Questions
+                reflectionListElement.innerHTML = "";
+                if (archetypeDetails.reflection) {
+                    archetypeDetails.reflection.forEach(question => {
+                        let li = document.createElement("li");
+                        li.innerText = question;
+                        reflectionListElement.appendChild(li);
+                    });
+                }
+            } else {
+                console.warn("⚠️ Archetype details not found in JSON.");
+            }
+        })
+        .catch(error => console.error("❌ Error loading archetype details:", error));
+});
+</script>
+
