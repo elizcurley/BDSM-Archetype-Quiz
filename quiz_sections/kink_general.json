@@ -1,0 +1,175 @@
+{
+  "description": "General questions about BDSM/kink preferences, boundaries, relationship dynamics, and overall kink interests. These questions help refine your archetype profile by exploring how you engage with common kink dynamics.",
+  "questions": [
+    {
+      "id": "K1",
+      "archetype": "Vanguard",
+      "question_text": "Do you enjoy exploring power dynamics in your relationships?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ],
+      "follow_up": "Is this preference influenced by specific contexts or partners?"
+    },
+    {
+      "id": "K2",
+      "archetype": "Alchemist",
+      "question_text": "How comfortable are you with sensory play (e.g., textures, blindfolds)?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Very comfortable",
+        "Comfortable",
+        "Neutral",
+        "Uncomfortable",
+        "Very uncomfortable"
+      ]
+    },
+    {
+      "id": "K3",
+      "archetype": "Keystone",
+      "question_text": "What role does clear communication and consent play in your kink dynamics?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Essential",
+        "Very important",
+        "Moderately important",
+        "Slightly important",
+        "Not important"
+      ]
+    },
+    {
+      "id": "K4",
+      "archetype": "Vanguard",
+      "question_text": "Do you prefer structured scenes with clearly defined roles or spontaneous, evolving interactions?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly prefer structured",
+        "Somewhat prefer structured",
+        "Neutral",
+        "Somewhat prefer spontaneous",
+        "Strongly prefer spontaneous"
+      ],
+      "follow_up": "Please explain your preference."
+    },
+    {
+      "id": "K5",
+      "archetype": "Vanguard",
+      "question_text": "How do you view the balance between control and submission in your relationships?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Control is paramount",
+        "Mostly control",
+        "Equal balance",
+        "Mostly submission",
+        "Submission is paramount"
+      ]
+    },
+    {
+      "id": "K6",
+      "archetype": "Alchemist",
+      "question_text": "How important is experimentation in your kink play?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Extremely important",
+        "Very important",
+        "Moderately important",
+        "Slightly important",
+        "Not important"
+      ]
+    },
+    {
+      "id": "K7",
+      "archetype": "Explorer",
+      "question_text": "Do you enjoy role reversal during scenes?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Always enjoy role reversal",
+        "Often enjoy role reversal",
+        "Neutral",
+        "Rarely enjoy role reversal",
+        "Never enjoy role reversal"
+      ]
+    },
+    {
+      "id": "K8",
+      "archetype": "Keystone",
+      "question_text": "When it comes to consent, do you prefer detailed negotiation before play?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Always",
+        "Often",
+        "Sometimes",
+        "Rarely",
+        "Never"
+      ]
+    },
+    {
+      "id": "K9",
+      "archetype": "Oracle",
+      "question_text": "How important is emotional connection and vulnerability in your kink experiences?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Extremely important",
+        "Very important",
+        "Moderately important",
+        "Slightly important",
+        "Not important"
+      ]
+    },
+    {
+      "id": "K10",
+      "archetype": "Explorer",
+      "question_text": "Do you prefer a stable, consistent kink routine or do you thrive on variability and unpredictability?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly prefer routine",
+        "Somewhat prefer routine",
+        "Neutral",
+        "Somewhat prefer unpredictability",
+        "Strongly prefer unpredictability"
+      ]
+    },
+    {
+      "id": "K11",
+      "archetype": "Keystone",
+      "question_text": "How much do you prioritize safety protocols over spontaneous creativity in your play?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Safety protocols always come first",
+        "Safety protocols are very important",
+        "Balance safety with creativity",
+        "Prefer spontaneity over strict protocols",
+        "Spontaneity always comes first"
+      ]
+    },
+    {
+      "id": "K12",
+      "archetype": "Vanguard",
+      "question_text": "Do you enjoy exploring both dominant and submissive roles within your interactions?",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly enjoy both roles",
+        "Often enjoy both roles",
+        "Neutral",
+        "Rarely enjoy both roles",
+        "Never enjoy both roles"
+      ]
+    }
+  ]
+}
