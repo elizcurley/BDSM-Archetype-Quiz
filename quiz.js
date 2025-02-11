@@ -95,25 +95,23 @@ if (window.quizLoaded) {
 function selectOption(index, questionId, weight) {
     console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
 
-    if (typeof currentQuestionIndex === "undefined") {
-        console.error("❌ Error: currentQuestionIndex is NOT defined! Defaulting to 0.");
-        window.currentQuestionIndex = 0; // ✅ Default to 0
-    }
-
-    userResponses[questionId] = { 
-        selectedOption: index, 
-        weight: weight, 
-        archetype: quizQuestions[currentQuestionIndex]?.archetype || "Undefined"
+    // ✅ Ensure userResponses object is correctly updated
+    userResponses[questionId] = {
+        selectedOption: index,
+        weight: weight
     };
 
-    console.log("🔄 Updated User Responses:", userResponses); // ✅ Debugging log
+    console.log("🔄 Updated User Responses:", userResponses); // Debugging log
 
-    if (currentQuestionIndex < quizQuestions.length - 1) {
-        currentQuestionIndex++;
-        saveProgress();  // ✅ Save progress before moving
-        loadQuestion();   // ✅ Load next question
+    // ✅ Move to the next question
+    currentQuestionIndex++;
+
+    // ✅ Check if there are more questions before moving to results
+    if (currentQuestionIndex < quizQuestions.length) {
+        saveProgress(); // ✅ Make sure progress is saved before moving forward
+        loadQuestion();
     } else {
-        console.log("✅ All questions answered – calculating results!");
+        console.log("✅ All Questions Answered – Calculating Results!");
         calculateResults();
     }
 }
@@ -128,19 +126,27 @@ function selectOption(index, questionId, weight) {
     }
 
     // 📌 Calculate Results
-  // 📌 Calculate Results (Weight-Based)
+ // 📌 Calculate Results (Weight-Based)
 function calculateResults() {
     console.log("📊 Calculating Results...");
     console.log("🔍 User Responses:", userResponses);
 
     let archetypeScores = {};
 
-    // Process weighted scoring
+    // ✅ Ensure userResponses is not empty before proceeding
+    if (Object.keys(userResponses).length === 0) {
+        console.error("❌ No valid responses found. Retaking quiz...");
+        sessionStorage.setItem("quizResults", JSON.stringify(["Undefined"]));
+        window.location.href = "quiz_results.html";
+        return;
+    }
+
+    // ✅ Process weighted scoring
     Object.entries(userResponses).forEach(([questionId, response]) => {
         let question = quizQuestions.find(q => q.id === questionId);
-        if (question) {
-            let archetype = question.archetype; // ✅ Ensure each question has an archetype
-            let weight = response.weight || 1;  // Default weight is 1 if missing
+        if (question && question.archetype) {
+            let archetype = question.archetype; 
+            let weight = response.weight || 1; 
             archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
         } else {
             console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
@@ -150,6 +156,18 @@ function calculateResults() {
     let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
 
     console.log("🏆 Final Archetypes:", sortedArchetypes);
+
+    // ✅ Ensure results are correctly stored
+    if (sortedArchetypes.length === 0) {
+        console.error("❌ No valid archetypes determined. Storing fallback value.");
+        sessionStorage.setItem("quizResults", JSON.stringify(["Undefined"]));
+    } else {
+        sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
+    }
+
+    // ✅ Redirect to results page
+    window.location.href = "quiz_results.html";
+}
 
     // ✅ Make sure results are properly stored
     if (sortedArchetypes.length === 0) {
