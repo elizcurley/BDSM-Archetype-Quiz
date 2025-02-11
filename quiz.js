@@ -5,8 +5,10 @@ if (window.quizLoaded) {
     window.quizLoaded = true; // ✅ Mark script as loaded
 
     // 📌 Quiz State Variables
-    let quizQuestions = [];
-    let currentQuestionIndex = 0;
+    let quizQuestions = []; // Only stores currently loaded section
+    let allSections = ["foundational_assessment", "hobby_preferences", "kink_general", "kink_specific", "situational", "reflection", "preference_strength"];
+    let currentSectionIndex = 0; // Tracks progress through sections
+    let currentQuestionIndex = 0; // Tracks question index within a section
     let userResponses = {};
 
     // 📌 DOM Elements
@@ -16,35 +18,37 @@ if (window.quizLoaded) {
     const optionsContainer = document.getElementById("options-container");
     const nextButton = document.getElementById("next-button");
     const backButton = document.getElementById("back-button");
-    const resultsContainer = document.getElementById("results-container");
 
     // 📌 Confirm Script is Running
     console.log("✅ quiz.js Loaded Successfully!");
 
-    // 📌 Load Quiz Data from JSON
-    fetch('quiz_data.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log("✅ JSON Loaded Successfully:", data);
+    // 📌 Load First Section of Questions
+    function loadNextSection() {
+        if (currentSectionIndex >= allSections.length) {
+            console.log("✅ All Sections Completed – Calculating Results!");
+            calculateResults();
+            return;
+        }
 
-            if (!data.sections || !data.sections.foundational_assessment) {
-                console.error("❌ JSON Format Error: Sections missing.");
-                return;
-            }
+        let sectionName = allSections[currentSectionIndex];
+        console.log(`📌 Loading Section: ${sectionName}`);
 
-            // ✅ Assign quizQuestions Correctly
-            quizQuestions = data.sections.foundational_assessment.questions;
-            console.log("📌 Extracted Questions:", quizQuestions);
-
-            loadProgress(); // ✅ Load saved progress
-        })
-        .catch(error => console.error("❌ Error loading JSON:", error));
+        fetch(`quiz_sections/${sectionName}.json`) // ✅ Lazy loading JSON
+            .then(response => response.json())
+            .then(data => {
+                quizQuestions = data.questions || []; // ✅ Load only current section
+                currentQuestionIndex = 0; // ✅ Reset index for new section
+                loadQuestion();
+            })
+            .catch(error => console.error(`❌ Error loading ${sectionName}:`, error));
+    }
 
     // 📌 Save Quiz Progress to Session Storage
     function saveProgress() {
-        sessionStorage.setItem("quizProgress", JSON.stringify({
-            currentQuestionIndex,
-            userResponses
+        sessionStorage.setItem("quizProgress", JSON.stringify({ 
+            currentSectionIndex,
+            currentQuestionIndex, 
+            userResponses 
         }));
         console.log("💾 Progress Saved:", sessionStorage.getItem("quizProgress"));
     }
@@ -53,38 +57,42 @@ if (window.quizLoaded) {
     function loadProgress() {
         const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
         if (savedProgress) {
+            currentSectionIndex = savedProgress.currentSectionIndex || 0;
             currentQuestionIndex = savedProgress.currentQuestionIndex || 0;
             userResponses = savedProgress.userResponses || {};
             console.log("🔄 Loaded Saved Progress:", savedProgress);
         }
     }
 
-    // 📌 Load Question
+    // 📌 Load Question (Dynamically Updates UI)
     function loadQuestion() {
         console.log("📌 Loading Question Index:", currentQuestionIndex);
 
         if (quizQuestions.length === 0) {
-            console.error("❌ No Questions Found in JSON!");
+            console.log("✅ Section Completed! Moving to Next Section.");
+            currentSectionIndex++;
+            loadNextSection();
             return;
         }
 
         if (currentQuestionIndex >= quizQuestions.length) {
-            console.log("✅ All Questions Answered – Calculating Results!");
-            calculateResults();
+            console.log("✅ Section Completed! Moving to Next Section.");
+            currentSectionIndex++;
+            loadNextSection();
             return;
         }
-
-        // ✅ Hide intro and show quiz
-        introContainer.style.display = "none";
-        quizContainer.style.display = "block";
 
         const currentQuestion = quizQuestions[currentQuestionIndex];
         console.log("🎯 Current Question:", currentQuestion);
 
         if (!currentQuestion) {
-            console.error("❌ Current Question is Undefined!");
+            console.error("❌ Current Question is Undefined! Check JSON format.");
             return;
         }
+
+        // ✅ Show Quiz and Hide Intro
+        introContainer.style.display = "none";
+        quizContainer.style.display = "block";
 
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
@@ -93,7 +101,7 @@ if (window.quizLoaded) {
             const button = document.createElement("button");
             button.innerText = option;
             button.classList.add("option-button");
-            button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight);
+            button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight, currentQuestion.archetype);
             optionsContainer.appendChild(button);
         });
 
@@ -102,16 +110,18 @@ if (window.quizLoaded) {
     }
 
     // 📌 Select Option (Stores Response & Moves to Next)
-    function selectOption(index, questionId, weight) {
-        console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight);
+    function selectOption(index, questionId, weight, archetype) {
+        console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight, "Archetype:", archetype);
 
-        userResponses[questionId] = { selectedOption: index, weight: weight };
-
-        console.log("🔄 Updated User Responses:", userResponses);
+        if (!userResponses[archetype]) {
+            userResponses[archetype] = 0;
+        }
+        userResponses[archetype] += weight;
 
         currentQuestionIndex++;
-
+        console.log("➡ Moving to Next Question. New Index:", currentQuestionIndex);
         saveProgress();
+
         loadQuestion();
     }
 
@@ -123,38 +133,18 @@ if (window.quizLoaded) {
         }
     }
 
-    // 📌 Calculate Results
+    // 📌 Calculate Results (Weight-Based)
     function calculateResults() {
         console.log("📊 Calculating Results...");
         console.log("🔍 User Responses:", userResponses);
 
-        let archetypeScores = {};
-
-        Object.entries(userResponses).forEach(([questionId, response]) => {
-            let question = quizQuestions.find(q => q.id === questionId);
-            if (question && question.archetype) {
-                let archetype = question.archetype;
-                let weight = response.weight || 1;
-                archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-            } else {
-                console.warn("⚠️ Question ID Not Found in Quiz Data or missing archetype:", questionId);
-            }
-        });
-
-        let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
-
-        // ✅ Prevent undefined results
-        if (!sortedArchetypes.length || sortedArchetypes[0] === "undefined") {
-            console.error("❌ No valid archetypes calculated.");
-            alert("No valid results found. Please retake the quiz.");
-            return;
-        }
+        let sortedArchetypes = Object.keys(userResponses).sort((a, b) => userResponses[b] - userResponses[a]);
 
         console.log("🏆 Final Archetypes:", sortedArchetypes);
         displayResults(sortedArchetypes);
     }
 
-    // 📌 Display Results
+    // 📌 Display Results (Navigates to results page)
     function displayResults(sortedArchetypes) {
         sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
         window.location.href = "quiz_results.html";
@@ -168,8 +158,8 @@ if (window.quizLoaded) {
         if (startButton) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
-                console.log("🚀 Start Button Clicked! Attempting to load first question...");
-                loadQuestion();
+                console.log("🚀 Start Button Clicked! Loading first section...");
+                loadNextSection();
             });
         } else {
             console.error("❌ Start Button Not Found!");
