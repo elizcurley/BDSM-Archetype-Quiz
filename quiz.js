@@ -167,13 +167,12 @@ if (window.quizLoaded) {
 
 
         // ✅ Prevent undefined results
-        if (sortedArchetypes.length === 0) {
-            console.error("❌ No valid archetypes calculated.");
-            return;
-        }
+       if (sortedArchetypes.length === 0) {
+    console.error("❌ No valid archetypes calculated.");
+    alert("No valid results found. Please retake the quiz.");
+    return;  // ✅ Now safe because it's inside a function
+}
 
-        displayResults(sortedArchetypes);
-    }
 
     // 📌 Display Results (Stores & Redirects)
     function displayResults(sortedArchetypes) {
