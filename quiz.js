@@ -5,11 +5,21 @@ if (window.quizLoaded) {
     window.quizLoaded = true; // ✅ Mark script as loaded
 
     // 📌 Quiz State Variables
-    let quizQuestions = []; // Only stores currently loaded section
-    let allSections = ["foundational_assessment", "hobby_preferences", "kink_general", "kink_specific", "situational", "reflection", "preference_strength"];
-    let currentSectionIndex = 0; // Tracks progress through sections
-    let currentQuestionIndex = 0; // Tracks question index within a section
+    let quizQuestions = [];
+    let currentQuestionIndex = 0;
     let userResponses = {};
+    let sectionsLoaded = 0; // Tracks number of loaded sections
+
+    // 📌 JSON Files to Load (Modular)
+    const jsonFiles = [
+        "quiz_sections/foundational_assessment.json",
+        "quiz_sections/hobby_preferences.json",
+        "quiz_sections/kink_general.json",
+        "quiz_sections/kink_specific.json",
+        "quiz_sections/situational.json",
+        "quiz_sections/reflection.json",
+        "quiz_sections/preference_strength.json"
+    ];
 
     // 📌 DOM Elements
     const introContainer = document.getElementById("intro-container");
@@ -18,81 +28,80 @@ if (window.quizLoaded) {
     const optionsContainer = document.getElementById("options-container");
     const nextButton = document.getElementById("next-button");
     const backButton = document.getElementById("back-button");
+    const resultsContainer = document.getElementById("results-container");
 
-    // 📌 Confirm Script is Running
     console.log("✅ quiz.js Loaded Successfully!");
 
-    // 📌 Load First Section of Questions
-    function loadNextSection() {
-        if (currentSectionIndex >= allSections.length) {
-            console.log("✅ All Sections Completed – Calculating Results!");
-            calculateResults();
-            return;
-        }
+    // 📌 Load Quiz Data from All Sections
+    function loadAllSections() {
+        jsonFiles.forEach(file => {
+            fetch(file)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.questions) {
+                        quizQuestions = quizQuestions.concat(data.questions);
+                        console.log(`📌 Loaded ${data.questions.length} questions from ${file}`);
+                    } else {
+                        console.warn(`⚠️ No questions found in ${file}`);
+                    }
 
-        let sectionName = allSections[currentSectionIndex];
-        console.log(`📌 Loading Section: ${sectionName}`);
-
-        fetch(`quiz_sections/${sectionName}.json`) // ✅ Lazy loading JSON
-            .then(response => response.json())
-            .then(data => {
-                quizQuestions = data.questions || []; // ✅ Load only current section
-                currentQuestionIndex = 0; // ✅ Reset index for new section
-                loadQuestion();
-            })
-            .catch(error => console.error(`❌ Error loading ${sectionName}:`, error));
+                    sectionsLoaded++;
+                    if (sectionsLoaded === jsonFiles.length) {
+                        console.log("✅ All quiz sections loaded!");
+                        shuffleQuestions();
+                        loadProgress();
+                        loadQuestion();
+                    }
+                })
+                .catch(error => console.error(`❌ Error loading ${file}:`, error));
+        });
     }
 
-    // 📌 Save Quiz Progress to Session Storage
+    // 📌 Shuffle Questions for Variation
+    function shuffleQuestions() {
+        quizQuestions.sort(() => Math.random() - 0.5);
+    }
+
+    // 📌 Save Progress
     function saveProgress() {
-        sessionStorage.setItem("quizProgress", JSON.stringify({ 
-            currentSectionIndex,
-            currentQuestionIndex, 
-            userResponses 
+        sessionStorage.setItem("quizProgress", JSON.stringify({
+            currentQuestionIndex,
+            userResponses
         }));
         console.log("💾 Progress Saved:", sessionStorage.getItem("quizProgress"));
     }
 
-    // 📌 Load Quiz Progress from Session Storage
+    // 📌 Load Progress
     function loadProgress() {
         const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
         if (savedProgress) {
-            currentSectionIndex = savedProgress.currentSectionIndex || 0;
             currentQuestionIndex = savedProgress.currentQuestionIndex || 0;
             userResponses = savedProgress.userResponses || {};
             console.log("🔄 Loaded Saved Progress:", savedProgress);
         }
     }
 
-    // 📌 Load Question (Dynamically Updates UI)
+    // 📌 Load Question
     function loadQuestion() {
         console.log("📌 Loading Question Index:", currentQuestionIndex);
 
         if (quizQuestions.length === 0) {
-            console.log("✅ Section Completed! Moving to Next Section.");
-            currentSectionIndex++;
-            loadNextSection();
+            console.error("❌ No Questions Loaded!");
             return;
         }
 
         if (currentQuestionIndex >= quizQuestions.length) {
-            console.log("✅ Section Completed! Moving to Next Section.");
-            currentSectionIndex++;
-            loadNextSection();
+            console.log("✅ All Questions Answered – Calculating Results!");
+            calculateResults();
             return;
         }
 
         const currentQuestion = quizQuestions[currentQuestionIndex];
-        console.log("🎯 Current Question:", currentQuestion);
 
         if (!currentQuestion) {
-            console.error("❌ Current Question is Undefined! Check JSON format.");
+            console.error("❌ Current Question is Undefined!");
             return;
         }
-
-        // ✅ Show Quiz and Hide Intro
-        introContainer.style.display = "none";
-        quizContainer.style.display = "block";
 
         questionText.innerText = currentQuestion.question_text;
         optionsContainer.innerHTML = "";
@@ -109,7 +118,7 @@ if (window.quizLoaded) {
         saveProgress();
     }
 
-    // 📌 Select Option (Stores Response & Moves to Next)
+    // 📌 Select Option
     function selectOption(index, questionId, weight, archetype) {
         console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight, "Archetype:", archetype);
 
@@ -119,9 +128,7 @@ if (window.quizLoaded) {
         userResponses[archetype] += weight;
 
         currentQuestionIndex++;
-        console.log("➡ Moving to Next Question. New Index:", currentQuestionIndex);
         saveProgress();
-
         loadQuestion();
     }
 
@@ -133,24 +140,28 @@ if (window.quizLoaded) {
         }
     }
 
-    // 📌 Calculate Results (Weight-Based)
+    // 📌 Calculate Results
     function calculateResults() {
         console.log("📊 Calculating Results...");
         console.log("🔍 User Responses:", userResponses);
 
         let sortedArchetypes = Object.keys(userResponses).sort((a, b) => userResponses[b] - userResponses[a]);
 
-        console.log("🏆 Final Archetypes:", sortedArchetypes);
+        if (sortedArchetypes.length === 0) {
+            console.error("❌ No valid archetypes calculated.");
+            return;
+        }
+
         displayResults(sortedArchetypes);
     }
 
-    // 📌 Display Results (Navigates to results page)
+    // 📌 Display Results
     function displayResults(sortedArchetypes) {
         sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
         window.location.href = "quiz_results.html";
     }
 
-    // 📌 Event Listeners for Start Button
+    // 📌 Event Listeners
     document.addEventListener("DOMContentLoaded", () => {
         console.log("📌 DOM Fully Loaded!");
 
@@ -158,15 +169,16 @@ if (window.quizLoaded) {
         if (startButton) {
             console.log("🚀 Start Button Found!");
             startButton.addEventListener("click", () => {
-                console.log("🚀 Start Button Clicked! Loading first section...");
-                loadNextSection();
+                console.log("🚀 Start Button Clicked! Loading Quiz...");
+                introContainer.style.display = "none";
+                quizContainer.style.display = "block";
+                loadAllSections();
             });
         } else {
             console.error("❌ Start Button Not Found!");
         }
     });
 
-    // 📌 Event Listeners for Next & Back Buttons
     nextButton.addEventListener("click", loadQuestion);
     backButton.addEventListener("click", goBack);
 }
