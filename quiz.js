@@ -31,8 +31,9 @@ fetch('quiz_data.json')
 
       loadProgress(); // ✅ Load any saved progress
       loadQuestion(); // ✅ Start quiz
-  })
-  .catch(error => console.error("❌ Error loading JSON:", error));
+  }) // ✅ Closes correctly before .catch()
+  .catch(error => console.error("❌ Error loading JSON:", error)); // ✅ Correct placement
+
 
 // 📌 Save Quiz Progress to Session Storage
 function saveProgress() {
