@@ -81,7 +81,7 @@ if (window.quizLoaded) {
     }
   }
 
-  // Consolidated Load Question Function (Only closed-ended questions are handled)
+  // Consolidated Load Question Function
   function loadQuestion() {
     console.log("📌 Loading Question Index:", currentQuestionIndex);
 
@@ -108,7 +108,40 @@ if (window.quizLoaded) {
     questionText.innerText = currentQuestion.question_text;
     optionsContainer.innerHTML = "";
 
-    if (Array.isArray(currentQuestion.response_options)) {
+    // Handle numeric_scale questions by rendering a slider
+    if (currentQuestion.type === "numeric_scale") {
+      const input = document.createElement("input");
+      input.type = "range";
+      input.id = "numeric-scale-input";
+      input.min = currentQuestion.min || 1;
+      input.max = currentQuestion.max || 10;
+      const minVal = Number(input.min);
+      const maxVal = Number(input.max);
+      input.value = Math.floor((minVal + maxVal) / 2);
+      
+      // Display current value
+      const output = document.createElement("span");
+      output.id = "numeric-scale-output";
+      output.innerText = input.value;
+      input.addEventListener("input", () => {
+        output.innerText = input.value;
+      });
+      optionsContainer.appendChild(input);
+      optionsContainer.appendChild(output);
+    }
+    // Optionally handle open-ended questions (if any remain)
+    else if (currentQuestion.type === "open_ended") {
+      const textBox = document.createElement("textarea");
+      textBox.id = "open-ended-response";
+      textBox.placeholder = "Type your response here...";
+      textBox.classList.add("open-ended-input");
+      if (userResponses[currentQuestion.id]) {
+        textBox.value = userResponses[currentQuestion.id];
+      }
+      optionsContainer.appendChild(textBox);
+    }
+    // Handle closed-ended questions (e.g., likert_scale, multiple_choice)
+    else if (Array.isArray(currentQuestion.response_options)) {
       currentQuestion.response_options.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerText = option;
@@ -126,7 +159,7 @@ if (window.quizLoaded) {
     saveProgress();
   }
 
-  // Select Option Function for Closed-Ended Questions
+  // Select Option Function for closed-ended choices
   function selectOption(index, questionId, weight, archetype) {
     console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight, "Archetype:", archetype);
     // Store response using question ID as key
@@ -161,7 +194,6 @@ if (window.quizLoaded) {
         console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
         return;
       }
-      // Since open-ended questions are removed, process only closed-ended questions
       let archetype = question.archetype;
       let weight = response.weight || 1;
       archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
@@ -194,8 +226,26 @@ if (window.quizLoaded) {
     }
   });
 
+  // Next Button: For numeric_scale and open_ended questions
   nextButton.addEventListener("click", () => {
-    // For closed-ended questions, simply move to the next question
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+    if (currentQuestion) {
+      if (currentQuestion.type === "numeric_scale") {
+        const input = document.getElementById("numeric-scale-input");
+        if (input) {
+          userResponses[currentQuestion.id] = {
+            value: input.value,
+            weight: currentQuestion.weight,
+            archetype: currentQuestion.archetype
+          };
+        }
+      } else if (currentQuestion.type === "open_ended") {
+        const textBox = document.getElementById("open-ended-response");
+        if (textBox) {
+          userResponses[currentQuestion.id] = textBox.value;
+        }
+      }
+    }
     currentQuestionIndex++;
     saveProgress();
     loadQuestion();
