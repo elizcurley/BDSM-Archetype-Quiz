@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Include Chart.js CDN before your custom scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="results.js" defer></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Quiz Results</title>
@@ -28,6 +32,8 @@
         <h2>Self-Reflection Questions</h2>
         <ul id="reflection-list"></ul>
       </div>
+
+<canvas id="spider-graph" width="400" height="400"></canvas>
 
       <!-- Button Options -->
       <div class="button-container">
