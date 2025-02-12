@@ -18,9 +18,16 @@
     {
       "id": "SK2",
       "archetype": "Connoisseur",
-      "question_text": "How do you incorporate your personal style into your kink dynamics?",
-      "type": "open_ended",
-      "weight": 3
+      "question_text": "I consistently incorporate my personal style into my kink dynamics.",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "SK3",
@@ -93,24 +100,44 @@
     {
       "id": "SK8",
       "archetype": "Keystone",
-      "question_text": "How do you ensure that both you and your partner remain comfortable during a scene?",
-      "type": "open_ended",
-      "weight": 3
+      "question_text": "I prioritize both my partner's comfort and my own during a scene.",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "SK9",
       "archetype": "Alchemist",
-      "question_text": "How do you adjust the intensity of your kink practices based on your partner's reactions?",
-      "type": "open_ended",
+      "question_text": "I adjust the intensity of my kink practices responsively based on my partner's reactions.",
+      "type": "likert_scale",
       "weight": 3,
-      "follow_up": "Provide an example of when you had to change the intensity mid-scene."
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "SK10",
       "archetype": "Keystone",
-      "question_text": "Do you have a preferred method for establishing scene boundaries during specialized play (such as sensory or impact play)?",
-      "type": "open_ended",
-      "weight": 3
+      "question_text": "I have a clear method for establishing scene boundaries during specialized play.",
+      "type": "likert_scale",
+      "weight": 3,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     }
   ]
 }
