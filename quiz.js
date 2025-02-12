@@ -208,7 +208,6 @@ if (window.quizLoaded) {
 
     backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
     saveProgress();
-}
 
     // ✅ Ensure quizQuestions has loaded before displaying
     if (!quizQuestions || quizQuestions.length === 0) {
