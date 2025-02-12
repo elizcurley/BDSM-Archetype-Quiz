@@ -1,208 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Quiz Results</title>
-    <link rel="stylesheet" href="results_styles.css">
-    <script src="results.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Quiz Results</title>
+  <link rel="stylesheet" href="results_styles.css">
+  <script src="results.js" defer></script>
 </head>
 <body>
+  <div class="results-container">
+    <!-- Left Panel: Written Profile -->
+    <div class="text-panel">
+      <h1>Your Primary Archetype: <span id="primary-archetype"></span></h1>
+      <p id="archetype-description"></p>
 
-    <div class="results-container">
-        
-        <!-- Left Panel: Written Profile -->
-        <div class="text-panel">
-            <h1>Your Primary Archetype: <span id="primary-archetype"></span></h1>
-            <p id="archetype-description"></p>
+      <h2>Secondary Influence:</h2>
+      <p class="secondary-archetype" id="secondary-archetype"></p>
 
-            <h2>Secondary Influence:</h2>
-            <p class="secondary-archetype" id="secondary-archetype"></p>
+      <h2>Affirming Message</h2>
+      <p id="affirming-message"></p>
 
-            <h2>Affirming Message</h2>
-            <p id="affirming-message"></p>
+      <h2>Personalized Insights</h2>
+      <p id="personalized-insights"></p>
 
-            <h2>Personalized Insights</h2>
-            <p id="personalized-insights"></p>
+      <!-- Reflection Questions -->
+      <div class="reflection-questions">
+        <h2>Self-Reflection Questions</h2>
+        <ul id="reflection-list"></ul>
+      </div>
 
-            <!-- Reflection Questions -->
-            <div class="reflection-questions">
-                <h2>Self-Reflection Questions</h2>
-                <ul id="reflection-list"></ul>
-            </div>
-
-            <!-- Button Options -->
-            <div class="button-container">
-                <button id="export-pdf">Download PDF</button>
-                <button id="email-results">Email Results</button>
-            </div>
-        </div>
-
-        <!-- Right Panel: Visual Representation -->
-        <div class="visual-panel">
-            <h2>Archetype Preference Breakdown</h2>
-            <canvas id="spider-graph"></canvas>
-        </div>
+      <!-- Button Options -->
+      <div class="button-container">
+        <button id="export-pdf">Download PDF</button>
+        <button id="email-results">Email Results</button>
+      </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        console.log("📌 Results Page Loaded!");
-
-        const primaryArchetypeElement = document.getElementById("primary-archetype");
-        const secondaryArchetypeElement = document.getElementById("secondary-archetype");
-        const archetypeDescriptionElement = document.getElementById("archetype-description");
-        const affirmingMessageElement = document.getElementById("affirming-message");
-        const personalizedInsightsElement = document.getElementById("personalized-insights");
-        const reflectionListElement = document.getElementById("reflection-list");
-
-        // 🔍 Retrieve saved results from sessionStorage
-        const savedResults = sessionStorage.getItem("quizResults");
-
-        if (savedResults) {
-            const archetypes = JSON.parse(savedResults);
-            console.log("🏆 Retrieved Quiz Results:", archetypes);
-            
-            // ✅ Display the primary and secondary archetypes
-            primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
-            secondaryArchetypeElement.innerText = archetypes[1] || "None";
-
-            // ✅ Fetch additional details based on the results
-            fetch("quiz_data.json")
-                .then(response => response.json())
-                .then(data => {
-                    const archetypeDetails = data.archetypes[archetypes[0]];
-                    if (archetypeDetails) {
-                        archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
-                        affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
-                        personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
-                        
-                        // ✅ Load Reflection Questions
-                        reflectionListElement.innerHTML = "";
-                        if (archetypeDetails.reflection) {
-                            archetypeDetails.reflection.forEach(question => {
-                                let li = document.createElement("li");
-                                li.innerText = question;
-                                reflectionListElement.appendChild(li);
-                            });
-                        }
-                    } else {
-                        console.warn("⚠️ Archetype details not found in JSON.");
-                    }
-                })
-                .catch(error => console.error("❌ Error loading archetype details:", error));
-
-        } else {
-            console.error("❌ Error: No quiz results found. Please retake the quiz.");
-            primaryArchetypeElement.innerText = "Error: No Results Found";
-        }
-    });
-    </script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("📌 Results Page Loaded!");
-
-    const primaryArchetypeElement = document.getElementById("primary-archetype");
-    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
-    const archetypeDescriptionElement = document.getElementById("archetype-description");
-    const affirmingMessageElement = document.getElementById("affirming-message");
-    const personalizedInsightsElement = document.getElementById("personalized-insights");
-    const reflectionListElement = document.getElementById("reflection-list");
-
-    // 🔍 Retrieve saved results from sessionStorage
-    const savedResults = sessionStorage.getItem("quizResults");
-
-    if (!savedResults) {
-        console.error("❌ No quiz results found in sessionStorage.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    const archetypes = JSON.parse(savedResults);
-    console.log("🏆 Retrieved Quiz Results:", archetypes);
-
-    if (!archetypes || archetypes.length === 0 || archetypes[0] === "undefined") {
-        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
-    secondaryArchetypeElement.innerText = archetypes[1] || "None";
-
-    // ✅ Fetch additional details based on the results
-    fetch("quiz_data.json")
-        .then(response => response.json())
-        .then(data => {
-            if (!data.archetypes || !data.archetypes[archetypes[0]]) {
-                console.warn("⚠️ Archetype details not found in JSON.");
-                return;
-            }
-
-            const archetypeDetails = data.archetypes[archetypes[0]];
-            archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
-            affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
-            personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
-        })
-        .catch(error => console.error("❌ Error loading archetype details:", error));
-});
-</script>
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("📌 Results Page Loaded!");
-
-    const primaryArchetypeElement = document.getElementById("primary-archetype");
-    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
-
-    // 🔍 Retrieve saved results
-    const savedResults = sessionStorage.getItem("quizResults");
-
-    if (!savedResults || savedResults === "undefined") {
-        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    const archetypes = JSON.parse(savedResults);
-    console.log("🏆 Retrieved Quiz Results:", archetypes);
-
-    if (!archetypes || archetypes.length === 0 || archetypes[0] === "undefined") {
-        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
-    secondaryArchetypeElement.innerText = archetypes[1] || "None";
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("📌 Results Page Loaded!");
-
-    const primaryArchetypeElement = document.getElementById("primary-archetype");
-    const secondaryArchetypeElement = document.getElementById("secondary-archetype");
-
-    // 🔍 Retrieve saved results
-    const savedResults = sessionStorage.getItem("quizResults");
-
-    if (!savedResults || savedResults === "undefined") {
-        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    const archetypes = JSON.parse(savedResults);
-    console.log("🏆 Retrieved Quiz Results:", archetypes);
-
-    if (!archetypes || archetypes.length === 0 || archetypes[0] === "undefined") {
-        console.error("❌ Error: No valid quiz results found. Please retake the quiz.");
-        primaryArchetypeElement.innerText = "Error: No Results Found";
-        return;
-    }
-
-    primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
-    secondaryArchetypeElement.innerText = archetypes[1] || "None";
-});
-
-    
+    <!-- Right Panel: Visual Representation -->
+    <div class="visual-panel">
+      <h2>Archetype Preference Breakdown</h2>
+      <canvas id="spider-graph"></canvas>
+    </div>
+  </div>
 </body>
 </html>
