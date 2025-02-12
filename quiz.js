@@ -30,7 +30,6 @@ if (window.quizLoaded) {
   const optionsContainer = document.getElementById("options-container");
   const nextButton = document.getElementById("next-button");
   const backButton = document.getElementById("back-button");
-  const resultsContainer = document.getElementById("results-container");
 
   console.log("✅ quiz.js Loaded Successfully!");
 
@@ -82,7 +81,7 @@ if (window.quizLoaded) {
     }
   }
 
-  // Consolidated Load Question Function
+  // Consolidated Load Question Function (Only closed-ended questions are handled)
   function loadQuestion() {
     console.log("📌 Loading Question Index:", currentQuestionIndex);
 
@@ -109,17 +108,7 @@ if (window.quizLoaded) {
     questionText.innerText = currentQuestion.question_text;
     optionsContainer.innerHTML = "";
 
-    // Render based on question type
-    if (currentQuestion.type === "open_ended") {
-      const textBox = document.createElement("textarea");
-      textBox.id = "open-ended-response";
-      textBox.placeholder = "Type your response here...";
-      textBox.classList.add("open-ended-input");
-      if (userResponses[currentQuestion.id]) {
-        textBox.value = userResponses[currentQuestion.id];
-      }
-      optionsContainer.appendChild(textBox);
-    } else if (Array.isArray(currentQuestion.response_options)) {
+    if (Array.isArray(currentQuestion.response_options)) {
       currentQuestion.response_options.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerText = option;
@@ -137,7 +126,7 @@ if (window.quizLoaded) {
     saveProgress();
   }
 
-  // Select Option Function for Multiple Choice / Likert Scale
+  // Select Option Function for Closed-Ended Questions
   function selectOption(index, questionId, weight, archetype) {
     console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight, "Archetype:", archetype);
     // Store response using question ID as key
@@ -172,11 +161,10 @@ if (window.quizLoaded) {
         console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
         return;
       }
-      if (question.type !== "open_ended") {
-        let archetype = question.archetype;
-        let weight = response.weight || 1;
-        archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-      }
+      // Since open-ended questions are removed, process only closed-ended questions
+      let archetype = question.archetype;
+      let weight = response.weight || 1;
+      archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
     });
 
     let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
@@ -206,18 +194,12 @@ if (window.quizLoaded) {
     }
   });
 
-  // For open-ended questions, capture input before moving on via Next
   nextButton.addEventListener("click", () => {
-    const currentQuestion = quizQuestions[currentQuestionIndex];
-    if (currentQuestion && currentQuestion.type === "open_ended") {
-      const textBox = document.getElementById("open-ended-response");
-      if (textBox) {
-        userResponses[currentQuestion.id] = textBox.value;
-      }
-    }
+    // For closed-ended questions, simply move to the next question
     currentQuestionIndex++;
     saveProgress();
     loadQuestion();
   });
+
   backButton.addEventListener("click", goBack);
 }
