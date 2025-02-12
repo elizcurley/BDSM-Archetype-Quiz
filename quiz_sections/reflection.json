@@ -1,18 +1,24 @@
 {
-  "description": "Introspective questions to assess the depth of your reflections on your relationships, personal growth, and kink experiences. These questions are designed to uncover underlying motivations, learning experiences, and emotional strategies, providing richer context for your dynamic archetype profile.",
+  "description": "Reflection Questions – these statements help assess your views on personal growth, relationship dynamics, and your emotional responses during kink play. Indicate your level of agreement with each statement.",
   "questions": [
     {
       "id": "R1",
       "archetype": "Catalyst",
-      "question_text": "What challenges do you seek in your personal relationships?",
-      "type": "open_ended",
+      "question_text": "I actively seek challenging experiences in my personal relationships.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "Why do you seek these challenges?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R2",
       "archetype": "Catalyst",
-      "question_text": "On a scale from 1-10, how strongly do you identify with your primary archetype?",
+      "question_text": "I strongly identify with my primary archetype.",
       "type": "numeric_scale",
       "weight": 3,
       "min": 1,
@@ -21,84 +27,142 @@
     {
       "id": "R3",
       "archetype": "Oracle",
-      "question_text": "How often do you reflect on your personal growth and its impact on your dynamics?",
+      "question_text": "I frequently reflect on my personal growth and its impact on my relationships.",
       "type": "likert_scale",
       "weight": 2,
       "response_options": [
-        "Very frequently",
-        "Frequently",
-        "Occasionally",
-        "Rarely",
-        "Never"
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
       ]
     },
     {
       "id": "R4",
       "archetype": "Keystone",
-      "question_text": "How do you balance the desire for new experiences with the need for emotional stability?",
-      "type": "open_ended",
-      "weight": 2
+      "question_text": "I am able to balance my desire for new experiences with the need for emotional stability.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R5",
       "archetype": "Connoisseur",
-      "question_text": "What aspect of your kink play do you find most fulfilling?",
-      "type": "open_ended",
-      "weight": 2
+      "question_text": "I find that the aesthetic quality of my kink play is one of its most fulfilling aspects.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R6",
       "archetype": "Keystone",
-      "question_text": "How do you ensure your boundaries remain respected over time?",
-      "type": "open_ended",
-      "weight": 2
+      "question_text": "I consistently maintain and communicate my personal boundaries.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R7",
       "archetype": "Vanguard",
-      "question_text": "Reflect on a time when your leadership or boundary-pushing positively changed your dynamic. What did you learn from that experience?",
-      "type": "open_ended",
-      "weight": 2
+      "question_text": "My leadership in kink play positively impacts my personal growth.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R8",
       "archetype": "Oracle",
-      "question_text": "How do you process and learn from moments when communication during a scene breaks down?",
-      "type": "open_ended",
+      "question_text": "I effectively restore clarity and trust when communication breaks down during a scene.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "What strategies do you use to restore clarity and trust?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R9",
       "archetype": "Explorer",
-      "question_text": "Describe a moment when taking a risk in your intimate life led to significant personal growth.",
-      "type": "open_ended",
+      "question_text": "Taking risks in my intimate life often leads to personal growth.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "What did that risk teach you about yourself?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R10",
       "archetype": "Alchemist",
-      "question_text": "How do you reconcile spontaneity with the need for safety in your experimental practices?",
-      "type": "open_ended",
+      "question_text": "I balance spontaneity and safety effectively in my experimental practices.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "Can you provide an example from a recent experience?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R11",
       "archetype": "Vanguard",
-      "question_text": "What feedback from your partners has most influenced your approach to leadership in kink play?",
-      "type": "open_ended",
+      "question_text": "Feedback from my partners strongly influences my approach to leadership in kink play.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "How have you adapted based on that feedback?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     },
     {
       "id": "R12",
       "archetype": "Oracle",
-      "question_text": "How do you ensure that your emotional insights translate into effective communication during challenging moments?",
-      "type": "open_ended",
+      "question_text": "I ensure that my emotional insights consistently translate into effective communication during challenging moments.",
+      "type": "likert_scale",
       "weight": 2,
-      "follow_up": "What practices help you maintain clarity and connection?"
+      "response_options": [
+        "Strongly agree",
+        "Somewhat agree",
+        "Neutral",
+        "Somewhat disagree",
+        "Strongly disagree"
+      ]
     }
   ]
 }
