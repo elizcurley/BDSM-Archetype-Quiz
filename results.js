@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const personalizedInsightsElement = document.getElementById("personalized-insights");
   const reflectionListElement = document.getElementById("reflection-list");
 
-  // Retrieve saved results from sessionStorage
+  // Retrieve saved results from sessionStorage (should be an array)
   const savedResults = sessionStorage.getItem("quizResults");
   if (!savedResults) {
     console.error("❌ Error: No quiz results found. Please retake the quiz.");
@@ -19,31 +19,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const archetypes = JSON.parse(savedResults);
   console.log("🏆 Retrieved Quiz Results:", archetypes);
 
+  // Display primary and secondary archetypes from the saved results array
   primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
   secondaryArchetypeElement.innerText = archetypes[1] || "None";
 
-  // Fetch additional details based on the primary archetype
+  // Fetch additional details based on the primary archetype from quiz_data.json
   fetch("quiz_data.json")
     .then(response => response.json())
     .then(data => {
-      const archetypeDetails = data.archetypes[archetypes[0]];
-      if (archetypeDetails) {
-        archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
-        affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
-        personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
-        reflectionListElement.innerHTML = "";
-        if (archetypeDetails.reflection) {
-          archetypeDetails.reflection.forEach(question => {
-            let li = document.createElement("li");
-            li.innerText = question;
-            reflectionListElement.appendChild(li);
-          });
+      if (data && data.archetypes) {
+        const archetypeDetails = data.archetypes[archetypes[0]];
+        if (archetypeDetails) {
+          archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
+          affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
+          personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
+          reflectionListElement.innerHTML = "";
+          if (archetypeDetails.reflection) {
+            archetypeDetails.reflection.forEach(question => {
+              let li = document.createElement("li");
+              li.innerText = question;
+              reflectionListElement.appendChild(li);
+            });
+          }
+        } else {
+          console.warn("⚠️ Archetype details not found in JSON for:", archetypes[0]);
         }
       } else {
-        console.warn("⚠️ Archetype details not found in JSON.");
+        console.error("❌ quiz_data.json is missing the expected 'archetypes' key.");
       }
     })
-    .catch(error => console.error("❌ Error loading archetype details:", error));
+    .catch(error => console.error("❌ Error loading quiz_data.json:", error));
 
   // PDF Export Functionality
   document.getElementById("export-pdf").addEventListener("click", function () {
@@ -58,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = `mailto:?subject=My Quiz Results&body=${emailBody}`;
   });
 
-  // Render Spider Graph (using placeholder data here)
+  // Render Spider Graph with placeholder or real scores
   renderSpiderGraph();
 });
 
 function renderSpiderGraph() {
   const ctx = document.getElementById("spider-graph").getContext("2d");
-  // Placeholder Data - Replace with dynamic data as needed
-  let archetypeScores = {
+  // Replace with dynamic data as available; using placeholder data for now.
+  const scores = {
     "Catalyst": 8,
     "Explorer": 7,
     "Keystone": 5,
@@ -78,13 +83,13 @@ function renderSpiderGraph() {
   new Chart(ctx, {
     type: "radar",
     data: {
-      labels: Object.keys(archetypeScores),
+      labels: Object.keys(scores),
       datasets: [{
-        label: "Archetype Strength",
-        data: Object.values(archetypeScores),
-        fill: true,
+        label: "Archetype Influence",
+        data: Object.values(scores),
+        backgroundColor: "rgba(90, 103, 216, 0.2)",
         borderColor: "#5a67d8",
-        backgroundColor: "rgba(90, 103, 216, 0.2)"
+        borderWidth: 2
       }]
     },
     options: {
