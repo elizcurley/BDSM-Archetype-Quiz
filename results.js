@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const personalizedInsightsElement = document.getElementById("personalized-insights");
   const reflectionListElement = document.getElementById("reflection-list");
 
-  // Retrieve saved results from sessionStorage (should be an array)
+  // Retrieve saved results from sessionStorage (should be an array of archetypes)
   const savedResults = sessionStorage.getItem("quizResults");
   if (!savedResults) {
     console.error("❌ Error: No quiz results found. Please retake the quiz.");
@@ -19,30 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const archetypes = JSON.parse(savedResults);
   console.log("🏆 Retrieved Quiz Results:", archetypes);
 
-  // Display primary and secondary archetypes from the saved results array
+  // Display primary and secondary archetypes
   primaryArchetypeElement.innerText = archetypes[0] || "Unknown";
   secondaryArchetypeElement.innerText = archetypes[1] || "None";
 
-  // Fetch additional details based on the primary archetype from quiz_data.json
+  // Fetch additional narrative details based on the primary archetype
   fetch("quiz_data.json")
     .then(response => response.json())
     .then(data => {
+      console.log("📂 Fetched quiz_data.json:", data);
       if (data && data.archetypes) {
-        const archetypeDetails = data.archetypes[archetypes[0]];
+        const primary = archetypes[0];
+        const archetypeDetails = data.archetypes[primary];
         if (archetypeDetails) {
           archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available.";
           affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!";
           personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!";
+          // Populate Reflection Questions if available
           reflectionListElement.innerHTML = "";
-          if (archetypeDetails.reflection) {
+          if (archetypeDetails.reflection && archetypeDetails.reflection.length > 0) {
             archetypeDetails.reflection.forEach(question => {
               let li = document.createElement("li");
               li.innerText = question;
               reflectionListElement.appendChild(li);
             });
+          } else {
+            console.warn("No reflection questions found for this archetype.");
           }
         } else {
-          console.warn("⚠️ Archetype details not found in JSON for:", archetypes[0]);
+          console.warn("⚠️ Archetype details not found in quiz_data.json for:", primary);
         }
       } else {
         console.error("❌ quiz_data.json is missing the expected 'archetypes' key.");
@@ -63,13 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = `mailto:?subject=My Quiz Results&body=${emailBody}`;
   });
 
-  // Render Spider Graph with placeholder or real scores
+  // Render Spider Graph
   renderSpiderGraph();
 });
 
 function renderSpiderGraph() {
   const ctx = document.getElementById("spider-graph").getContext("2d");
-  // Replace with dynamic data as available; using placeholder data for now.
+  // Placeholder data – replace with your actual archetype scores if available
   const scores = {
     "Catalyst": 8,
     "Explorer": 7,
@@ -103,3 +108,4 @@ function renderSpiderGraph() {
     }
   });
 }
+
