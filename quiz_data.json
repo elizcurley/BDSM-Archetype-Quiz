@@ -1,0 +1,172 @@
+{
+  "archetypes": {
+    "Catalyst": {
+      "summary": "The Catalyst is an archetype of transformation, creativity, and trailblazing energy. Often seen as the one who pushes boundaries and explores new frontiers, Catalysts are fueled by innovation and vision. They initiate change and ignite new ideas in themselves and others, seeing potential where others see limitations.",
+      "coreTraits": [
+        "Innovative and bold",
+        "Focused on growth and transformation",
+        "Enjoys taking calculated risks and experimenting with new ideas",
+        "Motivated by the thrill of challenge and change",
+        "Keen insight into the nuances of desires, both personal and interpersonal"
+      ],
+      "subtypes": {
+        "The Visionary": "Driven by ideas, constantly seeking out what is possible and how things can evolve. They use their creative energy to unlock new potential.",
+        "The Instigator": "Not content with the status quo, they challenge conventions and push for change, creating exciting and unpredictable dynamics.",
+        "The Transformer": "Internally focused, they seek to revolutionize their emotional or psychological landscape through introspection and personal evolution."
+      },
+      "kinkPreferences": "Catalysts are drawn to experimentation and new experiences. They enjoy creative forms of play such as rope bondage with artistic flair, sensory play that pushes boundaries, and impact play that explores control nuances. Their hobbies often include sculpture, dance, and visual arts.",
+      "visualSymbol": "An abstract, fluid burst of energy or flame morphing into new forms—symbolizing constant transformation.",
+      "affirmation": "You are not just an explorer; you are the flame that ignites change in every space you touch. Embrace your power to transform both yourself and others.",
+      "insights": "As a Catalyst, your dynamic energy and fearless innovation drive personal growth and inspire those around you. Your ability to see potential in the unknown makes you a powerful force for change.",
+      "reflection": [
+        "How does your approach to pushing boundaries align with your emotional well-being?",
+        "When you introduce new ideas, how does it impact your relationships?",
+        "How do you balance the desire for constant transformation with the need for stability?"
+      ]
+    },
+    "Explorer": {
+      "summary": "The Explorer thrives on adventure, discovery, and pushing personal and relational boundaries. Naturally curious, Explorers continuously seek to understand themselves and their partners, always pursuing novelty and uncharted experiences.",
+      "coreTraits": [
+        "Adventurous and thrill-seeking",
+        "Motivated by curiosity and exploration",
+        "Open to trying new roles and power dynamics",
+        "Values growth and pushing personal boundaries",
+        "Often seeks excitement through novelty and variety"
+      ],
+      "subtypes": {
+        "The Thrill-Seeker": "Drawn to high-energy, intense experiences and physical challenges.",
+        "The Adventurer": "Focused on emotional and mental exploration, uncovering new layers within themselves and others.",
+        "The Risk Taker": "Willing to engage in calculated risks that push beyond comfort zones."
+      },
+      "kinkPreferences": "Explorers enjoy role-play, fantasy exploration, and varied sensory experiences. They are attracted to high-intensity impact or edge play and often pursue adventurous hobbies like traveling, hiking, or extreme sports.",
+      "visualSymbol": "A compass, representing the constant search for new paths and uncharted territories.",
+      "affirmation": "You are the adventurer of your own desires, fearlessly navigating the unknown. Your courage to explore transforms your world and lights the path for others.",
+      "insights": "Your relentless pursuit of novelty drives your personal evolution and opens new horizons. Your willingness to embrace change inspires those around you to explore and grow.",
+      "reflection": [
+        "How does your desire for discovery shape your relationships?",
+        "What risks have led to significant personal growth?",
+        "How do you balance the thrill of exploration with the need for stability?"
+      ]
+    },
+    "Keystone": {
+      "summary": "The Keystone is the bedrock of stability in relationships, offering unwavering support, strength, and guidance. Keystones are nurturing, dependable, and create the secure foundation on which others can flourish.",
+      "coreTraits": [
+        "Nurturing and protective",
+        "Values stability and security",
+        "Motivated by caregiving and emotional support",
+        "Strong sense of responsibility",
+        "A source of practical wisdom and guidance"
+      ],
+      "subtypes": {
+        "The Guardian": "Provides strong, physical protection and ensures a safe space for vulnerability.",
+        "The Mentor": "Offers emotional guidance and wisdom, helping others navigate personal challenges.",
+        "The Supporter": "Focuses on everyday caregiving, ensuring practical needs are met with consistency."
+      },
+      "kinkPreferences": "Keystones prefer dynamics that emphasize structure and safety—whether through service roles, D/s relationships focused on care, or rituals that reinforce stability. Their interests often extend to activities like teaching or mentoring.",
+      "visualSymbol": "A stylized arch with a central stone, symbolizing enduring support and strength.",
+      "affirmation": "You are the foundation upon which others find strength. Your care and guidance nurture both your community and yourself.",
+      "insights": "Your steady presence provides a safe space for growth and nurtures trust. You balance compassion with strength, making you an indispensable pillar in every relationship.",
+      "reflection": [
+        "How does your nurturing nature influence your relationships?",
+        "What does stability mean to you in both personal and dynamic contexts?",
+        "How do you balance caring for others with caring for yourself?"
+      ]
+    },
+    "Vanguard": {
+      "summary": "The Vanguard is driven by the need to lead, inspire, and challenge the status quo. Bold, forward-thinking, and unafraid of risk, Vanguards blaze new trails in both personal and kink dynamics.",
+      "coreTraits": [
+        "Visionary and forward-thinking",
+        "Thrives in leadership roles",
+        "Bold and unafraid of risk",
+        "Motivated by exploration and boundary-pushing",
+        "Values innovation and personal growth"
+      ],
+      "subtypes": {
+        "The Pioneer": "Constantly seeks new experiences and leads the way into unexplored territory.",
+        "The Trailblazer": "Breaks down barriers and challenges limitations, inspiring growth.",
+        "The Champion": "Advocates and empowers others, ensuring that their leadership uplifts and protects."
+      },
+      "kinkPreferences": "Vanguards are drawn to dynamics that allow them to lead—whether by taking charge in dominant roles or by guiding their partners into new experiences. They also engage in experimental practices and have hobbies that reflect their innovative spirit.",
+      "visualSymbol": "A stylized banner or flag, symbolizing leadership and the drive to break new ground.",
+      "affirmation": "You are the leader, the visionary, and the force of change. Your bold actions inspire connection, growth, and discovery.",
+      "insights": "Your leadership and willingness to challenge norms not only set you apart but also pave the way for transformative experiences in your relationships.",
+      "reflection": [
+        "How does your leadership influence the dynamics around you?",
+        "What motivates you to challenge the status quo?",
+        "How do you balance bold risk-taking with ensuring the safety of those you lead?"
+      ]
+    },
+    "Oracle": {
+      "summary": "The Oracle embodies wisdom, insight, and a deep connection to intuition. With an exceptional ability to read emotions and subtle cues, Oracles guide others through complex emotional landscapes and nurture profound connections.",
+      "coreTraits": [
+        "Intuitive and insightful",
+        "Emotionally intelligent and empathetic",
+        "A natural guide or advisor",
+        "Deeply reflective",
+        "Attuned to the nuances of relationships and dynamics"
+      ],
+      "subtypes": {
+        "The Sage": "A scholar who seeks deep understanding in every aspect of life and relationships.",
+        "The Empath": "Highly attuned to the emotions of others, providing a safe space for vulnerability and healing.",
+        "The Seer": "Relies on gut instincts and foresight to guide transformative experiences."
+      },
+      "kinkPreferences": "Oracles are drawn to dynamics that emphasize emotional and psychological depth—often engaging in roles that require emotional attunement, trust-building, and even ritualistic or spiritual forms of play.",
+      "visualSymbol": "A glowing crystal ball or intricately designed eye that symbolizes insight and the ability to see beyond the surface.",
+      "affirmation": "You have an uncanny ability to see the heart of things and uncover hidden truths. Your insights foster deep healing and growth.",
+      "insights": "Your intuitive nature and reflective mindset empower you to navigate complex emotional landscapes with clarity. Your guidance nurtures profound connections and transforms your relationships.",
+      "reflection": [
+        "How do you use your intuition to guide your decisions?",
+        "In what ways have your insights helped you or others through emotional challenges?",
+        "How do you ensure your deep understanding translates into supportive relationships?"
+      ]
+    },
+    "Connoisseur": {
+      "summary": "The Connoisseur is all about mastery, precision, and an appreciation for the finer details in every experience. They pursue excellence in every facet of life, blending technical skill with aesthetic refinement to craft deeply fulfilling experiences.",
+      "coreTraits": [
+        "Precision, mastery, and attention to detail",
+        "A strong sense of aesthetics and quality",
+        "Dedicated to perfecting skills",
+        "Emotionally attuned and thoughtful",
+        "Seeks refined and high-quality experiences"
+      ],
+      "subtypes": {
+        "The Aesthete": "Focuses on beauty, presentation, and the visual or sensory appeal of an experience.",
+        "The Craftsman": "Dedicated to mastering techniques and perfecting the process, ensuring each moment is executed with precision.",
+        "The Curator": "Meticulously plans and creates immersive experiences tailored to evoke deep emotional and sensory responses."
+      },
+      "kinkPreferences": "Connoisseurs favor practices that emphasize technical excellence and aesthetics—such as intricate rope bondage (Shibari), carefully controlled impact play, and sensory-rich scene crafting. Their hobbies often include art, music, or culinary mastery.",
+      "visualSymbol": "An elegantly designed key that unlocks refined and deeply satisfying experiences.",
+      "affirmation": "You are a master of experiences, elevating even the simplest moments with your dedication to excellence and refined taste.",
+      "insights": "Your passion for precision and aesthetics transforms every encounter into a work of art. Your commitment to mastery not only enriches your experiences but also inspires those around you.",
+      "reflection": [
+        "How does your attention to detail enhance your experiences?",
+        "What does mastery mean to you in the context of your relationships?",
+        "How do you balance technical precision with creative expression?"
+      ]
+    },
+    "Alchemist": {
+      "summary": "The Alchemist is an innovator who constantly transforms and evolves experiences through experimentation and creativity. They blend elements of sensation, emotion, and power to craft unique, transformative moments that defy conventional boundaries.",
+      "coreTraits": [
+        "Innovative and experimental",
+        "Embraces change and transformation",
+        "Creative, open-minded, and adaptable",
+        "Curious about the interplay of sensation, power, and emotion",
+        "Willing to take risks for growth"
+      ],
+      "subtypes": {
+        "The Scientist": "Focuses on understanding the mechanics behind kink through systematic experimentation and analysis.",
+        "The Mystic": "Incorporates spiritual, ritualistic, or abstract elements to deepen and transform experiences.",
+        "The Shapeshifter": "Embraces fluidity, readily transitioning between roles and dynamics to suit the moment."
+      },
+      "kinkPreferences": "Alchemists are drawn to practices that allow for fearless experimentation—whether that’s varied impact play, sensory deprivation, or ritualized scenes that blend tradition with innovation. Their hobbies often include abstract art, creative writing, or innovative technology.",
+      "visualSymbol": "A bubbling beaker or cauldron symbolizing the constant blending and transformation of elements.",
+      "affirmation": "You are the architect of transformation, blending intuition and innovation to create endless possibilities. Your creativity reshapes the norm and inspires growth.",
+      "insights": "Your fearless experimentation and ability to merge diverse elements drive your continuous evolution. Your dynamic creativity transforms not only your own experiences but also inspires those around you to explore new possibilities.",
+      "reflection": [
+        "How does experimentation fuel your personal growth?",
+        "What does transformation mean in the context of your relationships?",
+        "How do you integrate new ideas into your dynamic approach?"
+      ]
+    }
+  }
+}
