@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Include Chart.js CDN before your custom scripts -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="results.js" defer></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Quiz Results</title>
+  <!-- Include Chart.js CDN before your custom scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="results_styles.css">
+  <!-- Only one reference to results.js -->
   <script src="results.js" defer></script>
 </head>
 <body>
@@ -33,19 +32,14 @@
         <ul id="reflection-list"></ul>
       </div>
 
-<canvas id="spider-graph" width="400" height="400"></canvas>
+      <!-- Single canvas for the spider graph -->
+      <canvas id="spider-graph" width="400" height="400"></canvas>
 
       <!-- Button Options -->
       <div class="button-container">
         <button id="export-pdf">Download PDF</button>
         <button id="email-results">Email Results</button>
       </div>
-    </div>
-
-    <!-- Right Panel: Visual Representation -->
-    <div class="visual-panel">
-      <h2>Archetype Preference Breakdown</h2>
-      <canvas id="spider-graph"></canvas>
     </div>
   </div>
 </body>
