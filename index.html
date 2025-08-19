@@ -6,8 +6,8 @@
   <title>BDSM Archetype Quiz</title>
   <meta name="description" content="A privacy-first quiz that reveals your primary and secondary BDSM archetypes." />
   <link rel="stylesheet" href="styles.css" />
-  <!-- Defer ensures DOM is ready before quiz.js runs -->
-  <script defer src="quiz.js"></script>
+  <!-- Defer ensures DOM is ready before quiz.js runs. version param busts cache -->
+  <script defer src="quiz.js?v=fix2"></script>
 </head>
 <body>
   <noscript>
@@ -16,6 +16,7 @@
     </div>
   </noscript>
 
+  <!-- Intro / consent -->
   <div class="container" id="intro">
     <h1>BDSM Archetype Quiz</h1>
     <p>Quick, private, and skippable. Your answers never leave your browser.</p>
@@ -24,9 +25,19 @@
       <li>Back/Next enabled. You can skip and return.</li>
       <li>Export results as a PDF if you want to keep them.</li>
     </ul>
-    <button id="start" class="primary">Start</button>
+
+    <!-- Non-scored consent (replaces safety questions in flow) -->
+    <div class="consent" style="margin: 12px 0;">
+      <label>
+        <input type="checkbox" id="consent" />
+        I understand this quiz assumes <strong>SSC/RACK &amp; enthusiastic consent</strong>.
+      </label>
+    </div>
+
+    <button id="start" class="primary" disabled>Start</button>
   </div>
 
+  <!-- Quiz -->
   <div class="container hidden" id="quiz" aria-live="polite">
     <div id="progress" aria-hidden="true">
       <div id="progress-bar"><div id="progress-fill"></div></div>
@@ -34,12 +45,24 @@
     </div>
 
     <h2 id="q-text"></h2>
-    <div id="q-options"></div>
+    <div id="q-options" role="group" aria-label="Answer choices"></div>
 
     <div class="nav">
       <button id="back" class="secondary">Back</button>
       <button id="next" class="primary">Next</button>
     </div>
   </div>
+
+  <!-- Tiny inline helper: enable Start only if consent is checked -->
+  <script>
+    (function () {
+      const box = document.getElementById('consent');
+      const start = document.getElementById('start');
+      if (!box || !start) return;
+      function sync() { start.disabled = !box.checked; }
+      box.addEventListener('change', sync);
+      sync(); // initialize
+    })();
+  </script>
 </body>
 </html>
