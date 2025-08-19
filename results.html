@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Results</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="results.js"></script>
+</head>
+<body>
+  <div class="container results-container">
+    <h1>Your Archetype Results</h1>
+    <p class="muted">Below are your primary and secondary archetypes, along with a personalized profile.</p>
+
+    <h2>Primary: <span id="primary-archetype">—</span></h2>
+    <p id="archetype-description"></p>
+
+    <h3>Secondary Influence</h3>
+    <p id="secondary-archetype">—</p>
+
+    <h3>Affirming Message</h3>
+    <p id="affirming-message"></p>
+
+    <h3>Personalized Insights</h3>
+    <p id="personalized-insights"></p>
+
+    <h3>Self-Reflection</h3>
+    <ul id="reflection-list"></ul>
+
+    <h3>Archetype Balance</h3>
+    <canvas id="spider-graph" height="360"></canvas>
+
+    <div class="nav" style="margin-top:16px">
+      <button id="export-pdf" class="primary">Download PDF</button>
+      <button id="retake" class="secondary" onclick="window.location.href='index.html'">Retake</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
