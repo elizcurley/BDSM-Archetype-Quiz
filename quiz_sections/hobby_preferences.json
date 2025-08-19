@@ -1,101 +1,134 @@
 {
-  "description": "Questions about creative pursuits, non-sexual interests, and hobbies that shape your overall identity. These questions help reveal how you express yourself outside of kink and how your interests might influence your archetype profile.",
   "questions": [
+    /* ——— CATALYST ——— */
     {
-      "id": "H1",
+      "id": "hobby_catalyst_organizer",
+      "type": "likert_scale",
+      "question_text": "I’m the one who rallies people—planning meetups, booking courts, starting group chats.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Catalyst",
-      "question_text": "How important are creative or artistic hobbies in your life?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Extremely important",
-        "Very important",
-        "Somewhat important",
-        "Slightly important",
-        "Not important"
-      ]
+      "weight": 1.0
     },
     {
-      "id": "H2",
-      "archetype": "Connoisseur",
-      "question_text": "Do you engage in hobbies that involve hands-on craftsmanship (e.g., art, music, dance)?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Very frequently",
-        "Frequently",
-        "Occasionally",
-        "Rarely",
-        "Never"
-      ]
+      "id": "hobby_catalyst_initiation_rate",
+      "type": "numeric_scale",
+      "question_text": "How often do you personally kick off a new hobby session or group activity?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Catalyst",
+      "weight": 0.9
     },
+
+    /* ——— EXPLORER ——— */
     {
-      "id": "H3",
-      "archetype": "Keystone",
-      "question_text": "Does your choice of hobbies influence your approach to relationships?",
+      "id": "hobby_explorer_novelty",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Significantly",
-        "Moderately",
-        "Somewhat",
-        "Minimally",
-        "Not at all"
-      ],
-      "follow_up": "Please describe how your hobbies shape your interactions."
-    },
-    {
-      "id": "H4",
+      "question_text": "Newness energizes me—I’m excited to sample fresh skills, places, or styles.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Explorer",
-      "question_text": "Are you more drawn to group-based or solitary hobbies?",
-      "type": "multiple_choice",
-      "weight": 3,
-      "response_options": [
-        "Group-based",
-        "Solitary",
-        "Both equally",
-        "Neither"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "H5",
-      "archetype": "Alchemist",
-      "question_text": "Do you often experiment with new hobbies or stick with familiar ones?",
+      "id": "hobby_explorer_rotation",
+      "type": "numeric_scale",
+      "question_text": "How often do you rotate in a brand-new hobby or class?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Explorer",
+      "weight": 0.9
+    },
+
+    /* ——— KEYSTONE ——— */
+    {
+      "id": "hobby_keystone_depth",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Always experiment",
-        "Often experiment",
-        "Sometimes experiment",
-        "Rarely experiment",
-        "Never experiment"
-      ]
+      "question_text": "I’d rather go deep in a few hobbies than dabble in many.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Keystone",
+      "weight": 1.0
     },
     {
-      "id": "H6",
+      "id": "hobby_keystone_routine_satisfaction",
+      "type": "numeric_scale",
+      "question_text": "How satisfying are steady routines and long-term practice in your hobbies?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Keystone",
+      "weight": 0.9
+    },
+
+    /* ——— VANGUARD ——— */
+    {
+      "id": "hobby_vanguard_competition",
+      "type": "likert_scale",
+      "question_text": "Competitive or high-challenge environments push me to bring my best.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Vanguard",
-      "question_text": "How important is collaboration in your creative pursuits?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Extremely important",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "H7",
+      "id": "hobby_vanguard_progress_metrics",
+      "type": "numeric_scale",
+      "question_text": "How motivated are you by measurable progress (PRs, leaderboards, time trials)?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+
+    /* ——— CONNOISSEUR ——— */
+    {
+      "id": "hobby_connoisseur_refinement",
+      "type": "likert_scale",
+      "question_text": "I care about craft and refinement—good tools, technique, and elevating the experience.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Connoisseur",
-      "question_text": "Do you prefer structured creative activities or freeform artistic expression?",
-      "type": "multiple_choice",
-      "weight": 3,
-      "response_options": [
-        "Structured activities",
-        "Freeform expression",
-        "A mix of both"
-      ]
+      "weight": 1.1
+    },
+    {
+      "id": "hobby_connoisseur_quality_invest",
+      "type": "likert_scale",
+      "question_text": "I’m willing to invest time and resources to improve quality in my hobbies.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Connoisseur",
+      "weight": 0.9
+    },
+
+    /* ——— ORACLE ——— */
+    {
+      "id": "hobby_oracle_systems",
+      "type": "likert_scale",
+      "question_text": "I naturally analyze my hobbies—breaking skills into systems, patterns, and practice plans.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Oracle",
+      "weight": 1.0
+    },
+    {
+      "id": "hobby_oracle_tracking",
+      "type": "numeric_scale",
+      "question_text": "How often do you track progress (logs, spreadsheets, stats) for a hobby?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Oracle",
+      "weight": 0.9
+    },
+
+    /* ——— ALCHEMIST ——— */
+    {
+      "id": "hobby_alchemist_remix",
+      "type": "likert_scale",
+      "question_text": "I like remixing hobbies—combining ideas from different fields to create something new.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 1.0
+    },
+    {
+      "id": "hobby_alchemist_modding",
+      "type": "likert_scale",
+      "question_text": "I often tweak rules, setups, or gear until they fit my vision.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 1.0
     }
   ]
 }

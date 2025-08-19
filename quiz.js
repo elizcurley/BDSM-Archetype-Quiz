@@ -118,7 +118,7 @@
     // Light stratification caps to avoid kink-heavy balance
     const CAPS = {
       foundational_assessment: 10,
-      hobby_preferences: 8,
+      hobby_preferences: 14,
       kink_general: 8,
       kink_specific: 8,
       situational: 6,
