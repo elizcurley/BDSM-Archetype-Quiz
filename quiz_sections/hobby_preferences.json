@@ -1,11 +1,10 @@
 {
   "questions": [
-    /* ——— CATALYST ——— */
     {
       "id": "hobby_catalyst_organizer",
       "type": "likert_scale",
       "question_text": "I’m the one who rallies people—planning meetups, booking courts, starting group chats.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Catalyst",
       "weight": 1.0
     },
@@ -18,13 +17,11 @@
       "archetype": "Catalyst",
       "weight": 0.9
     },
-
-    /* ——— EXPLORER ——— */
     {
       "id": "hobby_explorer_novelty",
       "type": "likert_scale",
       "question_text": "Newness energizes me—I’m excited to sample fresh skills, places, or styles.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Explorer",
       "weight": 1.1
     },
@@ -37,13 +34,11 @@
       "archetype": "Explorer",
       "weight": 0.9
     },
-
-    /* ——— KEYSTONE ——— */
     {
       "id": "hobby_keystone_depth",
       "type": "likert_scale",
       "question_text": "I’d rather go deep in a few hobbies than dabble in many.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Keystone",
       "weight": 1.0
     },
@@ -56,13 +51,11 @@
       "archetype": "Keystone",
       "weight": 0.9
     },
-
-    /* ——— VANGUARD ——— */
     {
       "id": "hobby_vanguard_competition",
       "type": "likert_scale",
       "question_text": "Competitive or high-challenge environments push me to bring my best.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Vanguard",
       "weight": 1.1
     },
@@ -75,13 +68,11 @@
       "archetype": "Vanguard",
       "weight": 1.0
     },
-
-    /* ——— CONNOISSEUR ——— */
     {
       "id": "hobby_connoisseur_refinement",
       "type": "likert_scale",
       "question_text": "I care about craft and refinement—good tools, technique, and elevating the experience.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Connoisseur",
       "weight": 1.1
     },
@@ -89,17 +80,15 @@
       "id": "hobby_connoisseur_quality_invest",
       "type": "likert_scale",
       "question_text": "I’m willing to invest time and resources to improve quality in my hobbies.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Connoisseur",
       "weight": 0.9
     },
-
-    /* ——— ORACLE ——— */
     {
       "id": "hobby_oracle_systems",
       "type": "likert_scale",
       "question_text": "I naturally analyze my hobbies—breaking skills into systems, patterns, and practice plans.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Oracle",
       "weight": 1.0
     },
@@ -112,13 +101,11 @@
       "archetype": "Oracle",
       "weight": 0.9
     },
-
-    /* ——— ALCHEMIST ——— */
     {
       "id": "hobby_alchemist_remix",
       "type": "likert_scale",
       "question_text": "I like remixing hobbies—combining ideas from different fields to create something new.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Alchemist",
       "weight": 1.0
     },
@@ -126,7 +113,7 @@
       "id": "hobby_alchemist_modding",
       "type": "likert_scale",
       "question_text": "I often tweak rules, setups, or gear until they fit my vision.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
       "archetype": "Alchemist",
       "weight": 1.0
     }
