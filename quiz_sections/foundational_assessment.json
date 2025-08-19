@@ -1,229 +1,122 @@
 {
-  "description": "Personality and Psychological Context \u2013 these questions help determine broad archetype categories by exploring core personality traits, decision\u2010making styles, and initial preferences. Each question is tagged with an archetype to help guide later results.",
   "questions": [
     {
-      "id": "F1",
-      "archetype": "Catalyst",
-      "question_text": "When faced with a new experience, do you prefer to plan carefully or dive in without hesitation?",
+      "id": "found_catalyst_initiative",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Strongly prefer planning",
-        "Somewhat prefer planning",
-        "Neutral",
-        "Somewhat prefer diving in",
-        "Strongly prefer diving in"
-      ],
-      "follow_up": "Please explain what influences your approach."
+      "question_text": "I naturally take initiative and get momentum going.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Catalyst",
+      "weight": 1.2
     },
     {
-      "id": "F2",
-      "archetype": "Catalyst",
-      "question_text": "Do you consider yourself more creative or analytical?",
+      "id": "found_catalyst_social_ignition",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Very creative",
-        "Somewhat creative",
-        "Balanced",
-        "Somewhat analytical",
-        "Very analytical"
-      ],
-      "follow_up": "What factors contribute to your tendency?"
+      "question_text": "Around others, I tend to spark energy and get people engaged.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Catalyst",
+      "weight": 1.0
     },
+
     {
-      "id": "F3",
+      "id": "found_explorer_curiosity",
+      "type": "likert_scale",
+      "question_text": "I actively seek out new experiences and perspectives.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Explorer",
-      "question_text": "Do you often seek out new experiences rather than sticking with the familiar?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always seek new experiences",
-        "Often seek new experiences",
-        "Sometimes",
-        "Rarely",
-        "Never"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "F4",
+      "id": "found_explorer_ambiguity",
+      "type": "likert_scale",
+      "question_text": "I feel energized—not stressed—by a bit of uncertainty or the unknown.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Explorer",
+      "weight": 1.0
+    },
+
+    {
+      "id": "found_keystone_reliability",
+      "type": "likert_scale",
+      "question_text": "People rely on me to keep things grounded and steady.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Keystone",
-      "question_text": "How would you describe your approach to problem-solving?",
-      "type": "multiple_choice",
-      "weight": 4,
-      "response_options": [
-        "Methodical and structured",
-        "Intuitive and spontaneous",
-        "A mix of both"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "F5",
-      "archetype": "Oracle",
-      "question_text": "How much do you value self-reflection in your personal growth?",
+      "id": "found_keystone_routine_depth",
       "type": "likert_scale",
-      "weight": 4,
-      "response_options": [
-        "Very highly",
-        "Moderately",
-        "Neutral",
-        "Somewhat low",
-        "Not at all"
-      ]
-    },
-    {
-      "id": "F6",
-      "archetype": "Explorer",
-      "question_text": "How adaptable are you when circumstances change unexpectedly?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Extremely adaptable",
-        "Very adaptable",
-        "Moderately adaptable",
-        "Slightly adaptable",
-        "Not at all adaptable"
-      ]
-    },
-    {
-      "id": "F7",
-      "archetype": "Catalyst",
-      "question_text": "When starting a new project, do you set high, ambitious goals?",
-      "type": "likert_scale",
-      "weight": 4,
-      "response_options": [
-        "Always",
-        "Often",
-        "Sometimes",
-        "Rarely",
-        "Never"
-      ]
-    },
-    {
-      "id": "F8",
-      "archetype": "Explorer",
-      "question_text": "When confronted with the unknown, do you feel excitement or apprehension?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always excited",
-        "Mostly excited",
-        "Neutral",
-        "Mostly apprehensive",
-        "Always apprehensive"
-      ]
-    },
-    {
-      "id": "F9",
+      "question_text": "I prefer reliable routines that let me go deep over time.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Keystone",
-      "question_text": "Do you prioritize stability and security in your daily decisions?",
+      "weight": 0.9
+    },
+
+    {
+      "id": "found_vanguard_decisiveness",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always prioritize security",
-        "Often prioritize security",
-        "Neutral",
-        "Rarely prioritize security",
-        "Never prioritize security"
-      ]
+      "question_text": "When direction is needed, I’m comfortable making the call.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Vanguard",
+      "weight": 1.1
     },
     {
-      "id": "F10",
+      "id": "found_vanguard_goal_edge",
+      "type": "likert_scale",
+      "question_text": "Big, challenging goals bring out my best self.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+
+    {
+      "id": "found_oracle_patterning",
+      "type": "likert_scale",
+      "question_text": "I notice patterns and dynamics that others might miss.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Oracle",
-      "question_text": "Do you trust your intuition when making decisions?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always trust my intuition",
-        "Often trust my intuition",
-        "Neutral",
-        "Rarely trust my intuition",
-        "Never trust my intuition"
-      ]
+      "weight": 1.0
     },
     {
-      "id": "F11",
-      "archetype": "Vanguard",
-      "question_text": "Do you often take initiative and lead others in new situations?",
+      "id": "found_oracle_meta_reflection",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always take initiative",
-        "Often take initiative",
-        "Neutral",
-        "Rarely take initiative",
-        "Never take initiative"
-      ]
+      "question_text": "I regularly zoom out to reflect on what’s really driving a situation.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Oracle",
+      "weight": 1.0
     },
+
     {
-      "id": "F12",
-      "archetype": "Vanguard",
-      "question_text": "Are you comfortable challenging established norms and traditions?",
+      "id": "found_connoisseur_craft",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Very comfortable",
-        "Comfortable",
-        "Neutral",
-        "Uncomfortable",
-        "Very uncomfortable"
-      ]
-    },
-    {
-      "id": "F13",
+      "question_text": "I care about craft, detail, and elevating the experience for everyone involved.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Connoisseur",
-      "question_text": "Do you value attention to detail and quality in every aspect of life?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Extremely value it",
-        "Very value it",
-        "Moderately value it",
-        "Slightly value it",
-        "Do not value it"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "F14",
+      "id": "found_connoisseur_sensory",
+      "type": "likert_scale",
+      "question_text": "The sensory quality (aesthetics, pacing, texture) matters a lot to me.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Connoisseur",
-      "question_text": "Is refining your skills a core aspect of your identity?",
+      "weight": 0.9
+    },
+
+    {
+      "id": "found_alchemist_change",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Absolutely",
-        "Very much",
-        "Somewhat",
-        "A little",
-        "Not at all"
-      ]
+      "question_text": "I enjoy guiding change—remixing what’s there into something new.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 1.1
     },
     {
-      "id": "F15",
-      "archetype": "Alchemist",
-      "question_text": "Do you frequently experiment with new ideas and approaches in your personal growth?",
+      "id": "found_alchemist_adaptability",
       "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Always experiment",
-        "Often experiment",
-        "Sometimes experiment",
-        "Rarely experiment",
-        "Never experiment"
-      ]
-    },
-    {
-      "id": "F16",
+      "question_text": "When contexts shift, I adapt quickly and help others pivot too.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Alchemist",
-      "question_text": "Is transformation and merging of different concepts important to you?",
-      "type": "likert_scale",
-      "weight": 5,
-      "response_options": [
-        "Absolutely essential",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
+      "weight": 1.0
     }
   ]
 }

@@ -143,3 +143,15 @@ button[disabled] {
   transform: translateY(-50%);
   font-weight: 700;
 }
+/* Improve contrast on answer buttons */
+.option, .option-button {
+  color: #111827;              /* dark text */
+  background: #eef2ff;         /* light indigo */
+  border-color: #c7d2fe;
+}
+
+.option.active, .option-button.active {
+  color: #111827;              /* keep text dark when active */
+  background: #e0e7ff;         /* a touch darker when selected */
+  border-color: #6366f1;
+}
