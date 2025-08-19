@@ -132,7 +132,7 @@ async function loadAll() {
   const CAPS = {
     foundational_assessment: 10,
     hobby_preferences: 14,
-    kink_general: 8,
+    kink_general: 12,
     kink_specific: 8,
     situational: 6,
     reflection: 6,

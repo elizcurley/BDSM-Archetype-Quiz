@@ -1,175 +1,240 @@
 {
-  "description": "General questions about BDSM/kink preferences, boundaries, relationship dynamics, and overall kink interests. These questions help refine your archetype profile by exploring how you engage with common kink dynamics.",
   "questions": [
     {
-      "id": "K1",
-      "archetype": "Vanguard",
-      "question_text": "Do you enjoy exploring power dynamics in your relationships?",
+      "id": "kg_catalyst_social_spark",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ],
-      "follow_up": "Is this preference influenced by specific contexts or partners?"
+      "question_text": "In kink-friendly spaces, I naturally energize the room and get people engaged (even if I’m newer).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Catalyst",
+      "weight": 1.1
     },
     {
-      "id": "K2",
-      "archetype": "Alchemist",
-      "question_text": "How comfortable are you with sensory play (e.g., textures, blindfolds)?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Very comfortable",
-        "Comfortable",
-        "Neutral",
-        "Uncomfortable",
-        "Very uncomfortable"
-      ]
+      "id": "kg_catalyst_scene_initiation",
+      "type": "numeric_scale",
+      "question_text": "How often are you the one who proposes an idea for a kink-related experience or theme?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Catalyst",
+      "weight": 1.0
     },
     {
-      "id": "K3",
-      "archetype": "Keystone",
-      "question_text": "What role does clear communication and consent play in your kink dynamics?",
+      "id": "kgp_catalyst_rally",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Essential",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
+      "question_text": "I’m the person who rallies friends—spinning up plans and setting a welcoming vibe for shared experiences.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Catalyst",
+      "weight": 1.0
     },
     {
-      "id": "K4",
-      "archetype": "Vanguard",
-      "question_text": "Do you prefer structured scenes with clearly defined roles or spontaneous, evolving interactions?",
+      "id": "kgp_catalyst_small_groups",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly prefer structured",
-        "Somewhat prefer structured",
-        "Neutral",
-        "Somewhat prefer spontaneous",
-        "Strongly prefer spontaneous"
-      ],
-      "follow_up": "Please explain your preference."
+      "question_text": "Small group experiences feel exciting to me—I enjoy connecting people and guiding the flow.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Catalyst",
+      "weight": 0.9
     },
+
     {
-      "id": "K5",
-      "archetype": "Vanguard",
-      "question_text": "How do you view the balance between control and submission in your relationships?",
+      "id": "kg_explorer_novelty_drive",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Control is paramount",
-        "Mostly control",
-        "Equal balance",
-        "Mostly submission",
-        "Submission is paramount"
-      ]
-    },
-    {
-      "id": "K6",
-      "archetype": "Alchemist",
-      "question_text": "How important is experimentation in your kink play?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Extremely important",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
-    },
-    {
-      "id": "K7",
+      "question_text": "Novelty and discovery are a big part of why kink-related experiences appeal to me (or would, if I tried them).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Explorer",
-      "question_text": "Do you enjoy role reversal during scenes?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Always enjoy role reversal",
-        "Often enjoy role reversal",
-        "Neutral",
-        "Rarely enjoy role reversal",
-        "Never enjoy role reversal"
-      ]
+      "weight": 1.2
     },
     {
-      "id": "K8",
+      "id": "kg_explorer_rotation_rate",
+      "type": "numeric_scale",
+      "question_text": "How often do you rotate in new roles, dynamics, or setups purely to explore what fits you?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Explorer",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_explorer_try_new",
+      "type": "likert_scale",
+      "question_text": "In general, I actively seek out unfamiliar experiences and perspectives, even before I’m fully ready.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Explorer",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_explorer_switch_contexts",
+      "type": "likert_scale",
+      "question_text": "Switching contexts (roles, themes, styles) keeps me engaged more than repeating the same formula.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Explorer",
+      "weight": 0.9
+    },
+
+    {
+      "id": "kg_keystone_ritual",
+      "type": "likert_scale",
+      "question_text": "I prefer a clear rhythm or ritual for how an intimate or kink-related experience unfolds (predictable in a good way).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Keystone",
-      "question_text": "When it comes to consent, do you prefer detailed negotiation before play?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Always",
-        "Often",
-        "Sometimes",
-        "Rarely",
-        "Never"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "K9",
+      "id": "kg_keystone_steady_pacing",
+      "type": "numeric_scale",
+      "question_text": "How much do you favor steady pacing over big swings in intensity once things are flowing?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Keystone",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_keystone_routine_depth",
+      "type": "likert_scale",
+      "question_text": "Routines that let me go deep over time are more satisfying than constant variety, especially in intimate contexts.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Keystone",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_keystone_repeat_favorites",
+      "type": "likert_scale",
+      "question_text": "I enjoy repeating favorite setups and improving small details each time, rather than reinventing everything.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Keystone",
+      "weight": 0.9
+    },
+
+    {
+      "id": "kg_vanguard_challenge_motive",
+      "type": "likert_scale",
+      "question_text": "Challenge and intensity bring out my best focus and enjoyment (assuming trust and a good vibe).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Vanguard",
+      "weight": 1.2
+    },
+    {
+      "id": "kg_vanguard_intensity_curve",
+      "type": "numeric_scale",
+      "question_text": "How much do you enjoy gradually ramping intensity when things are going well?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_vanguard_take_point",
+      "type": "likert_scale",
+      "question_text": "When a plan is needed, I’m comfortable taking point and setting the cadence—inside or outside the bedroom.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_vanguard_pursuit_goals",
+      "type": "likert_scale",
+      "question_text": "I’m motivated by measurable progress (skills, confidence, poise) and like to push toward the next level.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Vanguard",
+      "weight": 0.9
+    },
+
+    {
+      "id": "kg_connoisseur_craft",
+      "type": "likert_scale",
+      "question_text": "Attention to detail (comfort, tools, pacing, aesthetics) elevates the entire experience for me.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Connoisseur",
+      "weight": 1.2
+    },
+    {
+      "id": "kg_connoisseur_sensory_care",
+      "type": "likert_scale",
+      "question_text": "Sensory quality—lighting, sound, care with touch—meaningfully shapes my enjoyment.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Connoisseur",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_connoisseur_preparation",
+      "type": "likert_scale",
+      "question_text": "I like to prepare a bit—choosing outfits, music, or little touches that make things feel special.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Connoisseur",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_connoisseur_quality_invest",
+      "type": "likert_scale",
+      "question_text": "I’m willing to invest time and attention in quality and technique when something matters to me.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Connoisseur",
+      "weight": 0.9
+    },
+
+    {
+      "id": "kg_oracle_theme_arc",
+      "type": "likert_scale",
+      "question_text": "I enjoy giving experiences a theme or arc so they feel coherent and meaningful (even simple ones).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
       "archetype": "Oracle",
-      "question_text": "How important is emotional connection and vulnerability in your kink experiences?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Extremely important",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
+      "weight": 1.1
     },
     {
-      "id": "K10",
-      "archetype": "Explorer",
-      "question_text": "Do you prefer a stable, consistent kink routine or do you thrive on variability and unpredictability?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly prefer routine",
-        "Somewhat prefer routine",
-        "Neutral",
-        "Somewhat prefer unpredictability",
-        "Strongly prefer unpredictability"
-      ]
+      "id": "kg_oracle_attunement",
+      "type": "numeric_scale",
+      "question_text": "How attuned do you feel to a partner’s vibe and micro-signals during intimate experiences?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Oracle",
+      "weight": 1.0
     },
     {
-      "id": "K11",
-      "archetype": "Keystone",
-      "question_text": "How much do you prioritize safety protocols over spontaneous creativity in your play?",
+      "id": "kgp_oracle_meta_reflection",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Safety protocols always come first",
-        "Safety protocols are very important",
-        "Balance safety with creativity",
-        "Prefer spontaneity over strict protocols",
-        "Spontaneity always comes first"
-      ]
+      "question_text": "I like reflecting on what an experience means for dynamics, identity, or growth (mine and others’).",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Oracle",
+      "weight": 1.0
     },
     {
-      "id": "K12",
-      "archetype": "Vanguard",
-      "question_text": "Do you enjoy exploring both dominant and submissive roles within your interactions?",
+      "id": "kgp_oracle_read_the_room",
       "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly enjoy both roles",
-        "Often enjoy both roles",
-        "Neutral",
-        "Rarely enjoy both roles",
-        "Never enjoy both roles"
-      ]
+      "question_text": "I’m good at reading the room and adjusting the vibe so everyone feels more at ease.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Oracle",
+      "weight": 0.9
+    },
+
+    {
+      "id": "kg_alchemist_remix_drive",
+      "type": "likert_scale",
+      "question_text": "I love remixing elements—combining styles or themes to create something fresh when the moment calls for it.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 1.1
+    },
+    {
+      "id": "kg_alchemist_adapt_on_fly",
+      "type": "numeric_scale",
+      "question_text": "How readily do you adapt and re-route when the original plan shifts mid-experience?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Alchemist",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_alchemist_transmute_mood",
+      "type": "likert_scale",
+      "question_text": "I’m good at transmuting a mood—turning scattered energy into a cohesive flow when people need it.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 1.0
+    },
+    {
+      "id": "kgp_alchemist_improv_balance",
+      "type": "likert_scale",
+      "question_text": "Improvisation feels natural—I can adjust the plan without losing the thread of the experience.",
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "archetype": "Alchemist",
+      "weight": 0.9
     }
   ]
 }
