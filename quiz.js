@@ -15,15 +15,25 @@
   const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
 
   // ---- DOM ----
-  const intro   = document.getElementById("intro");
-  const quiz    = document.getElementById("quiz");
-  const startBtn= document.getElementById("start");
-  const backBtn = document.getElementById("back");
-  const nextBtn = document.getElementById("next");
-  const qText   = document.getElementById("q-text");
-  const qOptions= document.getElementById("q-options");
-  const pText   = document.getElementById("progress-text");
-  const pFill   = document.getElementById("progress-fill");
+// ---- DOM (robust lookups for both naming styles) ----
+function $(...ids) {
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (el) return el;
+  }
+  return null;
+}
+
+const intro    = $("intro", "intro-container");
+const quiz     = $("quiz", "quiz-container");
+const startBtn = $("start", "start-button");
+const backBtn  = $("back", "back-button");
+const nextBtn  = $("next", "next-button");
+const qText    = $("q-text", "question-text");
+const qOptions = $("q-options", "options-container");
+const pText    = $("progress-text");
+const pFill    = $("progress-fill");
+
 
   // ---- State ----
   let questions = [];
@@ -262,16 +272,25 @@
   }
 
   // ---- Wire-up ----
+  if (startBtn) {
   startBtn.addEventListener("click", async () => {
-    intro.classList.add("hidden");
-    quiz.classList.remove("hidden");
+    if (intro) intro.classList.add("hidden");
+    if (quiz)  quiz.classList.remove("hidden");
     await loadAll();
     render();
   });
-  backBtn.addEventListener("click", () => { if (index > 0) { index--; render(); }});
+}
+
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    if (index > 0) { index--; render(); }
+  });
+}
+
+if (nextBtn) {
   nextBtn.addEventListener("click", () => {
     const q = questions[index];
-    if (!isAnswered(q, answers[q.id])) return;
+    if (!isAnswered(q, answers[q?.id])) return;
     if (index < total - 1) { index++; render(); } else { finish(); }
   });
-})();
+}
