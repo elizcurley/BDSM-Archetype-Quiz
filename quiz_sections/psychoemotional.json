@@ -1,0 +1,12 @@
+{
+  "questions": [
+    { "id": "pe_agency_voice", "type": "likert_scale", "question_text": "I’m comfortable voicing my wants and adjusting in the moment if something changes.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Vanguard", "weight": 1.0 },
+    { "id": "pe_novelty_seek", "type": "likert_scale", "question_text": "New experiences energize me emotionally, even before I’m fully prepared.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Explorer", "weight": 1.1 },
+    { "id": "pe_routine_soothe", "type": "likert_scale", "question_text": "Predictable rhythms help me relax and go deeper emotionally.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Keystone", "weight": 1.0 },
+    { "id": "pe_symbolic_meaning", "type": "likert_scale", "question_text": "Symbolism or shared language makes experiences more meaningful to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Oracle", "weight": 1.0 },
+    { "id": "pe_curate_care", "type": "likert_scale", "question_text": "Small curations (music, lighting, pacing) significantly influence my emotions.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Connoisseur", "weight": 1.0 },
+    { "id": "pe_group_energy", "type": "likert_scale", "question_text": "I feel emotionally lifted by gathering people and setting a welcoming vibe.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Catalyst", "weight": 1.0 },
+    { "id": "pe_adapt_reframe", "type": "likert_scale", "question_text": "When plans shift, I can reframe quickly and keep the experience cohesive.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Alchemist", "weight": 1.0 },
+    { "id": "pe_emotion_intensity", "type": "numeric_scale", "question_text": "How comfortable are you with building emotional intensity when the vibe is right?", "min": 1, "max": 7, "archetype": "Vanguard", "weight": 0.9 }
+  ]
+}

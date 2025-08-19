@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Results from quiz.js
     const results = JSON.parse(sessionStorage.getItem("quizResults") || "[]");          // [primary, secondary]
     const scores  = JSON.parse(sessionStorage.getItem("archetypeScores") || "{}");      // { Archetype: 0..10 }
+    
 
     if (!Array.isArray(results) || !results.length) {
       if (primaryEl) primaryEl.textContent = "Error: No Results Found";

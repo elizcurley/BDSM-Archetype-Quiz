@@ -4,14 +4,18 @@
 
   // ---- Config ----
   const FILES = [
-    "quiz_sections/foundational_assessment.json",
-    "quiz_sections/hobby_preferences.json",
-    "quiz_sections/kink_general.json",
-    "quiz_sections/kink_specific.json",
-    "quiz_sections/preference_strength.json",
-    "quiz_sections/reflection.json",
-    "quiz_sections/situational.json",
-  ];
+  "quiz_sections/foundational_assessment.json",
+  "quiz_sections/hobby_preferences.json",
+  "quiz_sections/kink_general.json",
+  "quiz_sections/kink_specific.json",
+  "quiz_sections/preference_strength.json",
+  "quiz_sections/reflection.json",
+  "quiz_sections/situational.json",
+  "quiz_sections/kink_interests.json",
+  "quiz_sections/psychoemotional.json"   // ← NEW
+];
+
+
   const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
 
   // ---- DOM (robust lookups) ----
@@ -129,15 +133,19 @@ async function loadAll() {
   });
 
   // 4) Light stratification caps (you set Hobby to 14)
-  const CAPS = {
-    foundational_assessment: 10,
-    hobby_preferences: 14,
-    kink_general: 12,
-    kink_specific: 8,
-    situational: 6,
-    reflection: 6,
-    preference_strength: 4
-  };
+const CAPS = {
+  foundational_assessment: 10,
+  hobby_preferences: 14,
+  kink_general: 12,
+  kink_specific: 12,
+  kink_interests: 12,
+  psychoemotional: 12,            // ← NEW
+  situational: 6,
+  reflection: 6,
+  preference_strength: 4
+};
+
+
 
   // 5) Group, cap, pick
   const groups = {};
@@ -280,6 +288,27 @@ async function loadAll() {
     sessionStorage.setItem("archetypeScores", JSON.stringify(normalized));
     window.location.href = "results.html";
   }
+
+  const IMG_MAP = {
+  Catalyst: "images/archetypes/Catalyst.png",
+  Explorer: "images/archetypes/Explorer.png",
+  Keystone: "images/archetypes/Keystone.png",
+  Vanguard: "images/archetypes/Vanguard.png",
+  Oracle: "images/archetypes/Oracle.png",
+  Connoisseur: "images/archetypes/Connoisseur.png",
+  Alchemist: "images/archetypes/Alchemist.png"
+};
+
+const [primary, secondary] = JSON.parse(sessionStorage.getItem("quizResults") || "[]");
+const primaryImgEl = document.getElementById("primary-image");
+
+if (primary && IMG_MAP[primary] && primaryImgEl) {
+  primaryImgEl.src = IMG_MAP[primary];
+  primaryImgEl.alt = `${primary} archetype`;
+} else if (primaryImgEl) {
+  primaryImgEl.style.display = "none";
+}
+
 
   // ---- Wire-up ----
   if (startBtn) {

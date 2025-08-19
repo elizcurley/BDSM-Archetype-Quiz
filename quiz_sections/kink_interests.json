@@ -1,0 +1,24 @@
+{
+  "questions": [
+    { "id": "ki_catalyst_group_spark", "type": "likert_scale", "question_text": "The idea of small group scenes—with coordinated roles and shared energy—appeals to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Catalyst", "weight": 1.1 },
+    { "id": "ki_catalyst_theme_nights", "type": "numeric_scale", "question_text": "How likely are you to propose or host a themed night (music, outfits, playful structure) with friends you trust?", "min": 1, "max": 7, "archetype": "Catalyst", "weight": 1.0 },
+
+    { "id": "ki_explorer_sensation_sampler", "type": "likert_scale", "question_text": "Sampler nights—trying different light sensations or roles—sound exciting to me when the vibe is right.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Explorer", "weight": 1.2 },
+    { "id": "ki_explorer_try_new_tool", "type": "numeric_scale", "question_text": "How likely are you to try a new technique, toy, or role with a trusted partner in the next few months?", "min": 1, "max": 7, "archetype": "Explorer", "weight": 1.0 },
+
+    { "id": "ki_keystone_protocol_light", "type": "likert_scale", "question_text": "Light protocol or ritual (clear steps, respectful titles, predictable rhythm) sounds appealing to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Keystone", "weight": 1.1 },
+    { "id": "ki_keystone_service_roles", "type": "likert_scale", "question_text": "Service-oriented dynamics (thoughtful tasks, supportive roles) feel satisfying and meaningful to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Keystone", "weight": 1.0 },
+
+    { "id": "ki_vanguard_endurance_flavor", "type": "likert_scale", "question_text": "Challenge-flavored play (focus, endurance, mastering technique) is appealing when trust is strong.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Vanguard", "weight": 1.2 },
+    { "id": "ki_vanguard_progression", "type": "numeric_scale", "question_text": "How interested are you in structured progression—building capacity or precision over a series of sessions?", "min": 1, "max": 7, "archetype": "Vanguard", "weight": 1.0 },
+
+    { "id": "ki_connoisseur_rope_craft", "type": "likert_scale", "question_text": "Fine-grained craft (e.g., elegant rope patterns, precise percussion timing) strongly appeals to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Connoisseur", "weight": 1.2 },
+    { "id": "ki_connoisseur_curated_ambience", "type": "likert_scale", "question_text": "Curated ambience—music, lighting, textures—would noticeably enhance my enjoyment.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Connoisseur", "weight": 1.0 },
+
+    { "id": "ki_oracle_storyplay", "type": "likert_scale", "question_text": "Light roleplay or story-driven scenes (costumes, characters, arcs) sounds fun and meaningful to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Oracle", "weight": 1.1 },
+    { "id": "ki_oracle_symbolic_elements", "type": "likert_scale", "question_text": "Symbolic elements (ceremony, titles, shared language) would deepen the experience for me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Oracle", "weight": 1.0 },
+
+    { "id": "ki_alchemist_hybrid_scenes", "type": "likert_scale", "question_text": "Hybrid scenes that blend styles (e.g., sensory + story + light challenge) appeal to my creativity.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Alchemist", "weight": 1.1 },
+    { "id": "ki_alchemist_improv_path", "type": "numeric_scale", "question_text": "How comfortable are you with experiences that evolve organically—improvisation guiding what comes next?", "min": 1, "max": 7, "archetype": "Alchemist", "weight": 1.0 }
+  ]
+}
