@@ -73,23 +73,37 @@
     // options
     qOptions.innerHTML = "";
 
-    if (q.type === "likert_scale") {
-      (q.response_options || []).forEach((opt,i) => {
-        const btn = document.createElement("button");
-        btn.className = "option" + (answers[q.id]?.idx===i ? " active": "");
-        btn.textContent = opt;
-        btn.onclick = () => { answers[q.id] = { idx:i, value:i }; render(); };
-        qOptions.appendChild(btn);
-      });
-    } else if (q.type === "multiple_choice") {
-      (q.response_options || []).forEach((opt,i) => {
-        const btn = document.createElement("button");
-        btn.className = "option" + (answers[q.id]?.idx===i ? " active": "");
-        btn.textContent = opt;
-        btn.onclick = () => { answers[q.id] = { idx:i, value:i }; render(); };
-        qOptions.appendChild(btn);
-      });
-    } else if (q.type === "numeric_scale") {
+   if (q.type === "likert_scale") {
+  (q.response_options || []).forEach((opt, i) => {
+    const btn = document.createElement("button");
+    const isActive = answers[q.id]?.idx === i;
+    btn.className = "option" + (isActive ? " active" : "");
+    btn.textContent = opt;
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    btn.addEventListener("click", () => {
+      answers[q.id] = { idx: i, value: i };
+      if (navigator.vibrate) navigator.vibrate(15); // optional haptic
+      render(); // re-renders, updating .active + aria-pressed
+    });
+    qOptions.appendChild(btn);
+  });
+}
+else if (q.type === "multiple_choice") {
+  (q.response_options || []).forEach((opt, i) => {
+    const btn = document.createElement("button");
+    const isActive = answers[q.id]?.idx === i;
+    btn.className = "option" + (isActive ? " active" : "");
+    btn.textContent = opt;
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    btn.addEventListener("click", () => {
+      answers[q.id] = { idx: i, value: i };
+      if (navigator.vibrate) navigator.vibrate(15);
+      render();
+    });
+    qOptions.appendChild(btn);
+  });
+}
+ else if (q.type === "numeric_scale") {
       const min = Number.isFinite(q.min) ? q.min : 1;
       const max = Number.isFinite(q.max) ? q.max : 10;
       const wrap = document.createElement("div");
