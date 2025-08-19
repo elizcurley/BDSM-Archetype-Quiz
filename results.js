@@ -1,1 +1,98 @@
-/* results.js */document.addEventListener("DOMContentLoaded", function () { console.log("📌 Results Page Loaded!"); const primaryArchetypeElement = document.getElementById("primary-archetype"); const secondaryArchetypeElement = document.getElementById("secondary-archetype"); const archetypeDescriptionElement = document.getElementById("archetype-description"); const affirmingMessageElement = document.getElementById("affirming-message"); const personalizedInsightsElement = document.getElementById("personalized-insights"); const reflectionListElement = document.getElementById("reflection-list"); // Retrieve saved results from sessionStorage (should be an array of archetypes) const savedResults = sessionStorage.getItem("quizResults"); if (!savedResults) { console.error("❌ Error: No quiz results found. Please retake the quiz."); primaryArchetypeElement.innerText = "Error: No Results Found"; return; } const archetypes = JSON.parse(savedResults); console.log("🏆 Retrieved Quiz Results:", archetypes); // Display primary and secondary archetypes primaryArchetypeElement.innerText = archetypes[0] || "Unknown"; secondaryArchetypeElement.innerText = archetypes[1] || "None"; // Fetch additional narrative details based on the primary archetype fetch("quiz_data.json") .then(response =&gt; response.json()) .then(data =&gt; { console.log("📂 Fetched quiz_data.json:", data); if (data &amp;&amp; data.archetypes) { const primary = archetypes[0]; const archetypeDetails = data.archetypes[primary]; if (archetypeDetails) { archetypeDescriptionElement.innerText = archetypeDetails.description || "No description available."; affirmingMessageElement.innerText = archetypeDetails.affirmation || "You are uniquely powerful!"; personalizedInsightsElement.innerText = archetypeDetails.insights || "Explore your strengths!"; // Populate Reflection Questions if available reflectionListElement.innerHTML = ""; if (archetypeDetails.reflection &amp;&amp; archetypeDetails.reflection.length &gt; 0) { archetypeDetails.reflection.forEach(question =&gt; { let li = document.createElement("li"); li.innerText = question; reflectionListElement.appendChild(li); }); } else { console.warn("No reflection questions found for this archetype."); } } else { console.warn("⚠️ Archetype details not found in quiz_data.json for:", primary); } } else { console.error("❌ quiz_data.json is missing the expected 'archetypes' key."); } }) .catch(error =&gt; console.error("❌ Error loading quiz_data.json:", error)); // PDF Export Functionality document.getElementById("export-pdf").addEventListener("click", function () { const element = document.querySelector(".results-container"); html2pdf().from(element).save("Quiz_Results.pdf"); }); // Email Results Functionality document.getElementById("email-results").addEventListener("click", function () { const resultsText = document.querySelector(".results-container").innerText; const emailBody = encodeURIComponent(resultsText); window.location.href = `mailto:?subject=My Quiz Results&amp;body=${emailBody}`; }); // Render Spider Graph renderSpiderGraph();});function renderSpiderGraph() { const ctx = document.getElementById("spider-graph").getContext("2d"); // Placeholder data – replace with your actual archetype scores if available const scores = { "Catalyst": 8, "Explorer": 7, "Keystone": 5, "Vanguard": 6, "Advocate": 4, "Connoisseur": 3, "Oracle": 7, "Alchemist": 5 }; new Chart(ctx, { type: "radar", data: { labels: Object.keys(scores), datasets: [{ label: "Archetype Influence", data: Object.values(scores), backgroundColor: "rgba(90, 103, 216, 0.2)", borderColor: "#5a67d8", borderWidth: 2 }] }, options: { responsive: true, scales: { r: { suggestedMin: 0, suggestedMax: 10 } } } });}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script defer src="results.js"></script>
+
+
+
+
+
+/* results.js */
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    // Elements
+    const primaryEl   = document.getElementById("primary-archetype");
+    const secondaryEl = document.getElementById("secondary-archetype");
+    const descEl      = document.getElementById("archetype-description");
+    const affirmEl    = document.getElementById("affirming-message");
+    const insightsEl  = document.getElementById("personalized-insights");
+    const reflEl      = document.getElementById("reflection-list");
+
+    // Results from quiz.js
+    const results = JSON.parse(sessionStorage.getItem("quizResults") || "[]");          // [primary, secondary]
+    const scores  = JSON.parse(sessionStorage.getItem("archetypeScores") || "{}");      // { Archetype: 0..10 }
+
+    if (!Array.isArray(results) || !results.length) {
+      if (primaryEl) primaryEl.textContent = "Error: No Results Found";
+      console.error("No quiz results in sessionStorage.");
+      return;
+    }
+
+    const [primary, secondary] = results;
+    if (primaryEl)   primaryEl.textContent   = primary || "—";
+    if (secondaryEl) secondaryEl.textContent = secondary || "—";
+
+    // Load narratives
+    try {
+      const data = await fetch("quiz_data.json").then(r => r.json());
+      const details = (data.archetypes || {})[primary] || {};
+      if (descEl)   descEl.textContent   = details.description  || "—";
+      if (affirmEl) affirmEl.textContent = details.affirmation  || "—";
+      if (insightsEl) {
+        if (Array.isArray(details.insights)) insightsEl.textContent = details.insights.join(" ");
+        else insightsEl.textContent = details.insights || "—";
+      }
+      if (reflEl) {
+        reflEl.innerHTML = "";
+        (details.reflection || []).forEach(q => {
+          const li = document.createElement("li");
+          li.textContent = q;
+          reflEl.appendChild(li);
+        });
+      }
+    } catch (e) {
+      console.warn("quiz_data.json load issue:", e);
+    }
+
+    // Radar chart
+    const canvas = document.getElementById("spider-graph");
+    if (canvas && typeof Chart !== "undefined") {
+      let labels = Object.keys(scores);
+      let dataVals = labels.map(k => Number(scores[k] ?? 0));
+      if (!labels.length) {
+        // Fallback ordering used by your engine
+        labels = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
+        dataVals = labels.map(() => 0);
+      }
+      new Chart(canvas.getContext("2d"), {
+        type: "radar",
+        data: {
+          labels,
+          datasets: [{
+            label: "Archetype Balance (0–10)",
+            data: dataVals,
+            backgroundColor: "rgba(90, 103, 216, 0.2)",
+            borderColor: "#5a67d8",
+            borderWidth: 2
+          }]
+        },
+        options: { responsive: true, scales: { r: { suggestedMin: 0, suggestedMax: 10 } } }
+      });
+    }
+
+    // Optional Fit-Check slider (post-result, unscored)
+    const fitWrap = document.getElementById("fit-check");
+    if (fitWrap) {
+      fitWrap.innerHTML = `
+        <label for="fitRange">How much does this result fit you right now?</label>
+        <div style="margin:8px 0">
+          <input id="fitRange" type="range" min="1" max="7" step="1" value="4">
+          <output id="fitOut" style="margin-left:8px">4</output>/7
+        </div>`;
+      const range = document.getElementById("fitRange");
+      const out = document.getElementById("fitOut");
+      range.addEventListener("input", () => { out.textContent = range.value; });
+    }
+
+    // PDF export (guard if lib/button missing)
+    const pdfBtn = document.getElementById("export-pdf");
+    if (pdfBtn && typeof html2pdf !== "undefined") {
