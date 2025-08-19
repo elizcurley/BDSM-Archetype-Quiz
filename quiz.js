@@ -14,26 +14,23 @@
   ];
   const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
 
-  // ---- DOM ----
-// ---- DOM (robust lookups for both naming styles) ----
-function $(...ids) {
-  for (const id of ids) {
-    const el = document.getElementById(id);
-    if (el) return el;
+  // ---- DOM (robust lookups for both naming styles) ----
+  function $(...ids) {
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) return el;
+    }
+    return null;
   }
-  return null;
-}
-
-const intro    = $("intro", "intro-container");
-const quiz     = $("quiz", "quiz-container");
-const startBtn = $("start", "start-button");
-const backBtn  = $("back", "back-button");
-const nextBtn  = $("next", "next-button");
-const qText    = $("q-text", "question-text");
-const qOptions = $("q-options", "options-container");
-const pText    = $("progress-text");
-const pFill    = $("progress-fill");
-
+  const intro    = $("intro", "intro-container");
+  const quiz     = $("quiz", "quiz-container");
+  const startBtn = $("start", "start-button");
+  const backBtn  = $("back", "back-button");
+  const nextBtn  = $("next", "next-button");
+  const qText    = $("q-text", "question-text");
+  const qOptions = $("q-options", "options-container");
+  const pText    = $("progress-text");
+  const pFill    = $("progress-fill");
 
   // ---- State ----
   let questions = [];
@@ -159,12 +156,12 @@ const pFill    = $("progress-fill");
     if (!q) return;
 
     // progress
-    pText.textContent = `Question ${index+1} of ${total}`;
-    pFill.style.width = `${Math.round(((index+1)/Math.max(1,total))*100)}%`;
+    if (pText) pText.textContent = `Question ${index+1} of ${total}`;
+    if (pFill) pFill.style.width = `${Math.round(((index+1)/Math.max(1,total))*100)}%`;
 
     // text + options
-    qText.textContent = q.question_text || q.text || "Question";
-    qOptions.innerHTML = "";
+    if (qText) qText.textContent = q.question_text || q.text || "Question";
+    if (qOptions) qOptions.innerHTML = "";
 
     bindNavForCurrent();
 
@@ -223,74 +220,5 @@ const pFill    = $("progress-fill");
       });
       wrap.appendChild(input); wrap.appendChild(out);
       qOptions.appendChild(wrap);
-      // Do NOT override nextBtn here
       return;
     }
-
-    // back visibility
-    backBtn.style.visibility = index > 0 ? "visible" : "hidden";
-  }
-
-  // ---- Scoring & finish ----
-  function finish() {
-    const scores = Object.fromEntries(ARCHETYPES.map(a => [a, 0]));
-
-    for (const q of questions) {
-      const a = answers[q.id];
-      if (!a || !q.archetype || !(q.archetype in scores)) continue;
-      const w = Number(q.weight || 1);
-
-      if (q.type === "likert_scale") {
-        const opts = q.response_options || [];
-        const L = Math.max(1, opts.length - 1);
-        const idx = Number.isInteger(a.idx) ? a.idx : Math.floor(L/2);
-        const norm = (L - idx) / L; // leftmost = 1
-        scores[q.archetype] += norm * w;
-
-      } else if (q.type === "numeric_scale") {
-        const min = Number.isFinite(q.min) ? q.min : 1;
-        const max = Number.isFinite(q.max) ? q.max : 10;
-        const val = Math.min(max, Math.max(min, Number(a.value)));
-        const norm = (val - min) / (max - min);
-        scores[q.archetype] += norm * w;
-      }
-      // multiple_choice: neutral unless you add per-option mapping
-    }
-
-    const ranked = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-    const primary = ranked[0]?.[0] || null;
-    const secondary = ranked[1]?.[0] || null;
-
-    const maxVal = Math.max(1, ...Object.values(scores));
-    const normalized = Object.fromEntries(
-      Object.entries(scores).map(([k,v]) => [k, Math.round((v/maxVal)*10)])
-    );
-
-    sessionStorage.setItem("quizResults", JSON.stringify([primary, secondary]));
-    sessionStorage.setItem("archetypeScores", JSON.stringify(normalized));
-    window.location.href = "results.html";
-  }
-
-  // ---- Wire-up ----
-  if (startBtn) {
-  startBtn.addEventListener("click", async () => {
-    if (intro) intro.classList.add("hidden");
-    if (quiz)  quiz.classList.remove("hidden");
-    await loadAll();
-    render();
-  });
-}
-
-if (backBtn) {
-  backBtn.addEventListener("click", () => {
-    if (index > 0) { index--; render(); }
-  });
-}
-
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => {
-    const q = questions[index];
-    if (!isAnswered(q, answers[q?.id])) return;
-    if (index < total - 1) { index++; render(); } else { finish(); }
-  });
-}
