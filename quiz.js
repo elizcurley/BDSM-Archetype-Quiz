@@ -37,6 +37,45 @@
     render();
   });
 
+    // Helpers — Likert left↔right legend for common scales
+  function likertLegend(opts = []) {
+    const norm = opts.map(s => String(s).trim().toLowerCase());
+    const joined = norm.join("|");
+
+    const patterns = [
+      { set: ["strongly agree","somewhat agree","neutral","somewhat disagree","strongly disagree"], label: "Agree ← → Disagree" },
+      { set: ["strongly disagree","somewhat disagree","neutral","somewhat agree","strongly agree"], label: "Disagree ← → Agree" },
+      { set: ["extremely likely","very likely","neutral","unlikely","very unlikely"], label: "Likely ← → Unlikely" },
+      { set: ["very likely","likely","neutral","unlikely","very unlikely"], label: "Likely ← → Unlikely" },
+      { set: ["very unlikely","unlikely","neutral","likely","very likely"], label: "Unlikely ← → Likely" },
+      { set: ["extremely unlikely","very unlikely","neutral","likely","very likely"], label: "Unlikely ← → Likely" },
+      { set: ["extremely important","very important","moderately important","slightly important","not important"], label: "Important ← → Not important" },
+      { set: ["not important","slightly important","moderately important","very important","extremely important"], label: "Not important ← → Important" },
+      { set: ["always","often","sometimes","rarely","never"], label: "Always ← → Never" },
+      { set: ["never","rarely","sometimes","often","always"], label: "Never ← → Always" },
+      { set: ["very comfortable","comfortable","neutral","uncomfortable","very uncomfortable"], label: "Comfortable ← → Uncomfortable" },
+      { set: ["very uncomfortable","uncomfortable","neutral","comfortable","very comfortable"], label: "Uncomfortable ← → Comfortable" },
+    ];
+
+    for (const p of patterns) {
+      if (joined === p.set.join("|")) return p.label;
+    }
+
+    // Heuristic fallback for near-match wordings
+    const first = norm[0] || "", last = norm[norm.length - 1] || "";
+    if (first.includes("likely") && (last.includes("unlikely") || last.includes("not"))) return "Likely ← → Unlikely";
+    if ((first.includes("unlikely") || first.includes("not")) && last.includes("likely")) return "Unlikely ← → Likely";
+    if (first.includes("important") && last.includes("not")) return "Important ← → Not important";
+    if (first.includes("not") && last.includes("important")) return "Not important ← → Important";
+    if (first.includes("always") && last.includes("never")) return "Always ← → Never";
+    if (first.includes("never") && last.includes("always")) return "Never ← → Always";
+    if (first.includes("comfortable") && last.includes("uncomfortable")) return "Comfortable ← → Uncomfortable";
+    if (first.includes("uncomfortable") && last.includes("comfortable")) return "Uncomfortable ← → Comfortable";
+
+    return null;
+  }
+
+
   backBtn.addEventListener("click", () => {
     if (index > 0) { index--; render(); }
   });
@@ -74,7 +113,17 @@
     qOptions.innerHTML = "";
 
    if (q.type === "likert_scale") {
-  (q.response_options || []).forEach((opt, i) => {
+  const rawOpts = q.response_options || [];
+  const legendText = likertLegend(rawOpts);
+
+  if (legendText) {
+    const legend = document.createElement("div");
+    legend.className = "likert-legend";
+    legend.textContent = legendText;
+    qOptions.appendChild(legend);
+  }
+
+  rawOpts.forEach((opt, i) => {
     const btn = document.createElement("button");
     const isActive = answers[q.id]?.idx === i;
     btn.className = "option" + (isActive ? " active" : "");
@@ -83,11 +132,12 @@
     btn.addEventListener("click", () => {
       answers[q.id] = { idx: i, value: i };
       if (navigator.vibrate) navigator.vibrate(15); // optional haptic
-      render(); // re-renders, updating .active + aria-pressed
+      render();
     });
     qOptions.appendChild(btn);
   });
 }
+
 else if (q.type === "multiple_choice") {
   (q.response_options || []).forEach((opt, i) => {
     const btn = document.createElement("button");
