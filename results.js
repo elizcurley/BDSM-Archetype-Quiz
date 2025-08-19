@@ -21,6 +21,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     const results = JSON.parse(sessionStorage.getItem("quizResults") || "[]");          // [primary, secondary]
     const scores  = JSON.parse(sessionStorage.getItem("archetypeScores") || "{}");      // { Archetype: 0..10 }
     
+    // After: const savedResults = sessionStorage.getItem("quizResults");
+const [primary, secondary] = JSON.parse(savedResults || "[]") || [];
+
+const IMG_MAP = {
+  Catalyst: "images/archetypes/Catalyst.png",
+  Explorer: "images/archetypes/Explorer.png",
+  Keystone: "images/archetypes/Keystone.png",
+  Vanguard: "images/archetypes/Vanguard.png",
+  Oracle: "images/archetypes/Oracle.png",
+  Connoisseur: "images/archetypes/Connoisseur.png",
+  Alchemist: "images/archetypes/Alchemist.png"
+};
+
+// If your results.html is in a subfolder, prefix with "../"
+function pathFor(name) {
+  return IMG_MAP[name] || null;
+}
+
+function setArchetypeImage(elId, name) {
+  const el = document.getElementById(elId);
+  if (!el || !name) return;
+  const src = pathFor(name);
+  if (!src) { el.style.display = "none"; return; }
+  el.src = src;
+  el.alt = `${name} archetype`;
+  el.onerror = () => { el.style.display = "none"; }; // hide if missing
+}
+
+setArchetypeImage("primary-image", primary);
+setArchetypeImage("secondary-image", secondary);
+
 
     if (!Array.isArray(results) || !results.length) {
       if (primaryEl) primaryEl.textContent = "Error: No Results Found";
