@@ -81,72 +81,88 @@
   }
 
   // ---- Load questions (filter, dedupe, balance) ----
-  async function loadAll() {
-    const fetched = await Promise.all(
-      FILES.map(async (file) => {
-        const json = await fetch(file).then(r=>r.json()).catch(()=>({questions:[]}));
-        const section = file.split("/").pop().replace(".json","");
-        return { section, questions: Array.isArray(json.questions) ? json.questions : [] };
-      })
-    );
+async function loadAll() {
+  const fetched = await Promise.all(
+    FILES.map(async (file) => {
+      const json = await fetch(file).then(r => r.json()).catch(() => ({ questions: [] }));
+      const section = file.split("/").pop().replace(".json", "");
+      return { section, questions: Array.isArray(json.questions) ? json.questions : [] };
+    })
+  );
 
-    let pool = fetched.flatMap(({ section, questions }) =>
-      questions
-        .filter(q => ["likert_scale","numeric_scale","multiple_choice"].includes(q?.type))
-        .map(q => ({ ...q, __section: section }))
-    );
+  // 1) Build the pool first (this was missing)
+  let pool = fetched.flatMap(({ section, questions }) =>
+    questions
+      .filter(q => ["likert_scale", "numeric_scale", "multiple_choice"].includes(q?.type))
+      .map(q => ({ ...q, __section: section }))
+  );
 
-    // Drop safety/consent gates and premature "identify archetype"
-    const DROP_KEYWORDS = ["safety","safe word","safe-word","protocol","ssc","rack","consent","aftercare","negotiation","injury","emergency"];
-    const DROP_IDS = ["identify_archetype","know_archetype","self_identify_archetype"];
-    pool = pool.filter(q => {
-      const id = String(q.id || "").toLowerCase();
-      const text = String(q.question_text || q.text || "").toLowerCase();
-      if (DROP_IDS.includes(id)) return false;
-      if (DROP_KEYWORDS.some(k => text.includes(k))) return false;
-      return true;
-    });
+  // 2) Drop safety/consent + any "identify your archetype" items
+  const DROP_IDS = new Set([
+    "identify_archetype", "know_archetype", "self_identify_archetype"
+  ]);
+  const DROP_TEXT_PATTERNS = [
+    /\bssc\b|\brack\b|\bsafe[- ]?word\b|\bconsent\b|\baftercare\b|\bnegotiation\b|\binjury\b|\bemergency\b|\bprotocol\b|\bsafety\b/i,
+    /\bidentify\b.*\barchetype\b/i,
+    /\barchetype\b.*\bidentify\b/i,
+    /\bprimary archetype\b/i,
+    /\bstrongly identify\b.*\barchetype\b/i
+  ];
 
-    // Dedupe by id
-    const seen = new Set();
-    pool = pool.filter(q => {
-      const id = String(q.id || "");
-      if (!id || seen.has(id)) return false;
-      seen.add(id); return true;
-    });
+  const dropped = [];
+  pool = pool.filter(q => {
+    const id   = String(q.id || "").toLowerCase();
+    const text = String(q.question_text || q.text || "");
+    if (DROP_IDS.has(id)) { dropped.push({ id, why: "id" }); return false; }
+    if (DROP_TEXT_PATTERNS.some(re => re.test(text))) { dropped.push({ id, why: "text" }); return false; }
+    return true;
+  });
+  if (dropped.length) console.warn("Dropped (safety/identify):", dropped);
 
-    // Light stratification caps to avoid kink-heavy balance
-    const CAPS = {
-      foundational_assessment: 10,
-      hobby_preferences: 14,
-      kink_general: 8,
-      kink_specific: 8,
-      situational: 6,
-      reflection: 6,
-      preference_strength: 4
-    };
+  // 3) Dedupe by id
+  const seen = new Set();
+  pool = pool.filter(q => {
+    const id = String(q.id || "");
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
 
-    const groups = {};
-    for (const q of pool) (groups[q.__section] ||= []).push(q);
-    const picked = [];
-    for (const [sec, arr] of Object.entries(groups)) {
-      const cap = CAPS[sec] ?? arr.length;
-      picked.push(...shuffle(arr).slice(0, cap));
-    }
+  // 4) Light stratification caps (you set Hobby to 14)
+  const CAPS = {
+    foundational_assessment: 10,
+    hobby_preferences: 14,
+    kink_general: 8,
+    kink_specific: 8,
+    situational: 6,
+    reflection: 6,
+    preference_strength: 4
+  };
 
-    questions = shuffle(picked);
-    total = questions.length;
+  // 5) Group, cap, pick
+  const groups = {};
+  for (const q of pool) (groups[q.__section] ||= []).push(q);
 
-    // Debug counts
-    const bySection = {}; const byArch = {};
-    for (const q of questions) {
-      bySection[q.__section] = (bySection[q.__section]||0)+1;
-      if (q.archetype) byArch[q.archetype] = (byArch[q.archetype]||0)+1;
-    }
-    console.log("Question counts by section:", bySection);
-    console.log("Question counts by archetype:", byArch);
-    console.log("Total questions:", total);
+  const picked = [];
+  for (const [sec, arr] of Object.entries(groups)) {
+    const cap = CAPS[sec] ?? arr.length;
+    picked.push(...shuffle(arr).slice(0, cap));
   }
+
+  // 6) Final shuffle + set totals
+  questions = shuffle(picked);
+  total = questions.length;
+
+  // 7) Debug
+  const bySection = {}; const byArch = {};
+  for (const q of questions) {
+    bySection[q.__section] = (bySection[q.__section] || 0) + 1;
+    if (q.archetype) byArch[q.archetype] = (byArch[q.archetype] || 0) + 1;
+  }
+  console.log("Question counts by section:", bySection);
+  console.log("Question counts by archetype:", byArch);
+  console.log("Total questions:", total);
+}
 
   // ---- Render ----
   function render() {
