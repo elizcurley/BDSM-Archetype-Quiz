@@ -74,7 +74,7 @@
     {
       "id": "SK6",
       "archetype": "Keystone",
-      "question_text": "How important is it for you to have a debrief with your partner after a session to discuss what worked or didn’t?",
+      "question_text": "How important is it for you to have a debrief with your partner after a session to discuss what worked or didn't?",
       "type": "likert_scale",
       "weight": 3,
       "response_options": [

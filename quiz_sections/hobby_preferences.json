@@ -96,13 +96,6 @@
         "Freeform expression",
         "A mix of both"
       ]
-    },
-    {
-      "id": "H8",
-      "archetype": "Oracle",
-      "question_text": "How do your hobbies help you unwind and recharge?",
-      "type": "open_ended",
-      "weight": 3
     }
   ]
 }

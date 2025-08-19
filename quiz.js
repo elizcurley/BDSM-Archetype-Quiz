@@ -1,255 +1,193 @@
-/* quiz.js */
 
-// Prevent Duplicate Script Execution
-if (window.quizLoaded) {
-  console.warn("⚠️ Quiz.js already loaded – Skipping duplicate execution.");
-} else {
-  window.quizLoaded = true; // Mark script as loaded
+(() => {
+  if (window.__quizEngineLoaded) return;
+  window.__quizEngineLoaded = true;
 
-  // Quiz State Variables
-  let quizQuestions = [];
-  let currentQuestionIndex = 0;
-  let userResponses = {};
-  let sectionsLoaded = 0; // Tracks number of loaded sections
-
-  // JSON Files to Load (Modular)
-  const jsonFiles = [
+  const FILES = [
     "quiz_sections/foundational_assessment.json",
     "quiz_sections/hobby_preferences.json",
     "quiz_sections/kink_general.json",
     "quiz_sections/kink_specific.json",
-    "quiz_sections/situational.json",
+    "quiz_sections/preference_strength.json",
     "quiz_sections/reflection.json",
-    "quiz_sections/preference_strength.json"
+    "quiz_sections/situational.json",
   ];
 
-  // DOM Elements
-  const introContainer = document.getElementById("intro-container");
-  const quizContainer = document.getElementById("quiz-container");
-  const questionText = document.getElementById("question-text");
-  const optionsContainer = document.getElementById("options-container");
-  const nextButton = document.getElementById("next-button");
-  const backButton = document.getElementById("back-button");
+  const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
 
-  console.log("✅ quiz.js Loaded Successfully!");
+  const intro = document.getElementById("intro");
+  const quiz  = document.getElementById("quiz");
+  const startBtn = document.getElementById("start");
+  const backBtn  = document.getElementById("back");
+  const nextBtn  = document.getElementById("next");
+  const qText    = document.getElementById("q-text");
+  const qOptions = document.getElementById("q-options");
+  const pText    = document.getElementById("progress-text");
+  const pFill    = document.getElementById("progress-fill");
 
-  // Load Quiz Data from All Sections
-  function loadAllSections() {
-    jsonFiles.forEach(file => {
-      fetch(file)
-        .then(response => response.json())
-        .then(data => {
-          if (data.questions) {
-            quizQuestions = quizQuestions.concat(data.questions);
-            console.log(`📌 Loaded ${data.questions.length} questions from ${file}`);
-          } else {
-            console.warn(`⚠️ No questions found in ${file}`);
-          }
-          sectionsLoaded++;
-          if (sectionsLoaded === jsonFiles.length) {
-            console.log("✅ All quiz sections loaded!");
-            shuffleQuestions();
-            loadProgress();
-            loadQuestion();
-          }
-        })
-        .catch(error => console.error(`❌ Error loading ${file}:`, error));
+  let questions = [];
+  let index = 0;
+  let answers = {}; // id -> { idx, value }
+  let total = 0;
+
+  startBtn.addEventListener("click", async () => {
+    intro.classList.add("hidden");
+    quiz.classList.remove("hidden");
+    await loadAll();
+    render();
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (index > 0) { index--; render(); }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (index < total-1) { index++; render(); }
+    else { finish(); }
+  });
+
+  async function loadAll() {
+    const results = await Promise.all(FILES.map(f => fetch(f).then(r=>r.json()).catch(()=>({questions:[]}))));
+    questions = results.flatMap(j => (j.questions||[]))
+                       .filter(q => ["likert_scale","numeric_scale","multiple_choice"].includes(q.type));
+    // Deduplicate by id in case of overlaps
+    const seen = new Set();
+    questions = questions.filter(q => {
+      if (!q.id || seen.has(q.id)) return false;
+      seen.add(q.id); return true;
     });
+    total = questions.length;
   }
 
-  // Shuffle Questions for Variation
-  function shuffleQuestions() {
-    quizQuestions.sort(() => Math.random() - 0.5);
-  }
+  function render() {
+    const q = questions[index];
+    if (!q) return;
 
-  // Save Progress to sessionStorage
-  function saveProgress() {
-    sessionStorage.setItem("quizProgress", JSON.stringify({
-      currentQuestionIndex,
-      userResponses
-    }));
-    console.log("💾 Progress Saved:", sessionStorage.getItem("quizProgress"));
-  }
+    // progress
+    pText.textContent = `Question ${index+1} of ${total}`;
+    pFill.style.width = `${Math.round(((index+1)/Math.max(1,total))*100)}%`;
 
-  // Load Progress from sessionStorage
-  function loadProgress() {
-    const savedProgress = JSON.parse(sessionStorage.getItem("quizProgress"));
-    if (savedProgress) {
-      currentQuestionIndex = savedProgress.currentQuestionIndex || 0;
-      userResponses = savedProgress.userResponses || {};
-      console.log("🔄 Loaded Saved Progress:", savedProgress);
-    }
-  }
+    // text
+    qText.textContent = q.question_text || q.text || "Question";
 
-  // Consolidated Load Question Function
-  function loadQuestion() {
-    console.log("📌 Loading Question Index:", currentQuestionIndex);
+    // options
+    qOptions.innerHTML = "";
 
-    if (!quizQuestions || quizQuestions.length === 0) {
-      console.error("❌ No Questions Found! Delaying question load.");
-      questionText.innerText = "Loading questions... Please wait.";
-      return;
-    }
-
-    if (currentQuestionIndex >= quizQuestions.length) {
-      console.log("✅ All Questions Answered – Calculating Results!");
-      calculateResults();
-      return;
-    }
-
-    const currentQuestion = quizQuestions[currentQuestionIndex];
-    if (!currentQuestion) {
-      console.error("❌ Current Question is Undefined! Skipping...");
-      questionText.innerText = "An error occurred loading this question.";
-      return;
-    }
-
-    console.log("🎯 Current Question:", currentQuestion);
-    questionText.innerText = currentQuestion.question_text;
-    optionsContainer.innerHTML = "";
-
-    // Handle numeric_scale questions by rendering a slider
-    if (currentQuestion.type === "numeric_scale") {
+    if (q.type === "likert_scale") {
+      (q.response_options || []).forEach((opt,i) => {
+        const btn = document.createElement("button");
+        btn.className = "option" + (answers[q.id]?.idx===i ? " active": "");
+        btn.textContent = opt;
+        btn.onclick = () => { answers[q.id] = { idx:i, value:i }; render(); };
+        qOptions.appendChild(btn);
+      });
+    } else if (q.type === "multiple_choice") {
+      (q.response_options || []).forEach((opt,i) => {
+        const btn = document.createElement("button");
+        btn.className = "option" + (answers[q.id]?.idx===i ? " active": "");
+        btn.textContent = opt;
+        btn.onclick = () => { answers[q.id] = { idx:i, value:i }; render(); };
+        qOptions.appendChild(btn);
+      });
+    } else if (q.type === "numeric_scale") {
+      const min = Number.isFinite(q.min) ? q.min : 1;
+      const max = Number.isFinite(q.max) ? q.max : 10;
+      const wrap = document.createElement("div");
       const input = document.createElement("input");
-      input.type = "range";
-      input.id = "numeric-scale-input";
-      input.min = currentQuestion.min || 1;
-      input.max = currentQuestion.max || 10;
-      const minVal = Number(input.min);
-      const maxVal = Number(input.max);
-      input.value = Math.floor((minVal + maxVal) / 2);
-      
-      // Display current value
-      const output = document.createElement("span");
-      output.id = "numeric-scale-output";
-      output.innerText = input.value;
-      input.addEventListener("input", () => {
-        output.innerText = input.value;
-      });
-      optionsContainer.appendChild(input);
-      optionsContainer.appendChild(output);
-    }
-    // Optionally handle open-ended questions (if any remain)
-    else if (currentQuestion.type === "open_ended") {
-      const textBox = document.createElement("textarea");
-      textBox.id = "open-ended-response";
-      textBox.placeholder = "Type your response here...";
-      textBox.classList.add("open-ended-input");
-      if (userResponses[currentQuestion.id]) {
-        textBox.value = userResponses[currentQuestion.id];
-      }
-      optionsContainer.appendChild(textBox);
-    }
-    // Handle closed-ended questions (e.g., likert_scale, multiple_choice)
-    else if (Array.isArray(currentQuestion.response_options)) {
-      currentQuestion.response_options.forEach((option, index) => {
-        const button = document.createElement("button");
-        button.innerText = option;
-        button.classList.add("option-button");
-        // Pass the archetype to the selectOption function
-        button.onclick = () => selectOption(index, currentQuestion.id, currentQuestion.weight, currentQuestion.archetype);
-        optionsContainer.appendChild(button);
-      });
-    } else {
-      console.error("⚠️ Missing response options for question:", currentQuestion);
-      questionText.innerText = "An error occurred displaying this question.";
+      input.type = "range"; input.min = min; input.max = max; input.step = 1;
+      input.value = answers[q.id]?.value ?? Math.round((min+max)/2);
+      const out = document.createElement("div");
+      out.textContent = String(input.value);
+      out.style.marginTop = "6px";
+      input.addEventListener("input", () => { out.textContent = String(input.value); });
+      wrap.appendChild(input); wrap.appendChild(out);
+      qOptions.appendChild(wrap);
+      nextBtn.onclick = () => {
+        answers[q.id] = { value: Number(input.value) };
+        if (index < total-1) { index++; render(); } else { finish(); }
+      };
+      return;
     }
 
-    backButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
-    saveProgress();
-  }
-
-  // Select Option Function for closed-ended choices
-  function selectOption(index, questionId, weight, archetype) {
-    console.log("👉 Option Selected:", index, "for Question:", questionId, "Weight:", weight, "Archetype:", archetype);
-    // Store response using question ID as key
-    userResponses[questionId] = {
-      selectedOption: index,
-      weight: weight,
-      archetype: archetype
+    // default next handler
+    nextBtn.onclick = () => {
+      if (index < total-1) { index++; render(); } else { finish(); }
     };
-    currentQuestionIndex++;
-    saveProgress();
-    loadQuestion();
+
+    // back visibility
+    backBtn.style.visibility = index > 0 ? "visible" : "hidden";
   }
 
-  // Back Button Functionality
-  function goBack() {
-    if (currentQuestionIndex > 0) {
-      currentQuestionIndex--;
-      loadQuestion();
+  // Compute scores with heuristic orientation:
+  // - Likert with recognizable positive->negative sequences: map left=1, right=0
+  // - Numeric scale: normalize min..max (higher assumed more of the tagged archetype)
+  // - Multiple choice: no scoring unless configured (treated neutral for now)
+  function finish() {
+    const scores = Object.fromEntries(ARCHETYPES.map(a => [a, 0]));
+    const weights = {}; // per-question weight cache
+
+    const POSITIVE_SETS = [
+      // Standard strongly agree -> strongly disagree
+      ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      // Importance
+      ["Extremely important","Very important","Moderately important","Slightly important","Not important"],
+      // Frequency
+      ["Always","Often","Sometimes","Rarely","Never"],
+      // Likelihood
+      ["Very likely","Likely","Neutral","Unlikely","Very unlikely"],
+      // Comfort
+      ["Very comfortable","Comfortable","Neutral","Uncomfortable","Very uncomfortable"],
+      // Trust/priority variants
+      ["Always trust my intuition","Often trust my intuition","Neutral","Rarely trust my intuition","Never trust my intuition"],
+      ["Safety protocols always come first","Safety protocols are very important","Balance safety with creativity","Prefer spontaneity over strict protocols","Spontaneity always comes first"],
+    ].map(a => a.join("|"));
+
+    function looksPositiveLeft(opts) {
+      const key = (opts||[]).join("|");
+      return POSITIVE_SETS.some(p => key.startswith(p));
     }
-  }
 
-  // Calculate Results Function
-  function calculateResults() {
-    console.log("📊 Calculating Results...");
-    console.log("🔍 User Responses:", userResponses);
+    for (const q of questions) {
+      const a = answers[q.id];
+      const arche = q.archetype;
+      const w = Number(q.weight || 1);
+      if (!arche || !(arche in scores) || !a) continue;
 
-    let archetypeScores = {};
-
-    Object.entries(userResponses).forEach(([questionId, response]) => {
-      let question = quizQuestions.find(q => q.id === questionId);
-      if (!question) {
-        console.warn("⚠️ Question ID Not Found in Quiz Data:", questionId);
-        return;
-      }
-      let archetype = question.archetype;
-      let weight = response.weight || 1;
-      archetypeScores[archetype] = (archetypeScores[archetype] || 0) + weight;
-    });
-
-    let sortedArchetypes = Object.keys(archetypeScores).sort((a, b) => archetypeScores[b] - archetypeScores[a]);
-    console.log("🏆 Final Archetypes:", sortedArchetypes);
-
-    sessionStorage.setItem("quizResults", JSON.stringify(sortedArchetypes));
-    sessionStorage.setItem("openEndedResponses", JSON.stringify(userResponses));
-
-    window.location.href = "quiz_results.html";
-  }
-
-  // Event Listeners
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("📌 DOM Fully Loaded!");
-
-    const startButton = document.getElementById("start-button");
-    if (startButton) {
-      console.log("🚀 Start Button Found!");
-      startButton.addEventListener("click", () => {
-        console.log("🚀 Start Button Clicked! Loading Quiz...");
-        introContainer.style.display = "none";
-        quizContainer.style.display = "block";
-        loadAllSections();
-      });
-    } else {
-      console.error("❌ Start Button Not Found!");
-    }
-  });
-
-  // Next Button: For numeric_scale and open_ended questions
-  nextButton.addEventListener("click", () => {
-    const currentQuestion = quizQuestions[currentQuestionIndex];
-    if (currentQuestion) {
-      if (currentQuestion.type === "numeric_scale") {
-        const input = document.getElementById("numeric-scale-input");
-        if (input) {
-          userResponses[currentQuestion.id] = {
-            value: input.value,
-            weight: currentQuestion.weight,
-            archetype: currentQuestion.archetype
-          };
+      if (q.type === "likert_scale") {
+        const opts = q.response_options || [];
+        let norm = 0.5; // neutral default
+        if (looksPositiveLeft(opts) && Number.isInteger(a.idx)) {
+          const L = Math.max(1, opts.length - 1);
+          norm = (L - a.idx) / L; // leftmost -> 1
         }
-      } else if (currentQuestion.type === "open_ended") {
-        const textBox = document.getElementById("open-ended-response");
-        if (textBox) {
-          userResponses[currentQuestion.id] = textBox.value;
-        }
+        scores[arche] += norm * w;
+
+      } else if (q.type === "numeric_scale") {
+        const min = Number.isFinite(q.min) ? q.min : 1;
+        const max = Number.isFinite(q.max) ? q.max : 10;
+        const v = Math.min(max, Math.max(min, Number(a.value)));
+        const norm = (v - min) / (max - min);
+        scores[arche] += norm * w;
+
+      } else if (q.type === "multiple_choice") {
+        // For now, treat as neutral until we define per-option alignment
+        // (We can add an external overrides map in a later pass.)
+        continue;
       }
     }
-    currentQuestionIndex++;
-    saveProgress();
-    loadQuestion();
-  });
 
-  backButton.addEventListener("click", goBack);
-}
+    // Rank + normalize for chart
+    const ranked = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+    const primary = ranked[0]?.[0] || null;
+    const secondary = ranked[1]?.[0] || null;
+    const maxVal = Math.max(1, ...Object.values(scores));
+    const normalized = Object.fromEntries(Object.entries(scores).map(([k,v]) => [k, Math.round( (v/maxVal)*10 )]));
+
+    // Persist for results page
+    sessionStorage.setItem("quizResults", JSON.stringify([primary, secondary]));
+    sessionStorage.setItem("archetypeScores", JSON.stringify(normalized));
+
+    // Navigate
+    window.location.href = "results.html";
+  }
+})();

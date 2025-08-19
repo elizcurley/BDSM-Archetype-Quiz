@@ -1,35 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BDSM Archetype Quiz</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="quiz.js"></script> <!-- ✅ Correctly loads script -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BDSM Archetype Quiz</title>
+  <meta name="description" content="A privacy-first quiz that reveals your primary and secondary BDSM archetypes.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="quiz.js"></script>
 </head>
 <body>
+  <div class="container" id="intro">
+    <h1>BDSM Archetype Quiz</h1>
+    <p>Quick, private, and skippable. Your answers never leave your browser.</p>
+    <ul>
+      <li>No open-ended items. Mostly Likert & simple choices.</li>
+      <li>Back/Next enabled. You can skip and return.</li>
+      <li>Export results as a PDF if you want to keep them.</li>
+    </ul>
+    <button id="start" class="primary">Start</button>
+  </div>
 
-    <!-- ✅ Landing Page (Visible at Start) -->
-    <div id="intro-container">
-        <h1>Welcome to the BDSM Archetype Quiz</h1>
-        <p>Discover your unique BDSM archetype by answering a series of questions.</p>
-        <button id="start-button">Start Quiz</button>
+  <div class="container hidden" id="quiz">
+    <div id="progress">
+      <div id="progress-bar"><div id="progress-fill"></div></div>
+      <p id="progress-text"></p>
     </div>
 
-    <!-- ✅ Quiz Section (Hidden Initially) -->
-    <div id="quiz-container" class="hidden">
-        <h2 id="question-text"></h2>
-        <div id="options-container"></div>
-        <button id="back-button" class="hidden">Back</button>
-        <button id="next-button">Next</button>
-    </div>
+    <h2 id="q-text"></h2>
+    <div id="q-options"></div>
 
-    <!-- ✅ Results Section (Hidden Until End) -->
-    <div id="results-container" class="hidden">
-        <h1>Your Archetype Results</h1>
-        <p id="archetype-results"></p>
-        <button id="view-details">View Detailed Analysis</button>
+    <div class="nav">
+      <button id="back" class="secondary">Back</button>
+      <button id="next" class="primary">Next</button>
     </div>
-
+  </div>
 </body>
 </html>
