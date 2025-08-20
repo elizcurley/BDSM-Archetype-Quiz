@@ -1,5 +1,7 @@
 /* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, tag recs, dynamic narrative */
 
+const DATA_BASE = "data/"; // set to "../data/" if results.html is in a subfolder
+
 document.addEventListener("DOMContentLoaded", initResults);
 
 async function initResults() {
@@ -16,10 +18,8 @@ async function initResults() {
     radar:        byId("spider-graph"),
     fitWrap:      byId("fit-check"),
     pdfBtn:       byId("export-pdf"),
-    recsWrap:     byId("top-interests") // optional container for “Top Interests”
+    recsWrap:     byId("top-interests") // optional “Top Interests” container
   };
-
-  const DATA_BASE = "data/"; // change to "../data/" if results.html lives in a subfolder
 
   // 2) Constants (names + image paths)
   const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
@@ -136,7 +136,6 @@ async function initResults() {
   }
 
   // 10) (Optional) Tag-based interests → show top tags if you saved them
-  //     IMPORTANT: declare topTags in outer scope so you can reuse it below.
   let topTags = [];
   try {
     const kiResponses = allResponses.kink_interests;
@@ -160,19 +159,18 @@ async function initResults() {
     console.warn("Dynamic narrative skipped:", e);
   }
 
-  // after dynamic narrative section
-try {
-  const kink = await buildKinkRecs(topTags, primary);
-  if (kink) {
-    fillList("kink-scenes", kink.scenes.map(s =>
-      `${s.title}: ${s.ideas[0] || "—"}${s.stretch?.length ? ` (stretch: ${s.stretch[0]})` : ""}`
-    ));
-    fillList("kink-props",  kink.props);
-    fillList("kink-comms",  kink.comms);
-    fillList("kink-care",   kink.care);
-  }
-} catch(e){ console.warn("Kink recs skipped:", e); }
-
+  // 10.6) Kink translation (scenes, props, phrases, aftercare)
+  try {
+    const kink = await buildKinkRecs(topTags, primary);
+    if (kink) {
+      fillList("kink-scenes", (kink.scenes || []).map(s =>
+        `${s.title}: ${s.ideas?.[0] || "—"}${(s.stretch && s.stretch.length) ? ` (stretch: ${s.stretch[0]})` : ""}`
+      ));
+      fillList("kink-props",  kink.props);
+      fillList("kink-comms",  kink.comms);
+      fillList("kink-care",   kink.care);
+    }
+  } catch(e){ console.warn("Kink recs skipped:", e); }
 
   // 11) PDF export button
   if (els.pdfBtn && typeof html2pdf !== "undefined") {
@@ -294,12 +292,64 @@ function renderTopTagCard(container, topTags, primaryArchetype){
   `;
 }
 
-/* ---- Dynamic narrative helpers (NEW) ---- */
+/* ---- Kink translation builder (uses /data) ---- */
+async function buildKinkRecs(topTags, primary) {
+  let tax = {}, map = {};
+  try {
+    tax = await fetch(`${DATA_BASE}kink_taxonomy.json?v=1`).then(r => r.json());
+    map = await fetch(`${DATA_BASE}kink_recs_map.json?v=1`).then(r => r.json());
+  } catch {
+    return null; // fail gracefully
+  }
+
+  const bias = new Set((map.archetype_bias?.[primary]) || []);
+  const ranked = (topTags || []).map(([tag, score]) => {
+    const bonus = bias.has(tag) ? 0.15 : 0;
+    return { tag, score: (score || 0) + bonus };
+  }).sort((a,b) => b.score - a.score);
+
+  // Group by category
+  const byCat = new Map();
+  for (const r of ranked) {
+    const meta = tax.tags?.[r.tag];
+    if (!meta) continue;
+    const cat = meta.category || "Misc";
+    if (!byCat.has(cat)) byCat.set(cat, []);
+    byCat.get(cat).push({ tag: r.tag, meta, score: r.score });
+  }
+
+  // Build sections
+  const scenes = [], props = [], comms = [], care = [];
+  for (const [cat, items] of byCat) {
+    for (const it of items.slice(0, 2)) { // top 1–2 per category
+      const m = it.meta;
+      scenes.push({
+        title: `${cat}: ${it.tag}`,
+        ideas: m.beginner?.slice(0,1) || [],
+        stretch: m.advanced?.slice(0,1) || [],
+        safety: m.safety || []
+      });
+      if (m.beginner?.length) props.push(m.beginner[0]);
+      if (cat === "Ritual & Symbol") comms.push("One-sentence intention + breath");
+      if (cat === "Power/Service")   comms.push("Check-in phrase: “Would you like service now or later?”");
+      if (cat === "Impact")          care.push("Aftercare: warmth + water + check-in 10m later");
+    }
+  }
+
+  return {
+    scenes: scenes.slice(0,3),
+    props:  Array.from(new Set(props)).slice(0,5),
+    comms:  Array.from(new Set(comms)).slice(0,3),
+    care:   Array.from(new Set(care)).slice(0,3)
+  };
+}
+
+/* ---- Dynamic narrative helpers (uses /data) ---- */
 async function buildDynamicNarrative(allResponses, topTags, primary) {
   // Load rulebook (optional file; function safely falls back)
   let rules;
   try {
-    rules = await fetch("quiz_dynamic_rules.json").then(r => r.json());
+    rules = await fetch(`${DATA_BASE}quiz_dynamic_rules.json?v=1`).then(r => r.json());
   } catch {
     return { affirmations: [], insights: [], explore: [], growth: [] };
   }
