@@ -1,171 +1,137 @@
 {
+  "version": 2,
   "archetypes": {
-    "Catalyst": {
-      "summary": "An archetype of transformation, creativity, and trailblazing energy. Catalysts push boundaries and ignite change.",
-      "description": "The Catalyst is driven by innovation and vision. They are the ones who see potential where others see limits\u2014pushing beyond the conventional to create transformative experiences. Their innate creativity and risk-taking nature enable them to spark change in both their personal and dynamic relationships.",
-      "coreTraits": [
-        "Innovative and bold",
-        "Focused on growth and transformation",
-        "Risk-taking and experimental",
-        "Visionary and introspective"
-      ],
-      "subtypes": {
-        "The Visionary": "Driven by ideas and constant exploration of possibilities.",
-        "The Instigator": "Challenges the status quo and pushes for dynamic change.",
-        "The Transformer": "Focuses on inner evolution and personal revolution."
-      },
-      "kinkPreferences": "Catalysts enjoy experimenting with creative forms of play\u2014from artistic rope bondage and sensory exploration to impact play that tests control boundaries. They often engage in artistic hobbies like sculpture, dance, and visual arts.",
-      "visualSymbol": "An abstract, fluid burst of energy or morphing flame symbolizing constant transformation.",
-      "affirmation": "You are not just an explorer; you are the flame that ignites change. Embrace your power to transform yourself and those around you.",
-      "insights": "Your dynamic energy drives transformative change in every aspect of your life. Your creative spirit fuels innovative approaches and inspires others to break boundaries.",
-      "reflection": [
-        "How does your drive for transformation impact your daily interactions?",
-        "What challenges have helped you discover new facets of your identity?",
-        "How do you balance constant innovation with the need for stability?"
-      ]
-    },
     "Explorer": {
-      "summary": "An archetype driven by adventure, discovery, and a quest for new experiences.",
-      "description": "The Explorer thrives on novelty and the thrill of discovery. Always seeking uncharted experiences, they embrace change and challenge traditional boundaries. Their curiosity drives them to explore both the world around them and the depths of their own psyche, fostering personal growth and dynamic connections.",
-      "coreTraits": [
-        "Adventurous and thrill-seeking",
-        "Curious and open-minded",
-        "Risk-tolerant and dynamic",
-        "Emotionally expansive"
+      "description": "The Explorer is animated by curiosity and discovery. You learn by doing and enjoy turning the unknown into a shared adventure. Clear consent lanes and light structure help you improvise freely.",
+      "affirmation": "Your curiosity is a compass—follow it and the path appears.",
+      "insights": [
+        "Tiny experiments beat long debates; momentum teaches you fastest.",
+        "Alternating novelty with low-effort favorites keeps energy sustainable.",
+        "Movement resets you—detours, walks, and mini-missions restore presence.",
+        "You explore best when boundaries and exits are named up front.",
+        "Flexible environments (music, lighting, props) help you shift gears.",
+        "A soft landing after big novelty keeps enthusiasm available tomorrow."
       ],
-      "subtypes": {
-        "The Thrill-Seeker": "Chases high-energy, intense experiences that push physical and emotional limits.",
-        "The Adventurer": "Seeks depth through emotional and mental exploration.",
-        "The Risk Taker": "Calculates risks to move beyond comfort zones."
-      },
-      "kinkPreferences": "Explorers love role-play, fantasy exploration, and varied sensory experiences. They are drawn to intense impact or edge play and often pursue adventurous hobbies such as traveling, hiking, or extreme sports.",
-      "visualSymbol": "A modern, stylized compass symbolizing the search for new paths and uncharted territories.",
-      "affirmation": "You are the adventurer of your own desires, fearlessly navigating the unknown. Your courage transforms your world and inspires others to follow.",
-      "insights": "Your relentless pursuit of new experiences fuels your personal growth and reshapes your intimate dynamics. Embracing the unpredictable, you continuously expand your horizons, both emotionally and physically.",
       "reflection": [
-        "How has exploring the unknown enriched your personal journey?",
-        "What new experiences have reshaped your understanding of intimacy?",
-        "How do you balance the thrill of discovery with the need for consistency?"
-      ]
-    },
-    "Keystone": {
-      "summary": "A grounding force that offers stability, support, and guidance in relationships.",
-      "description": "The Keystone is the cornerstone of stability and care. With a nurturing nature and dependable presence, Keystones provide a secure foundation for growth. They excel in creating environments where trust and structure are paramount, balancing practical wisdom with deep compassion.",
-      "coreTraits": [
-        "Nurturing and protective",
-        "Dependable and stable",
-        "Emotionally supportive",
-        "Practical and compassionate"
-      ],
-      "subtypes": {
-        "The Guardian": "Provides strong physical and emotional protection, ensuring safety.",
-        "The Mentor": "Offers wisdom and emotional support to guide others.",
-        "The Supporter": "Focuses on everyday caregiving and consistency."
-      },
-      "kinkPreferences": "Keystones value clear structure and trust in dynamics. They favor roles that emphasize caregiving and protection, often engaging in ritualized practices that reinforce safety and stability. Their interests extend to activities like teaching or mentoring.",
-      "visualSymbol": "A stylized arch with a central stone, representing enduring strength and support.",
-      "affirmation": "You are the foundation upon which others find strength. Your care nurtures both your community and yourself.",
-      "insights": "Your steadfast, nurturing nature creates a secure space for growth. Balancing compassion with practicality, you excel at fostering environments where stability and trust flourish.",
-      "reflection": [
-        "How does your nurturing approach shape your relationships?",
-        "What does stability look like in your daily life?",
-        "How do you manage the balance between caring for others and yourself?"
-      ]
-    },
-    "Vanguard": {
-      "summary": "A bold and pioneering archetype that leads, inspires, and challenges the status quo.",
-      "description": "The Vanguard is all about leadership, innovation, and defying convention. With a fearless approach to life, Vanguards push boundaries and blaze new trails in both personal and dynamic realms. Their forward-thinking nature encourages growth and transformation, setting new trends and inspiring change.",
-      "coreTraits": [
-        "Visionary and decisive",
-        "Fearless and innovative",
-        "Leadership-oriented",
-        "Bold and trendsetting"
-      ],
-      "subtypes": {
-        "The Pioneer": "Leads the way into uncharted territory, always seeking new experiences.",
-        "The Trailblazer": "Breaks down barriers and challenges norms to create growth.",
-        "The Champion": "Empowers others and stands up for those in need."
-      },
-      "kinkPreferences": "Vanguards thrive in roles that let them lead and innovate. They enjoy dynamic and experimental play, often taking charge in dominant roles or guiding partners into uncharted experiences. Their hobbies might include public speaking, community organizing, or other leadership activities.",
-      "visualSymbol": "A bold banner or flag symbolizing a pioneering spirit and the drive to break new ground.",
-      "affirmation": "You are the leader, the visionary, and the force of change. Your bold actions pave the way for deeper connection and growth.",
-      "insights": "Your daring spirit and innovative mindset drive transformative experiences. Leading by example, you inspire those around you to embrace change and pursue new opportunities with confidence.",
-      "reflection": [
-        "How does your leadership style inspire those around you?",
-        "What drives you to challenge the status quo?",
-        "How do you balance risk-taking with ensuring safety in your pursuits?"
+        "Which kinds of newness leave you nourished versus overstimulated?",
+        "What guardrails (timeboxes, check-ins) make exploration freer for you?",
+        "How do you signal curiosity without pressuring a partner?",
+        "Where could a small closing ritual help you land after high novelty?",
+        "What repeatable ‘same-but-fresh’ patterns keep you engaged?"
       ]
     },
     "Oracle": {
-      "summary": "An archetype defined by deep intuition, insight, and a capacity for profound emotional understanding.",
-      "description": "The Oracle is attuned to the subtle rhythms of emotions and inner truths. With a keen sense of intuition, Oracles guide others through complex emotional landscapes. They excel at fostering deep, reflective connections and are often sought out for their wisdom and empathetic counsel.",
-      "coreTraits": [
-        "Intuitive and reflective",
-        "Empathetic and wise",
-        "Emotionally perceptive",
-        "Deeply introspective"
+      "description": "The Oracle orients to meaning and alignment. You track emotional currents, name what’s true with care, and turn noise into signal. Presence and clarity matter most when things get complex.",
+      "affirmation": "Your attunement is a lantern—people see better around you.",
+      "insights": [
+        "Stating a one-sentence intention anchors honesty during intensity.",
+        "Precise language and gentle pacing de-escalate tension for you.",
+        "Being understood often matters as much as being agreed with.",
+        "Your reflections land deeply—ask permission before going big.",
+        "Quiet connection and unhurried conversation replenish you.",
+        "You restore cohesion quickly: reflect back, pick one next step, soften the landing."
       ],
-      "subtypes": {
-        "The Sage": "A seeker of deep knowledge and understanding in every encounter.",
-        "The Empath": "Highly attuned to the emotions of others, creating safe spaces for healing.",
-        "The Seer": "Relies on intuition and foresight to guide transformative experiences."
-      },
-      "kinkPreferences": "Oracles favor dynamics that emphasize emotional depth and psychological insight. They are drawn to practices that require trust, vulnerability, and sometimes even ritualistic or spiritual elements, such as hypnokink or meditative sensory play.",
-      "visualSymbol": "A glowing crystal ball or an intricately designed eye, symbolizing the ability to see beyond the surface.",
-      "affirmation": "You have an uncanny ability to uncover hidden truths and guide others through complex emotional landscapes. Your insight fosters healing and deep connection.",
-      "insights": "Your profound intuition and reflective nature empower you to navigate intricate emotional realms. You create meaningful connections by providing clarity and fostering trust, which in turn nurtures personal and collective growth.",
       "reflection": [
-        "How do you harness your intuition to make meaningful decisions?",
-        "What role does your emotional insight play in supporting others?",
-        "How do you translate your inner wisdom into practical guidance?"
+        "What phrases help you name feelings without assigning blame?",
+        "Where could ‘good-enough clarity’ replace perfectionism this month?",
+        "Which signals tell you a partner feels emotionally safe with you?",
+        "How do you want others to invite your clarity without feeling evaluated?",
+        "What simple ritual repairs trust fastest for you?"
+      ]
+    },
+    "Keystone": {
+      "description": "The Keystone steadies the system with warmth and reliability. Routines, clear expectations, and thoughtful follow-through help everyone exhale—and help you feel grounded, too.",
+      "affirmation": "Your steadiness makes space for other people’s sparkle.",
+      "insights": [
+        "Predictable rhythms are powerful care—tiny routines, big impact.",
+        "Naming limits early deepens trust, not tension.",
+        "After intensity, grounding touch and simple comforts restore you.",
+        "Logistics are a love language: snacks packed, chargers charged.",
+        "You notice well-being over time and value sustainable pacing.",
+        "Delegating one small task can create surprising relief."
+      ],
+      "reflection": [
+        "Which daily micro-ritual keeps you most resourced?",
+        "How do you like others to support you when you’re carrying a lot?",
+        "Where could you delegate without losing quality?",
+        "What’s your favorite way to say no while staying connected?",
+        "What does ideal ‘ordinary-day’ aftercare look like for you?"
+      ]
+    },
+    "Vanguard": {
+      "description": "The Vanguard sets tempo under pressure. You’re comfortable making decisive calls, aligning people quickly, and carrying responsibility with care. Clarity is kindness in your world.",
+      "affirmation": "Your decisiveness is a relief when it carries consent.",
+      "insights": [
+        "Declare the goal, set the pace, confirm exits—people relax.",
+        "Short feedback loops keep leadership adaptive, not rigid.",
+        "Quick check-ins beat prolonged ambiguity for you.",
+        "Standards feel supportive when shared up front, not sprung late.",
+        "Recovery plans matter: intense pushes need deliberate landings.",
+        "Inviting challenge improves outcomes and preserves buy-in."
+      ],
+      "reflection": [
+        "How do you invite input without losing momentum?",
+        "Which signals tell you it’s time to pause or pivot?",
+        "Where might a softer tone create the same alignment?",
+        "What boundaries keep leadership sustainable for you?",
+        "What does clean repair look like when a bold call misses?"
       ]
     },
     "Connoisseur": {
-      "summary": "An archetype that values mastery, precision, and the refined details of every experience.",
-      "description": "The Connoisseur pursues excellence in every facet of life. With a meticulous eye for detail and a passion for quality, they blend technical mastery with a deep appreciation for aesthetics. This pursuit not only elevates their intimate experiences but also enriches every aspect of their daily life.",
-      "coreTraits": [
-        "Detail-oriented and precise",
-        "Aesthetic and refined",
-        "Dedicated to mastery",
-        "Emotionally attuned and creative"
+      "description": "The Connoisseur elevates experiences through craft. You’re drawn to precision, aesthetics, and the feel of materials. Technique and presentation are part of the pleasure.",
+      "affirmation": "Details are your love notes.",
+      "insights": [
+        "Clear standards and tidy setups help you relax into presence.",
+        "Texture, symmetry, and pacing shape your experience more than most.",
+        "You like feedback you can implement—specific, observable, kind.",
+        "Doing less, better often beats doing more for you.",
+        "Curating environment is as satisfying as the activity itself.",
+        "A defined ‘good-enough’ threshold preserves spontaneity."
       ],
-      "subtypes": {
-        "The Aesthete": "Focuses on beauty, presentation, and the sensory allure of an experience.",
-        "The Craftsman": "Committed to perfecting techniques and achieving excellence through skill.",
-        "The Curator": "Meticulously crafts immersive, artful experiences tailored to evoke deep emotion."
-      },
-      "kinkPreferences": "Connoisseurs are drawn to intricately choreographed dynamics\u2014from elegant rope bondage to sensory-rich impact play. They value precision and artistry in every interaction, often engaging in hobbies like art, music, or culinary endeavors that celebrate refined detail.",
-      "visualSymbol": "An elegantly designed key, symbolizing the unlocking of refined, high-quality experiences.",
-      "affirmation": "You are a master of experiences, elevating every moment with your dedication to excellence and refined taste.",
-      "insights": "Your commitment to mastery and precision transforms everyday encounters into works of art. Your deep appreciation for aesthetics enriches your interactions and inspires others to seek beauty in every detail.",
       "reflection": [
-        "How does your focus on detail elevate your experiences?",
-        "What does mastery mean to you in the context of your relationships?",
-        "How do you balance technical precision with creative expression?"
+        "Which details change everything—and which can you release?",
+        "How do you signal that presentation matters without shaming effort?",
+        "Where does ‘polish’ serve intimacy, and where might it block play?",
+        "What kind of feedback helps you refine without overthinking?",
+        "What one craft are you excited to deepen this season?"
+      ]
+    },
+    "Catalyst": {
+      "description": "The Catalyst brings spark and motion. You play with pattern-breaks, humor, and dares to unstick stuck energy. Quick wins snowball into momentum when care is unmistakable.",
+      "affirmation": "You are a permission slip for aliveness.",
+      "insights": [
+        "Micro-games convert lulls into connection in under two minutes.",
+        "Praise-forward feedback keeps your spark generous, not defensive.",
+        "Teasing works best when safety is named and signals are clear.",
+        "Short sprints plus soft landings beat long grinds.",
+        "Novelty bursts reset you—then you like a gentle co-regulation.",
+        "Clear yes/no in the moment keeps play crisp and kind."
+      ],
+      "reflection": [
+        "What are your top three 90-second reset games?",
+        "How do you ensure playful edges feel undeniably safe?",
+        "Where could a little slowness deepen the spark you create?",
+        "What compliments land best for you—and why?",
+        "How do you want partners to ask for a downshift?"
       ]
     },
     "Alchemist": {
-      "summary": "An innovator who transforms experiences through experimentation and fearless creativity.",
-      "description": "The Alchemist is defined by a constant drive to innovate and transform. They blend elements of sensation, emotion, and power to create unique, transformative experiences. Their willingness to experiment and embrace change makes them catalysts for evolution in both their personal lives and dynamic interactions.",
-      "coreTraits": [
-        "Innovative and experimental",
-        "Embraces change and transformation",
-        "Creative and adaptable",
-        "Intuitive and risk-taking"
+      "description": "The Alchemist turns ordinary moments into portals. You work with symbolism, headspace, and small rituals to shift state. You like beginnings, middles, and deliberate endings.",
+      "affirmation": "Your rituals are bridges—small acts, big shifts.",
+      "insights": [
+        "One cue (scent, light, phrase) can change your nervous system fast.",
+        "Meaning first, moves second helps you feel aligned.",
+        "Simple tokens or vows make connection feel anchored.",
+        "Mystery works when clarity is close at hand—poetic, not vague.",
+        "You enjoy containers that shape time and attention.",
+        "Closing rituals prevent emotional ‘whiplash’ after intensity."
       ],
-      "subtypes": {
-        "The Scientist": "Analyzes dynamics through systematic experimentation and a quest for understanding.",
-        "The Mystic": "Infuses play with spiritual or ritualistic elements to deepen transformative experiences.",
-        "The Shapeshifter": "Fluidly shifts between roles and dynamics, adapting to the moment's needs."
-      },
-      "kinkPreferences": "Alchemists thrive on merging diverse elements\u2014from varied impact play and sensory deprivation to ritualized scenes that defy convention. Their creative endeavors often extend to abstract art, innovative technology, or philosophical debates that challenge traditional boundaries.",
-      "visualSymbol": "A bubbling beaker or cauldron, representing the dynamic fusion of elements.",
-      "affirmation": "You are the architect of transformation, blending intuition and innovation to create endless possibilities. Your creativity reshapes the norm and inspires continuous growth.",
-      "insights": "Your fearless experimentation and ability to integrate diverse influences drive your continuous evolution. Embracing change with open arms, you forge new pathways and inspire others to explore the limitless possibilities of transformation.",
       "reflection": [
-        "How does experimentation fuel your evolution?",
-        "What does transformation mean to you in your relationships?",
-        "How do you incorporate new ideas into your dynamic approach?"
+        "Which tiny rituals reliably open or close experiences for you?",
+        "What symbols feel personal and alive—not borrowed?",
+        "How do you stay grounded when transformation runs hot?",
+        "Where could you simplify ritual without losing meaning?",
+        "What beginning-middle-ending pattern would you like to try next month?"
       ]
     }
   }
