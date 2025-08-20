@@ -172,6 +172,11 @@ async function initResults() {
     }
   } catch(e){ console.warn("Kink recs skipped:", e); }
 
+  byId("toggle-kink")?.addEventListener("change", e => {
+  byId("kink-section").style.display = e.target.checked ? "" : "none";
+});
+
+
   // 11) PDF export button
   if (els.pdfBtn && typeof html2pdf !== "undefined") {
     els.pdfBtn.addEventListener("click", () => {
