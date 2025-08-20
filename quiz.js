@@ -368,6 +368,34 @@
     const normalized = Object.fromEntries(
       Object.entries(scores).map(([k,v]) => [k, Math.round((v/maxVal)*10)])
     );
+    
+    // Build a sectioned answer map for dynamic rules
+const bySection = {};
+for (const q of questions) {
+  const a = answers[q.id];
+  if (!a) continue;
+  const sec = q.__section || "misc";
+
+  // Normalize what we store so rules are easy to write:
+  // - likert_scale: store the option text (e.g., "Somewhat agree")
+  // - numeric_scale: store the number (e.g., 7)
+  // - multiple_choice: store the chosen label string
+  let stored = null;
+  if (q.type === "likert_scale") {
+    stored = (q.response_options || [])[a.idx] ?? null;
+  } else if (q.type === "numeric_scale") {
+    stored = Number(a.value);
+  } else if (q.type === "multiple_choice") {
+    stored = (q.response_options || [])[a.idx] ?? null;
+  }
+
+  if (!(sec in bySection)) bySection[sec] = {};
+  bySection[sec][q.id] = stored;
+}
+
+// Persist alongside your other items
+sessionStorage.setItem("quizResponses", JSON.stringify(bySection));
+
 
     try {
       sessionStorage.setItem("quizResults", JSON.stringify([primary, secondary]));

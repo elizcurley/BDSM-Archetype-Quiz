@@ -1,14 +1,46 @@
 {
-  "categories": ["Sensation","Impact","Bondage","Power/Service","Ritual & Symbol","Roleplay","Challenge/Ordeal","Environment"],
   "tags": {
-    "texture_silk":        {"category":"Sensation","aka":["silk","satiny"],"beginner":["silk blindfold"],"advanced":["sensation ladder with fabrics"],"safety":["vision cues","breath check"]},
-    "temperature_warm":    {"category":"Sensation","beginner":["warm compress"],"advanced":["wax variants"],"safety":["test temperature first"]},
-    "precision_aesthetic": {"category":"Ritual & Symbol","beginner":["layout a tray, alignment"],"advanced":["formal presentation scene"],"safety":[]},
-    "ritual_devotion":     {"category":"Ritual & Symbol","beginner":["arrival ritual"],"advanced":["vows/marking"],"safety":["aftercare plan"]},
-    "service_daily":       {"category":"Power/Service","beginner":["tea prep"],"advanced":["protocol blocks"],"safety":["check-in phrase"]},
-    "impact_thuddy":       {"category":"Impact","beginner":["pillow-assisted hand thuds"],"advanced":["flogger layering"],"safety":["color scale"]},
-    "bondage_soft":        {"category":"Bondage","beginner":["scarf tie wrists"],"advanced":["TK practice"],"safety":["circulation checks"]},
-    "challenge_timed":     {"category":"Challenge/Ordeal","beginner":["90s task game"],"advanced":["endurance sets"],"safety":["stop cue"]},
-    "environment_clean":   {"category":"Environment","beginner":["white linen + glass"],"advanced":["clinical aesthetic scene"],"safety":["sterile vs clean expectations"]}
+    "impact_light": {
+      "category": "Impact",
+      "beginner": ["Rhythmic hand spanking with breath cues"],
+      "advanced": ["Implements ladder: hand → paddle → cane with timing games"],
+      "safety": ["Agree on a number scale & warm-up; avoid kidneys."]
+    },
+    "sensation_temp": {
+      "category": "Sensation",
+      "beginner": ["Ice–warm cloth contrast on forearms and back"],
+      "advanced": ["Hot/cold metal rotation with blindfold"],
+      "safety": ["Test on yourself first; mind burns & numb spots."]
+    },
+    "restraint_soft": {
+      "category": "Restraint",
+      "beginner": ["Scarf tie (hands front) + comfy chair scene"],
+      "advanced": ["Flat rope cuffs + timed release practice"],
+      "safety": ["Two-finger circulation check; have safety shears."]
+    },
+    "power_service": {
+      "category": "Power/Service",
+      "beginner": ["Tea tray presentation with posture cue"],
+      "advanced": ["Light protocol night: titles, check-ins, release phrase"],
+      "safety": ["Enthusiastic consent + exit phrase; discuss headspace."]
+    },
+    "ritual_symbol": {
+      "category": "Ritual & Symbol",
+      "beginner": ["One-sentence intention + shared breath"],
+      "advanced": ["Token exchange (ribbon, pin) to open/close scenes"],
+      "safety": ["Avoid permanence; align on meaning up front."]
+    },
+    "roleplay_scout": {
+      "category": "Roleplay",
+      "beginner": ["Explorer brief: map a room with touch-only clues"],
+      "advanced": ["Scout & guide with timed challenges"],
+      "safety": ["Keep roles soft; safeword > story."]
+    },
+    "exhibition_private": {
+      "category": "Exhibition & Audience",
+      "beginner": ["‘Being seen’ at home: mirror, lights, outfit"],
+      "advanced": ["Invite a consensual audience via video check-in"],
+      "safety": ["Privacy boundaries; no recordings without consent."]
+    }
   }
 }
