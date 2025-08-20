@@ -1,177 +1,125 @@
 {
-  "description": "Scenario-based questions to gauge how you respond in specific kink or relationship contexts. These questions help reveal your adaptability, communication style, and decision\u2013making in dynamic situations\u2014key for generating a nuanced and adaptable results profile.",
+  "description": "Situational – everyday partnership moments (plans, communication, boundaries, energy, quality, leadership). Answer how true each statement feels for you.",
   "questions": [
     {
       "id": "S1",
       "archetype": "Explorer",
-      "question_text": "Imagine you are invited to a themed kink event with unfamiliar dynamics. How likely are you to participate?",
+      "question_text": "If plans shift to a new place or activity I didn’t research, I’m comfortable pivoting and discovering as we go.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Very likely",
-        "Likely",
-        "Neutral",
-        "Unlikely",
-        "Very unlikely"
-      ],
-      "follow_up": "What factors would most influence your decision?"
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S2",
-      "archetype": "Alchemist",
-      "question_text": "If a partner suggests a kink practice you haven't tried before, how open are you to exploring it?",
+      "archetype": "Explorer",
+      "question_text": "When invited to a themed community night or class that’s new to me, I’m likely to attend and try at least one thing.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Extremely open",
-        "Somewhat open",
-        "Neutral",
-        "Somewhat hesitant",
-        "Not open at all"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "follow_up": "What would help you feel comfortable trying something new?"
     },
+
     {
       "id": "S3",
-      "archetype": "Explorer",
-      "question_text": "In a scenario where established roles are unexpectedly challenged, how comfortable are you with adapting on the spot?",
+      "archetype": "Alchemist",
+      "question_text": "When the vibe turns from playful to focused, I can set or follow a brief intention so the moment feels meaningful (e.g., a breath, a phrase, a look).",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Very comfortable",
-        "Comfortable",
-        "Neutral",
-        "Uncomfortable",
-        "Very uncomfortable"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S4",
-      "archetype": "Explorer",
-      "question_text": "Imagine a situation where your usual role is reversed unexpectedly. How comfortable are you with this change?",
+      "archetype": "Alchemist",
+      "question_text": "Before big shared moments (date, trip, project), small rituals help me show up fully.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Very comfortable",
-        "Comfortable",
-        "Neutral",
-        "Uncomfortable",
-        "Very uncomfortable"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "follow_up": "If you have one, what’s a small ritual that helps you arrive?"
     },
+
     {
       "id": "S5",
-      "archetype": "Alchemist",
-      "question_text": "If a new partner proposes an unconventional kink practice, how likely are you to try it?",
+      "archetype": "Keystone",
+      "question_text": "If my partner seems hesitant mid-activity, I pause and check in without losing warmth or care.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Very likely",
-        "Likely",
-        "Neutral",
-        "Unlikely",
-        "Very unlikely"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S6",
       "archetype": "Keystone",
-      "question_text": "When faced with a high-risk scenario (e.g., edge play), how much do you rely on pre-established safety protocols?",
+      "question_text": "For higher-stakes plans, I prefer clear safety plans and simple check-ins to guide us (before, during, after).",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Always rely on protocols",
-        "Usually rely on protocols",
-        "Sometimes rely on protocols",
-        "Rarely rely on protocols",
-        "Never rely on protocols"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
+
     {
       "id": "S7",
       "archetype": "Oracle",
-      "question_text": "Imagine a scenario where communication breaks down mid-scene. How quickly do you work to re-establish clarity?",
+      "question_text": "If conversation gets tangled, I can slow down, reflect back what I heard, and help restore shared language.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Immediately",
-        "Very quickly",
-        "Moderately quickly",
-        "Slowly",
-        "Very slowly"
-      ],
-      "follow_up": "What steps do you take to restore clear communication?"
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S8",
-      "archetype": "Keystone",
-      "question_text": "If you are in a situation where your personal boundaries are being tested unexpectedly, how assertively do you communicate your limits?",
+      "archetype": "Oracle",
+      "question_text": "When I feel stirred up, I can regulate myself enough to name what I need (time-out, clarification, a breath) without escalating.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Extremely assertively",
-        "Very assertively",
-        "Moderately assertively",
-        "Slightly assertively",
-        "Not assertively at all"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
+
     {
       "id": "S9",
-      "archetype": "Alchemist",
-      "question_text": "Imagine you are in a scene where the energy suddenly shifts from playful to intense. How do you manage the change?",
+      "archetype": "Vanguard",
+      "question_text": "Under time pressure, I’m comfortable making a clear call and getting us moving, then refining on the fly.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "I adapt immediately and adjust the intensity",
-        "I adjust fairly quickly",
-        "Neutral",
-        "I struggle to adjust",
-        "I rarely adjust well"
-      ],
-      "follow_up": "Describe a method you use to manage such changes."
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S10",
-      "archetype": "Keystone",
-      "question_text": "During a scene, if your partner appears hesitant to continue an activity, how do you respond?",
+      "archetype": "Vanguard",
+      "question_text": "In public or group settings, I can set boundaries with others confidently while keeping my partner centered.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Immediately pause and check in",
-        "Quickly pause to discuss",
-        "Neutral",
-        "Proceed but monitor closely",
-        "Continue without changing course"
-      ],
-      "follow_up": "What steps do you take to ensure safety and comfort?"
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
+
     {
       "id": "S11",
-      "archetype": "Vanguard",
-      "question_text": "At a public kink event, if you notice bystanders showing curiosity or interfering, how would you address the situation?",
-      "type": "multiple_choice",
+      "archetype": "Connoisseur",
+      "question_text": "Polish matters to me: I like aligning on standards (presentation, timing, setup) so the experience feels elevated.",
+      "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Address it directly and assert boundaries",
-        "Signal to your partner to handle it",
-        "Ignore it unless it escalates",
-        "Prefer to have a moderator handle it"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "S12",
-      "archetype": "Oracle",
-      "question_text": "If digital communication (text or app-based) becomes necessary during a scene due to communication challenges, how comfortable are you with relying on it?",
+      "archetype": "Connoisseur",
+      "question_text": "I enjoy slowing down to improve technique together, even if it means fewer but higher-quality moments.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Extremely comfortable",
-        "Very comfortable",
-        "Neutral",
-        "Somewhat uncomfortable",
-        "Very uncomfortable"
-      ],
-      "follow_up": "Have you used digital safety signals before? Please elaborate."
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+    },
+
+    {
+      "id": "S13",
+      "archetype": "Catalyst",
+      "question_text": "When the energy dips, playful challenges or tiny games help me re-ignite momentum for us.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+    },
+    {
+      "id": "S14",
+      "archetype": "Catalyst",
+      "question_text": "I’m good at shifting a heavy or awkward mood toward lightness without ignoring feelings.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     }
   ]
 }
