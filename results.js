@@ -1,25 +1,25 @@
-/* results.js — clean, robust, extensible */
+/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, (optional) tag recs */
 
 document.addEventListener("DOMContentLoaded", initResults);
 
 async function initResults() {
-  // ---------- DOM ----------
+  // 1) Grab all the elements we’ll fill
   const els = {
-    primary:   byId("primary-archetype"),
-    secondary: byId("secondary-archetype"),
-    desc:      byId("archetype-description"),
-    affirm:    byId("affirming-message"),
-    insights:  byId("personalized-insights"),
-    reflList:  byId("reflection-list"),
+    primary:      byId("primary-archetype"),
+    secondary:    byId("secondary-archetype"),
+    desc:         byId("archetype-description"),
+    affirm:       byId("affirming-message"),
+    insights:     byId("personalized-insights"),
+    reflList:     byId("reflection-list"),
     primaryImg:   byId("primary-image"),
     secondaryImg: byId("secondary-image"),
-    radar:     byId("spider-graph"),
-    fitWrap:   byId("fit-check"),
-    pdfBtn:    byId("export-pdf"),
-    recsWrap:  byId("top-interests") // optional container for tag recs
+    radar:        byId("spider-graph"),
+    fitWrap:      byId("fit-check"),
+    pdfBtn:       byId("export-pdf"),
+    recsWrap:     byId("top-interests") // optional container for “Top Interests”
   };
 
-  // ---------- Constants ----------
+  // 2) Constants (names + image paths)
   const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
   const IMG_MAP = {
     Catalyst: "images/archetypes/Catalyst.png",
@@ -27,40 +27,56 @@ async function initResults() {
     Keystone: "images/archetypes/Keystone.png",
     Vanguard: "images/archetypes/Vanguard.png",
     Oracle: "images/archetypes/Oracle.png",
-    Connoisseur: "images/archetypes/Connoisseur.png",
+    Connoisseur:"images/archetypes/Connoisseur.png",
     Alchemist: "images/archetypes/Alchemist.png"
   };
 
-  // ---------- Load stored results ----------
-  const savedResults = sessionStorage.getItem("quizResults");
-  let [primary, secondary] = JSON.parse(savedResults || "[]") || [];
+  // 3) Pull stored results from sessionStorage
+  //    - quizResults: ["Primary","Secondary"]
+  //    - archetypeScores: { Archetype: number } (your engine’s totals)
+  //    - quizResponses: { preference_strength: {QID: answer}, kink_interests: {...}, ... } (optional right now)
+  const [savedPrimary, savedSecondary] = safeJSON(sessionStorage.getItem("quizResults"), []) || [];
+  const rawScores   = safeJSON(sessionStorage.getItem("archetypeScores"), {}) || {};
+  const allResponses = safeJSON(sessionStorage.getItem("quizResponses"), {}) || {};
 
-  // Archetype scores object (whatever your engine saved)
-  // Expect shape like { Archetype: number }. Could be 0–10 or 0–100 etc.
-  const rawScores = safeJSON(sessionStorage.getItem("archetypeScores"), {});
-
-  // Derive primary/secondary if missing
-  if (!primary || !secondary) {
-    const top2 = topTwoFromScores(rawScores, ARCHETYPES);
-    primary = primary || top2[0] || "—";
-    secondary = secondary || top2[1] || "—";
+  // 4) Apply Preference Strength multipliers (gentle tilt)
+  let adjustedScores = { ...rawScores };
+  try {
+    const psResponses = allResponses.preference_strength; // may be undefined if you haven’t saved them yet
+    if (psResponses) {
+      const psItems = await fetch("quiz_sections/preference_strength.json").then(r => r.json());
+      const multipliers = computePrefMultipliers(psItems, psResponses, { minM: 0.90, maxM: 1.20 });
+      adjustedScores = applyMultipliers(rawScores, multipliers);
+    }
+  } catch (e) {
+    console.warn("Preference Strength: skipped due to error", e);
   }
 
-  // ---------- Render names + images ----------
+  // 5) Decide primary/secondary (use stored ones, else derive from scores)
+  let primary   = savedPrimary;
+  let secondary = savedSecondary;
+  if (!primary || !secondary) {
+    const [p, s] = topTwoFromScores(adjustedScores, ARCHETYPES);
+    primary = primary || p || "—";
+    secondary = secondary || s || "—";
+  }
+
+  // 6) Render names + images
   setText(els.primary, primary || "—");
   setText(els.secondary, secondary || "—");
   setArchetypeImage(els.primaryImg, primary, IMG_MAP);
   setArchetypeImage(els.secondaryImg, secondary, IMG_MAP);
 
-  // ---------- Load narratives (description / affirmation / insights / reflection) ----------
+  // 7) Load narratives for the chosen primary from quiz_data.json
   try {
     const data = await fetch("quiz_data.json").then(r => r.json());
     const details = (data.archetypes || {})[primary] || {};
-    setText(els.desc,    details.description || "—");
-    setText(els.affirm,  details.affirmation || "—");
+    setText(els.desc,   details.description || "—");
+    setText(els.affirm, details.affirmation || "—");
     if (els.insights) {
-      if (Array.isArray(details.insights)) setText(els.insights, details.insights.join(" "));
-      else setText(els.insights, details.insights || "—");
+      setText(els.insights,
+        Array.isArray(details.insights) ? details.insights.join(" ") : (details.insights || "—")
+      );
     }
     if (els.reflList) {
       els.reflList.innerHTML = "";
@@ -74,19 +90,17 @@ async function initResults() {
     console.warn("quiz_data.json load issue:", e);
   }
 
-  // ---------- Radar chart ----------
-  // Use whatever scale your engine saved; we’ll show it as-is with a sensible suggested range.
+  // 8) Radar chart using adjustedScores
   if (els.radar && typeof Chart !== "undefined") {
-    let labels = Object.keys(rawScores);
-    let dataVals = labels.map(k => Number(rawScores[k] ?? 0));
+    let labels = Object.keys(adjustedScores);
+    let dataVals = labels.map(k => Number(adjustedScores[k] ?? 0));
 
     if (!labels.length) {
-      // fallback ordering and zeros
       labels = ARCHETYPES.slice();
       dataVals = labels.map(() => 0);
     }
+    const maxVal = Math.max(10, ...dataVals, 0);
 
-    const maxVal = Math.max(10, ...dataVals, 0); // try to auto-fit
     new Chart(els.radar.getContext("2d"), {
       type: "radar",
       data: {
@@ -94,7 +108,7 @@ async function initResults() {
         datasets: [{
           label: "Archetype Balance",
           data: dataVals,
-          backgroundColor: "rgba(90, 103, 216, 0.18)",
+          backgroundColor: "rgba(90,103,216,0.18)",
           borderColor: "#5a67d8",
           borderWidth: 2,
           pointRadius: 3
@@ -108,7 +122,7 @@ async function initResults() {
     });
   }
 
-  // ---------- Optional Fit-Check slider ----------
+  // 9) (Optional) Fit-check slider
   if (els.fitWrap) {
     els.fitWrap.innerHTML = `
       <label for="fitRange">How much does this result fit you right now?</label>
@@ -117,17 +131,13 @@ async function initResults() {
         <output id="fitOut" style="margin-left:8px">4</output>/7
       </div>`;
     const range = byId("fitRange");
-    const out = byId("fitOut");
+    const out   = byId("fitOut");
     range?.addEventListener("input", () => { out.textContent = range.value; });
   }
 
-  // ---------- Tag-based interests (only if responses exist) ----------
-  // Expect a per-section responses object like:
-  //   sessionStorage.quizResponses = JSON.stringify({ kink_interests: { KI1: ["make"], KI2: ["leather","silk"], ... } })
+  // 10) (Optional) Tag-based interests → show top tags if you saved them
   try {
-    const allResponses = safeJSON(sessionStorage.getItem("quizResponses"), {});
-    const kiResponses = allResponses.kink_interests || null;
-
+    const kiResponses = allResponses.kink_interests;
     if (kiResponses && els.recsWrap) {
       const kiItems = await fetch("quiz_sections/kink_interests.json").then(r => r.json());
       const topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
@@ -137,86 +147,127 @@ async function initResults() {
     console.warn("Tag scoring skipped:", e);
   }
 
-  // ---------- PDF export ----------
+  // 11) PDF export button
   if (els.pdfBtn && typeof html2pdf !== "undefined") {
     els.pdfBtn.addEventListener("click", () => {
-      // Choose the container you want to print
       const source = document.querySelector("#results-root") || document.body;
       const opt = {
-        margin:       [0.5, 0.5, 0.5, 0.5],
-        filename:     `quiz-results-${Date.now()}.pdf`,
-        image:        { type: "jpeg", quality: 0.96 },
-        html2canvas:  { scale: 2, useCORS: true },
-        jsPDF:        { unit: "in", format: "letter", orientation: "portrait" }
+        margin: [0.5,0.5,0.5,0.5],
+        filename: `quiz-results-${Date.now()}.pdf`,
+        image: { type: "jpeg", quality: 0.96 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
       };
       html2pdf().from(source).set(opt).save();
     });
   }
 }
 
-/* =========================
-   Helpers + Scoring utils
-   ========================= */
+/* ================ Helpers and small scoring utils ================ */
 
-function byId(id) { return document.getElementById(id); }
-function setText(el, txt) { if (el) el.textContent = txt; }
-function niceCeil(n) {
-  const s = [10, 12, 15, 20, 25, 30, 40, 50, 60, 75, 100];
-  for (const x of s) if (n <= x) return x;
-  return Math.ceil(n);
-}
+function byId(id){ return document.getElementById(id); }
+function setText(el, txt){ if(el) el.textContent = txt; }
+function niceCeil(n){ const S=[10,12,15,20,25,30,40,50,60,75,100]; for(const x of S) if(n<=x) return x; return Math.ceil(n); }
 
-function setArchetypeImage(imgEl, name, map) {
-  if (!imgEl || !name) return;
+function setArchetypeImage(imgEl, name, map){
+  if(!imgEl || !name) return;
   const src = map[name];
-  if (!src) { imgEl.style.display = "none"; return; }
+  if(!src){ imgEl.style.display="none"; return; }
   imgEl.src = src;
   imgEl.alt = `${name} archetype icon`;
   imgEl.loading = "lazy";
-  imgEl.onerror = () => { imgEl.style.display = "none"; };
+  imgEl.onerror = () => { imgEl.style.display="none"; };
 }
 
-function safeJSON(str, fallback) {
+function safeJSON(str, fallback){
   try { return JSON.parse(str ?? ""); } catch { return fallback; }
 }
 
-function topTwoFromScores(scores, orderFallback) {
-  const entries = Object.entries(scores).filter(([_, v]) => typeof v === "number");
-  if (!entries.length) return [orderFallback?.[0] || null, orderFallback?.[1] || null];
-  entries.sort((a,b) => b[1] - a[1]);
-  const [p, s] = entries;
+function topTwoFromScores(scores, orderFallback){
+  const entries = Object.entries(scores).filter(([,v]) => typeof v === "number");
+  if(!entries.length) return [orderFallback?.[0] || null, orderFallback?.[1] || null];
+  entries.sort((a,b) => b[1]-a[1]);
+  const [p,s] = entries;
   return [p?.[0] || null, s?.[0] || null];
 }
 
-/* ---------- Tag scoring (normalized) ---------- */
-function scoreTags(kinkInterestsItems, responses) {
+/* ---- Preference Strength multipliers ----
+   - numeric_scale normalized 0..1
+   - likert_scale normalized by option index
+   - average per archetype → map 0..1 into [minM, maxM]
+*/
+function computePrefMultipliers(psItemsJson, psResponses, {minM=0.90, maxM=1.20} = {}){
+  const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
+  const sums   = Object.fromEntries(ARCHETYPES.map(a => [a, 0]));
+  const counts = Object.fromEntries(ARCHETYPES.map(a => [a, 0]));
+  const items  = (psItemsJson?.questions) || [];
+
+  for(const q of items){
+    const a = q.archetype;
+    const ans = psResponses?.[q.id];
+    if(ans == null) continue;
+
+    let norm = null;
+    if(q.type === "numeric_scale" && typeof ans === "number" && q.max > q.min){
+      norm = (ans - q.min) / (q.max - q.min);
+    } else if(q.type === "likert_scale" && Array.isArray(q.response_options)){
+      // you can store either the chosen string or a 1..N index
+      if (typeof ans === "number"){
+        norm = (ans - 1) / (q.response_options.length - 1);
+      } else if (typeof ans === "string"){
+        const idx = q.response_options.indexOf(ans);
+        if (idx >= 0) norm = idx / (q.response_options.length - 1);
+      }
+    }
+    if(norm == null) continue;
+
+    sums[a]   += Math.max(0, Math.min(1, norm));
+    counts[a] += 1;
+  }
+
+  const multipliers = {};
+  for(const a of Object.keys(sums)){
+    const s = counts[a] ? (sums[a] / counts[a]) : 0.5; // neutral if no answers
+    multipliers[a] = minM + (maxM - minM) * s;
+  }
+  return multipliers; // e.g. { Connoisseur: 1.12, Explorer: 0.97, ... }
+}
+
+function applyMultipliers(scores, multipliers){
+  const out = {};
+  for(const k of Object.keys(scores)){
+    const m = multipliers?.[k] ?? 1;
+    out[k] = (scores[k] ?? 0) * m;
+  }
+  return out;
+}
+
+/* ---- Tag scoring (optional) ---- */
+function scoreTags(kinkInterestsItems, responses){
   const hits = {}, opps = {};
-  for (const item of kinkInterestsItems) {
+  for(const item of kinkInterestsItems){
     const itemTags = new Set();
-    for (const c of item.choices) (c.tags || []).forEach(t => itemTags.add(t));
+    for(const c of item.choices) (c.tags || []).forEach(t => itemTags.add(t));
     itemTags.forEach(t => opps[t] = (opps[t] || 0) + 1);
 
     const picked = new Set(responses[item.id] || []);
-    for (const c of item.choices) {
-      if (picked.has(c.value)) (c.tags || []).forEach(t => hits[t] = (hits[t] || 0) + 1);
+    for(const c of item.choices){
+      if(picked.has(c.value)) (c.tags || []).forEach(t => hits[t] = (hits[t] || 0) + 1);
     }
   }
-  const scores = Object.fromEntries(
-    Object.keys(opps).map(t => [t, (hits[t] || 0) / opps[t]])
-  );
-  return Object.entries(scores).sort((a,b) => b[1] - a[1]); // [tag, score] desc
+  const scores = Object.fromEntries(Object.keys(opps).map(t => [t, (hits[t] || 0) / opps[t]]));
+  return Object.entries(scores).sort((a,b) => b[1]-a[1]); // [tag,score] desc
 }
 
-/* ---------- Render simple "Top Interests" card ---------- */
-function renderTopTagCard(container, topTags, primaryArchetype) {
-  if (!container) return;
+function renderTopTagCard(container, topTags, primaryArchetype){
+  if(!container) return;
   const mk = ([tag, sc]) => `<li><strong>${tag}</strong> — ${(sc*100|0)}%</li>`;
   container.innerHTML = `
-    <h3 class="mt-6">Top Interests (from your answers)</h3>
+    <h3 class="mt-6">Top Interests</h3>
     <p class="muted">These hint at scenes, materials, and vibes you might enjoy.</p>
     <ul class="tag-list">
       ${topTags.map(mk).join("")}
     </ul>
-    <p class="muted">We’ll tune suggestions slightly toward your primary archetype: <em>${primaryArchetype || "—"}</em>.</p>
+    <p class="muted">Tuned slightly toward your primary archetype: <em>${primaryArchetype || "—"}</em>.</p>
   `;
 }
