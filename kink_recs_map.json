@@ -1,0 +1,11 @@
+{
+  "archetype_bias": {
+    "Connoisseur": ["precision_aesthetic","environment_clean"],
+    "Alchemist":   ["ritual_devotion","temperature_warm"],
+    "Keystone":    ["service_daily","bondage_soft"],
+    "Vanguard":    ["challenge_timed","impact_thuddy"],
+    "Explorer":    ["texture_silk","challenge_timed"],
+    "Catalyst":    ["challenge_timed","ritual_devotion"],
+    "Oracle":      ["ritual_devotion","service_daily"]
+  }
+}
