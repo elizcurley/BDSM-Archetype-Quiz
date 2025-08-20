@@ -1,11 +1,11 @@
 {
   "archetype_bias": {
-    "Connoisseur": ["precision_aesthetic","environment_clean"],
-    "Alchemist":   ["ritual_devotion","temperature_warm"],
-    "Keystone":    ["service_daily","bondage_soft"],
-    "Vanguard":    ["challenge_timed","impact_thuddy"],
-    "Explorer":    ["texture_silk","challenge_timed"],
-    "Catalyst":    ["challenge_timed","ritual_devotion"],
-    "Oracle":      ["ritual_devotion","service_daily"]
+    "Vanguard": ["impact_light", "power_service"],
+    "Explorer": ["roleplay_scout", "sensation_temp"],
+    "Oracle": ["ritual_symbol", "exhibition_private"],
+    "Connoisseur": ["restraint_soft", "impact_light"],
+    "Keystone": ["restraint_soft", "ritual_symbol"],
+    "Catalyst": ["exhibition_private", "impact_light"],
+    "Alchemist": ["ritual_symbol", "sensation_temp"]
   }
 }
