@@ -1,0 +1,25 @@
+{
+  "description": "General intimacy interests—non-explicit, beginner-friendly signals about what styles you enjoy.",
+  "questions": [
+    { "id": "GI1",  "archetype": "Connoisseur", "question_text": "I enjoy thoughtful presentation (music, lighting, tidy space) because it changes how intimacy feels.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI2",  "archetype": "Explorer", "question_text": "I like trying small, new twists rather than repeating the exact same script.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI3",  "archetype": "Keystone", "question_text": "I relax most when intimacy has a predictable rhythm or routine we both trust.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI4",  "archetype": "Alchemist", "question_text": "A small ritual (a phrase, breath, or touch) helps me shift into a connected headspace.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI5",  "archetype": "Vanguard", "question_text": "Clear invitations or decisive moves feel kinder than prolonged indecision.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI6",  "archetype": "Catalyst", "question_text": "Playful tension (banter, dares, mini-games) brings me alive.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI7",  "archetype": "Oracle", "question_text": "Talking about meaning (what we want to feel, why it matters) deepens my desire.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI8",  "archetype": "Connoisseur", "question_text": "I notice textures and pacing a lot; finesse can matter more than intensity.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI9",  "archetype": "Explorer", "question_text": "I’m open to gently expanding my comfort zone with clear boundaries.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "GI10", "archetype": "Keystone", "question_text": "After intimacy, I value simple co-regulation (water, warmth, a check-in) as much as the activity.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] }
+  ]
+}
