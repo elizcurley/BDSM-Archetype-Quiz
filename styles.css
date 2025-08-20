@@ -293,8 +293,9 @@ button[disabled] {
   .pdf-btn, #toggle-kink, .fit-check, nav { display:none !important; }
   body { background:#fff; color:#000; }
 }
+
 /* Center primary/secondary images and size nicely */
-.result-photos{
+.result-header{
   display:flex;
   justify-content:center;
   align-items:center;
