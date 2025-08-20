@@ -1,0 +1,25 @@
+{
+  "description": "General partnership power dynamics—role-neutral signals about decision-making, structure, and support.",
+  "questions": [
+    { "id": "PD1", "archetype": "Vanguard", "question_text": "In shared decisions, I prefer one person to set a clear direction once input is gathered.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD2", "archetype": "Oracle", "question_text": "I’m most comfortable when the ‘why’ is named before we act.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD3", "archetype": "Keystone", "question_text": "I feel cared for when roles and expectations are steady and dependable.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD4", "archetype": "Connoisseur", "question_text": "I enjoy upholding standards we’ve agreed on (checklists, quality, setup).", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD5", "archetype": "Catalyst", "question_text": "I like to create energy and momentum when the vibe dips—even outside my usual role.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD6", "archetype": "Explorer", "question_text": "I prefer lightweight rules and the freedom to iterate together.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD7", "archetype": "Alchemist", "question_text": "Shared rituals (beginnings, endings, tokens) make commitments feel real to me.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD8", "archetype": "Keystone", "question_text": "I like providing small practical support that keeps things running smoothly.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD9", "archetype": "Vanguard", "question_text": "Under pressure, I’m comfortable setting a firm tempo for us to follow.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] },
+    { "id": "PD10","archetype": "Connoisseur", "question_text": "I prefer decisions grounded in clear criteria we agree to ahead of time.", "type": "likert_scale", "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"] }
+  ]
+}
