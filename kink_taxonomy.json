@@ -1,0 +1,14 @@
+{
+  "categories": ["Sensation","Impact","Bondage","Power/Service","Ritual & Symbol","Roleplay","Challenge/Ordeal","Environment"],
+  "tags": {
+    "texture_silk":        {"category":"Sensation","aka":["silk","satiny"],"beginner":["silk blindfold"],"advanced":["sensation ladder with fabrics"],"safety":["vision cues","breath check"]},
+    "temperature_warm":    {"category":"Sensation","beginner":["warm compress"],"advanced":["wax variants"],"safety":["test temperature first"]},
+    "precision_aesthetic": {"category":"Ritual & Symbol","beginner":["layout a tray, alignment"],"advanced":["formal presentation scene"],"safety":[]},
+    "ritual_devotion":     {"category":"Ritual & Symbol","beginner":["arrival ritual"],"advanced":["vows/marking"],"safety":["aftercare plan"]},
+    "service_daily":       {"category":"Power/Service","beginner":["tea prep"],"advanced":["protocol blocks"],"safety":["check-in phrase"]},
+    "impact_thuddy":       {"category":"Impact","beginner":["pillow-assisted hand thuds"],"advanced":["flogger layering"],"safety":["color scale"]},
+    "bondage_soft":        {"category":"Bondage","beginner":["scarf tie wrists"],"advanced":["TK practice"],"safety":["circulation checks"]},
+    "challenge_timed":     {"category":"Challenge/Ordeal","beginner":["90s task game"],"advanced":["endurance sets"],"safety":["stop cue"]},
+    "environment_clean":   {"category":"Environment","beginner":["white linen + glass"],"advanced":["clinical aesthetic scene"],"safety":["sterile vs clean expectations"]}
+  }
+}
