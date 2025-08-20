@@ -1,4 +1,4 @@
-/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, tag recs, dynamic narrative */
+/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, tag recs, dynamic narrative, why-chips, kink toggle */
 
 const DATA_BASE = "data/"; // set to "../data/" if results.html is in a subfolder
 
@@ -24,13 +24,13 @@ async function initResults() {
   // 2) Constants (names + image paths)
   const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
   const IMG_MAP = {
-    Catalyst: "images/archetypes/Catalyst.png",
-    Explorer: "images/archetypes/Explorer.png",
-    Keystone: "images/archetypes/Keystone.png",
-    Vanguard: "images/archetypes/Vanguard.png",
-    Oracle: "images/archetypes/Oracle.png",
-    Connoisseur:"images/archetypes/Connoisseur.png",
-    Alchemist: "images/archetypes/Alchemist.png"
+    Catalyst:    "images/archetypes/Catalyst.png",
+    Explorer:    "images/archetypes/Explorer.png",
+    Keystone:    "images/archetypes/Keystone.png",
+    Vanguard:    "images/archetypes/Vanguard.png",
+    Oracle:      "images/archetypes/Oracle.png",
+    Connoisseur: "images/archetypes/Connoisseur.png",
+    Alchemist:   "images/archetypes/Alchemist.png"
   };
 
   // 3) Pull stored results from sessionStorage
@@ -94,11 +94,7 @@ async function initResults() {
   if (els.radar && typeof Chart !== "undefined") {
     let labels = Object.keys(adjustedScores);
     let dataVals = labels.map(k => Number(adjustedScores[k] ?? 0));
-
-    if (!labels.length) {
-      labels = ARCHETYPES.slice();
-      dataVals = labels.map(() => 0);
-    }
+    if (!labels.length) { labels = ARCHETYPES.slice(); dataVals = labels.map(() => 0); }
     const maxVal = Math.max(10, ...dataVals, 0);
 
     new Chart(els.radar.getContext("2d"), {
@@ -135,7 +131,7 @@ async function initResults() {
     range?.addEventListener("input", () => { out.textContent = range.value; });
   }
 
-  // 10) (Optional) Tag-based interests → show top tags if you saved them
+  // 10) Tag-based interests → show top tags if you saved them
   let topTags = [];
   try {
     const kiResponses = allResponses.kink_interests;
@@ -148,13 +144,15 @@ async function initResults() {
     console.warn("Tag scoring skipped:", e);
   }
 
-  // 10.5) Build dynamic narrative (needs allResponses + topTags)
+  // 10.5) Dynamic narrative (needs allResponses + topTags)
+  let dyn = { affirmations:[], insights:[], explore:[], growth:[], reasons:[] };
   try {
-    const dyn = await buildDynamicNarrative(allResponses, topTags || [], primary);
+    dyn = await buildDynamicNarrative(allResponses, topTags || [], primary);
     fillList("dyn-insights", dyn.insights);
     fillList("dyn-affirm",  dyn.affirmations);
     fillList("dyn-explore", dyn.explore);
     fillList("dyn-growth",  dyn.growth);
+    renderWhyChips(dyn.reasons, topTags);
   } catch (e) {
     console.warn("Dynamic narrative skipped:", e);
   }
@@ -172,18 +170,20 @@ async function initResults() {
     }
   } catch(e){ console.warn("Kink recs skipped:", e); }
 
+  // 10.7) Kink toggle
   byId("toggle-kink")?.addEventListener("change", e => {
-  byId("kink-section").style.display = e.target.checked ? "" : "none";
-});
-
+    byId("kink-section")?.style && (byId("kink-section").style.display = e.target.checked ? "" : "none");
+  });
 
   // 11) PDF export button
   if (els.pdfBtn && typeof html2pdf !== "undefined") {
     els.pdfBtn.addEventListener("click", () => {
       const source = document.querySelector("#results-root") || document.body;
+      const date = new Date().toISOString().slice(0,10);
+      const fname = `quiz-${(primary||"result").toLowerCase()}-${date}.pdf`;
       const opt = {
         margin: [0.5,0.5,0.5,0.5],
-        filename: `quiz-results-${Date.now()}.pdf`,
+        filename: fname,
         image: { type: "jpeg", quality: 0.96 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
@@ -356,10 +356,10 @@ async function buildDynamicNarrative(allResponses, topTags, primary) {
   try {
     rules = await fetch(`${DATA_BASE}quiz_dynamic_rules.json?v=1`).then(r => r.json());
   } catch {
-    return { affirmations: [], insights: [], explore: [], growth: [] };
+    return { affirmations: [], insights: [], explore: [], growth: [], reasons: [] };
   }
 
-  const acc = { affirmations: [], insights: [], explore: [], growth: [] };
+  const acc = { affirmations: [], insights: [], explore: [], growth: [], reasons: [] };
 
   // 1) Item-based rules
   for (const rule of (rules.rules || [])) {
@@ -386,7 +386,10 @@ async function buildDynamicNarrative(allResponses, topTags, primary) {
       if (idxAns >= 0 && idxMin >= 0) match = idxAns >= idxMin;
     }
 
-    if (match) mergeBuckets(acc, rule.then || {});
+    if (match) {
+      if (rule.then?.reason) acc.reasons.push(rule.then.reason);
+      mergeBuckets(acc, rule.then || {});
+    }
   }
 
   // 2) Tag-based rules
@@ -400,8 +403,8 @@ async function buildDynamicNarrative(allResponses, topTags, primary) {
   if (primary) acc.affirmations.push(`Your ${primary} core shows up in the little things—trust that pattern.`);
 
   // Dedup + trim
-  for (const k of Object.keys(acc)) {
-    acc[k] = Array.from(new Set(acc[k])).slice(0, k === "insights" ? 6 : 4);
+  for (const k of ["affirmations","insights","explore","growth","reasons"]) {
+    acc[k] = Array.from(new Set(acc[k])).slice(0, k === "insights" ? 6 : 6);
   }
   return acc;
 }
@@ -416,4 +419,12 @@ function fillList(id, items){
   const ul = document.getElementById(id);
   if (!ul) return;
   ul.innerHTML = (items || []).map(t => `<li>${t}</li>`).join("");
+}
+
+/* ---- “Why this result?” chips ---- */
+function renderWhyChips(reasons, topTags){
+  const el = byId("why-chips"); if(!el) return; // safe no-op if absent
+  const tagChips = (topTags||[]).slice(0,3).map(([t]) => `<span class="chip">${t}</span>`);
+  const reasonChips = (reasons||[]).slice(0,3).map(r => `<span class="chip">${r}</span>`);
+  el.innerHTML = [...reasonChips, ...tagChips].join("");
 }
