@@ -1,8 +1,27 @@
-/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, tag recs, dynamic narrative, why-chips, kink toggle */
+/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers,
+   tag recs, dynamic narrative, why-chips, kink toggle (with robust fetch fallbacks) */
 
 const DATA_BASE = "data/"; // set to "../data/" if results.html is in a subfolder
 
 document.addEventListener("DOMContentLoaded", initResults);
+
+/* ---------- Fetch helpers (robust) ---------- */
+async function loadJSON(url) {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`${url} → ${res.status} ${res.statusText}`);
+  return res.json();
+}
+async function loadFirstJSON(urls, fallbackElId = null) {
+  for (const u of urls) {
+    try { return await loadJSON(u); }
+    catch (e) { console.warn("Missing/blocked:", u); }
+  }
+  if (fallbackElId) {
+    const el = document.getElementById(fallbackElId);
+    if (el?.textContent) return JSON.parse(el.textContent);
+  }
+  throw new Error("All JSON sources missing");
+}
 
 async function initResults() {
   // 1) Grab all the elements we’ll fill
@@ -43,7 +62,10 @@ async function initResults() {
   try {
     const psResponses = allResponses.preference_strength; // may be undefined
     if (psResponses) {
-      const psItems = await fetch(`${DATA_BASE}preference_strength.json`).then(r => r.json());
+      const psItems = await loadFirstJSON([
+        `${DATA_BASE}preference_strength.json?v=1`,
+        `quiz_sections/preference_strength.json?v=1`
+      ]);
       const multipliers = computePrefMultipliers(psItems, psResponses, { minM: 0.90, maxM: 1.20 });
       adjustedScores = applyMultipliers(rawScores, multipliers);
     }
@@ -66,9 +88,16 @@ async function initResults() {
   setArchetypeImage(els.primaryImg, primary, IMG_MAP);
   setArchetypeImage(els.secondaryImg, secondary, IMG_MAP);
 
-  // 7) Load narratives for the chosen primary from quiz_data.json
+  // 7) Load narratives (tries /data then root then inline fallback)
   try {
-    const data = await fetch(`${DATA_BASE}quiz_data.json`).then(r => r.json());
+    const data = await loadFirstJSON(
+      [
+        `${DATA_BASE}quiz_data.json?v=1`,
+        `quiz_data.json?v=1`,
+        `./quiz_data.json?v=1`
+      ],
+      "archetypes-data" // optional inline <script type="application/json" id="archetypes-data">…</script>
+    );
     const details = (data.archetypes || {})[primary] || {};
     setText(els.desc,   details.description || "—");
     setText(els.affirm, details.affirmation || "—");
@@ -136,7 +165,10 @@ async function initResults() {
   try {
     const kiResponses = allResponses.kink_interests;
     if (kiResponses && els.recsWrap) {
-      const kiItems = await fetch(`${DATA_BASE}kink_interests.json`).then(r => r.json());
+      const kiItems = await loadFirstJSON([
+        `${DATA_BASE}kink_interests.json?v=1`,
+        `quiz_sections/kink_interests.json?v=1`
+      ]);
       topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
       renderTopTagCard(els.recsWrap, topTags, primary);
     }
@@ -172,7 +204,8 @@ async function initResults() {
 
   // 10.7) Kink toggle
   byId("toggle-kink")?.addEventListener("change", e => {
-    byId("kink-section")?.style && (byId("kink-section").style.display = e.target.checked ? "" : "none");
+    const sec = byId("kink-section");
+    if (sec && sec.style) sec.style.display = e.target.checked ? "" : "none";
   });
 
   // 11) PDF export button
@@ -301,8 +334,8 @@ function renderTopTagCard(container, topTags, primaryArchetype){
 async function buildKinkRecs(topTags, primary) {
   let tax = {}, map = {};
   try {
-    tax = await fetch(`${DATA_BASE}kink_taxonomy.json?v=1`).then(r => r.json());
-    map = await fetch(`${DATA_BASE}kink_recs_map.json?v=1`).then(r => r.json());
+    tax = await loadJSON(`${DATA_BASE}kink_taxonomy.json?v=1`);
+    map = await loadJSON(`${DATA_BASE}kink_recs_map.json?v=1`);
   } catch {
     return null; // fail gracefully
   }
@@ -354,7 +387,7 @@ async function buildDynamicNarrative(allResponses, topTags, primary) {
   // Load rulebook (optional file; function safely falls back)
   let rules;
   try {
-    rules = await fetch(`${DATA_BASE}quiz_dynamic_rules.json?v=1`).then(r => r.json());
+    rules = await loadJSON(`${DATA_BASE}quiz_dynamic_rules.json?v=1`);
   } catch {
     return { affirmations: [], insights: [], explore: [], growth: [], reasons: [] };
   }
