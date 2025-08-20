@@ -267,3 +267,8 @@ button[disabled] {
   .result-header img,
   #primary-image, #secondary-image { width: 300px; }
 }
+@media print{
+  nav,.fit-check,.pdf-btn{display:none !important}
+  body{color:#000;background:#fff}
+  a:link:after{content:" (" attr(href) ")";font-size:0.8em}
+}
