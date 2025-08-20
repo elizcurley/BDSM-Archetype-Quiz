@@ -272,3 +272,24 @@ button[disabled] {
   body{color:#000;background:#fff}
   a:link:after{content:" (" attr(href) ")";font-size:0.8em}
 }
+/* results images */
+#primary-image, #secondary-image {
+  width: min(280px, 40vw);
+  max-height: 320px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (min-width:900px){
+  #primary-image, #secondary-image { width: 320px; }
+}
+
+/* chips */
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0 1rem; }
+.chip { font-size:.85rem; padding:.2rem .5rem; border:1px solid #e2e8f0; border-radius:999px; }
+
+/* print polish */
+@media print{
+  .pdf-btn, #toggle-kink, .fit-check, nav { display:none !important; }
+  body { background:#fff; color:#000; }
+}
