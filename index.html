@@ -4,43 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BDSM Archetype Quiz</title>
-  <meta name="description" content="A privacy-first quiz that reveals your primary and secondary BDSM archetypes." />
+  <meta name="description" content="A privacy-first quiz that reveals your primary and secondary archetypes." />
   <link rel="stylesheet" href="styles.css" />
-  <p style="margin-top:4px;font-size:0.95rem;color:#4b5563">
-  New to this? Answer based on what would appeal to you or feel right—experience isn’t required.
-</p>
-  <!-- Defer ensures DOM is ready before quiz.js runs. version param busts cache -->
-  <script defer src="quiz.js?v=fix2"></script>
+  <!-- Defer ensures DOM is ready before quiz.js runs -->
+  <script defer src="quiz.js?v=fix3"></script>
 </head>
 <body>
   <noscript>
-    <div class="container">
-      JavaScript is required to take this quiz.
-    </div>
+    <div class="container">JavaScript is required to take this quiz.</div>
   </noscript>
 
   <!-- Intro / consent -->
   <div class="container" id="intro">
     <h1>BDSM Archetype Quiz</h1>
-    <p>Quick, private, and skippable. Your answers never leave your browser.</p>
+    <p class="muted">Quick, private, and skippable. Your answers never leave your browser.</p>
     <ul>
       <li>No open-ended items. Mostly Likert &amp; simple choices.</li>
       <li>Back/Next enabled. You can skip and return.</li>
       <li>Export results as a PDF if you want to keep them.</li>
     </ul>
+    <p style="margin-top:.25rem;font-size:0.95rem;color:#4b5563">
+      New to this? Answer based on what would appeal to you or feel right—experience isn’t required.
+    </p>
 
-    <!-- Non-scored consent (replaces safety questions in flow) -->
-    <div class="consent" style="margin: 12px 0;">
+    <!-- Mode + module choices (stored to sessionStorage; safe even if quiz.js ignores them) -->
+    <fieldset style="margin:12px 0;">
+      <legend>Choose your path</legend>
+      <label style="display:block;margin:.25rem 0;">
+        <input type="radio" name="mode" value="quick" checked />
+        Quick profile (~40 questions)
+      </label>
+      <label style="display:block;margin:.25rem 0;">
+        <input type="radio" name="mode" value="deep" />
+        Deep dive (~64 questions)
+      </label>
+      <label style="display:block;margin:.25rem 0;">
+        <input type="checkbox" id="opt-kink-interests" checked />
+        Include interests module for personalized recommendations
+      </label>
+    </fieldset>
+
+    <!-- Consent -->
+    <div class="consent" style="margin:12px 0;">
       <label>
         <input type="checkbox" id="consent" />
         I understand this quiz assumes <strong>SSC/RACK &amp; enthusiastic consent</strong>.
       </label>
     </div>
 
-    <button id="start" class="primary" disabled>Start</button>
+    <button id="start" class="primary" disabled aria-disabled="true">Start</button>
   </div>
 
-  <!-- Quiz -->
+  <!-- Quiz (keeps your existing IDs for quiz.js) -->
   <div class="container hidden" id="quiz" aria-live="polite">
     <div id="progress" aria-hidden="true">
       <div id="progress-bar"><div id="progress-fill"></div></div>
@@ -56,15 +71,33 @@
     </div>
   </div>
 
-  <!-- Tiny inline helper: enable Start only if consent is checked -->
+  <!-- Tiny inline helper: enable Start only if consent is checked + store mode preferences -->
   <script>
     (function () {
-      const box = document.getElementById('consent');
+      const box   = document.getElementById('consent');
       const start = document.getElementById('start');
-      if (!box || !start) return;
-      function sync() { start.disabled = !box.checked; }
-      box.addEventListener('change', sync);
-      sync(); // initialize
+      const modeRadios = Array.from(document.querySelectorAll('input[name="mode"]'));
+      const modKink    = document.getElementById('opt-kink-interests');
+
+      function sync() {
+        const ok = box && box.checked;
+        if (start){
+          start.disabled = !ok;
+          start.setAttribute('aria-disabled', String(!ok));
+        }
+      }
+      box?.addEventListener('change', sync);
+      sync();
+
+      start?.addEventListener('click', () => {
+        // store user prefs for quiz.js (harmless if quiz.js doesn't read them yet)
+        const chosenMode = (modeRadios.find(r => r.checked)?.value) || 'quick';
+        const includeKink = !!modKink?.checked;
+        try {
+          sessionStorage.setItem('quizMode', JSON.stringify(chosenMode));
+          sessionStorage.setItem('includeKinkInterests', JSON.stringify(includeKink));
+        } catch {}
+      });
     })();
   </script>
 </body>

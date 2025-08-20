@@ -43,7 +43,7 @@ async function initResults() {
   try {
     const psResponses = allResponses.preference_strength; // may be undefined
     if (psResponses) {
-      const psItems = await fetch("quiz_sections/preference_strength.json").then(r => r.json());
+      const psItems = await fetch(`${DATA_BASE}preference_strength.json`).then(r => r.json());
       const multipliers = computePrefMultipliers(psItems, psResponses, { minM: 0.90, maxM: 1.20 });
       adjustedScores = applyMultipliers(rawScores, multipliers);
     }
@@ -68,7 +68,7 @@ async function initResults() {
 
   // 7) Load narratives for the chosen primary from quiz_data.json
   try {
-    const data = await fetch("quiz_data.json").then(r => r.json());
+    const data = await fetch(`${DATA_BASE}quiz_data.json`).then(r => r.json());
     const details = (data.archetypes || {})[primary] || {};
     setText(els.desc,   details.description || "—");
     setText(els.affirm, details.affirmation || "—");
@@ -136,7 +136,7 @@ async function initResults() {
   try {
     const kiResponses = allResponses.kink_interests;
     if (kiResponses && els.recsWrap) {
-      const kiItems = await fetch("quiz_sections/kink_interests.json").then(r => r.json());
+      const kiItems = await fetch(`${DATA_BASE}kink_interests.json`).then(r => r.json());
       topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
       renderTopTagCard(els.recsWrap, topTags, primary);
     }
