@@ -1,0 +1,54 @@
+{
+  "rules": [
+    {
+      "if": { "section": "psychoemotional", "id": "PE27", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "affirmations": ["Your micro-rituals are portals. You know how to change the room in seconds."],
+        "insights": ["You shift headspace with sensory cues—use this to open, deepen, and land shared moments."],
+        "explore": ["Make a 2-minute ‘reset’ kit: one song, one scent, one phrase."],
+        "growth": ["Notice when ritual becomes a crutch; try one ‘no-ritual’ day and track the difference."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE25", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "affirmations": ["Your eye for alignment is care, not fussiness."],
+        "insights": ["Quality and order regulate your nervous system—naming this helps partners support you."],
+        "explore": ["Design a 5-point ‘polish pass’ you enjoy before big moments."],
+        "growth": ["Practice a playful ‘good-enough’ threshold when spontaneity matters more than polish."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE29", "choice_in": ["symmetry"] },
+      "then": {
+        "insights": ["Symmetry signals your Connoisseur streak—presentation is part of pleasure for you."],
+        "explore": ["Try a ‘presentation scene’: lighting, layout, pacing, reveal."],
+        "growth": ["Invite a partner to set one messy element and notice what it brings up."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE22", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "affirmations": ["You are momentum in human form."],
+        "insights": ["Micro-games restore connection for you—especially when vibes dip."],
+        "explore": ["Collect 5 micro-games (90s each). Use them to turn ‘ugh’ into ‘okay let’s go.’"]
+      }
+    }
+  ],
+  "tag_rules": [
+    {
+      "if_any_tags": ["clinical_aesthetic","precision"],
+      "then": {
+        "insights": ["Clean lines and instruments are part of your aesthetic language."],
+        "explore": ["Curate a ‘clean room’ vibe night: glass, steel, white linen, careful pacing."]
+      }
+    },
+    {
+      "if_any_tags": ["ritual_devotion","meaning"],
+      "then": {
+        "affirmations": ["Meaning is your magnet."],
+        "explore": ["Try intention cards at the start of dates: one sentence, one symbol, one breath."]
+      }
+    }
+  ]
+}

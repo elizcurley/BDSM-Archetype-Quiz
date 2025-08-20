@@ -1,4 +1,4 @@
-/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, (optional) tag recs */
+/* results.js — primary/secondary, images, narratives, radar, pref-strength multipliers, tag recs, dynamic narrative */
 
 document.addEventListener("DOMContentLoaded", initResults);
 
@@ -32,9 +32,6 @@ async function initResults() {
   };
 
   // 3) Pull stored results from sessionStorage
-  //    - quizResults: ["Primary","Secondary"]
-  //    - archetypeScores: { Archetype: number } (your engine’s totals)
-  //    - quizResponses: { preference_strength: {QID: answer}, kink_interests: {...}, ... } (optional right now)
   const [savedPrimary, savedSecondary] = safeJSON(sessionStorage.getItem("quizResults"), []) || [];
   const rawScores   = safeJSON(sessionStorage.getItem("archetypeScores"), {}) || {};
   const allResponses = safeJSON(sessionStorage.getItem("quizResponses"), {}) || {};
@@ -42,7 +39,7 @@ async function initResults() {
   // 4) Apply Preference Strength multipliers (gentle tilt)
   let adjustedScores = { ...rawScores };
   try {
-    const psResponses = allResponses.preference_strength; // may be undefined if you haven’t saved them yet
+    const psResponses = allResponses.preference_strength; // may be undefined
     if (psResponses) {
       const psItems = await fetch("quiz_sections/preference_strength.json").then(r => r.json());
       const multipliers = computePrefMultipliers(psItems, psResponses, { minM: 0.90, maxM: 1.20 });
@@ -57,7 +54,7 @@ async function initResults() {
   let secondary = savedSecondary;
   if (!primary || !secondary) {
     const [p, s] = topTwoFromScores(adjustedScores, ARCHETYPES);
-    primary = primary || p || "—";
+    primary   = primary   || p || "—";
     secondary = secondary || s || "—";
   }
 
@@ -74,7 +71,8 @@ async function initResults() {
     setText(els.desc,   details.description || "—");
     setText(els.affirm, details.affirmation || "—");
     if (els.insights) {
-      setText(els.insights,
+      setText(
+        els.insights,
         Array.isArray(details.insights) ? details.insights.join(" ") : (details.insights || "—")
       );
     }
@@ -136,15 +134,28 @@ async function initResults() {
   }
 
   // 10) (Optional) Tag-based interests → show top tags if you saved them
+  //     IMPORTANT: declare topTags in outer scope so you can reuse it below.
+  let topTags = [];
   try {
     const kiResponses = allResponses.kink_interests;
     if (kiResponses && els.recsWrap) {
       const kiItems = await fetch("quiz_sections/kink_interests.json").then(r => r.json());
-      const topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
+      topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
       renderTopTagCard(els.recsWrap, topTags, primary);
     }
   } catch (e) {
     console.warn("Tag scoring skipped:", e);
+  }
+
+  // 10.5) Build dynamic narrative (needs allResponses + topTags)
+  try {
+    const dyn = await buildDynamicNarrative(allResponses, topTags || [], primary);
+    fillList("dyn-insights", dyn.insights);
+    fillList("dyn-affirm",  dyn.affirmations);
+    fillList("dyn-explore", dyn.explore);
+    fillList("dyn-growth",  dyn.growth);
+  } catch (e) {
+    console.warn("Dynamic narrative skipped:", e);
   }
 
   // 11) PDF export button
@@ -191,11 +202,7 @@ function topTwoFromScores(scores, orderFallback){
   return [p?.[0] || null, s?.[0] || null];
 }
 
-/* ---- Preference Strength multipliers ----
-   - numeric_scale normalized 0..1
-   - likert_scale normalized by option index
-   - average per archetype → map 0..1 into [minM, maxM]
-*/
+/* ---- Preference Strength multipliers ---- */
 function computePrefMultipliers(psItemsJson, psResponses, {minM=0.90, maxM=1.20} = {}){
   const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
   const sums   = Object.fromEntries(ARCHETYPES.map(a => [a, 0]));
@@ -211,7 +218,6 @@ function computePrefMultipliers(psItemsJson, psResponses, {minM=0.90, maxM=1.20}
     if(q.type === "numeric_scale" && typeof ans === "number" && q.max > q.min){
       norm = (ans - q.min) / (q.max - q.min);
     } else if(q.type === "likert_scale" && Array.isArray(q.response_options)){
-      // you can store either the chosen string or a 1..N index
       if (typeof ans === "number"){
         norm = (ans - 1) / (q.response_options.length - 1);
       } else if (typeof ans === "string"){
@@ -270,4 +276,73 @@ function renderTopTagCard(container, topTags, primaryArchetype){
     </ul>
     <p class="muted">Tuned slightly toward your primary archetype: <em>${primaryArchetype || "—"}</em>.</p>
   `;
+}
+
+/* ---- Dynamic narrative helpers (NEW) ---- */
+async function buildDynamicNarrative(allResponses, topTags, primary) {
+  // Load rulebook (optional file; function safely falls back)
+  let rules;
+  try {
+    rules = await fetch("quiz_dynamic_rules.json").then(r => r.json());
+  } catch {
+    return { affirmations: [], insights: [], explore: [], growth: [] };
+  }
+
+  const acc = { affirmations: [], insights: [], explore: [], growth: [] };
+
+  // 1) Item-based rules
+  for (const rule of (rules.rules || [])) {
+    const cond = rule.if || {};
+    const section = cond.section;
+    const id = cond.id;
+    if (!section || !id) continue;
+
+    const sec = allResponses[section] || {};
+    const ans = sec[id];
+    if (ans == null) continue;
+
+    let match = false;
+    // match specific choice(s)
+    if (Array.isArray(cond.choice_in)) {
+      const picked = Array.isArray(ans) ? ans : [ans];
+      match = picked.some(v => cond.choice_in.includes(v));
+    }
+    // match likert threshold
+    if (!match && cond.likert_at_least) {
+      const scale = ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"];
+      const idxAns = scale.indexOf(ans);
+      const idxMin = scale.indexOf(cond.likert_at_least);
+      if (idxAns >= 0 && idxMin >= 0) match = idxAns >= idxMin;
+    }
+
+    if (match) mergeBuckets(acc, rule.then || {});
+  }
+
+  // 2) Tag-based rules
+  const tagSet = new Set((topTags || []).map(([t]) => t));
+  for (const tr of (rules.tag_rules || [])) {
+    const any = (tr.if_any_tags || []).some(t => tagSet.has(t));
+    if (any) mergeBuckets(acc, tr.then || {});
+  }
+
+  // 3) Light archetype seasoning
+  if (primary) acc.affirmations.push(`Your ${primary} core shows up in the little things—trust that pattern.`);
+
+  // Dedup + trim
+  for (const k of Object.keys(acc)) {
+    acc[k] = Array.from(new Set(acc[k])).slice(0, k === "insights" ? 6 : 4);
+  }
+  return acc;
+}
+
+function mergeBuckets(acc, add) {
+  for (const k of ["affirmations","insights","explore","growth"]) {
+    if (add[k]) acc[k].push(...[].concat(add[k]));
+  }
+}
+
+function fillList(id, items){
+  const ul = document.getElementById(id);
+  if (!ul) return;
+  ul.innerHTML = (items || []).map(t => `<li>${t}</li>`).join("");
 }

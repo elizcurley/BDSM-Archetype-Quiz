@@ -1,12 +1,287 @@
 {
+  "description": "Psycho-Emotional — how you make meaning, regulate energy, seek repair, and signal desire in partnerships and shared experiences. Role-neutral, beginner-friendly.",
   "questions": [
-    { "id": "pe_agency_voice", "type": "likert_scale", "question_text": "I’m comfortable voicing my wants and adjusting in the moment if something changes.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Vanguard", "weight": 1.0 },
-    { "id": "pe_novelty_seek", "type": "likert_scale", "question_text": "New experiences energize me emotionally, even before I’m fully prepared.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Explorer", "weight": 1.1 },
-    { "id": "pe_routine_soothe", "type": "likert_scale", "question_text": "Predictable rhythms help me relax and go deeper emotionally.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Keystone", "weight": 1.0 },
-    { "id": "pe_symbolic_meaning", "type": "likert_scale", "question_text": "Symbolism or shared language makes experiences more meaningful to me.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Oracle", "weight": 1.0 },
-    { "id": "pe_curate_care", "type": "likert_scale", "question_text": "Small curations (music, lighting, pacing) significantly influence my emotions.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Connoisseur", "weight": 1.0 },
-    { "id": "pe_group_energy", "type": "likert_scale", "question_text": "I feel emotionally lifted by gathering people and setting a welcoming vibe.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Catalyst", "weight": 1.0 },
-    { "id": "pe_adapt_reframe", "type": "likert_scale", "question_text": "When plans shift, I can reframe quickly and keep the experience cohesive.", "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"], "archetype": "Alchemist", "weight": 1.0 },
-    { "id": "pe_emotion_intensity", "type": "numeric_scale", "question_text": "How comfortable are you with building emotional intensity when the vibe is right?", "min": 1, "max": 7, "archetype": "Vanguard", "weight": 0.9 }
+    {
+      "id": "PE1",
+      "archetype": "Explorer",
+      "question_text": "When plans change last-minute, I’m energized by adapting and discovering together.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE2",
+      "archetype": "Explorer",
+      "question_text": "I like to learn by trying small experiments instead of long discussions first.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE3",
+      "question_text": "When I feel curious with a partner, I’m most likely to…",
+      "type": "single",
+      "choices": [
+        { "label": "Propose a playful mini-mission right away", "value": "mini_mission", "weights": { "Explorer": 2, "Catalyst": 1 } },
+        { "label": "Set a tiny structure and then try it", "value": "tiny_structure", "weights": { "Connoisseur": 1, "Explorer": 1 } },
+        { "label": "Ask a meaning question to orient us", "value": "meaning_q", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "Make a decisive call to generate motion", "value": "decide_now", "weights": { "Vanguard": 2, "Catalyst": 1 } },
+        { "label": "Check comfort and pacing first", "value": "check_pace", "weights": { "Keystone": 2 } }
+      ]
+    },
+
+    {
+      "id": "PE4",
+      "archetype": "Alchemist",
+      "question_text": "A small intention or ritual can shift an ordinary moment into something meaningful for me.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE5",
+      "archetype": "Alchemist",
+      "question_text": "I enjoy experiences that change my headspace (focus, trancey calm, symbolic frames).",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE6",
+      "question_text": "When emotions swell, what helps me shift state fastest is…",
+      "type": "single",
+      "choices": [
+        { "label": "A quick grounding ritual (breath, touch, phrase)", "value": "grounding_ritual", "weights": { "Alchemist": 2, "Keystone": 1 } },
+        { "label": "Reframing the story together", "value": "reframe", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "A playful pattern-break", "value": "pattern_break", "weights": { "Catalyst": 2, "Explorer": 1 } },
+        { "label": "A crisp decision and clear next step", "value": "crisp_move", "weights": { "Vanguard": 2 } },
+        { "label": "Tending to the setup or environment", "value": "tend_env", "weights": { "Connoisseur": 2 } }
+      ]
+    },
+
+    {
+      "id": "PE7",
+      "archetype": "Keystone",
+      "question_text": "Consistency and warm steadiness are how I show love, especially under stress.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE8",
+      "archetype": "Keystone",
+      "question_text": "Even when stirred up, I can name limits and needs without disconnecting from care.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE9",
+      "question_text": "After intense moments, I’m most restored by…",
+      "type": "single",
+      "choices": [
+        { "label": "Firm grounding (pressure, weighted blanket, quiet)", "value": "firm_grounding", "weights": { "Keystone": 2, "Vanguard": 1 } },
+        { "label": "Talking it through and reflecting", "value": "talk_reflect", "weights": { "Oracle": 2 } },
+        { "label": "A gentle ritual (tea, music, candles, journaling)", "value": "gentle_ritual", "weights": { "Alchemist": 2, "Oracle": 1 } },
+        { "label": "A walk and playful banter", "value": "walk_banter", "weights": { "Catalyst": 2, "Explorer": 1 } },
+        { "label": "Tidying the space and restoring order", "value": "restore_order", "weights": { "Connoisseur": 2 } }
+      ]
+    },
+
+    {
+      "id": "PE10",
+      "archetype": "Catalyst",
+      "question_text": "I naturally spark energy with humor, dares, or momentum when the vibe dips.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE11",
+      "archetype": "Catalyst",
+      "question_text": "Playfulness helps me reconnect more than long processing does (most of the time).",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE12",
+      "question_text": "When I’m excited with a partner, I tend to express it first by…",
+      "type": "single",
+      "choices": [
+        { "label": "Teasing/flirting to build spark", "value": "tease_flirt", "weights": { "Catalyst": 2, "Explorer": 1 } },
+        { "label": "Direct invitation with a clear plan", "value": "direct_invite", "weights": { "Vanguard": 2, "Connoisseur": 1 } },
+        { "label": "Crafting an aesthetic or vibe to set the stage", "value": "craft_vibe", "weights": { "Connoisseur": 2, "Alchemist": 1 } },
+        { "label": "Sharing a feeling or image that points to meaning", "value": "share_meaning", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "Checking comfort and timing first", "value": "check_timing", "weights": { "Keystone": 2 } }
+      ]
+    },
+
+    {
+      "id": "PE13",
+      "archetype": "Connoisseur",
+      "question_text": "Details matter: clear standards and presentation elevate my experience significantly.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE14",
+      "archetype": "Connoisseur",
+      "question_text": "I enjoy slowing down to refine technique—even if it means doing less, better.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE15",
+      "question_text": "When receiving feedback, the style that helps me most is…",
+      "type": "single",
+      "choices": [
+        { "label": "Precise, standard-based notes I can implement", "value": "precise_notes", "weights": { "Connoisseur": 2, "Vanguard": 1 } },
+        { "label": "Encouraging praise to keep momentum", "value": "praise_momentum", "weights": { "Keystone": 2, "Catalyst": 1 } },
+        { "label": "Meaning-oriented reflections (what it opened up)", "value": "meaning_reflect", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "A playful nudge plus a quick fix", "value": "playful_quickfix", "weights": { "Catalyst": 2, "Explorer": 1 } }
+      ]
+    },
+
+    {
+      "id": "PE16",
+      "archetype": "Oracle",
+      "question_text": "I’m good at tracking emotions under the surface and naming them gently when it helps.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE17",
+      "archetype": "Oracle",
+      "question_text": "I prefer to understand the ‘why’ (values, meaning) before choosing a direction together.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE18",
+      "question_text": "In repair, my first move is usually to…",
+      "type": "single",
+      "choices": [
+        { "label": "Reflect back what I heard and check if I got it", "value": "reflect_back", "weights": { "Oracle": 2, "Keystone": 1 } },
+        { "label": "Make a small ritual or gesture of care", "value": "ritual_care", "weights": { "Alchemist": 2, "Keystone": 1 } },
+        { "label": "Offer a precise fix or standard to align on", "value": "precise_fix", "weights": { "Connoisseur": 2, "Vanguard": 1 } },
+        { "label": "Spark levity so we can breathe and reset", "value": "spark_levity", "weights": { "Catalyst": 2, "Explorer": 1 } },
+        { "label": "Decide on one next step and move", "value": "decide_step", "weights": { "Vanguard": 2 } }
+      ]
+    },
+
+    {
+      "id": "PE19",
+      "archetype": "Vanguard",
+      "question_text": "Under pressure, I’m comfortable taking the lead and setting a firm tempo for us to follow.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE20",
+      "archetype": "Vanguard",
+      "question_text": "Clear calls and quick alignment feel kinder to me than lingering indecision (most of the time).",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE21",
+      "question_text": "When someone I care about looks to me for direction, I tend to…",
+      "type": "single",
+      "choices": [
+        { "label": "Set a decisive plan and own the outcome", "value": "decisive_plan", "weights": { "Vanguard": 2, "Connoisseur": 1 } },
+        { "label": "Co-create a plan but keep options open", "value": "cocreate", "weights": { "Explorer": 2, "Keystone": 1 } },
+        { "label": "Name an intention/why and follow the signal", "value": "name_why", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "Start playful, find momentum, then choose", "value": "play_then_choose", "weights": { "Catalyst": 2, "Explorer": 1 } }
+      ]
+    },
+
+    {
+      "id": "PE22",
+      "archetype": "Catalyst",
+      "question_text": "I can turn boring chores into a 90-second game (timer, mini-dare, victory pose).",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE23",
+      "archetype": "Explorer",
+      "question_text": "If I spot an intriguing side street or odd museum, I’m tempted to detour—just to see what happens.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE24",
+      "archetype": "Keystone",
+      "question_text": "I keep a ‘just-in-case’ kit (snack, charger, band-aid, tissue) because it makes adventures feel safer and sweeter.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE25",
+      "archetype": "Connoisseur",
+      "question_text": "Crooked frames, wobbly tables, or mismatched glassware pull me out of the moment until I fix them.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE26",
+      "archetype": "Oracle",
+      "question_text": "I leave tiny notes or one-line ‘oracles’ for people—little reflections that land at the right time.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE27",
+      "archetype": "Alchemist",
+      "question_text": "I have a go-to song, scent, or light trick that changes the room’s mood in under 30 seconds.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+    {
+      "id": "PE28",
+      "archetype": "Vanguard",
+      "question_text": "At crosswalks or crowded venues, I instinctively ‘shepherd the group’ and set a confident pace.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"]
+    },
+
+    {
+      "id": "PE29",
+      "question_text": "The snack tray / table setup that secretly delights me most is…",
+      "type": "single",
+      "choices": [
+        { "label": "Edges aligned, symmetry on point", "value": "symmetry", "weights": { "Connoisseur": 2 } },
+        { "label": "Labels or color zones so everyone knows what’s what", "value": "labels", "weights": { "Connoisseur": 1, "Keystone": 1 } },
+        { "label": "A tiny ‘altar’ centerpiece (flower, candle, card)", "value": "altar", "weights": { "Alchemist": 2, "Oracle": 1 } },
+        { "label": "Beat-the-timer plating challenge for fun", "value": "timer", "weights": { "Catalyst": 2, "Vanguard": 1 } },
+        { "label": "Surprise pairings and odd textures to explore", "value": "surprise", "weights": { "Explorer": 2 } }
+      ]
+    },
+    {
+      "id": "PE30",
+      "question_text": "When the group chat derails, my natural move is…",
+      "type": "single",
+      "choices": [
+        { "label": "Draft a clear plan with owners & next steps", "value": "plan", "weights": { "Vanguard": 2, "Connoisseur": 1 } },
+        { "label": "Ask one orienting question that brings meaning back", "value": "orient", "weights": { "Oracle": 2, "Alchemist": 1 } },
+        { "label": "Spin up a playful poll to regain momentum", "value": "poll", "weights": { "Catalyst": 2, "Explorer": 1 } },
+        { "label": "Create a mini-doc / checklist everyone can edit", "value": "checklist", "weights": { "Connoisseur": 2 } },
+        { "label": "Gently name a boundary and suggest a pause", "value": "boundary", "weights": { "Keystone": 2 } }
+      ]
+    }
   ]
 }
