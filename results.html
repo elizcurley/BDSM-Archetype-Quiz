@@ -1,45 +1,61 @@
 <!doctype html>
 <html lang="en">
+<!-- results.html -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Results</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Archetype Results</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- libs needed only on the results page -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script defer src="results.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- your results logic -->
+  <script defer src="results.js?v=1"></script>
 </head>
 <body>
-  <div class="container results-container">
+  <div class="container" id="results-root">
     <h1>Your Archetype Results</h1>
-    <p class="muted">Below are your primary and secondary archetypes, along with a personalized profile.</p>
 
-    <h2>Primary: <span id="primary-archetype">—</span></h2>
-    <p id="archetype-description"></p>
+    <section class="result-header">
+      <div class="primary-block">
+        <h2>Primary: <span id="primary-archetype">—</span></h2>
+        <img id="primary-image" alt="" />
+      </div>
 
-    <h3>Secondary Influence</h3>
-    <p id="secondary-archetype">—</p>
+      <div class="secondary-block">
+        <h3>Secondary: <span id="secondary-archetype">—</span></h3>
+        <img id="secondary-image" alt="" />
+      </div>
+    </section>
 
-    <h3>Affirming Message</h3>
-    <p id="affirming-message"></p>
+    <section class="narrative">
+      <h3>About your primary</h3>
+      <p id="archetype-description">—</p>
 
-    <h3>Personalized Insights</h3>
-    <p id="personalized-insights"></p>
+      <h4>Affirmation</h4>
+      <p id="affirming-message">—</p>
 
-    <h3>Self-Reflection</h3>
-    <ul id="reflection-list"></ul>
+      <h4>Personalized insights</h4>
+      <p id="personalized-insights">—</p>
 
-    <h3>Archetype Balance</h3>
-    <canvas id="spider-graph" height="360"></canvas>
+      <h4>Reflection prompts</h4>
+      <ul id="reflection-list"></ul>
+    </section>
 
-    <h3>Fit Check</h3>
-<div id="fit-check"></div>
+    <section class="viz">
+      <h3>Your balance</h3>
+      <canvas id="spider-graph" width="400" height="400" aria-label="Archetype radar"></canvas>
+      <div id="fit-check"></div>
+    </section>
 
+    <section class="interests">
+      <div id="top-interests"></div> <!-- optional: tag-based recs render here -->
+    </section>
 
-    <div class="nav" style="margin-top:16px">
-      <button id="export-pdf" class="primary">Download PDF</button>
-      <button id="retake" class="secondary" onclick="window.location.href='index.html'">Retake</button>
+    <div class="actions">
+      <button id="export-pdf" class="secondary">Export as PDF</button>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
-</html>
