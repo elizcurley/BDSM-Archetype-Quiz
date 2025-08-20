@@ -308,3 +308,7 @@ button[disabled] {
   object-fit: contain;
   display: block;
 }
+#primary-image, #secondary-image {
+  display:block; margin: .25rem auto 1rem;
+  width:min(280px, 40vw); height:auto; object-fit:contain;
+}
