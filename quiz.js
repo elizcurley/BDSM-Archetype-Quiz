@@ -14,7 +14,10 @@
     "quiz_sections/reflection.json",
     "quiz_sections/situational.json",
     "quiz_sections/kink_interests.json",
-    "quiz_sections/psychoemotional.json"
+    "quiz_sections/psychoemotional.json",
+    "data/intimacy_interests.json",
+    "data/power_dynamics_general.json",
+
   ];
 
   const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
