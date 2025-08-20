@@ -293,3 +293,18 @@ button[disabled] {
   .pdf-btn, #toggle-kink, .fit-check, nav { display:none !important; }
   body { background:#fff; color:#000; }
 }
+/* Center primary/secondary images and size nicely */
+.result-photos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 1rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.result-photos img{
+  width: min(40vw, 200px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
