@@ -158,6 +158,20 @@ async function initResults() {
     console.warn("Dynamic narrative skipped:", e);
   }
 
+  // after dynamic narrative section
+try {
+  const kink = await buildKinkRecs(topTags, primary);
+  if (kink) {
+    fillList("kink-scenes", kink.scenes.map(s =>
+      `${s.title}: ${s.ideas[0] || "—"}${s.stretch?.length ? ` (stretch: ${s.stretch[0]})` : ""}`
+    ));
+    fillList("kink-props",  kink.props);
+    fillList("kink-comms",  kink.comms);
+    fillList("kink-care",   kink.care);
+  }
+} catch(e){ console.warn("Kink recs skipped:", e); }
+
+
   // 11) PDF export button
   if (els.pdfBtn && typeof html2pdf !== "undefined") {
     els.pdfBtn.addEventListener("click", () => {
