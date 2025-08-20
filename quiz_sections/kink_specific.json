@@ -1,143 +1,206 @@
-{
-  "description": "Detailed questions that explore particular kink practices and help fine-tune your profile. These questions delve into your personal style, experimentation, and how you manage specific aspects of kink scenes.",
-  "questions": [
-    {
-      "id": "SK1",
-      "archetype": "Catalyst",
-      "question_text": "In your scenes, do you prefer taking control of the flow or following the flow?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Always take control",
-        "Mostly take control",
-        "Equal balance",
-        "Mostly follow",
-        "Always follow"
-      ]
-    },
-    {
-      "id": "SK2",
-      "archetype": "Connoisseur",
-      "question_text": "I consistently incorporate my personal style into my kink dynamics.",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
-    },
-    {
-      "id": "SK3",
-      "archetype": "Alchemist",
-      "question_text": "Do you lean more towards experimenting with new techniques or perfecting established methods?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Always experiment",
-        "Often experiment",
-        "Balanced",
-        "Often perfect methods",
-        "Always perfect methods"
-      ]
-    },
-    {
-      "id": "SK4",
-      "archetype": "Alchemist",
-      "question_text": "How frequently do you try new kink practices (e.g., impact play, sensory play, role reversals)?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Very frequently",
-        "Frequently",
-        "Occasionally",
-        "Rarely",
-        "Never"
-      ]
-    },
-    {
-      "id": "SK5",
-      "archetype": "Explorer",
-      "question_text": "Do you prefer following a predetermined script in your scenes or improvising on the spot?",
-      "type": "multiple_choice",
-      "weight": 3,
-      "response_options": [
-        "Always follow a script",
-        "Mostly follow a script",
-        "A mix of both",
-        "Mostly improvise",
-        "Always improvise"
-      ]
-    },
-    {
-      "id": "SK6",
-      "archetype": "Keystone",
-      "question_text": "How important is it for you to have a debrief with your partner after a session to discuss what worked or didn't?",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Extremely important",
-        "Very important",
-        "Moderately important",
-        "Slightly important",
-        "Not important"
-      ]
-    },
-    {
-      "id": "SK7",
-      "archetype": "Connoisseur",
-      "question_text": "When engaging in impact play, do you prefer a steady rhythm or variable intensity?",
-      "type": "multiple_choice",
-      "weight": 3,
-      "response_options": [
-        "Steady rhythm",
-        "Variable intensity",
-        "A mix of both"
-      ]
-    },
-    {
-      "id": "SK8",
-      "archetype": "Keystone",
-      "question_text": "I prioritize both my partner's comfort and my own during a scene.",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
-    },
-    {
-      "id": "SK9",
-      "archetype": "Alchemist",
-      "question_text": "I adjust the intensity of my kink practices responsively based on my partner's reactions.",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
-    },
-    {
-      "id": "SK10",
-      "archetype": "Keystone",
-      "question_text": "I have a clear method for establishing scene boundaries during specialized play.",
-      "type": "likert_scale",
-      "weight": 3,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "KS1",
+    "question": "In shared projects or goals, the guidance style that helps me thrive is…",
+    "type": "single",
+    "choices": [
+      { "label": "Nurturing support (steady, caring, protective)", "value": "keystone", "weights": { "Keystone": 3, "Connoisseur": 1 } },
+      { "label": "Clear command under pressure (decisive, bold)", "value": "vanguard", "weights": { "Vanguard": 3, "Catalyst": 1 } },
+      { "label": "Meaning-driven guidance (ritual, symbolism, purpose)", "value": "alchemist", "weights": { "Alchemist": 3, "Oracle": 1 } },
+      { "label": "Exploratory coaching (curious, try-things energy)", "value": "explorer", "weights": { "Explorer": 3, "Catalyst": 1 } }
+    ]
+  },
+  {
+    "id": "KS2",
+    "question": "For routines and shared agreements, I prefer…",
+    "type": "single",
+    "choices": [
+      { "label": "Soft structure (a few signals and norms)", "value": "soft", "weights": { "Keystone": 2, "Connoisseur": 1 } },
+      { "label": "Detailed structure (titles/roles, checklists, posture cues)", "value": "detailed", "weights": { "Vanguard": 2, "Connoisseur": 2 } },
+      { "label": "Ritualized structure that adds meaning (symbols/vows)", "value": "ritual", "weights": { "Alchemist": 2, "Oracle": 2 } },
+      { "label": "Minimal structure; prefer improvisation", "value": "minimal", "weights": { "Explorer": 2, "Catalyst": 1 } }
+    ]
+  },
+  {
+    "id": "KS3",
+    "question": "When it comes to physical or hands-on activities, I enjoy…",
+    "type": "single",
+    "choices": [
+      { "label": "Precision and craft (timing, technique, refined tools)", "value": "craft", "weights": { "Connoisseur": 3, "Vanguard": 1 } },
+      { "label": "High-intensity challenge with a cathartic peak", "value": "intense", "weights": { "Vanguard": 3, "Alchemist": 1 } },
+      { "label": "Gentle, rhythmic pacing that grounds me", "value": "gentle", "weights": { "Keystone": 3 } },
+      { "label": "Other kinds of engagement interest me more", "value": "other", "weights": { "Explorer": 2, "Oracle": 1 } }
+    ]
+  },
+  {
+    "id": "KS4",
+    "question": "The role I most naturally step into (or enjoy receiving from others) is…",
+    "type": "single",
+    "choices": [
+      { "label": "Caretaker / Protector", "value": "caretaker", "weights": { "Keystone": 3 } },
+      { "label": "General / Commander", "value": "general", "weights": { "Vanguard": 3 } },
+      { "label": "Guide / Mentor (mystic, priest/ess, teacher)", "value": "priest", "weights": { "Oracle": 3, "Alchemist": 1 } },
+      { "label": "Curator / Perfectionist (taste, standards)", "value": "curator", "weights": { "Connoisseur": 3 } },
+      { "label": "Scout / Adventurer (discovery, range)", "value": "scout", "weights": { "Explorer": 3 } },
+      { "label": "Spark-Stoker / Catalyst (energy, momentum)", "value": "spark", "weights": { "Catalyst": 3 } }
+    ]
+  },
+  {
+    "id": "KS5",
+    "question": "The sensory channels I notice or value most in everyday life are…",
+    "type": "multi",
+    "choices": [
+      { "label": "Texture & materials (how things feel on skin/hands)", "value": "texture", "weights": { "Connoisseur": 2, "Explorer": 1 } },
+      { "label": "Words & voice (tone, suggestion, storytelling)", "value": "words", "weights": { "Alchemist": 2, "Oracle": 2 } },
+      { "label": "Adrenaline & challenge (tests, endurance, edges)", "value": "adrenaline", "weights": { "Vanguard": 2, "Catalyst": 1 } },
+      { "label": "Warmth & reassurance (praise, cuddles, soft landings)", "value": "warmth", "weights": { "Keystone": 2 } }
+    ]
+  },
+  {
+    "id": "KS6",
+    "question": "Planning a big moment (trip, event, intense experience) works best for me when…",
+    "type": "single",
+    "choices": [
+      { "label": "We use a thorough checklist up front", "value": "thorough", "weights": { "Keystone": 2, "Connoisseur": 1 } },
+      { "label": "We set a few clear rules and refine live", "value": "hybrid", "weights": { "Catalyst": 2, "Explorer": 1 } },
+      { "label": "We align with a simple shared intention/ritual", "value": "ritual", "weights": { "Alchemist": 2, "Oracle": 2 } },
+      { "label": "We state firm boundaries quickly and dive in", "value": "command", "weights": { "Vanguard": 2 } }
+    ]
+  },
+  {
+    "id": "KS7",
+    "question": "Regarding structure/constraints in my day-to-day life, I gravitate toward…",
+    "type": "single",
+    "choices": [
+      { "label": "Functional constraints that support roles & responsibilities", "value": "functional", "weights": { "Keystone": 2, "Vanguard": 1 } },
+      { "label": "Aesthetic order (clean lines, neat setups, symmetry)", "value": "aesthetic", "weights": { "Connoisseur": 3 } },
+      { "label": "Playful experimentation (I like trying setups and seeing what works)", "value": "explore", "weights": { "Explorer": 3 } },
+      { "label": "Meditative/intentional pacing (breath, stillness, focus)", "value": "meditative", "weights": { "Oracle": 2, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KS8",
+    "question": "Feedback or direction that lands best for me (giving or receiving) is…",
+    "type": "multi",
+    "choices": [
+      { "label": "Praise-forward and reassuring", "value": "praise", "weights": { "Keystone": 2 } },
+      { "label": "Short, crisp commands or inspections", "value": "terse", "weights": { "Vanguard": 2 } },
+      { "label": "Poetic/evocative phrasing that points to meaning", "value": "poetic", "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Refined instructions that focus on finesse/quality", "value": "refined", "weights": { "Connoisseur": 2 } },
+      { "label": "Teasing/playful language that builds momentum", "value": "teasing", "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KS9",
+    "question": "When my partner supports me with service (if applicable), I prefer it to…",
+    "type": "single",
+    "choices": [
+      { "label": "Create stability and daily rhythm", "value": "stability", "weights": { "Keystone": 3 } },
+      { "label": "Sharpen performance under pressure", "value": "performance", "weights": { "Vanguard": 3, "Connoisseur": 1 } },
+      { "label": "Express devotion/meaning or offer a novel connection", "value": "devotion", "weights": { "Oracle": 3, "Alchemist": 1 } },
+      { "label": "Stay flexible and keep things lively", "value": "flex", "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KS10",
+    "question": "Playful teasing or roast-style humor toward me is…",
+    "type": "single",
+    "choices": [
+      { "label": "Not my thing", "value": "no", "weights": { "Keystone": 2 } },
+      { "label": "Okay when light and clearly caring", "value": "light", "weights": { "Connoisseur": 1, "Explorer": 1 } },
+      { "label": "I enjoy intense, psychologically spicy banter", "value": "intense", "weights": { "Vanguard": 2, "Alchemist": 1 } },
+      { "label": "It depends on context and shared meaning", "value": "context", "weights": { "Oracle": 2 } }
+    ]
+  },
+  {
+    "id": "KS11",
+    "question": "My appetite for risk and edge in adventures or change is…",
+    "type": "single",
+    "choices": [
+      { "label": "Prefer familiar lanes and clear safety", "value": "safe", "weights": { "Keystone": 2, "Connoisseur": 1 } },
+      { "label": "Open to edges with prep, plans, and recovery time", "value": "planned", "weights": { "Connoisseur": 1, "Oracle": 1, "Vanguard": 1, "Explorer": 1 } },
+      { "label": "I seek tests and cathartic challenges", "value": "seek", "weights": { "Vanguard": 3, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KS12",
+    "question": "The arc of a meaningful shared experience (date/trip/project) I enjoy most is…",
+    "type": "single",
+    "choices": [
+      { "label": "Slow warm-up → sustained depth → soft landing", "value": "slow-depth", "weights": { "Keystone": 2, "Oracle": 1 } },
+      { "label": "Precision build → clear peak → crisp finish", "value": "precision", "weights": { "Connoisseur": 2, "Vanguard": 1 } },
+      { "label": "Spark → playful turns → surprise finale", "value": "spark-play", "weights": { "Catalyst": 2, "Explorer": 2 } },
+      { "label": "Intention set → focused presence → sense of transformation", "value": "ritual-arc", "weights": { "Alchemist": 2, "Oracle": 1 } }
+    ]
+  },
+  {
+    "id": "KS13",
+    "question": "When a quick decision is needed, the approach that fits me best is…",
+    "type": "single",
+    "choices": [
+      { "label": "Calm stewardship and steady coordination", "value": "steward", "weights": { "Keystone": 2, "Connoisseur": 1 } },
+      { "label": "Direct, decisive call and quick alignment", "value": "decisive", "weights": { "Vanguard": 3, "Catalyst": 1 } },
+      { "label": "Check meaning/alignment first, then move", "value": "meaning_first", "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Try a quick version, learn, iterate", "value": "iterate", "weights": { "Explorer": 2, "Catalyst": 1 } },
+      { "label": "Apply clear standards/criteria to decide", "value": "standards", "weights": { "Connoisseur": 2, "Vanguard": 1 } }
+    ]
+  },
+  {
+    "id": "KS14",
+    "question": "Over time, I’m most drawn to developing…",
+    "type": "single",
+    "choices": [
+      { "label": "Mastery and refinement of craft", "value": "mastery", "weights": { "Connoisseur": 3 } },
+      { "label": "Edge and intensity—pushing limits", "value": "edge", "weights": { "Vanguard": 2, "Alchemist": 1 } },
+      { "label": "Nurturing steady routine and care", "value": "routine", "weights": { "Keystone": 3 } },
+      { "label": "Breadth and novelty—many experiences", "value": "breadth", "weights": { "Explorer": 2, "Catalyst": 1 } },
+      { "label": "Purpose and ritual—depth of meaning", "value": "purpose", "weights": { "Oracle": 2, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KS15",
+    "question": "In shared activities, the environment that energizes me is…",
+    "type": "single",
+    "choices": [
+      { "label": "Quiet, private spaces", "value": "private", "weights": { "Keystone": 2, "Oracle": 1 } },
+      { "label": "Tasteful public settings", "value": "tasteful_public", "weights": { "Connoisseur": 2 } },
+      { "label": "Community buzz and being seen", "value": "community", "weights": { "Catalyst": 2, "Vanguard": 1 } },
+      { "label": "Changing settings and small adventures", "value": "adventure", "weights": { "Explorer": 2 } }
+    ]
+  },
+  {
+    "id": "KS16",
+    "question": "When giving or receiving accountability, I prefer…",
+    "type": "single",
+    "choices": [
+      { "label": "Gentle accountability with consistent follow-through", "value": "gentle", "weights": { "Keystone": 2 } },
+      { "label": "Direct, firm correction", "value": "firm", "weights": { "Vanguard": 2 } },
+      { "label": "Meaning-based reflection and repair", "value": "meaning_repair", "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Standards, checklists, and quality controls", "value": "standards_qc", "weights": { "Connoisseur": 2 } },
+      { "label": "Playful reset to restore momentum", "value": "playful_reset", "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KS17",
+    "question": "The tempo that suits me best is…",
+    "type": "single",
+    "choices": [
+      { "label": "Slow and steady", "value": "slow_steady", "weights": { "Keystone": 2 } },
+      { "label": "Fast and decisive", "value": "fast_decisive", "weights": { "Vanguard": 2 } },
+      { "label": "Waves—sprints with resets", "value": "waves", "weights": { "Catalyst": 2, "Explorer": 1 } },
+      { "label": "Meditative, intentional pacing", "value": "meditative", "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Deliberate precision pace", "value": "precision_pace", "weights": { "Connoisseur": 2 } }
+    ]
+  },
+  {
+    "id": "KS18",
+    "question": "Symbolic or ritual elements in shared experiences are…",
+    "type": "single",
+    "choices": [
+      { "label": "Not important to me", "value": "not_important", "weights": { "Explorer": 2 } },
+      { "label": "Nice to have—it adds flavor", "value": "nice_to_have", "weights": { "Keystone": 1, "Connoisseur": 1 } },
+      { "label": "Central—they anchor meaning and connection", "value": "central", "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Useful for roles, commitment, or rank", "value": "roles_commitment", "weights": { "Vanguard": 2, "Connoisseur": 1 } }
+    ]
+  }
+]
