@@ -19,6 +19,8 @@ async function initResults() {
     recsWrap:     byId("top-interests") // optional container for “Top Interests”
   };
 
+  const DATA_BASE = "data/"; // change to "../data/" if results.html lives in a subfolder
+
   // 2) Constants (names + image paths)
   const ARCHETYPES = ["Alchemist","Catalyst","Connoisseur","Explorer","Keystone","Oracle","Vanguard"];
   const IMG_MAP = {
