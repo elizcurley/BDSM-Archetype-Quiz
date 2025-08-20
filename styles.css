@@ -313,3 +313,18 @@ button[disabled] {
   display:block; margin: .25rem auto 1rem;
   width:min(280px, 40vw); height:auto; object-fit:contain;
 }
+/* Center primary/secondary images */
+.archetype-image-wrap {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 0 20px;
+  flex-wrap: wrap;
+}
+.archetype-img {
+  max-width: 160px; /* tweak as you like */
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
