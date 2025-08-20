@@ -1,168 +1,101 @@
 {
-  "description": "Reflection Questions \u2013 these statements help assess your views on personal growth, relationship dynamics, and your emotional responses during kink play. Indicate your level of agreement with each statement.",
+  "description": "Reflection – general partnership development. Indicate how much you agree with each statement about how you show up in relationships, projects, and shared experiences.",
   "questions": [
     {
       "id": "R1",
       "archetype": "Catalyst",
-      "question_text": "I actively seek challenging experiences in my personal relationships.",
+      "question_text": "When things stall, I naturally bring playful energy and momentum back into the mix.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R2",
-      "archetype": "Catalyst",
-      "question_text": "I strongly identify with my primary archetype.",
-      "type": "numeric_scale",
-      "weight": 3,
-      "min": 1,
-      "max": 10
+      "archetype": "Explorer",
+      "question_text": "I feel most alive when we try new places, activities, or approaches together.",
+      "type": "likert_scale",
+      "weight": 2,
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R3",
       "archetype": "Oracle",
-      "question_text": "I frequently reflect on my personal growth and its impact on my relationships.",
+      "question_text": "I regularly reflect on my own growth and how it affects the relationship.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R4",
       "archetype": "Keystone",
-      "question_text": "I am able to balance my desire for new experiences with the need for emotional stability.",
+      "question_text": "I balance my appetite for novelty with a steady sense of care and reliability.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R5",
       "archetype": "Connoisseur",
-      "question_text": "I find that the aesthetic quality of my kink play is one of its most fulfilling aspects.",
+      "question_text": "The aesthetic quality and attention to detail in shared experiences is deeply fulfilling to me.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R6",
       "archetype": "Keystone",
-      "question_text": "I consistently maintain and communicate my personal boundaries.",
+      "question_text": "I communicate and maintain my boundaries consistently, even during emotional moments.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R7",
       "archetype": "Vanguard",
-      "question_text": "My leadership in kink play positively impacts my personal growth.",
+      "question_text": "When stakes rise, I’m comfortable stepping into clear leadership to move us forward.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R8",
       "archetype": "Oracle",
-      "question_text": "I effectively restore clarity and trust when communication breaks down during a scene.",
+      "question_text": "If communication breaks down, I help restore clarity and trust without escalating conflict.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R9",
       "archetype": "Explorer",
-      "question_text": "Taking risks in my intimate life often leads to personal growth.",
+      "question_text": "Taking measured risks together often leads to learning and growth for me.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R10",
       "archetype": "Alchemist",
-      "question_text": "I balance spontaneity and safety effectively in my experimental practices.",
+      "question_text": "Designing small rituals or intentional frames helps transform ordinary moments into something meaningful.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R11",
       "archetype": "Vanguard",
-      "question_text": "Feedback from my partners strongly influences my approach to leadership in kink play.",
+      "question_text": "I actively seek feedback and use it to sharpen how I guide or set direction.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     },
     {
       "id": "R12",
-      "archetype": "Oracle",
-      "question_text": "I ensure that my emotional insights consistently translate into effective communication during challenging moments.",
+      "archetype": "Catalyst",
+      "question_text": "Playful challenges or mini-dares tend to re-connect me with partners and shared goals.",
       "type": "likert_scale",
       "weight": 2,
-      "response_options": [
-        "Strongly agree",
-        "Somewhat agree",
-        "Neutral",
-        "Somewhat disagree",
-        "Strongly disagree"
-      ]
+      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
     }
   ]
 }
