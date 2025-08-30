@@ -211,18 +211,23 @@ async function initResults() {
     console.warn("Dynamic narrative skipped:", e);
   }
 
-/* ---- Kink translation builder (taxonomy-driven) ---- */
+/* ---- Kink translation builder (taxonomy-driven, with bias fallback) ---- */
 async function buildKinkRecs(topTags, primary) {
   let tax = {}, map = {};
   try {
-    tax = await loadJSON(`${DATA_BASE}kink_taxonomy.json?v=1`);
-    map = await loadJSON(`${DATA_BASE}kink_recs_map.json?v=1`);
+    tax = await loadJSON(`${DATA_BASE}kink_taxonomy.json?v=3`);
+    map = await loadJSON(`${DATA_BASE}kink_recs_map.json?v=3`);
   } catch {
     return null; // graceful skip if files missing
   }
 
+  // If no user interest tags (e.g., opened results in a fresh tab), seed from archetype bias
+  const seeded = (!topTags || !topTags.length)
+    ? ((map.archetype_bias && map.archetype_bias[primary]) || []).map(t => [t, 0.6])
+    : topTags;
+
   const bias = new Set((map.archetype_bias && map.archetype_bias[primary]) || []);
-  const ranked = (topTags || [])
+  const ranked = (seeded || [])
     .map(([tag, score]) => ({ tag, score: (score || 0) + (bias.has(tag) ? 0.15 : 0) }))
     .sort((a, b) => b.score - a.score);
 
@@ -230,14 +235,14 @@ async function buildKinkRecs(topTags, primary) {
   const props  = [];
   const comms  = [];
   const care   = [];
+  const uniq = arr => Array.from(new Set(arr.map(s => String(s).trim()))).filter(Boolean);
 
-  // Consider the top ~14 tags to keep things snappy but diverse
-  for (const { tag } of ranked.slice(0, 14)) {
+  for (const { tag } of ranked.slice(0, 16)) {
     const m = tax.tags && tax.tags[tag];
     if (!m) continue;
     const cat = m.category || "Misc";
 
-    // Scene idea for every tag
+    // Scene ideas from every tag
     scenes.push({
       title: `${cat}: ${tag}`,
       ideas: Array.isArray(m.beginner) ? m.beginner.slice(0, 1) : [],
@@ -245,22 +250,32 @@ async function buildKinkRecs(topTags, primary) {
       safety: Array.isArray(m.safety) ? m.safety.slice(0, 1) : []
     });
 
-    // Props & materials from Objects/Materials and Aesthetic/Presentation
+    // Props from Objects/Materials & Aesthetic/Presentation
     if (cat === "Objects & Materials" || cat === "Aesthetic & Presentation") {
       if (Array.isArray(m.beginner)) props.push(...m.beginner.slice(0, 2));
     }
 
-    // Phrases from Communication & Voice AND Ritual & Symbol (language-heavy)
+    // Phrases from Communication & Voice and Ritual & Symbol
     if (cat === "Communication & Voice" || cat === "Ritual & Symbol") {
       if (Array.isArray(m.beginner)) comms.push(...m.beginner.slice(0, 2));
     }
 
-    // Aftercare from Care & Recovery
+    // Aftercare from Care & Recovery; echo some Impact safety as care
     if (cat === "Care & Recovery") {
       if (Array.isArray(m.beginner)) care.push(...m.beginner.slice(0, 2));
     }
+    if (cat === "Impact" && Array.isArray(m.safety)) {
+      care.push(...m.safety.slice(0, 1));
+    }
   }
 
+  return {
+    scenes: scenes.slice(0, 4),
+    props:  uniq(props).slice(0, 5),
+    comms:  uniq(comms).slice(0, 5),
+    care:   uniq(care).slice(0, 5)
+  };
+}
   const uniq = arr => Array.from(new Set(arr.map(s => String(s).trim()))).filter(Boolean);
 
   return {
@@ -293,7 +308,6 @@ async function buildKinkRecs(topTags, primary) {
       html2pdf().from(source).set(opt).save();
     });
   }
-}
 
 /* ================ Helpers and small scoring utils ================ */
 
@@ -501,15 +515,22 @@ function renderTopTagCard(container, topTags, primaryArchetype){
   `;
 }
 
-/* ---- Kink translation builder (uses /data) ---- */
-async function buildKinkRecs(topTags, primary) {
-  let tax = {}, map = {};
-  try {
-    tax = await loadJSON(`${DATA_BASE}kink_taxonomy.json?v=1`);
-    map = await loadJSON(`${DATA_BASE}kink_recs_map.json?v=1`);
-  } catch {
-    return null; // fail gracefully
+// 10.6) Kink translation (scenes, props, phrases, aftercare)
+try {
+  const kink = await buildKinkRecs(topTags, primary);
+  if (kink) {
+    fillList("kink-scenes", (kink.scenes || []).map(s =>
+      `${s.title}: ${s.ideas?.[0] || "—"}${(s.stretch && s.stretch.length ? ` (stretch: ${s.stretch[0]})` : "")}`
+    ));
+    fillList("kink-props",  kink.props);
+    fillList("kink-comms",  kink.comms);
+    fillList("kink-care",   kink.care);
   }
+  ensureKinkSectionVisibility();
+} catch (e) {
+  console.warn("Kink recs skipped:", e);
+  ensureKinkSectionVisibility();
+}
 
   // New: phrase and care dictionaries keyed by tag
   const PHRASE_BY_TAG = {
@@ -580,7 +601,6 @@ async function buildKinkRecs(topTags, primary) {
     comms:  Array.from(new Set(comms)).slice(0,3),
     care:   Array.from(new Set(care)).slice(0,3)
   };
-}
 
 /* ---- Dynamic narrative helpers (uses /data) ---- */
 async function buildDynamicNarrative(allResponses, topTags, primary) {
@@ -688,4 +708,14 @@ function escapeHTML(s){
   return String(s).replace(/[&<>"']/g, c => ({
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
   }[c]));
+}
+function ensureKinkSectionVisibility(){
+  const sec = byId("kink-section");
+  if (!sec) return;
+  const hasAny = ["kink-scenes","kink-props","kink-comms","kink-care"]
+    .some(id => {
+      const ul = byId(id);
+      return ul && ul.children && ul.children.length > 0;
+    });
+  sec.style.display = hasAny ? "" : "none";
 }
