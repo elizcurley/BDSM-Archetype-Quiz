@@ -84,28 +84,246 @@
         "explore": ["Use a 3-line plan: goal · owners · next step."],
         "growth": ["Try ‘light plan + play block’ to keep momentum flexible."]
       }
+    },
+
+    {
+      "if": { "section": "psychoemotional", "id": "PE31", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "Intention anchors you",
+        "affirmations": ["A clear intention is your soft power."],
+        "insights": ["One sentence up front steadies honesty during intensity."],
+        "explore": ["Keep a tiny intention card in your notes app."],
+        "growth": ["Aim for ‘good-enough’ intentions—avoid perfection traps."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE32", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "You land with gentle debriefs",
+        "affirmations": ["Your care continues after the crescendo."],
+        "insights": ["Short, kind debriefs protect connection over time."],
+        "explore": ["Try a 60-second ‘highlight + next time’ close."],
+        "growth": ["Ask if your partner wants debrief vs. quiet co-regulation."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE33", "choice_in": ["squeeze"] },
+      "then": {
+        "reason": "You like tactile signals",
+        "insights": ["Low-words signals keep you present."],
+        "explore": ["Agree on a squeeze pattern for check-ins."],
+        "growth": ["Add a verbal fallback for noisy spaces."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE33", "choice_in": ["scale"] },
+      "then": {
+        "reason": "You like quantified check-ins",
+        "insights": ["Numbers/colors make self-report easy under load."],
+        "explore": ["Use a 0–10 or traffic-light scale mid-scene."],
+        "growth": ["Pair the number with one need or request."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE33", "choice_in": ["sentence"] },
+      "then": {
+        "reason": "One-line shares help you land",
+        "insights": ["Tiny truths defuse pressure and build trust."],
+        "explore": ["Try ‘one sentence each, no fixing’ as a ritual."],
+        "growth": ["Timebox it so play stays warm and alive."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE33", "choice_in": ["visual"] },
+      "then": {
+        "reason": "Visual cues work for you",
+        "insights": ["Cards/tokens keep consent visible and simple."],
+        "explore": ["Make 3 signal cards: slow, pause, stop."],
+        "growth": ["Practice switching cards calmly during play."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE34", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "Pattern-breaks reconnect you",
+        "affirmations": ["Your spark is a kindness when it guards consent."],
+        "insights": ["Playful mischief resets stale energy fast for you."],
+        "explore": ["Keep 3 ninety-second reset moves handy."],
+        "growth": ["Name your stop-signs before you tease the edge."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE35", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "Explicit exits relax you",
+        "affirmations": ["Clarity is kindness—especially under pressure."],
+        "insights": ["Near-at-hand signals lower your cognitive load."],
+        "explore": ["Agree on exits and resume-cues before intensity."],
+        "growth": ["Invite input without losing tempo: A/B choices work."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE36", "choice_in": ["quiet"] },
+      "then": {
+        "reason": "Quiet landings refill you",
+        "insights": ["Warmth, water, and breath bring you back online."],
+        "explore": ["Build a soft-landing kit in your space."],
+        "growth": ["Add a timebox so quiet time feels contained."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE36", "choice_in": ["debrief"] },
+      "then": {
+        "reason": "You like debrief closes",
+        "insights": ["Meaning-making secures the memory for you."],
+        "explore": ["Try ‘one highlight, one tweak’ after scenes."],
+        "growth": ["Keep it short to protect glow and rest."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE36", "choice_in": ["celebrate"] },
+      "then": {
+        "reason": "Celebratory closes energize you",
+        "insights": ["Ritualized wins keep motivation high."],
+        "explore": ["Add a song, photo, or high-five to mark endings."],
+        "growth": ["Check consent before sharing or documenting moments."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE36", "choice_in": ["solo"] },
+      "then": {
+        "reason": "Solo landings restore you",
+        "insights": ["A little space helps your system integrate."],
+        "explore": ["Schedule 10–15 minutes of solo landing when needed."],
+        "growth": ["Let partners know it’s space, not distance."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE37", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "You can switch headspaces",
+        "insights": ["Invitations to shift (playful ↔ focused) work well on you."],
+        "explore": ["Make two cues for upshift and downshift."],
+        "growth": ["Name when a slower ramp would help your nervous system."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE38", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "Warm-ups help you arrive",
+        "insights": ["A gentle ramp lets your system open without strain."],
+        "explore": ["Try a 3-step warm-up: breath, touch, eye contact."],
+        "growth": ["Ask partners to resist skipping the ramp when excited."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE39", "choice_in": ["movement"] },
+      "then": {
+        "reason": "Movement resets you",
+        "insights": ["Body-first resets clear the fog faster than talk for you."],
+        "explore": ["Keep a 5-minute walk or stretch as your go-to reset."],
+        "growth": ["Pair movement with one simple need you can ask for."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE39", "choice_in": ["stillness"] },
+      "then": {
+        "reason": "Stillness resets you",
+        "insights": ["Quiet containers settle your system quickly."],
+        "explore": ["Try a 5-minute blanket + breath pause."],
+        "growth": ["Let others know you’ll re-engage after you land."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE39", "choice_in": ["words"] },
+      "then": {
+        "reason": "Words reset you",
+        "insights": ["Naming a feeling often changes it for you."],
+        "explore": ["Use a one-minute ‘vent or meaning?’ check-in."],
+        "growth": ["Ask for presence if you don’t want solutions."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE39", "choice_in": ["care"] },
+      "then": {
+        "reason": "Care resets you",
+        "insights": ["Small acts of service regulate you deeply."],
+        "explore": ["Keep a tiny care menu: tea, snack, task."],
+        "growth": ["Name the care you want—don’t make people guess."]
+      }
+    },
+    {
+      "if": { "section": "psychoemotional", "id": "PE40", "likert_at_least": "Somewhat agree" },
+      "then": {
+        "reason": "Meaning with a light touch works",
+        "insights": ["Rituals help most when they’re present but unheavy."],
+        "explore": ["Choose one simple symbol and keep it consistent."],
+        "growth": ["Skip ritual when it starts to feel like performance."]
+      }
     }
   ],
   "tag_rules": [
     {
-      "if_any_tags": ["ritual_devotion", "meaning"],
+      "if_any_tags": ["ritual_devotion", "meaning", "ritual_light"],
       "then": {
         "affirmations": ["Meaning is your magnet."],
         "explore": ["Open with an intention card: one sentence, one symbol, one breath."]
       }
     },
     {
-      "if_any_tags": ["precision", "clinical_aesthetic", "craft"],
+      "if_any_tags": ["precision", "clinical_aesthetic", "craftsmanship"],
       "then": {
-        "insights": ["Clean lines & clear standards help you drop in faster."],
+        "insights": ["Clean lines and clear standards help you drop in faster."],
         "growth": ["Practice a ‘done for now’ threshold to protect presence."]
       }
     },
     {
-      "if_any_tags": ["adventure", "novelty", "edges"],
+      "if_any_tags": ["adventure", "novelty", "discovery", "outdoor"],
       "then": {
-        "insights": ["You refuel through gentle risk and discovery."],
-        "explore": ["Schedule a curiosity hour; debrief what you learned."]
+        "insights": ["Gentle risk and discovery refuel you."],
+        "explore": ["Schedule a curiosity hour and debrief what you learned."]
+      }
+    },
+    {
+      "if_any_tags": ["tease_play", "momentum", "improv"],
+      "then": {
+        "insights": ["Playful tension wakes up your system quickly."],
+        "explore": ["Collect three 90-second pattern-breakers you enjoy."]
+      }
+    },
+    {
+      "if_any_tags": ["exhibition", "performance", "self_presentation"],
+      "then": {
+        "insights": ["Being seen can add charge and focus for you."],
+        "growth": ["Set bounds on audience and sharing before you begin."]
+      }
+    },
+    {
+      "if_any_tags": ["service_care", "stability", "pamper_care"],
+      "then": {
+        "insights": ["Acts of care read as love in your system."],
+        "growth": ["Name the care you want to receive—not just give."]
+      }
+    },
+    {
+      "if_any_tags": ["command_energy", "order_prompts", "protocol_signals"],
+      "then": {
+        "insights": ["Clear direction relaxes you when consent is explicit."],
+        "explore": ["Use A/B prompts and near-at-hand exits during intensity."]
+      }
+    },
+    {
+      "if_any_tags": ["private", "attunement"],
+      "then": {
+        "insights": ["Low-stim, private settings deepen your presence."],
+        "growth": ["Protect quiet landings even on busy days."]
+      }
+    },
+    {
+      "if_any_tags": ["leather_aesthetic", "latex_fashion", "hosiery_focus", "silk_nylon", "aesthetic"],
+      "then": {
+        "insights": ["Materials and presentation are part of the pleasure for you."],
+        "explore": ["Curate one texture theme and build a simple set around it."]
       }
     }
   ]
