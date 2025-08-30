@@ -1,189 +1,86 @@
 {
-  "version": 2,
+  "version": 1,
   "section": "psychoemotional",
-  "title": "Psycho-emotional tendencies",
-  "description": "How you relate to pace, meaning, ritual, presentation, and playfulness in everyday life.",
+  "title": "Psycho-emotional style",
+  "description": "Broad, non-process signals about how you move through energy, novelty, pace, aesthetics, and meaning.",
   "questions": [
     {
       "id": "PE22",
+      "archetype": "Catalyst",
       "type": "likert_scale",
-      "text": "I often turn chores or routine tasks into little games or playful challenges.",
-      "question_text": "I often turn chores or routine tasks into little games or playful challenges.",
+      "question_text": "I naturally turn routine tasks into little games or dares to bring energy back.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Catalyst": 1, "Explorer": 0.5 }
+      "weight": 1.0
     },
     {
       "id": "PE23",
+      "archetype": "Explorer",
       "type": "likert_scale",
-      "text": "Curiosity detours delight me—even brief ones during ordinary days.",
-      "question_text": "Curiosity detours delight me—even brief ones during ordinary days.",
+      "question_text": "When something curious pops up, I enjoy taking a small detour to follow it.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Explorer": 1, "Alchemist": 0.5 }
+      "weight": 1.0
     },
     {
       "id": "PE24",
+      "archetype": "Keystone",
       "type": "likert_scale",
-      "text": "Packing small comforts and logistics feels like care, not overthinking.",
-      "question_text": "Packing small comforts and logistics feels like care, not overthinking.",
+      "question_text": "Packing small comforts and handling little logistics is one way I show care.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Keystone": 1, "Oracle": 0.5 }
+      "weight": 1.0
     },
     {
       "id": "PE25",
+      "archetype": "Connoisseur",
       "type": "likert_scale",
-      "text": "Presentation matters to me—symmetry, staging, and polish change the experience.",
-      "question_text": "Presentation matters to me—symmetry, staging, and polish change the experience.",
+      "question_text": "Presentation and symmetry noticeably increase my pleasure and presence.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Connoisseur": 1 }
+      "weight": 1.0
     },
     {
       "id": "PE26",
+      "archetype": "Oracle",
       "type": "likert_scale",
-      "text": "I can offer small, well-timed reflections that turn feelings into clarity.",
-      "question_text": "I can offer small, well-timed reflections that turn feelings into clarity.",
+      "question_text": "Short, well-timed insights help me (and others) see what matters without derailing the moment.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Oracle": 1 }
+      "weight": 1.0
     },
     {
       "id": "PE27",
+      "archetype": "Alchemist",
       "type": "likert_scale",
-      "text": "Micro-rituals (a phrase, scent, or breath) quickly shift my headspace.",
-      "question_text": "Micro-rituals (a phrase, scent, or breath) quickly shift my headspace.",
+      "question_text": "Tiny rituals or cues quickly shift my headspace in a good way.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Alchemist": 1 }
+      "weight": 1.0
     },
     {
       "id": "PE28",
+      "archetype": "Vanguard",
       "type": "likert_scale",
-      "text": "People relax when I set a calm, confident pace.",
-      "question_text": "People relax when I set a calm, confident pace.",
+      "question_text": "I like a calm, confident pace—setting a clear tempo helps everyone relax.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Vanguard": 1, "Keystone": 0.5 }
+      "weight": 1.0
     },
     {
       "id": "PE29",
-      "type": "multiple_choice",
-      "text": "Which presentation details satisfy you most? (Choose any.)",
-      "question_text": "Which presentation details satisfy you most? (Choose any.)",
-      "max_select": 3,
+      "archetype": "Connoisseur",
+      "type": "single",
+      "question_text": "Aesthetic pull—choose the one that draws you most right now:",
       "choices": [
-        { "label": "Clean symmetry and balanced layout", "value": "symmetry" },
-        { "label": "Texture contrasts (smooth/rough, matte/gloss)", "value": "texture" },
-        { "label": "Color/story theming", "value": "theming" },
-        { "label": "Minimalist, clinical lines", "value": "clinical" }
-      ],
-      "archetype_weights": { "Connoisseur": 1 }
+        { "label": "Symmetry and staging", "value": "symmetry", "tags": ["presentation","precision"], "weights": { "Connoisseur": 1 } },
+        { "label": "Organic, improvised feel", "value": "organic", "tags": ["improv","aesthetic"], "weights": { "Explorer": 1 } },
+        { "label": "Minimal, clean lines", "value": "minimal", "tags": ["clinical_aesthetic"], "weights": { "Connoisseur": 0.5, "Vanguard": 0.5 } }
+      ]
     },
     {
       "id": "PE30",
-      "type": "multiple_choice",
-      "text": "How do you like to begin shared activities?",
-      "question_text": "How do you like to begin shared activities?",
-      "max_select": 2,
+      "archetype": "Vanguard",
+      "type": "single",
+      "question_text": "If I must pick one default approach, most days I prefer:",
       "choices": [
-        { "label": "Clear plan with roles and exits named", "value": "plan" },
-        { "label": "Light sketch, then feel it out", "value": "sketch" },
-        { "label": "Free-flow improv; decide as we go", "value": "flow" }
-      ],
-      "archetype_weights": { "Vanguard": 0.5, "Keystone": 0.5, "Explorer": 0.5, "Catalyst": 0.5 }
-    },
-    {
-      "id": "PE31",
-      "type": "likert_scale",
-      "text": "A one-sentence intention before we begin helps me stay honest and present.",
-      "question_text": "A one-sentence intention before we begin helps me stay honest and present.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Oracle": 0.5, "Alchemist": 0.5 }
-    },
-    {
-      "id": "PE32",
-      "type": "likert_scale",
-      "text": "I appreciate a gentle debrief or check-in after intense moments.",
-      "question_text": "I appreciate a gentle debrief or check-in after intense moments.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Keystone": 0.5, "Oracle": 0.5 }
-    },
-    {
-      "id": "PE33",
-      "type": "multiple_choice",
-      "text": "Which check-ins help you most? (Choose any.)",
-      "question_text": "Which check-ins help you most? (Choose any.)",
-      "max_select": 3,
-      "choices": [
-        { "label": "Hand squeeze or simple gesture", "value": "squeeze" },
-        { "label": "One-word scale (0–10, color, traffic light)", "value": "scale" },
-        { "label": "One sentence each, no fixing", "value": "sentence" },
-        { "label": "Visual signal cards or tokens", "value": "visual" }
-      ],
-      "archetype_weights": { "Vanguard": 0.5, "Keystone": 0.5, "Oracle": 0.5 }
-    },
-    {
-      "id": "PE34",
-      "type": "likert_scale",
-      "text": "Playful mischief and pattern-breaking help me reconnect when energy dips.",
-      "question_text": "Playful mischief and pattern-breaking help me reconnect when energy dips.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Catalyst": 1 }
-    },
-    {
-      "id": "PE35",
-      "type": "likert_scale",
-      "text": "I feel safest when stop-signals and exits are explicit and close at hand.",
-      "question_text": "I feel safest when stop-signals and exits are explicit and close at hand.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Vanguard": 1, "Keystone": 0.5 }
-    },
-    {
-      "id": "PE36",
-      "type": "multiple_choice",
-      "text": "Which endings land best for you right now?",
-      "question_text": "Which endings land best for you right now?",
-      "max_select": 2,
-      "choices": [
-        { "label": "Quiet co-regulation (water, blanket, breathing)", "value": "quiet" },
-        { "label": "Short debrief: highlights/next time", "value": "debrief" },
-        { "label": "Celebratory close (music, high-five, photo)", "value": "celebrate" },
-        { "label": "Solo landing time", "value": "solo" }
-      ],
-      "archetype_weights": { "Keystone": 0.5, "Oracle": 0.5, "Catalyst": 0.5, "Explorer": 0.5 }
-    },
-    {
-      "id": "PE37",
-      "type": "likert_scale",
-      "text": "I can switch headspaces quickly when invited (e.g., playful ↔ focused).",
-      "question_text": "I can switch headspaces quickly when invited (e.g., playful ↔ focused).",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Explorer": 0.5, "Catalyst": 0.5, "Alchemist": 0.5 }
-    },
-    {
-      "id": "PE38",
-      "type": "likert_scale",
-      "text": "I prefer a gentle warm-up before intensity.",
-      "question_text": "I prefer a gentle warm-up before intensity.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Connoisseur": 0.5, "Keystone": 0.5 }
-    },
-    {
-      "id": "PE39",
-      "type": "multiple_choice",
-      "text": "After a tough day, which reset helps you most?",
-      "question_text": "After a tough day, which reset helps you most?",
-      "max_select": 2,
-      "choices": [
-        { "label": "Movement (walk, stretch, dance)", "value": "movement" },
-        { "label": "Stillness (quiet sit, bath, nap)", "value": "stillness" },
-        { "label": "Words (vent, meaning-making, planning)", "value": "words" },
-        { "label": "Acts of care (tea, snack, small task done for me)", "value": "care" }
-      ],
-      "archetype_weights": { "Explorer": 0.5, "Oracle": 0.5, "Keystone": 0.5 }
-    },
-    {
-      "id": "PE40",
-      "type": "likert_scale",
-      "text": "I like when ritual and meaning are present—but not heavy-handed.",
-      "question_text": "I like when ritual and meaning are present—but not heavy-handed.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "archetype_weights": { "Alchemist": 0.5, "Oracle": 0.5, "Connoisseur": 0.25 }
+        { "label": "Light plan then play", "value": "plan", "tags": ["tempo_play"], "weights": { "Vanguard": 1 } },
+        { "label": "Follow sparks with loose agreement", "value": "improv", "tags": ["improv","novelty"], "weights": { "Catalyst": 0.5, "Explorer": 0.5 } },
+        { "label": "Routine favorite then small twists", "value": "routine", "tags": ["stability"], "weights": { "Keystone": 1 } }
+      ]
     }
   ]
 }
