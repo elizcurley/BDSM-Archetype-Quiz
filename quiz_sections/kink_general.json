@@ -1,161 +1,238 @@
 {
-  "version": 1,
+  "version": 3,
   "section": "kink_general",
-  "title": "Kink — general preferences",
-  "description": "Beginner-friendly signals about vibe, pace, structure, and aesthetics. Choices map to tags that drive scene ideas, props, phrases, and aftercare.",
+  "title": "Kink – general",
+  "description": "Broad, beginner-friendly signals about style and dynamics—playfulness, novelty, steadiness, leadership, craft, meaning, and ritual. Answer how true each statement feels for you.",
   "questions": [
     {
       "id": "KG1",
-      "type": "multi",
-      "text": "Vibes I naturally gravitate toward:",
-      "choices": [
-        { "label": "Ritual & devotion", "value": "ritual", "tags": ["ritual_devotion","meaning"], "weights": { "Alchemist": 1, "Oracle": 1 } },
-        { "label": "Clinical/minimal precision", "value": "clinical", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } },
-        { "label": "Adventure/discovery", "value": "adventure", "tags": ["adventure","novelty","discovery"], "weights": { "Explorer": 1 } },
-        { "label": "Being seen / performance energy", "value": "seen", "tags": ["exhibition","performance","self_presentation"], "weights": { "Catalyst": 1, "Vanguard": 0.5 } },
-        { "label": "Service & caretaking", "value": "service", "tags": ["service_care","stability"], "weights": { "Keystone": 1 } },
-        { "label": "Polish & presentation", "value": "presentation", "tags": ["presentation","inspection_aesthetic"], "weights": { "Connoisseur": 1 } }
-      ]
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "Playful tension (banter, tiny dares) wakes up my interest and keeps things lively.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
     },
     {
       "id": "KG2",
-      "type": "single",
-      "text": "Consent/communication cadence that fits me best:",
-      "choices": [
-        { "label": "Structured signals & prompts", "value": "structured", "tags": ["protocol_signals","order_prompts"], "weights": { "Keystone": 1, "Connoisseur": 0.5 } },
-        { "label": "Simple cues with attunement", "value": "simple", "tags": ["minimal_signals","attunement"], "weights": { "Keystone": 0.5, "Explorer": 0.5 } },
-        { "label": "Playful/improv code words", "value": "improv", "tags": ["improv","tease_play"], "weights": { "Catalyst": 1, "Explorer": 0.5 } }
-      ]
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "I enjoy being the instigator—tossing in a fun prompt that gets momentum going when energy dips.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
       "id": "KG3",
-      "type": "single",
-      "text": "When someone leads, I prefer…",
-      "choices": [
-        { "label": "Crisp, confident direction", "value": "command", "tags": ["command_energy","order_prompts"], "weights": { "Vanguard": 1 } },
-        { "label": "Invites + quick A/B choices", "value": "invite", "tags": ["attunement","order_prompts"], "weights": { "Vanguard": 0.5, "Oracle": 0.5 } },
-        { "label": "Collaborative/peer flow", "value": "peer", "tags": ["attunement","improv"], "weights": { "Explorer": 0.5, "Keystone": 0.5 } }
-      ]
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "A little improvisation feels exciting to me—I like following sparks in the moment without over-planning.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
     {
       "id": "KG4",
-      "type": "multi",
-      "text": "Aesthetics/materials that feel like home:",
-      "choices": [
-        { "label": "Leather & patina", "value": "leather", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 1, "Keystone": 0.5 } },
-        { "label": "Latex/PVC gloss", "value": "latex", "tags": ["latex_fashion","shine"], "weights": { "Connoisseur": 1, "Catalyst": 0.5 } },
-        { "label": "Silk/nylon textures", "value": "silk", "tags": ["silk_nylon","hosiery_focus","sensation_texture"], "weights": { "Connoisseur": 1, "Alchemist": 0.5 } },
-        { "label": "Clinical minimalism", "value": "clinical_aes", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } },
-        { "label": "Mirrors/camera framing", "value": "mirror", "tags": ["mirror_camera","self_presentation"], "weights": { "Catalyst": 1, "Connoisseur": 0.5 } }
-      ]
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "Being a bit seen or celebrated (even by a small, trusted audience) can feel energizing and fun to me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
+
     {
       "id": "KG5",
-      "type": "multi",
-      "text": "Attention & praise dynamics I enjoy:",
-      "choices": [
-        { "label": "Being openly admired", "value": "admired", "tags": ["exhibition","attention_kink"], "weights": { "Catalyst": 1 } },
-        { "label": "Detailed inspection/presentation", "value": "inspected", "tags": ["inspection_aesthetic","presentation"], "weights": { "Connoisseur": 1, "Vanguard": 0.5 } },
-        { "label": "Praise-forward tone", "value": "praise", "tags": ["praise_focus","attention_kink"], "weights": { "Keystone": 1 } },
-        { "label": "Crafting my own look to be seen", "value": "self_present", "tags": ["self_presentation","presentation"], "weights": { "Catalyst": 0.5, "Connoisseur": 0.5 } }
-      ]
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "Trying unfamiliar roles, themes, or setups is exciting when the vibe feels good and curious, not pressured.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
     },
     {
       "id": "KG6",
-      "type": "single",
-      "text": "Anticipation & reveal:",
-      "choices": [
-        { "label": "Slow burn & delayed reward", "value": "slow_burn", "tags": ["denial_anticipation","tease_play"], "weights": { "Alchemist": 1, "Catalyst": 0.5 } },
-        { "label": "Some tease, then release", "value": "moderate", "tags": ["moderate_denial","tempo_play"], "weights": { "Connoisseur": 0.5 } },
-        { "label": "Prefer immediate payoffs", "value": "immediate", "tags": ["low_denial","momentum"], "weights": { "Explorer": 0.5 } }
-      ]
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "Rotating in small twists or new elements keeps my interest alive more than repeating the exact same script every time.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
       "id": "KG7",
-      "type": "single",
-      "text": "Setting that energizes me most:",
-      "choices": [
-        { "label": "Private sanctuary", "value": "private", "tags": ["private","attunement"], "weights": { "Keystone": 1, "Oracle": 0.5 } },
-        { "label": "Tasteful, semi-public style", "value": "public_tasteful", "tags": ["public_tasteful","presentation"], "weights": { "Connoisseur": 1 } },
-        { "label": "Community buzz / being seen", "value": "community", "tags": ["exhibition","performance"], "weights": { "Catalyst": 1, "Vanguard": 0.5 } },
-        { "label": "Outdoors / on the move", "value": "outdoor", "tags": ["outdoor","adventure"], "weights": { "Explorer": 1 } }
-      ]
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "If a more interesting thread appears mid-flow, I like pivoting together to follow it and see what we learn.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
     {
       "id": "KG8",
-      "type": "multi",
-      "text": "Touch/pressure palette that lands for me:",
-      "choices": [
-        { "label": "Firm pressure/weight", "value": "firm", "tags": ["sensation_pressure","grounding"], "weights": { "Keystone": 0.5, "Vanguard": 0.5 } },
-        { "label": "Light tracing/edge of tickle", "value": "light", "tags": ["sensation_light","tease_play"], "weights": { "Connoisseur": 0.5, "Catalyst": 0.5 } },
-        { "label": "Temperature contrasts", "value": "temp", "tags": ["temperature_contrast","sensation_temperature"], "weights": { "Explorer": 0.5, "Alchemist": 0.5 } },
-        { "label": "Rhythmic percussion patterns", "value": "rhythm", "tags": ["rhythm_thud_sting_adjacent","tempo_play"], "weights": { "Vanguard": 0.5, "Alchemist": 0.5 } }
-      ]
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "Outdoor or adventure-flavored vibes (scouting, discovery, mission-like play) sound appealing to me in the right context.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
+
     {
       "id": "KG9",
-      "type": "single",
-      "text": "Rituals & symbols in everyday connection:",
-      "choices": [
-        { "label": "Central—phrases, tokens, small ceremonies", "value": "central", "tags": ["ritual_devotion","marking_symbol"], "weights": { "Oracle": 1, "Alchemist": 1 } },
-        { "label": "Nice to have—adds flavor", "value": "nice", "tags": ["ritual_light","aesthetic"], "weights": { "Keystone": 0.5, "Connoisseur": 0.5 } },
-        { "label": "Not important to me", "value": "not_important", "tags": ["low_ritual"], "weights": { "Explorer": 0.5 } }
-      ]
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Steady pacing and familiar rhythms help me feel grounded and present during play, even when I’m excited.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
     },
     {
       "id": "KG10",
-      "type": "single",
-      "text": "Marking/signals preference:",
-      "choices": [
-        { "label": "Subtle signals (jewelry, scent, color code)", "value": "subtle", "tags": ["marking_symbol","discreet_signals"], "weights": { "Connoisseur": 0.5, "Keystone": 0.5 } },
-        { "label": "Visible style statements", "value": "visible", "tags": ["marking_symbol","exhibition"], "weights": { "Catalyst": 0.5 } },
-        { "label": "Prefer not to mark", "value": "no_mark", "tags": ["low_marking"], "weights": { "Explorer": 0.5 } }
-      ]
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "I’m drawn to cozy, private settings where attention and care can stay focused between us rather than on the room.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
       "id": "KG11",
-      "type": "multi",
-      "text": "Role/theme energies I enjoy (as me or from others):",
-      "choices": [
-        { "label": "Mentor/guide/teacher", "value": "mentor", "tags": ["role_mentor","devotional_focus"], "weights": { "Oracle": 1, "Alchemist": 0.5 } },
-        { "label": "Authority/commander", "value": "authority", "tags": ["role_authority","command_energy"], "weights": { "Vanguard": 1 } },
-        { "label": "Caretaker/service", "value": "caretaker", "tags": ["service_care","stability"], "weights": { "Keystone": 1 } },
-        { "label": "Scout/adventurer/playmaker", "value": "scout", "tags": ["role_scout","adventure"], "weights": { "Explorer": 1, "Catalyst": 0.5 } },
-        { "label": "Performer/muse", "value": "muse", "tags": ["performance","exhibition"], "weights": { "Catalyst": 1 } },
-        { "label": "Archetypal/mythic flavors", "value": "mythic", "tags": ["roleplay_archetypal","fantasy_lore"], "weights": { "Alchemist": 0.5, "Oracle": 0.5 } }
-      ]
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Warm, simple comforts (water, blanket, soft landing) make the whole experience feel better to me, not just the peak moments.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
     {
       "id": "KG12",
-      "type": "multi",
-      "text": "Objects & gear I’m a little obsessed with:",
-      "choices": [
-        { "label": "Tools/instruments/gadgets", "value": "tools", "tags": ["object_fetish_tools","precision"], "weights": { "Connoisseur": 0.5, "Vanguard": 0.5 } },
-        { "label": "Textiles/weaves/lace", "value": "textiles", "tags": ["object_fetish_textile","sensation_texture"], "weights": { "Connoisseur": 1 } },
-        { "label": "Paper/ink/stationery", "value": "paper", "tags": ["object_fetish_paper","aesthetic"], "weights": { "Connoisseur": 0.5, "Oracle": 0.5 } },
-        { "label": "Gear care & curation", "value": "gear_care", "tags": ["gear_care","presentation"], "weights": { "Connoisseur": 0.5, "Keystone": 0.5 } }
-      ]
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Grounding touch and steady presence feel especially good to me when energy runs high or low.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     },
+
     {
       "id": "KG13",
-      "type": "single",
-      "text": "Structure vs. freestyle during play:",
-      "choices": [
-        { "label": "Choreographed/clearly cued", "value": "choreo", "tags": ["choreography","order_prompts"], "weights": { "Connoisseur": 0.5, "Keystone": 0.5 } },
-        { "label": "Light prompts, then flow", "value": "hybrid", "tags": ["order_prompts","improv"], "weights": { "Explorer": 0.5 } },
-        { "label": "Freestyle / spontaneous", "value": "freestyle", "tags": ["improv","momentum"], "weights": { "Catalyst": 1, "Explorer": 0.5 } }
-      ]
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "I enjoy clear direction and decisive beats—either offering them or receiving them—when everyone’s on board for that style of play.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
     },
     {
       "id": "KG14",
-      "type": "single",
-      "text": "Aftercare that lands most reliably:",
-      "choices": [
-        { "label": "Quiet co-regulation (warmth, water, breath)", "value": "quiet", "tags": ["aftercare_soft","attunement"], "weights": { "Keystone": 1 } },
-        { "label": "Short debrief (highlights / next time)", "value": "debrief", "tags": ["meaning","attunement"], "weights": { "Oracle": 1 } },
-        { "label": "Celebratory close (music, photo, high-five)", "value": "celebrate", "tags": ["performance","momentum"], "weights": { "Catalyst": 0.5 } },
-        { "label": "Solo landing time", "value": "solo", "tags": ["private"], "weights": { "Explorer": 0.5 } }
-      ]
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "A clean A/B choice in the moment feels kinder to me than hovering in uncertainty for too long.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+    {
+      "id": "KG15",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "I like setting a tempo and keeping it steady so the experience feels coherent from start to finish.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+    {
+      "id": "KG16",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "Respectful authority vibes (decisive tone, confident posture) can feel attractive to me when they’re grounded in care and consent.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+
+    {
+      "id": "KG17",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Attention to feel and finesse (pacing, texture, presentation) noticeably elevates my enjoyment of play and intimacy.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
+    },
+    {
+      "id": "KG18",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "I like a sense of aesthetic—how things look and unfold matters to me, not just the outcome.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+    {
+      "id": "KG19",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "I enjoy moments of presentation or inspection-style attention when they feel celebratory and kind, not critical or nit-picky.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+    {
+      "id": "KG20",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Fewer elements with more intention feels better to me than cramming in more without finesse.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+
+    {
+      "id": "KG21",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "Naming what we want to feel (not just what to do) tends to deepen desire and connection for me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
+    },
+    {
+      "id": "KG22",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "I’m drawn to language and tone that make meaning—poetic, precise, or evocative without being vague or confusing.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+    {
+      "id": "KG23",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "Guidance that feels like mentoring (clear, kind, thoughtful) is attractive to me when I trust the person offering it.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+    {
+      "id": "KG24",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "I often reflect on what an intimate experience meant to me—what it taught me about myself or us—because that deepens the impact.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+
+    {
+      "id": "KG25",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "Small rituals or symbolic cues (a word, a look, a token) make play feel more alive and intentional for me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.1
+    },
+    {
+      "id": "KG26",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "A slow-burn build or sense of anticipation can feel delicious to me when trust is present.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+    {
+      "id": "KG27",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "Subtle signs or symbols (colors, jewelry, scent) that carry shared meaning are appealing to me in everyday life or play.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
+    },
+    {
+      "id": "KG28",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "I like marking transitions so we can arrive and land together rather than dropping in or out abruptly.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 0.9
     }
   ]
 }
