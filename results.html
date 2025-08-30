@@ -1,18 +1,14 @@
 <!doctype html>
 <html lang="en">
-<!-- results.html -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Archetype Results</title>
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- libs needed only on the results page -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-  <!-- your results logic -->
-  <script defer src="results.js?v=1"></script>
+  <script defer src="results.js?v=final1"></script>
 </head>
 <body>
   <div class="container" id="results-root">
@@ -23,60 +19,95 @@
         <h2>Primary: <span id="primary-archetype">—</span></h2>
         <img id="primary-image" alt="" />
       </div>
-
       <div class="secondary-block">
         <h3>Secondary: <span id="secondary-archetype">—</span></h3>
         <img id="secondary-image" alt="" />
       </div>
     </section>
 
-    <section class="narrative">
+    <!-- Narrative -->
+    <section data-section id="sec-about">
       <h3>About your primary</h3>
       <p id="archetype-description">—</p>
+    </section>
 
+    <section data-section id="sec-affirmation">
       <h4>Affirmation</h4>
       <p id="affirming-message">—</p>
+    </section>
 
+    <section data-section id="sec-insights">
       <h4>Personalized insights</h4>
       <p id="personalized-insights">—</p>
+    </section>
 
+    <section data-section id="sec-reflection">
       <h4>Reflection prompts</h4>
       <ul id="reflection-list"></ul>
     </section>
-    
 
-<!-- 1) why chips (tiny "how it knew" reasons) -->
-<div id="why-chips" class="chips"></div>
+    <!-- Why chips -->
+    <div id="why-chips" class="chips"></div>
 
-<!-- 2) dynamic narrative lists (you already have these IDs if you followed earlier) -->
-<h3>Micro-insights</h3><ul id="dyn-insights"></ul>
-<h3>Affirmations</h3><ul id="dyn-affirm"></ul>
-<h3>Explore next</h3><ul id="dyn-explore"></ul>
-<h3>Growth prompts</h3><ul id="dyn-growth"></ul>
+    <!-- Dynamic narrative -->
+    <section data-section id="sec-dyn-insights">
+      <h3>Personalized Notes</h3>
+      <ul id="dyn-insights"></ul>
+    </section>
 
-<!-- 3) toggle + kink translation section -->
-<label style="display:block;margin:.5rem 0;">
-  <input id="toggle-kink" type="checkbox" checked>
-  Show kink translation
-</label>
+    <section data-section id="sec-dyn-affirm">
+      <h3>Affirmations</h3>
+      <ul id="dyn-affirm"></ul>
+    </section>
 
-<section id="kink-section" class="kink">
-  <h3>Kink translation</h3>
-  <h4>Scene ideas</h4><ul id="kink-scenes"></ul>
-  <h4>Props & materials</h4><ul id="kink-props"></ul>
-  <h4>Phrases that land</h4><ul id="kink-comms"></ul>
-  <h4>Aftercare</h4><ul id="kink-care"></ul>
-</section>
+    <section data-section id="sec-dyn-explore">
+      <h3>Things to Explore</h3>
+      <ul id="dyn-explore"></ul>
+    </section>
 
+    <section data-section id="sec-dyn-growth">
+      <h3>Growth Prompts</h3>
+      <ul id="dyn-growth"></ul>
+    </section>
 
-    <section class="viz">
+    <!-- Kink translation -->
+    <label style="display:block;margin:.5rem 0;">
+      <input id="toggle-kink" type="checkbox" checked>
+      Show kink translation
+    </label>
+
+    <section id="kink-section" class="kink">
+      <section data-section id="sec-kink-scenes">
+        <h3>Scene ideas</h3>
+        <ul id="kink-scenes"></ul>
+      </section>
+
+      <section data-section id="sec-kink-props">
+        <h3>Props &amp; materials</h3>
+        <ul id="kink-props"></ul>
+      </section>
+
+      <section data-section id="sec-kink-comms">
+        <h3>Phrases that land</h3>
+        <ul id="kink-comms"></ul>
+      </section>
+
+      <section data-section id="sec-kink-care">
+        <h3>Aftercare</h3>
+        <ul id="kink-care"></ul>
+      </section>
+    </section>
+
+    <!-- Viz + fit -->
+    <section class="viz" data-section id="sec-viz">
       <h3>Your balance</h3>
       <canvas id="spider-graph" width="400" height="400" aria-label="Archetype radar"></canvas>
       <div id="fit-check"></div>
     </section>
 
-    <section class="interests">
-      <div id="top-interests"></div> <!-- optional: tag-based recs render here -->
+    <!-- Interests -->
+    <section class="interests" data-section id="sec-interests">
+      <div id="top-interests"></div>
     </section>
 
     <div class="actions">
@@ -84,3 +115,4 @@
     </div>
   </div>
 </body>
+</html>
