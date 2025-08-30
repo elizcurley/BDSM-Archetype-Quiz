@@ -37,7 +37,7 @@ async function initResults() {
     radar:        byId("spider-graph"),
     fitWrap:      byId("fit-check"),
     pdfBtn:       byId("export-pdf"),
-    recsWrap:     byId("top-interests") // optional “Top Interests” container
+    recsWrap:     byId("top-interests")
   };
 
   // 2) Constants (names + image paths)
@@ -102,45 +102,44 @@ async function initResults() {
   setArchetypeImage(els.secondaryImg, secondary, IMG_MAP);
 
   // 7) Load narratives (tries /data then root then inline fallback) with field fallbacks
-try {
-  var data = await loadFirstJSON(
-    [
-      DATA_BASE + "quiz_data.json?v=2",
-      "quiz_data.json?v=2",
-      "./quiz_data.json?v=2"
-    ],
-    "archetypes-data" // optional inline <script type="application/json" id="archetypes-data">…</script>
-  );
+  try {
+    const data = await loadFirstJSON(
+      [
+        `${DATA_BASE}quiz_data.json?v=2`,
+        `quiz_data.json?v=2`,
+        `./quiz_data.json?v=2`
+      ],
+      "archetypes-data"
+    );
 
-  var arche = data && (data.archetypes || data) || {};
-  var details = arche[primary] || {};
+    const arche = (data && (data.archetypes || data)) || {};
+    const details = arche[primary] || {};
 
-  var description = pickDescription(details);
-  var affirmation = pickAffirmation(details, secondary);
-  var insightsTxt = pickInsights(details);
-  var reflections = pickReflections(details);
+    const description = pickDescription(details);
+    const affirmation = pickAffirmation(details, secondary);
+    const insightsTxt = pickInsights(details);
+    const reflections = pickReflections(details);
 
-  textOrHide(els.desc, description);
-  textOrHide(els.affirm, affirmation);
-  textOrHide(els.insights, insightsTxt);
+    textOrHide(els.desc, description);
+    textOrHide(els.affirm, affirmation);
+    textOrHide(els.insights, insightsTxt);
 
-  if (els.reflList) {
-    els.reflList.innerHTML = "";
-    if (reflections.length) {
-      for (var i=0; i<reflections.length; i++){
-        var li = document.createElement("li");
-        li.textContent = reflections[i];
-        els.reflList.appendChild(li);
+    if (els.reflList) {
+      els.reflList.innerHTML = "";
+      if (reflections.length) {
+        for (let i=0; i<reflections.length; i++){
+          const li = document.createElement("li");
+          li.textContent = reflections[i];
+          els.reflList.appendChild(li);
+        }
+        showParentSection(els.reflList);
+      } else {
+        hideParentSection(els.reflList);
       }
-      showParentSection(els.reflList);
-    } else {
-      hideParentSection(els.reflList);
     }
+  } catch (e) {
+    console.warn("quiz_data.json load issue:", e);
   }
-} catch (e) {
-  console.warn("quiz_data.json load issue:", e);
-}
-
 
   // 8) Radar chart using adjustedScores
   if (els.radar && typeof Chart !== "undefined") {
@@ -192,8 +191,7 @@ try {
         `${DATA_BASE}kink_interests.json?v=1`,
         `quiz_sections/kink_interests.json?v=1`
       ]);
-    topTags = scoreTags(kiItems, kiResponses, { primary }).slice(0, 7);
- // [ [tag,score], ... ]
+      topTags = scoreTags(kiItems, kiResponses, { primary }).slice(0, 7);
       renderTopTagCard(els.recsWrap, topTags, primary);
     }
   } catch (e) {
@@ -223,6 +221,17 @@ try {
       fillList("kink-props",  kink.props);
       fillList("kink-comms",  kink.comms);
       fillList("kink-care",   kink.care);
+
+      // Show/hide kink section AFTER we populate
+      const kinkSec = byId("kink-section");
+      if (kinkSec) {
+        const any =
+          (kink.scenes && kink.scenes.length) ||
+          (kink.props && kink.props.length) ||
+          (kink.comms && kink.comms.length) ||
+          (kink.care && kink.care.length);
+        kinkSec.style.display = any ? "" : "none";
+      }
     }
   } catch(e){ console.warn("Kink recs skipped:", e); }
 
@@ -296,14 +305,32 @@ function textOrHide(el, txt){
 
 /* ---- Narrative field pickers ---- */
 function pickDescription(details){
-  return details.description || details.desc || "";
+  return details?.description || details?.desc || "";
+}
+
+function arrayOrString(x){
+  if (x == null) return null;
+  if (Array.isArray(x)) return x;
+  if (typeof x === "string") return x.trim() ? x : null;
+  return null;
+}
+function arrayify(x){
+  if (x == null) return [];
+  if (Array.isArray(x)) return x;
+  if (typeof x === "string") return x.trim() ? [x.trim()] : [];
+  return [];
+}
+function pickOne(val){
+  if (!val) return "";
+  if (Array.isArray(val)) return val.length ? val[(Math.random()*val.length)|0] : "";
+  return val;
 }
 
 function pickAffirmation(details, secondary){
   if (!details) return "";
   // Pair-specific
   const pair = details.pairings?.[secondary];
-  const pairAff = arrayOrString(pair?.affirmation);
+  const pairAff = arrayOrString(pair?.affirmations || pair?.affirmation);
   if (pairAff) return pickOne(pairAff);
 
   // Generic
@@ -313,38 +340,21 @@ function pickAffirmation(details, secondary){
 
 function pickInsights(details){
   // If explicit insights exist
-  const ins = arrayOrString(details.insights);
+  const ins = arrayOrString(details?.insights);
   if (Array.isArray(ins)) return ins.join(" ");
   if (typeof ins === "string" && ins.trim()) return ins.trim();
 
   // Fallback: strengths + growth_edges
-  const strengths = arrayOrString(details.strengths) || [];
-  const edges = arrayOrString(details.growth_edges) || [];
+  const strengths = arrayify(details?.strengths).slice(0,2);
+  const edges = arrayify(details?.growth_edges).slice(0,2);
   const bits = [];
-  if (strengths.length) bits.push(`You lead with ${strengths.slice(0,2).join(" and ")}.`);
-  if (edges.length) bits.push(`You grow fastest by practicing ${edges.slice(0,2).join(" and ")}.`);
+  if (strengths.length) bits.push(`You lead with ${strengths.join(" and ")}.`);
+  if (edges.length) bits.push(`You grow fastest by practicing ${edges.join(" and ")}.`);
   return bits.join(" ");
 }
 
 function pickReflections(details){
-  return (
-    arrayOrString(details.reflection) ||
-    arrayOrString(details.reflection_questions) ||
-    arrayOrString(details.reflections) ||
-    []
-  );
-}
-
-function arrayOrString(x){
-  if (x == null) return Array.isArray(x) ? x : (typeof x === "string" ? x : null);
-  if (Array.isArray(x)) return x;
-  if (typeof x === "string") return x.trim() ? x : null;
-  return null;
-}
-function pickOne(val){
-  if (!val) return "";
-  if (Array.isArray(val)) return val.length ? val[(Math.random()*val.length)|0] : "";
-  return val;
+  return arrayify(details?.reflection || details?.reflection_questions || details?.reflections);
 }
 
 /* ---- Preference Strength multipliers ---- */
@@ -393,38 +403,39 @@ function applyMultipliers(scores, multipliers){
   return out;
 }
 
+/* ---- Tag scoring (optional) ---- */
 function scoreTags(kinkItems, responses, opts){
-  var primary = opts && opts.primary;           // e.g., "Alchemist"
-  var hits = {}, opps = {};
+  const primary = opts && opts.primary; // e.g., "Alchemist"
+  const hits = {}, opps = {};
 
-  for (var i = 0; i < (kinkItems || []).length; i++){
-    var item = kinkItems[i] || {};
-    var choices = item.choices || [];
+  for (let i = 0; i < (kinkItems || []).length; i++){
+    const item = kinkItems[i] || {};
+    const choices = item.choices || [];
 
     // Count opportunities: each appearance of a tag in a choice is one "opportunity" to select it
-    for (var j = 0; j < choices.length; j++){
-      var tags = choices[j].tags || [];
-      for (var k = 0; k < tags.length; k++){
-        var t = tags[k];
+    for (let j = 0; j < choices.length; j++){
+      const tags = choices[j].tags || [];
+      for (let k = 0; k < tags.length; k++){
+        const t = tags[k];
         opps[t] = (opps[t] || 0) + 1;
       }
     }
 
     // Normalize selected answers: array for multi, single value → 1-element array
-    var raw = responses ? responses[item.id] : null;
-    var selected = Array.isArray(raw) ? raw : (raw != null ? [raw] : []);
+    const raw = responses ? responses[item.id] : null;
+    const selected = Array.isArray(raw) ? raw : (raw != null ? [raw] : []);
 
     // Increment hits; boost tags by the choice's weights for the primary archetype (if present)
-    for (var j = 0; j < choices.length; j++){
-      var c = choices[j];
+    for (let j = 0; j < choices.length; j++){
+      const c = choices[j];
       if (selected.indexOf(c.value) >= 0){
-        var boost = 1;
+        let boost = 1;
         if (primary && c.weights && c.weights[primary]) {
           boost += 0.25 * Number(c.weights[primary] || 0); // gentle nudge from your weights
         }
-        var tags = c.tags || [];
-        for (var k = 0; k < tags.length; k++){
-          var t = tags[k];
+        const tags = c.tags || [];
+        for (let k = 0; k < tags.length; k++){
+          const t = tags[k];
           hits[t] = (hits[t] || 0) + boost;
         }
       }
@@ -432,15 +443,27 @@ function scoreTags(kinkItems, responses, opts){
   }
 
   // Convert to normalized scores
-  var out = [];
-  for (var t in opps){
-    var s = (hits[t] || 0) / (opps[t] || 1);
+  const out = [];
+  for (const t in opps){
+    const s = (hits[t] || 0) / (opps[t] || 1);
     out.push([t, s]);
   }
   out.sort(function(a,b){ return b[1] - a[1]; });
   return out;
 }
 
+function renderTopTagCard(container, topTags, primaryArchetype){
+  if(!container) return;
+  const mk = ([tag, sc]) => `<li><strong>${tag}</strong> — ${(sc*100|0)}%</li>`;
+  container.innerHTML = `
+    <h3 class="mt-6">Top Interests</h3>
+    <p class="muted">These hint at scenes, materials, and vibes you might enjoy.</p>
+    <ul class="tag-list">
+      ${topTags.map(mk).join("")}
+    </ul>
+    <p class="muted">Tuned slightly toward your primary archetype: <em>${primaryArchetype || "—"}</em>.</p>
+  `;
+}
 
 /* ---- Kink translation builder (uses /data) ---- */
 async function buildKinkRecs(topTags, primary) {
@@ -452,24 +475,32 @@ async function buildKinkRecs(topTags, primary) {
     return null; // fail gracefully
   }
 
+  // New: phrase and care dictionaries keyed by tag
+  const PHRASE_BY_TAG = {
+    praise_focus: "Praise: “I love the way you…” (specific, present).",
+    attention_kink: "Spotlight: “This is your moment.”",
+    poetic_voice: "Evocative one-liner you both like.",
+    command_energy: "Directive: “Stand. Breathe. Return.”",
+    order_prompts: "Prompt: “On my count—one, two, three.”",
+    minimal_signals: "Gesture cue for pause/slow.",
+    protocol_signals: "Color cue for pace (green/yellow).",
+    trance_adjacent: "Soft cue: “Follow my voice and breathe.”"
+  };
+  const CARE_BY_TAG = {
+    aftercare_soft: "Water, warmth, quiet check-in ~10 minutes later.",
+    grounding: "5-4-3-2-1 senses + slow breathing.",
+    stability: "Predictable close: blanket + calm song.",
+    attunement: "30-second breathing together to land."
+  };
+
+  // Light archetype bias
   const bias = new Set((map.archetype_bias?.[primary]) || []);
   const ranked = (topTags || []).map(([tag, score]) => {
     const bonus = bias.has(tag) ? 0.15 : 0;
     return { tag, score: (score || 0) + bonus };
   }).sort((a,b) => b.score - a.score);
 
-  const kinkSection = byId("kink-section");
-if (kinkSection) {
-  var hasAny = 0;
-  ["kink-scenes","kink-props","kink-comms","kink-care"].forEach(function(id){
-    var ul = byId(id);
-    hasAny += (ul && ul.children ? ul.children.length : 0);
-  });
-  if (!hasAny) kinkSection.style.display = "none";
-}
-
-
-  // Group by category
+  // Group by taxonomy category
   const byCat = new Map();
   for (const r of ranked) {
     const meta = tax.tags?.[r.tag];
@@ -486,14 +517,24 @@ if (kinkSection) {
       const m = it.meta;
       scenes.push({
         title: `${cat}: ${it.tag}`,
-        ideas: m.beginner?.slice(0,1) || [],
-        stretch: m.advanced?.slice(0,1) || [],
+        ideas: (m.beginner && m.beginner.slice(0,1)) || [],
+        stretch: (m.advanced && m.advanced.slice(0,1)) || [],
         safety: m.safety || []
       });
-      if (m.beginner?.length) props.push(m.beginner[0]);
-      if (cat === "Ritual & Symbol") comms.push("One-sentence intention + breath");
-      if (cat === "Power/Service")   comms.push("Check-in phrase: “Would you like service now or later?”");
-      if (cat === "Impact")          care.push("Aftercare: warmth + water + check-in 10m later");
+      if (m.beginner && m.beginner.length) props.push(m.beginner[0]);
+
+      // Existing routes
+      if (cat === "Ritual & Symbol")    comms.push("One-sentence intention + breath");
+      if (cat === "Power/Service")      comms.push("Check-in phrase: “Would you like service now or later?”");
+      if (cat === "Impact")             care.push("Aftercare: warmth + water + check-in ~10 min later");
+
+      // New routes
+      if (cat === "Communication & Voice" && PHRASE_BY_TAG[it.tag]) {
+        comms.push(PHRASE_BY_TAG[it.tag]);
+      }
+      if (cat === "Care & Recovery" && CARE_BY_TAG[it.tag]) {
+        care.push(CARE_BY_TAG[it.tag]);
+      }
     }
   }
 
@@ -579,57 +620,8 @@ function fillList(id, items){
 
 /* ---- “Why this result?” chips ---- */
 function renderWhyChips(reasons, topTags){
-  const el = byId("why-chips"); if(!el) return; // safe no-op if absent
+  const el = byId("why-chips"); if(!el) return;
   const tagChips = (topTags||[]).slice(0,3).map(([t]) => `<span class="chip">${t}</span>`);
   const reasonChips = (reasons||[]).slice(0,3).map(r => `<span class="chip">${r}</span>`);
   el.innerHTML = [...reasonChips, ...tagChips].join("");
-}
-// --- Section show/hide helpers (use [data-section] on wrappers in HTML) ---
-function sectionWrap(el){ return el && el.closest ? el.closest("[data-section]") : null; }
-function hideParentSection(el){ var w = sectionWrap(el); if (w) w.style.display = "none"; }
-function showParentSection(el){ var w = sectionWrap(el); if (w) w.style.display = ""; }
-function textOrHide(el, txt){
-  if (!el) return;
-  var val = (txt == null) ? "" : String(txt).trim();
-  if (!val) { el.textContent = ""; hideParentSection(el); }
-  else { el.textContent = val; showParentSection(el); }
-}
-
-// --- Narrative field pickers (tolerate many shapes) ---
-function pickDescription(details){ return (details && (details.description || details.desc)) || ""; }
-
-function arrayify(x){
-  if (x == null) return [];
-  if (Array.isArray(x)) return x;
-  if (typeof x === "string") return x.trim() ? [x.trim()] : [];
-  return [];
-}
-function pickOne(arr){ return (arr && arr.length) ? arr[Math.floor(Math.random()*arr.length)] : ""; }
-
-function pickAffirmation(details, secondary){
-  if (!details) return "";
-  var pair = details.pairings && details.pairings[secondary];
-  var pairA = arrayify(pair && (pair.affirmations || pair.affirmation));
-  if (pairA.length) return pickOne(pairA);
-  var gen = arrayify(details.affirmations || details.affirmation);
-  return pickOne(gen);
-}
-
-function pickInsights(details){
-  if (!details) return "";
-  var ins = details.insights;
-  if (Array.isArray(ins)) return ins.join(" ");
-  if (typeof ins === "string" && ins.trim()) return ins.trim();
-  var strengths = arrayify(details.strengths).slice(0,2);
-  var edges = arrayify(details.growth_edges).slice(0,2);
-  var out = [];
-  if (strengths.length) out.push("You lead with " + strengths.join(" and ") + ".");
-  if (edges.length) out.push("You grow fastest by practicing " + edges.join(" and ") + ".");
-  return out.join(" ");
-}
-
-function pickReflections(details){
-  return arrayify(
-    (details && (details.reflection || details.reflection_questions || details.reflections))
-  );
 }
