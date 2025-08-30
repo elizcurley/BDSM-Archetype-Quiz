@@ -52,9 +52,22 @@ async function initResults() {
     Alchemist:   "images/archetypes/Alchemist.png"
   };
 
-  // 3) Pull stored results from sessionStorage
-  const [savedPrimary, savedSecondary] = safeJSON(sessionStorage.getItem("quizResults"), []) || [];
-  const rawScores   = safeJSON(sessionStorage.getItem("archetypeScores"), {}) || {};
+  // 3) Pull stored results from sessionStorage (array OR object)
+  const saved = safeJSON(sessionStorage.getItem("quizResults"), null);
+  let savedPrimary = null, savedSecondary = null;
+  if (Array.isArray(saved)) {
+    [savedPrimary, savedSecondary] = saved;
+  } else if (saved && typeof saved === "object") {
+    savedPrimary = saved.primary ?? null;
+    savedSecondary = saved.secondary ?? null;
+  }
+
+  // Scores: allow multiple possible keys
+  const rawScores =
+    safeJSON(sessionStorage.getItem("archetypeScores"), null) ??
+    safeJSON(sessionStorage.getItem("quizScores"), null) ??
+    safeJSON(sessionStorage.getItem("scores"), {}) ?? {};
+
   const allResponses = safeJSON(sessionStorage.getItem("quizResponses"), {}) || {};
 
   // 4) Apply Preference Strength multipliers (gentle tilt)
@@ -88,35 +101,48 @@ async function initResults() {
   setArchetypeImage(els.primaryImg, primary, IMG_MAP);
   setArchetypeImage(els.secondaryImg, secondary, IMG_MAP);
 
-  // 7) Load narratives (tries /data then root then inline fallback)
+  // 7) Load narratives (tries /data then root then inline fallback) WITH SHAPE FALLBACKS
+  let details = {};
+  let dataDoc = null;
   try {
-    const data = await loadFirstJSON(
+    dataDoc = await loadFirstJSON(
       [
-        `${DATA_BASE}quiz_data.json?v=1`,
-        `quiz_data.json?v=1`,
-        `./quiz_data.json?v=1`
+        `${DATA_BASE}quiz_data.json?v=2`,
+        `quiz_data.json?v=2`,
+        `./quiz_data.json?v=2`
       ],
       "archetypes-data" // optional inline <script type="application/json" id="archetypes-data">…</script>
     );
-    const details = (data.archetypes || {})[primary] || {};
-    setText(els.desc,   details.description || "—");
-    setText(els.affirm, details.affirmation || "—");
-    if (els.insights) {
-      setText(
-        els.insights,
-        Array.isArray(details.insights) ? details.insights.join(" ") : (details.insights || "—")
-      );
-    }
-    if (els.reflList) {
-      els.reflList.innerHTML = "";
-      (details.reflection || []).forEach(q => {
+  } catch (e) {
+    console.warn("quiz_data.json load issue:", e);
+  }
+
+  const archeMap = (dataDoc && dataDoc.archetypes) ? dataDoc.archetypes : (dataDoc || {});
+  details = archeMap?.[primary] || {};
+
+  // Normalize/resolve narrative fields
+  const description = pickDescription(details);
+  const affirmation = pickAffirmation(details, secondary);
+  const insightsTxt = pickInsights(details);
+  const reflections = pickReflections(details);
+
+  // Fill + hide parent section if empty (requires a [data-section] wrapper in your HTML)
+  textOrHide(els.desc, description);
+  textOrHide(els.affirm, affirmation);
+  textOrHide(els.insights, insightsTxt);
+
+  if (els.reflList) {
+    els.reflList.innerHTML = "";
+    if (Array.isArray(reflections) && reflections.length) {
+      for (const q of reflections) {
         const li = document.createElement("li");
         li.textContent = q;
         els.reflList.appendChild(li);
-      });
+      }
+      showParentSection(els.reflList);
+    } else {
+      hideParentSection(els.reflList);
     }
-  } catch (e) {
-    console.warn("quiz_data.json load issue:", e);
   }
 
   // 8) Radar chart using adjustedScores
@@ -252,6 +278,75 @@ function topTwoFromScores(scores, orderFallback){
   entries.sort((a,b) => b[1]-a[1]);
   const [p,s] = entries;
   return [p?.[0] || null, s?.[0] || null];
+}
+
+/* ---- Section show/hide helpers (wrap target in a parent with [data-section]) ---- */
+function sectionWrap(el){ return el?.closest?.("[data-section]") || null; }
+function hideParentSection(el){ const w = sectionWrap(el); if (w) w.style.display = "none"; }
+function showParentSection(el){ const w = sectionWrap(el); if (w) w.style.display = ""; }
+function textOrHide(el, txt){
+  if (!el) return;
+  const val = (txt == null) ? "" : String(txt).trim();
+  if (!val) {
+    el.textContent = "";
+    hideParentSection(el);
+  } else {
+    el.textContent = val;
+    showParentSection(el);
+  }
+}
+
+/* ---- Narrative field pickers ---- */
+function pickDescription(details){
+  return details.description || details.desc || "";
+}
+
+function pickAffirmation(details, secondary){
+  if (!details) return "";
+  // Pair-specific
+  const pair = details.pairings?.[secondary];
+  const pairAff = arrayOrString(pair?.affirmation);
+  if (pairAff) return pickOne(pairAff);
+
+  // Generic
+  const gen = arrayOrString(details.affirmations || details.affirmation);
+  return pickOne(gen) || "";
+}
+
+function pickInsights(details){
+  // If explicit insights exist
+  const ins = arrayOrString(details.insights);
+  if (Array.isArray(ins)) return ins.join(" ");
+  if (typeof ins === "string" && ins.trim()) return ins.trim();
+
+  // Fallback: strengths + growth_edges
+  const strengths = arrayOrString(details.strengths) || [];
+  const edges = arrayOrString(details.growth_edges) || [];
+  const bits = [];
+  if (strengths.length) bits.push(`You lead with ${strengths.slice(0,2).join(" and ")}.`);
+  if (edges.length) bits.push(`You grow fastest by practicing ${edges.slice(0,2).join(" and ")}.`);
+  return bits.join(" ");
+}
+
+function pickReflections(details){
+  return (
+    arrayOrString(details.reflection) ||
+    arrayOrString(details.reflection_questions) ||
+    arrayOrString(details.reflections) ||
+    []
+  );
+}
+
+function arrayOrString(x){
+  if (x == null) return Array.isArray(x) ? x : (typeof x === "string" ? x : null);
+  if (Array.isArray(x)) return x;
+  if (typeof x === "string") return x.trim() ? x : null;
+  return null;
+}
+function pickOne(val){
+  if (!val) return "";
+  if (Array.isArray(val)) return val.length ? val[(Math.random()*val.length)|0] : "";
+  return val;
 }
 
 /* ---- Preference Strength multipliers ---- */
