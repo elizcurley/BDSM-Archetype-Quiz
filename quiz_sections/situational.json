@@ -1,125 +1,206 @@
 {
+  "version": 2,
+  "section": "situational",
+  "title": "Situational preferences",
   "description": "Situational – everyday partnership moments (plans, communication, boundaries, energy, quality, leadership). Answer how true each statement feels for you.",
   "questions": [
     {
       "id": "S1",
       "archetype": "Explorer",
-      "question_text": "If plans shift to a new place or activity I didn’t research, I’m comfortable pivoting and discovering as we go.",
       "type": "likert_scale",
+      "text": "If plans shift to a new place or activity I didn’t research, I’m comfortable pivoting and discovering as we go.",
+      "question_text": "If plans shift to a new place or activity I didn’t research, I’m comfortable pivoting and discovering as we go.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S2",
       "archetype": "Explorer",
-      "question_text": "When invited to a themed community night or class that’s new to me, I’m likely to attend and try at least one thing.",
       "type": "likert_scale",
+      "text": "When invited to a themed community night or class that’s new to me, I’m likely to attend and try at least one thing.",
+      "question_text": "When invited to a themed community night or class that’s new to me, I’m likely to attend and try at least one thing.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "follow_up": "What would help you feel comfortable trying something new?"
     },
 
     {
       "id": "S3",
       "archetype": "Alchemist",
-      "question_text": "When the vibe turns from playful to focused, I can set or follow a brief intention so the moment feels meaningful (e.g., a breath, a phrase, a look).",
       "type": "likert_scale",
+      "text": "When the vibe turns from playful to focused, I can set or follow a brief intention so the moment feels meaningful (e.g., a breath, a phrase, a look).",
+      "question_text": "When the vibe turns from playful to focused, I can set or follow a brief intention so the moment feels meaningful (e.g., a breath, a phrase, a look).",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S4",
       "archetype": "Alchemist",
-      "question_text": "Before big shared moments (date, trip, project), small rituals help me show up fully.",
       "type": "likert_scale",
+      "text": "Before big shared moments (date, trip, project), small rituals help me show up fully.",
+      "question_text": "Before big shared moments (date, trip, project), small rituals help me show up fully.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "follow_up": "If you have one, what’s a small ritual that helps you arrive?"
     },
 
     {
       "id": "S5",
       "archetype": "Keystone",
-      "question_text": "If my partner seems hesitant mid-activity, I pause and check in without losing warmth or care.",
       "type": "likert_scale",
+      "text": "If my partner seems hesitant mid-activity, I pause and check in without losing warmth or care.",
+      "question_text": "If my partner seems hesitant mid-activity, I pause and check in without losing warmth or care.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S6",
       "archetype": "Keystone",
-      "question_text": "For higher-stakes plans, I prefer clear safety plans and simple check-ins to guide us (before, during, after).",
       "type": "likert_scale",
+      "text": "For higher-stakes plans, I prefer clear safety plans and simple check-ins to guide us (before, during, after).",
+      "question_text": "For higher-stakes plans, I prefer clear safety plans and simple check-ins to guide us (before, during, after).",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
 
     {
       "id": "S7",
       "archetype": "Oracle",
-      "question_text": "If conversation gets tangled, I can slow down, reflect back what I heard, and help restore shared language.",
       "type": "likert_scale",
+      "text": "If conversation gets tangled, I can slow down, reflect back what I heard, and help restore shared language.",
+      "question_text": "If conversation gets tangled, I can slow down, reflect back what I heard, and help restore shared language.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S8",
       "archetype": "Oracle",
-      "question_text": "When I feel stirred up, I can regulate myself enough to name what I need (time-out, clarification, a breath) without escalating.",
       "type": "likert_scale",
+      "text": "When I feel stirred up, I can regulate myself enough to name what I need (time-out, clarification, a breath) without escalating.",
+      "question_text": "When I feel stirred up, I can regulate myself enough to name what I need (time-out, clarification, a breath) without escalating.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
 
     {
       "id": "S9",
       "archetype": "Vanguard",
-      "question_text": "Under time pressure, I’m comfortable making a clear call and getting us moving, then refining on the fly.",
       "type": "likert_scale",
+      "text": "Under time pressure, I’m comfortable making a clear call and getting us moving, then refining on the fly.",
+      "question_text": "Under time pressure, I’m comfortable making a clear call and getting us moving, then refining on the fly.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S10",
       "archetype": "Vanguard",
-      "question_text": "In public or group settings, I can set boundaries with others confidently while keeping my partner centered.",
       "type": "likert_scale",
+      "text": "In public or group settings, I can set boundaries with others confidently while keeping my partner centered.",
+      "question_text": "In public or group settings, I can set boundaries with others confidently while keeping my partner centered.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
 
     {
       "id": "S11",
       "archetype": "Connoisseur",
-      "question_text": "Polish matters to me: I like aligning on standards (presentation, timing, setup) so the experience feels elevated.",
       "type": "likert_scale",
+      "text": "Polish matters to me: I like aligning on standards (presentation, timing, setup) so the experience feels elevated.",
+      "question_text": "Polish matters to me: I like aligning on standards (presentation, timing, setup) so the experience feels elevated.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S12",
       "archetype": "Connoisseur",
-      "question_text": "I enjoy slowing down to improve technique together, even if it means fewer but higher-quality moments.",
       "type": "likert_scale",
+      "text": "I enjoy slowing down to improve technique together, even if it means fewer but higher-quality moments.",
+      "question_text": "I enjoy slowing down to improve technique together, even if it means fewer but higher-quality moments.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
 
     {
       "id": "S13",
       "archetype": "Catalyst",
-      "question_text": "When the energy dips, playful challenges or tiny games help me re-ignite momentum for us.",
       "type": "likert_scale",
+      "text": "When the energy dips, playful challenges or tiny games help me re-ignite momentum for us.",
+      "question_text": "When the energy dips, playful challenges or tiny games help me re-ignite momentum for us.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "S14",
       "archetype": "Catalyst",
-      "question_text": "I’m good at shifting a heavy or awkward mood toward lightness without ignoring feelings.",
       "type": "likert_scale",
+      "text": "I’m good at shifting a heavy or awkward mood toward lightness without ignoring feelings.",
+      "question_text": "I’m good at shifting a heavy or awkward mood toward lightness without ignoring feelings.",
       "weight": 2,
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"]
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+
+    {
+      "id": "S15",
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "text": "I like building small experiments into plans so we can learn quickly.",
+      "question_text": "I like building small experiments into plans so we can learn quickly.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S16",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "text": "Naming beginnings and endings helps me (and others) shift state together.",
+      "question_text": "Naming beginnings and endings helps me (and others) shift state together.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S17",
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "text": "I naturally set gentle routines and check-ins when stakes rise.",
+      "question_text": "I naturally set gentle routines and check-ins when stakes rise.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S18",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "text": "In tense moments, I can translate feelings into one clear sentence that helps us align.",
+      "question_text": "In tense moments, I can translate feelings into one clear sentence that helps us align.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S19",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "text": "I’m comfortable offering A/B choices to create quick alignment in groups.",
+      "question_text": "I’m comfortable offering A/B choices to create quick alignment in groups.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S20",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "text": "I notice small environment tweaks (lighting, music, layout) that would improve comfort and focus.",
+      "question_text": "I notice small environment tweaks (lighting, music, layout) that would improve comfort and focus.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "S21",
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "text": "I like using light dares or timers to keep momentum without pressure.",
+      "question_text": "I like using light dares or timers to keep momentum without pressure.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     }
   ]
 }

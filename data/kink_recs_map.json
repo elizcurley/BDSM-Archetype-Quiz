@@ -1,11 +1,10 @@
 {
   "archetype_bias": {
-    "Vanguard": ["impact_light", "power_service"],
-    "Explorer": ["roleplay_scout", "sensation_temp"],
-    "Oracle": ["ritual_symbol", "exhibition_private"],
-    "Connoisseur": ["restraint_soft", "impact_light"],
-    "Keystone": ["restraint_soft", "ritual_symbol"],
-    "Catalyst": ["exhibition_private", "impact_light"],
-    "Alchemist": ["ritual_symbol", "sensation_temp"]
+    "Alchemist": ["ritual_devotion","meaning"],
+    "Connoisseur": ["clinical_aesthetic","precision","hosiery_focus"],
+    "Explorer": ["adventure","novelty"],
+    "Keystone": ["service_care","stability"],
+    "Oracle": ["ritual_devotion","precision"],
+    "Vanguard": ["command_energy","order_prompts"]
   }
 }
