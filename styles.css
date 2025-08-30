@@ -328,3 +328,22 @@ button[disabled] {
   display: block;
   object-fit: contain;
 }
+/* Results page layout tweaks */
+#results-root,
+#results-root section,
+#results-root h3,
+#results-root h4,
+#results-root p,
+#results-root ul {
+  text-align: left;
+}
+
+.result-header .primary-block h2 {
+  text-align: center;
+}
+
+/* Chip groups */
+#why-chips { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 4px; }
+.chip-group { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.chip-label { font-size: 0.85rem; color: #6b7280; margin-right: 4px; }
+.chip { display: inline-block; padding: 2px 8px; border: 1px solid #e5e7eb; border-radius: 9999px; font-size: 0.85rem; white-space: nowrap; }

@@ -663,8 +663,29 @@ function fillList(id, items) {
 }
 /* ---- “Why this result?” chips ---- */
 function renderWhyChips(reasons, topTags){
-  const el = byId("why-chips"); if(!el) return;
-  const tagChips = (topTags||[]).slice(0,3).map(([t]) => `<span class="chip">${t}</span>`);
-  const reasonChips = (reasons||[]).slice(0,3).map(r => `<span class="chip">${r}</span>`);
-  el.innerHTML = [...reasonChips, ...tagChips].join("");
+  const el = byId("why-chips");
+  if (!el) return;
+
+  const R = Array.isArray(reasons) ? reasons.filter(Boolean).slice(0, 4) : [];
+  const T = Array.isArray(topTags) ? topTags.slice(0, 4).map(([t]) => t).filter(Boolean) : [];
+
+  if (!R.length && !T.length) {
+    el.innerHTML = "";
+    el.style.display = "none";
+    return;
+  }
+
+  const mk = (title, items) =>
+    items.length
+      ? `<div class="chip-group"><span class="chip-label">${escapeHTML(title)}:</span>${items.map(x => `<span class="chip">${escapeHTML(x)}</span>`).join("")}</div>`
+      : "";
+
+  el.style.display = "";
+  el.innerHTML = mk("Because you answered", R) + mk("Top interests", T);
+}
+
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[c]));
 }
