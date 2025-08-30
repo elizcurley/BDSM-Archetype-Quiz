@@ -192,7 +192,8 @@ try {
         `${DATA_BASE}kink_interests.json?v=1`,
         `quiz_sections/kink_interests.json?v=1`
       ]);
-      topTags = scoreTags(kiItems, kiResponses).slice(0, 7); // [ [tag,score], ... ]
+    topTags = scoreTags(kiItems, kiResponses, { primary }).slice(0, 7);
+ // [ [tag,score], ... ]
       renderTopTagCard(els.recsWrap, topTags, primary);
     }
   } catch (e) {
@@ -392,35 +393,54 @@ function applyMultipliers(scores, multipliers){
   return out;
 }
 
-/* ---- Tag scoring (optional) ---- */
-function scoreTags(kinkInterestsItems, responses){
-  const hits = {}, opps = {};
-  for(const item of kinkInterestsItems){
-    const itemTags = new Set();
-    for(const c of item.choices) (c.tags || []).forEach(t => itemTags.add(t));
-    itemTags.forEach(t => opps[t] = (opps[t] || 0) + 1);
+function scoreTags(kinkItems, responses, opts){
+  var primary = opts && opts.primary;           // e.g., "Alchemist"
+  var hits = {}, opps = {};
 
-    const picked = new Set(responses[item.id] || []);
-    for(const c of item.choices){
-      if(picked.has(c.value)) (c.tags || []).forEach(t => hits[t] = (hits[t] || 0) + 1);
+  for (var i = 0; i < (kinkItems || []).length; i++){
+    var item = kinkItems[i] || {};
+    var choices = item.choices || [];
+
+    // Count opportunities: each appearance of a tag in a choice is one "opportunity" to select it
+    for (var j = 0; j < choices.length; j++){
+      var tags = choices[j].tags || [];
+      for (var k = 0; k < tags.length; k++){
+        var t = tags[k];
+        opps[t] = (opps[t] || 0) + 1;
+      }
+    }
+
+    // Normalize selected answers: array for multi, single value → 1-element array
+    var raw = responses ? responses[item.id] : null;
+    var selected = Array.isArray(raw) ? raw : (raw != null ? [raw] : []);
+
+    // Increment hits; boost tags by the choice's weights for the primary archetype (if present)
+    for (var j = 0; j < choices.length; j++){
+      var c = choices[j];
+      if (selected.indexOf(c.value) >= 0){
+        var boost = 1;
+        if (primary && c.weights && c.weights[primary]) {
+          boost += 0.25 * Number(c.weights[primary] || 0); // gentle nudge from your weights
+        }
+        var tags = c.tags || [];
+        for (var k = 0; k < tags.length; k++){
+          var t = tags[k];
+          hits[t] = (hits[t] || 0) + boost;
+        }
+      }
     }
   }
-  const scores = Object.fromEntries(Object.keys(opps).map(t => [t, (hits[t] || 0) / opps[t]]));
-  return Object.entries(scores).sort((a,b) => b[1]-a[1]); // [tag,score] desc
+
+  // Convert to normalized scores
+  var out = [];
+  for (var t in opps){
+    var s = (hits[t] || 0) / (opps[t] || 1);
+    out.push([t, s]);
+  }
+  out.sort(function(a,b){ return b[1] - a[1]; });
+  return out;
 }
 
-function renderTopTagCard(container, topTags, primaryArchetype){
-  if(!container) return;
-  const mk = ([tag, sc]) => `<li><strong>${tag}</strong> — ${(sc*100|0)}%</li>`;
-  container.innerHTML = `
-    <h3 class="mt-6">Top Interests</h3>
-    <p class="muted">These hint at scenes, materials, and vibes you might enjoy.</p>
-    <ul class="tag-list">
-      ${topTags.map(mk).join("")}
-    </ul>
-    <p class="muted">Tuned slightly toward your primary archetype: <em>${primaryArchetype || "—"}</em>.</p>
-  `;
-}
 
 /* ---- Kink translation builder (uses /data) ---- */
 async function buildKinkRecs(topTags, primary) {
@@ -437,6 +457,17 @@ async function buildKinkRecs(topTags, primary) {
     const bonus = bias.has(tag) ? 0.15 : 0;
     return { tag, score: (score || 0) + bonus };
   }).sort((a,b) => b.score - a.score);
+
+  const kinkSection = byId("kink-section");
+if (kinkSection) {
+  var hasAny = 0;
+  ["kink-scenes","kink-props","kink-comms","kink-care"].forEach(function(id){
+    var ul = byId(id);
+    hasAny += (ul && ul.children ? ul.children.length : 0);
+  });
+  if (!hasAny) kinkSection.style.display = "none";
+}
+
 
   // Group by category
   const byCat = new Map();
