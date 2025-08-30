@@ -101,42 +101,35 @@ async function initResults() {
   setArchetypeImage(els.primaryImg, primary, IMG_MAP);
   setArchetypeImage(els.secondaryImg, secondary, IMG_MAP);
 
-  // 7) Load narratives (tries /data then root then inline fallback) WITH SHAPE FALLBACKS
-  let details = {};
-  let dataDoc = null;
-  try {
-    dataDoc = await loadFirstJSON(
-      [
-        `${DATA_BASE}quiz_data.json?v=2`,
-        `quiz_data.json?v=2`,
-        `./quiz_data.json?v=2`
-      ],
-      "archetypes-data" // optional inline <script type="application/json" id="archetypes-data">…</script>
-    );
-  } catch (e) {
-    console.warn("quiz_data.json load issue:", e);
-  }
+  // 7) Load narratives (tries /data then root then inline fallback) with field fallbacks
+try {
+  var data = await loadFirstJSON(
+    [
+      DATA_BASE + "quiz_data.json?v=2",
+      "quiz_data.json?v=2",
+      "./quiz_data.json?v=2"
+    ],
+    "archetypes-data" // optional inline <script type="application/json" id="archetypes-data">…</script>
+  );
 
-  const archeMap = (dataDoc && dataDoc.archetypes) ? dataDoc.archetypes : (dataDoc || {});
-  details = archeMap?.[primary] || {};
+  var arche = data && (data.archetypes || data) || {};
+  var details = arche[primary] || {};
 
-  // Normalize/resolve narrative fields
-  const description = pickDescription(details);
-  const affirmation = pickAffirmation(details, secondary);
-  const insightsTxt = pickInsights(details);
-  const reflections = pickReflections(details);
+  var description = pickDescription(details);
+  var affirmation = pickAffirmation(details, secondary);
+  var insightsTxt = pickInsights(details);
+  var reflections = pickReflections(details);
 
-  // Fill + hide parent section if empty (requires a [data-section] wrapper in your HTML)
   textOrHide(els.desc, description);
   textOrHide(els.affirm, affirmation);
   textOrHide(els.insights, insightsTxt);
 
   if (els.reflList) {
     els.reflList.innerHTML = "";
-    if (Array.isArray(reflections) && reflections.length) {
-      for (const q of reflections) {
-        const li = document.createElement("li");
-        li.textContent = q;
+    if (reflections.length) {
+      for (var i=0; i<reflections.length; i++){
+        var li = document.createElement("li");
+        li.textContent = reflections[i];
         els.reflList.appendChild(li);
       }
       showParentSection(els.reflList);
@@ -144,6 +137,10 @@ async function initResults() {
       hideParentSection(els.reflList);
     }
   }
+} catch (e) {
+  console.warn("quiz_data.json load issue:", e);
+}
+
 
   // 8) Radar chart using adjustedScores
   if (els.radar && typeof Chart !== "undefined") {
@@ -555,4 +552,53 @@ function renderWhyChips(reasons, topTags){
   const tagChips = (topTags||[]).slice(0,3).map(([t]) => `<span class="chip">${t}</span>`);
   const reasonChips = (reasons||[]).slice(0,3).map(r => `<span class="chip">${r}</span>`);
   el.innerHTML = [...reasonChips, ...tagChips].join("");
+}
+// --- Section show/hide helpers (use [data-section] on wrappers in HTML) ---
+function sectionWrap(el){ return el && el.closest ? el.closest("[data-section]") : null; }
+function hideParentSection(el){ var w = sectionWrap(el); if (w) w.style.display = "none"; }
+function showParentSection(el){ var w = sectionWrap(el); if (w) w.style.display = ""; }
+function textOrHide(el, txt){
+  if (!el) return;
+  var val = (txt == null) ? "" : String(txt).trim();
+  if (!val) { el.textContent = ""; hideParentSection(el); }
+  else { el.textContent = val; showParentSection(el); }
+}
+
+// --- Narrative field pickers (tolerate many shapes) ---
+function pickDescription(details){ return (details && (details.description || details.desc)) || ""; }
+
+function arrayify(x){
+  if (x == null) return [];
+  if (Array.isArray(x)) return x;
+  if (typeof x === "string") return x.trim() ? [x.trim()] : [];
+  return [];
+}
+function pickOne(arr){ return (arr && arr.length) ? arr[Math.floor(Math.random()*arr.length)] : ""; }
+
+function pickAffirmation(details, secondary){
+  if (!details) return "";
+  var pair = details.pairings && details.pairings[secondary];
+  var pairA = arrayify(pair && (pair.affirmations || pair.affirmation));
+  if (pairA.length) return pickOne(pairA);
+  var gen = arrayify(details.affirmations || details.affirmation);
+  return pickOne(gen);
+}
+
+function pickInsights(details){
+  if (!details) return "";
+  var ins = details.insights;
+  if (Array.isArray(ins)) return ins.join(" ");
+  if (typeof ins === "string" && ins.trim()) return ins.trim();
+  var strengths = arrayify(details.strengths).slice(0,2);
+  var edges = arrayify(details.growth_edges).slice(0,2);
+  var out = [];
+  if (strengths.length) out.push("You lead with " + strengths.join(" and ") + ".");
+  if (edges.length) out.push("You grow fastest by practicing " + edges.join(" and ") + ".");
+  return out.join(" ");
+}
+
+function pickReflections(details){
+  return arrayify(
+    (details && (details.reflection || details.reflection_questions || details.reflections))
+  );
 }
