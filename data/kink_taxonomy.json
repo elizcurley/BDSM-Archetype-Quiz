@@ -388,6 +388,49 @@
       "beginner": ["Pick a new corner to explore together"],
       "advanced": ["Design a tiny mini-quest with a reveal"],
       "safety": ["Stay within access limits; daylight first."]
+    },
+
+    "tease_play": {
+      "category": "Tempo & Cadence",
+      "beginner": ["Two-line playful dare with a 5-count pause"],
+      "advanced": ["Layered tease: approach · retreat · approach"],
+      "safety": ["Keep it light; don’t use tease to bypass a real no."]
+    },
+    "scent_aroma": {
+      "category": "Objects & Materials",
+      "beginner": ["Choose a shared scent (candle, skin, oil) as a cue"],
+      "advanced": ["Scent thread across the arc (open · mid · land)"],
+      "safety": ["Check sensitivities; ventilate; avoid strong triggers."]
+    },
+    "grounding": {
+      "category": "Care & Recovery",
+      "beginner": ["5-4-3-2-1 senses check (name things you see/feel)"],
+      "advanced": ["Weighted blanket + warm drink + slow breath set"],
+      "safety": ["Invite, don’t insist; allow quiet or eyes open."]
+    },
+    "silk_nylon": {
+      "category": "Objects & Materials",
+      "beginner": ["Silk/nylon trace along forearm or collarbone"],
+      "advanced": ["Stocking/silk reveal with slow glide"],
+      "safety": ["Watch for snags; avoid tight wrapping around neck."]
+    },
+    "devotional_focus": {
+      "category": "Ritual & Symbol",
+      "beginner": ["One-line dedication before you begin"],
+      "advanced": ["Small token carried for a day then returned"],
+      "safety": ["Keep it consensual and reversible; avoid public outing."]
+    },
+    "intensity": {
+      "category": "Tempo & Cadence",
+      "beginner": ["Short focused burst with a calm lead-in"],
+      "advanced": ["Wave with higher peaks then soften"],
+      "safety": ["Hydrate; pause if breath or form gets ragged."]
+    },
+    "endurance": {
+      "category": "Tempo & Cadence",
+      "beginner": ["Gentle, longer set at steady pace"],
+      "advanced": ["Timed interval blocks with rests"],
+      "safety": ["Mind fatigue; agree on signals to downshift."]
     }
   }
 }
