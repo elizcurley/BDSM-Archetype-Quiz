@@ -1,203 +1,126 @@
 {
-  "version": 2,
+  "version": 3,
   "section": "reflection",
   "title": "Reflection",
-  "description": "Reflection – general partnership development. Indicate how much you agree with each statement about how you show up in relationships, projects, and shared experiences.",
+  "description": "How you tend to show up with others—momentum, meaning, steadiness, leadership, craft, curiosity, and transformation. Answer how true each statement feels for you.",
   "questions": [
     {
       "id": "R1",
       "archetype": "Catalyst",
       "type": "likert_scale",
-      "text": "When things stall, I naturally bring playful energy and momentum back into the mix.",
-      "question_text": "When things stall, I naturally bring playful energy and momentum back into the mix.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "In stuck moments, I often reconnect people with a playful reframing or tiny challenge.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
-    {
-      "id": "R12",
-      "archetype": "Catalyst",
-      "type": "likert_scale",
-      "text": "Playful challenges or mini-dares tend to re-connect me with partners and shared goals.",
-      "question_text": "Playful challenges or mini-dares tend to re-connect me with partners and shared goals.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R13",
-      "archetype": "Catalyst",
-      "type": "likert_scale",
-      "text": "I read the room and use levity or small games to shift stuck energy without losing care.",
-      "question_text": "I read the room and use levity or small games to shift stuck energy without losing care.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
     {
       "id": "R2",
-      "archetype": "Explorer",
+      "archetype": "Catalyst",
       "type": "likert_scale",
-      "text": "I feel most alive when we try new places, activities, or approaches together.",
-      "question_text": "I feel most alive when we try new places, activities, or approaches together.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R9",
-      "archetype": "Explorer",
-      "type": "likert_scale",
-      "text": "Taking measured risks together often leads to learning and growth for me.",
-      "question_text": "Taking measured risks together often leads to learning and growth for me.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R14",
-      "archetype": "Explorer",
-      "type": "likert_scale",
-      "text": "I’m comfortable pivoting plans when a better opportunity appears.",
-      "question_text": "I’m comfortable pivoting plans when a better opportunity appears.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I enjoy being the spark that turns awkwardness into shared laughter or motion.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
 
     {
       "id": "R3",
-      "archetype": "Oracle",
+      "archetype": "Explorer",
       "type": "likert_scale",
-      "text": "I regularly reflect on my own growth and how it affects the relationship.",
-      "question_text": "I regularly reflect on my own growth and how it affects the relationship.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "Shared discovery—finding out together—feels more connecting to me than perfect planning.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
-    {
-      "id": "R8",
-      "archetype": "Oracle",
-      "type": "likert_scale",
-      "text": "If communication breaks down, I help restore clarity and trust without escalating conflict.",
-      "question_text": "If communication breaks down, I help restore clarity and trust without escalating conflict.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R15",
-      "archetype": "Oracle",
-      "type": "likert_scale",
-      "text": "Before big decisions, I like to name what we want to feel and why it matters.",
-      "question_text": "Before big decisions, I like to name what we want to feel and why it matters.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
     {
       "id": "R4",
-      "archetype": "Keystone",
+      "archetype": "Explorer",
       "type": "likert_scale",
-      "text": "I balance my appetite for novelty with a steady sense of care and reliability.",
-      "question_text": "I balance my appetite for novelty with a steady sense of care and reliability.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R6",
-      "archetype": "Keystone",
-      "type": "likert_scale",
-      "text": "I communicate and maintain my boundaries consistently, even during emotional moments.",
-      "question_text": "I communicate and maintain my boundaries consistently, even during emotional moments.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R16",
-      "archetype": "Keystone",
-      "type": "likert_scale",
-      "text": "I track small needs (water, timing, space) that keep everyone resourced over time.",
-      "question_text": "I track small needs (water, timing, space) that keep everyone resourced over time.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I like shifting paths mid-plan if a more interesting thread appears and we’re aligned to follow it.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
 
     {
       "id": "R5",
-      "archetype": "Connoisseur",
+      "archetype": "Oracle",
       "type": "likert_scale",
-      "text": "The aesthetic quality and attention to detail in shared experiences is deeply fulfilling to me.",
-      "question_text": "The aesthetic quality and attention to detail in shared experiences is deeply fulfilling to me.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I can put words to undercurrents in a way that helps people feel seen rather than judged.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
-      "id": "R17",
-      "archetype": "Connoisseur",
+      "id": "R6",
+      "archetype": "Oracle",
       "type": "likert_scale",
-      "text": "I enjoy setting up spaces and tools so everyone can relax into a well-crafted experience.",
-      "question_text": "I enjoy setting up spaces and tools so everyone can relax into a well-crafted experience.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R18",
-      "archetype": "Connoisseur",
-      "type": "likert_scale",
-      "text": "I’d rather do fewer things with more finesse than more things with less polish.",
-      "question_text": "I’d rather do fewer things with more finesse than more things with less polish.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "When making choices, I tend to name what we want to feel, not just what we want to do.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
 
     {
       "id": "R7",
-      "archetype": "Vanguard",
+      "archetype": "Keystone",
       "type": "likert_scale",
-      "text": "When stakes rise, I’m comfortable stepping into clear leadership to move us forward.",
-      "question_text": "When stakes rise, I’m comfortable stepping into clear leadership to move us forward.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I show care by keeping promises small and steady over time—reliability is my love language.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
-      "id": "R11",
-      "archetype": "Vanguard",
+      "id": "R8",
+      "archetype": "Keystone",
       "type": "likert_scale",
-      "text": "I actively seek feedback and use it to sharpen how I guide or set direction.",
-      "question_text": "I actively seek feedback and use it to sharpen how I guide or set direction.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "R19",
-      "archetype": "Vanguard",
-      "type": "likert_scale",
-      "text": "I can hold a steady course and keep alignment when pressure or ambiguity increases.",
-      "question_text": "I can hold a steady course and keep alignment when pressure or ambiguity increases.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I naturally create a sense of “we’ve got this” when others feel wobbly or overloaded.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
 
     {
+      "id": "R9",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "When things get diffuse, I bring focus and alignment without bulldozing people’s needs.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+    {
       "id": "R10",
-      "archetype": "Alchemist",
+      "archetype": "Vanguard",
       "type": "likert_scale",
-      "text": "Designing small rituals or intentional frames helps transform ordinary moments into something meaningful.",
-      "question_text": "Designing small rituals or intentional frames helps transform ordinary moments into something meaningful.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I’m comfortable setting a tempo and holding it through disagreement so we keep moving together.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+
+    {
+      "id": "R11",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "I notice subtle quality shifts (pacing, tone, texture) and enjoy refining them with others.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
-      "id": "R20",
+      "id": "R12",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Doing fewer things with intention feels more intimate to me than cramming more in.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
+    },
+
+    {
+      "id": "R13",
       "archetype": "Alchemist",
       "type": "likert_scale",
-      "text": "I like naming beginnings and endings so we can arrive and land together.",
-      "question_text": "I like naming beginnings and endings so we can arrive and land together.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "Simple symbolic touches (a word, a look, an object) make moments feel significant to me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     },
     {
-      "id": "R21",
+      "id": "R14",
       "archetype": "Alchemist",
       "type": "likert_scale",
-      "text": "I can shift headspace with a cue (lighting, scent, phrase) when connection matters.",
-      "question_text": "I can shift headspace with a cue (lighting, scent, phrase) when connection matters.",
-      "weight": 2,
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "question_text": "I like marking transitions so we can arrive and land together with a shared sense of meaning.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "weight": 1.0
     }
   ]
 }
