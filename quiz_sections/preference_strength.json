@@ -1,112 +1,116 @@
 {
-  "version": 1,
-  "section": "preference_strength",
-  "title": "Preference strength",
-  "description": "How strongly these tendencies feel true for you most of the time. These lightly tilt your archetype scores (they do not dominate).",
+  "description": "Preference Strength – behavior-focused signals that gently tilt archetype scores. Likert scales run from Strongly disagree to Strongly agree.",
   "questions": [
     {
       "id": "PS1",
       "archetype": "Catalyst",
       "type": "likert_scale",
-      "question_text": "Playful sparks and tiny dares are a go-to way I reset energy and get moving.",
+      "question_text": "Playful challenge quickly restores my energy with people.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS2",
       "archetype": "Catalyst",
-      "type": "likert_scale",
-      "question_text": "When a moment feels flat, I naturally turn it into a quick game or prompt.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do you kick off a fun pattern-break when the vibe stalls?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS3",
       "archetype": "Explorer",
       "type": "likert_scale",
-      "question_text": "A steady drip of novelty (small twists, new angles) matters to me week-to-week.",
+      "question_text": "Trying unfamiliar things is a net positive for me—even if they’re a little awkward at first.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS4",
       "archetype": "Explorer",
-      "type": "likert_scale",
-      "question_text": "If a more interesting thread appears, I enjoy pivoting mid-plan to follow curiosity.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "When curiosity strikes, how often do you choose a detour over the original plan?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS5",
       "archetype": "Keystone",
       "type": "likert_scale",
-      "question_text": "Private, cozy settings with familiar rhythms are my default sweet spot.",
+      "question_text": "Predictable rhythms help me be more present, generous, and steady for others.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS6",
       "archetype": "Keystone",
-      "type": "likert_scale",
-      "question_text": "Predictable pacing helps me feel grounded and present—even during excitement.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do you maintain simple, supportive routines for yourself or your relationships?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS7",
       "archetype": "Vanguard",
       "type": "likert_scale",
-      "question_text": "Clean, decisive beats (A/B calls, clear tempo) feel kinder than hovering in uncertainty.",
+      "question_text": "Clear, decisive moves feel kinder than prolonged ambiguity when stakes rise.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS8",
       "archetype": "Vanguard",
-      "type": "likert_scale",
-      "question_text": "Challenge and a bit of pressure bring out my best focus and enjoyment when trust is present.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do you take responsibility for setting the pace under time pressure?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS9",
       "archetype": "Connoisseur",
       "type": "likert_scale",
-      "question_text": "Quality and finesse (pacing, texture, presentation) meaningfully influence my desire and engagement.",
+      "question_text": "Craft and finesse improve my enjoyment more than novelty does.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS10",
       "archetype": "Connoisseur",
-      "type": "likert_scale",
-      "question_text": "Symmetry, staging, and small details catch my attention and elevate the experience for me.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do you refine small details before beginning something meaningful?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS11",
       "archetype": "Oracle",
       "type": "likert_scale",
-      "question_text": "Naming what we want to feel (not just what to do) deepens my interest and connection.",
+      "question_text": "Naming feelings or intentions helps me and others feel safer and clearer.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS12",
       "archetype": "Oracle",
-      "type": "likert_scale",
-      "question_text": "Mentor-style guidance (clear, kind, thoughtful) is especially attractive to me when I trust the person offering it.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do people ask you to help make sense of what they’re feeling or noticing?",
+      "min": 1,
+      "max": 7
     },
 
     {
       "id": "PS13",
       "archetype": "Alchemist",
       "type": "likert_scale",
-      "question_text": "Small rituals or symbolic cues (a word, a look, a token) noticeably shift my headspace in a good way.",
+      "question_text": "Small rituals meaningfully change my headspace and the tone of shared moments.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS14",
       "archetype": "Alchemist",
-      "type": "likert_scale",
-      "question_text": "A slow-burn build and anticipation often feel richer to me than fast payoffs.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+      "type": "numeric_scale",
+      "question_text": "How often do you create an opening or closing moment to mark experiences?",
+      "min": 1,
+      "max": 7
     }
   ]
 }
