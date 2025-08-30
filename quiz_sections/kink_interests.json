@@ -1,241 +1,276 @@
-{
-  "version": 2,
-  "section": "kink_interests",
-  "title": "Kink — interests",
-  "description": "Non-explicit signals about vibe, structure, materials, and attention. Choices emit tags used for scene ideas, props, phrases, and aftercare.",
-  "questions": [
-    {
-      "id": "KI1",
-      "type": "single",
-      "text": "On a free afternoon, I’m most excited to…",
-      "question_text": "On a free afternoon, I’m most excited to…",
-      "choices": [
-        { "label": "Tinker/make something with my hands (sewing, DIY, knotting, craft)", "value": "make", "tags": ["craftsmanship","precision","bondage_rope_art_adjacent"], "weights": { "Connoisseur": 2, "Explorer": 1 } },
-        { "label": "Do something physically challenging (climb, sprints, long hike)", "value": "challenge", "tags": ["intensity","endurance","adventure","tempo_play"], "weights": { "Vanguard": 2, "Catalyst": 1 } },
-        { "label": "Curate/organize a space or collection", "value": "curate", "tags": ["aesthetic","order_prompts","protocol_signals","presentation"], "weights": { "Connoisseur": 2, "Keystone": 1 } },
-        { "label": "Journal, meditate, or create a small ritual", "value": "reflect", "tags": ["ritual_devotion","meaning","focus"], "weights": { "Oracle": 2, "Alchemist": 1 } }
-      ]
-    },
-    {
-      "id": "KI2",
-      "type": "multi",
-      "text": "Materials/aesthetics that pull me in:",
-      "question_text": "Materials/aesthetics that pull me in:",
-      "choices": [
-        { "label": "Leather or patina’d natural materials", "value": "leather", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 2, "Keystone": 1 } },
-        { "label": "Latex/PVC or ultra-glossy finishes", "value": "latex", "tags": ["latex_fashion","shine"], "weights": { "Connoisseur": 2, "Catalyst": 1 } },
-        { "label": "Silk/nylon (stockings, scarves, satins)", "value": "silk", "tags": ["hosiery_focus","silk_nylon","sensation_texture"], "weights": { "Connoisseur": 1, "Alchemist": 1 } },
-        { "label": "Minimalist/clinical clean lines", "value": "clinical", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } }
-      ]
-    },
-    {
-      "id": "KI3",
-      "type": "multi",
-      "text": "Fashion details that catch my attention most:",
-      "question_text": "Fashion details that catch my attention most:",
-      "choices": [
-        { "label": "Footwear (heels, boots)", "value": "footwear", "tags": ["footwear_focus","aesthetic"], "weights": { "Connoisseur": 2 } },
-        { "label": "Gloves/hands", "value": "gloves", "tags": ["glove_focus","aesthetic"], "weights": { "Connoisseur": 1, "Catalyst": 1 } },
-        { "label": "Hosiery/tights/stockings", "value": "hosiery", "tags": ["hosiery_focus","silk_nylon"], "weights": { "Connoisseur": 2 } },
-        { "label": "Jewelry/collars/statement chokers", "value": "jewelry", "tags": ["marking_symbol","presentation"], "weights": { "Connoisseur": 1, "Oracle": 1 } }
-      ]
-    },
-    {
-      "id": "KI4",
-      "type": "multi",
-      "text": "Voice and sound that work on me:",
-      "question_text": "Voice and sound that work on me:",
-      "choices": [
-        { "label": "Praise-heavy tone", "value": "praise", "tags": ["praise_focus","attention_kink"], "weights": { "Keystone": 2 } },
-        { "label": "Short, crisp direction", "value": "crisp", "tags": ["command_energy","order_prompts"], "weights": { "Vanguard": 2 } },
-        { "label": "Poetic/evocative whisper", "value": "poetic", "tags": ["poetic_voice","trance_adjacent"], "weights": { "Oracle": 2, "Alchemist": 1 } },
-        { "label": "Playful/teasing banter", "value": "tease", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
-      ]
-    },
-    {
-      "id": "KI5",
-      "type": "multi",
-      "text": "Scent or atmosphere cues I love:",
-      "question_text": "Scent or atmosphere cues I love:",
-      "choices": [
-        { "label": "Cologne/perfume and warm skin", "value": "scent_skin", "tags": ["scent_aroma","aftercare_soft"], "weights": { "Keystone": 1, "Alchemist": 1 } },
-        { "label": "Leather/oil/wood shop vibes", "value": "scent_leather", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 2 } },
-        { "label": "Incense/candle/ritual smoke", "value": "scent_ritual", "tags": ["ritual_devotion","meaning"], "weights": { "Oracle": 2 } },
-        { "label": "Clean linen/sterile/ozone", "value": "scent_clean", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } }
-      ]
-    },
-    {
-      "id": "KI6",
-      "type": "single",
-      "text": "Visual framing that excites me:",
-      "question_text": "Visual framing that excites me:",
-      "choices": [
-        { "label": "Mirror play or camera angles", "value": "mirror", "tags": ["mirror_camera","self_presentation"], "weights": { "Catalyst": 2, "Connoisseur": 1 } },
-        { "label": "Being seen by an audience (big or small)", "value": "audience", "tags": ["exhibition","performance"], "weights": { "Catalyst": 2, "Vanguard": 1 } },
-        { "label": "Private, candlelit, low-light focus", "value": "private_light", "tags": ["private","attunement"], "weights": { "Keystone": 2, "Oracle": 1 } }
-      ]
-    },
-    {
-      "id": "KI7",
-      "type": "multi",
-      "text": "Touch/pressure palette that feels best:",
-      "question_text": "Touch/pressure palette that feels best:",
-      "choices": [
-        { "label": "Firm pressure/weight", "value": "firm", "tags": ["sensation_pressure","grounding"], "weights": { "Keystone": 1, "Vanguard": 1 } },
-        { "label": "Light touch/trace", "value": "light", "tags": ["sensation_light","tease_play"], "weights": { "Connoisseur": 1, "Catalyst": 1 } },
-        { "label": "Temperature contrast (hot/cold)", "value": "temp", "tags": ["temperature_contrast","sensation_temperature"], "weights": { "Explorer": 1, "Alchemist": 1 } },
-        { "label": "Rhythmic percussion patterns", "value": "rhythm", "tags": ["rhythm_thud_sting_adjacent","tempo_play"], "weights": { "Vanguard": 1, "Alchemist": 1 } }
-      ]
-    },
-    {
-      "id": "KI8",
-      "type": "single",
-      "text": "Anticipation and reveals:",
-      "question_text": "Anticipation and reveals:",
-      "choices": [
-        { "label": "Love slow burn and delayed rewards", "value": "slow_burn", "tags": ["denial_anticipation","tease_play"], "weights": { "Alchemist": 2, "Catalyst": 1 } },
-        { "label": "Enjoy some tease, then release", "value": "moderate_tease", "tags": ["moderate_denial","tempo_play"], "weights": { "Connoisseur": 1 } },
-        { "label": "Prefer immediate payoffs", "value": "immediate", "tags": ["low_denial","momentum"], "weights": { "Explorer": 1 } }
-      ]
-    },
-    {
-      "id": "KI9",
-      "type": "multi",
-      "text": "Roles/themes I’m drawn to (as me or from others):",
-      "question_text": "Roles/themes I’m drawn to (as me or from others):",
-      "choices": [
-        { "label": "Mentor/guide/teacher energy", "value": "mentor", "tags": ["role_mentor","devotional_focus"], "weights": { "Oracle": 2, "Alchemist": 1 } },
-        { "label": "Authority/commander energy", "value": "authority", "tags": ["role_authority","command_energy"], "weights": { "Vanguard": 2 } },
-        { "label": "Caretaker/service/care energy", "value": "caretaker", "tags": ["service_care","stability"], "weights": { "Keystone": 2 } },
-        { "label": "Scout/adventurer/playmaker", "value": "scout", "tags": ["role_scout","adventure"], "weights": { "Explorer": 2, "Catalyst": 1 } },
-        { "label": "Performer/muse", "value": "muse", "tags": ["performance","exhibition"], "weights": { "Catalyst": 2 } }
-      ]
-    },
-    {
-      "id": "KI10",
-      "type": "single",
-      "text": "Rituals and symbols in everyday connection:",
-      "question_text": "Rituals and symbols in everyday connection:",
-      "choices": [
-        { "label": "Central—phrases, tokens, small ceremonies", "value": "central", "tags": ["ritual_devotion","marking_symbol"], "weights": { "Oracle": 2, "Alchemist": 1 } },
-        { "label": "Nice to have—adds flavor", "value": "nice", "tags": ["ritual_light","aesthetic"], "weights": { "Keystone": 1, "Connoisseur": 1 } },
-        { "label": "Not important to me", "value": "not_important", "tags": ["low_ritual"], "weights": { "Explorer": 2 } }
-      ]
-    },
-    {
-      "id": "KI11",
-      "type": "multi",
-      "text": "Games/challenges that sound fun:",
-      "question_text": "Games/challenges that sound fun:",
-      "choices": [
-        { "label": "Tasks or prompt-following (lists, signals, rules)", "value": "prompts", "tags": ["order_prompts","structure_play"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
-        { "label": "Time trials/beat-the-clock", "value": "timer", "tags": ["performance","intensity"], "weights": { "Vanguard": 1, "Catalyst": 1 } },
-        { "label": "Scavenger/clue hunts and puzzles", "value": "scavenger", "tags": ["adventure","discovery"], "weights": { "Explorer": 2 } },
-        { "label": "Improv dares and playful curveballs", "value": "improv", "tags": ["improv","tease_play"], "weights": { "Catalyst": 2 } }
-      ]
-    },
-    {
-      "id": "KI12",
-      "type": "single",
-      "text": "Setting that energizes me most:",
-      "question_text": "Setting that energizes me most:",
-      "choices": [
-        { "label": "Private sanctuary", "value": "private", "tags": ["private","attunement"], "weights": { "Keystone": 2, "Oracle": 1 } },
-        { "label": "Tasteful public setting", "value": "public_tasteful", "tags": ["public_tasteful","presentation"], "weights": { "Connoisseur": 2 } },
-        { "label": "Community buzz/being seen", "value": "community", "tags": ["exhibition","performance"], "weights": { "Catalyst": 2, "Vanguard": 1 } },
-        { "label": "Outdoor adventure", "value": "outdoor", "tags": ["outdoor","adventure"], "weights": { "Explorer": 2 } }
-      ]
-    },
-    {
-      "id": "KI13",
-      "type": "multi",
-      "text": "Objects and textures I’m a little obsessed with:",
-      "question_text": "Objects and textures I’m a little obsessed with:",
-      "choices": [
-        { "label": "Books, paper, ink, stationery", "value": "paper", "tags": ["object_fetish_paper","aesthetic"], "weights": { "Connoisseur": 1, "Oracle": 1 } },
-        { "label": "Gadgets/tools/instruments", "value": "tools", "tags": ["object_fetish_tools","precision"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
-        { "label": "Textiles (weaves, knits, lace)", "value": "textiles", "tags": ["object_fetish_textile","sensation_texture"], "weights": { "Connoisseur": 2 } }
-      ]
-    },
-    {
-      "id": "KI14",
-      "type": "multi",
-      "text": "Attention dynamics I enjoy:",
-      "question_text": "Attention dynamics I enjoy:",
-      "choices": [
-        { "label": "Being admired/looked at", "value": "admired", "tags": ["exhibition","attention_kink"], "weights": { "Catalyst": 2 } },
-        { "label": "Being inspected/presented (outfits, posture, polish)", "value": "inspected", "tags": ["inspection_aesthetic","presentation"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
-        { "label": "Being doted on/pampered", "value": "doted", "tags": ["pamper_care","service_care"], "weights": { "Keystone": 2 } },
-        { "label": "Being the teaser/instigator", "value": "instigator", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
-      ]
-    },
-    {
-      "id": "KI15",
-      "type": "single",
-      "text": "Consent/communication style that fits me:",
-      "question_text": "Consent/communication style that fits me:",
-      "choices": [
-        { "label": "Structured check-ins and clear signals", "value": "structured", "tags": ["protocol_signals","order_prompts"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
-        { "label": "Simple cues with shared understanding", "value": "simple", "tags": ["minimal_signals","attunement"], "weights": { "Keystone": 1, "Explorer": 1 } },
-        { "label": "Ritualized signals (phrases, gestures)", "value": "ritual_signals", "tags": ["ritual_devotion","meaning"], "weights": { "Oracle": 1, "Alchemist": 1 } },
-        { "label": "Playful code words", "value": "playful", "tags": ["improv","tease_play"], "weights": { "Catalyst": 1 } }
-      ]
-    },
-    {
-      "id": "KI16",
-      "type": "single",
-      "text": "Symbolic marking I like (if any):",
-      "question_text": "Symbolic marking I like (if any):",
-      "choices": [
-        { "label": "Subtle signals (jewelry, scent, color code)", "value": "subtle", "tags": ["marking_symbol","discreet_signals"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
-        { "label": "Visible style statements (lipstick print, stamp/ink, bold accessory)", "value": "visible_style", "tags": ["marking_symbol","exhibition"], "weights": { "Catalyst": 1 } },
-        { "label": "Prefer not to mark", "value": "no_mark", "tags": ["low_marking"], "weights": { "Explorer": 1 } }
-      ]
-    },
-    {
-      "id": "KI17",
-      "type": "single",
-      "text": "Playful character or creature energy:",
-      "question_text": "Playful character or creature energy:",
-      "choices": [
-        { "label": "Mythic/heroic/magical archetypes", "value": "mythic", "tags": ["roleplay_archetypal","fantasy_lore"], "weights": { "Oracle": 2, "Alchemist": 1 } },
-        { "label": "Animal-adjacent vibes (ears/tail/collar aesthetic)", "value": "creature", "tags": ["animal_role_adjacent","costume_signal"], "weights": { "Catalyst": 1, "Explorer": 1 } },
-        { "label": "No character play for me", "value": "no_char", "tags": ["low_roleplay"], "weights": { "Keystone": 1 } }
-      ]
-    },
-    {
-      "id": "KI18",
-      "type": "single",
-      "text": "Choreography vs. freestyle:",
-      "question_text": "Choreography vs. freestyle:",
-      "choices": [
-        { "label": "Posture/pose and presentation cues", "value": "pose", "tags": ["pose_posture","inspection_aesthetic"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
-        { "label": "Structured routines/steps", "value": "routine", "tags": ["choreography","order_prompts"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
-        { "label": "Freestyle, spontaneous flow", "value": "freestyle", "tags": ["improv","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
-      ]
-    },
-    {
-      "id": "KI19",
-      "type": "single",
-      "text": "When the vibe dips, my favorite quick reset is…",
-      "question_text": "When the vibe dips, my favorite quick reset is…",
-      "choices": [
-        { "label": "A tiny ritual (one breath, one phrase, one token)", "value": "reset_ritual", "tags": ["ritual_devotion","meaning"], "weights": { "Alchemist": 1, "Oracle": 0.5 } },
-        { "label": "A playful pattern-break (90-second mini-game)", "value": "reset_play", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 1 } },
-        { "label": "A clear directive or A/B choice", "value": "reset_command", "tags": ["command_energy","order_prompts"], "weights": { "Vanguard": 1 } },
-        { "label": "A small act of care (water, blanket, snack)", "value": "reset_care", "tags": ["service_care","aftercare_soft"], "weights": { "Keystone": 1 } }
-      ]
-    },
-    {
-      "id": "KI20",
-      "type": "single",
-      "text": "Tempo that feels best most days:",
-      "question_text": "Tempo that feels best most days:",
-      "choices": [
-        { "label": "Slow, intentional, savoring", "value": "tempo_slow", "tags": ["tempo_play","attunement","aesthetic"], "weights": { "Connoisseur": 0.5, "Oracle": 0.5 } },
-        { "label": "Waves—rise and fall with check-ins", "value": "tempo_waves", "tags": ["tempo_play","attunement"], "weights": { "Keystone": 0.5, "Explorer": 0.5 } },
-        { "label": "Fast, lively, momentum-forward", "value": "tempo_fast", "tags": ["momentum","performance"], "weights": { "Catalyst": 0.5, "Vanguard": 0.5 } }
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "KI1",
+    "question": "On a free afternoon, I’m most excited to…",
+    "type": "single",
+    "choices": [
+      { "label": "Tinker/make something with my hands (sewing, DIY, knotting, craft)", "value": "make", "tags": ["craftsmanship","precision","bondage_rope_art_adjacent"], "weights": { "Connoisseur": 2, "Explorer": 1 } },
+      { "label": "Do something physically challenging (climb, sprints, long hike)", "value": "challenge", "tags": ["intensity","endurance","adventure"], "weights": { "Vanguard": 2, "Catalyst": 1 } },
+      { "label": "Curate/organize a space or collection", "value": "curate", "tags": ["aesthetic","order","protocol_like"], "weights": { "Connoisseur": 2, "Keystone": 1 } },
+      { "label": "Journal, meditate, or create a small ritual", "value": "reflect", "tags": ["ritual_devotion","meaning","focus"], "weights": { "Oracle": 2, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KI2",
+    "question": "Materials/aesthetics that pull me in:",
+    "type": "multi",
+    "choices": [
+      { "label": "Leather or patina’d natural materials", "value": "leather", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 2, "Keystone": 1 } },
+      { "label": "Latex/PVC or ultra-glossy finishes", "value": "latex", "tags": ["latex_fashion","shine"], "weights": { "Connoisseur": 2, "Catalyst": 1 } },
+      { "label": "Silk/nylon (stockings, scarves, satins)", "value": "silk", "tags": ["hosiery_focus","silk_nylon","sensation_texture"], "weights": { "Connoisseur": 1, "Alchemist": 1 } },
+      { "label": "Minimalist/clinical clean lines", "value": "clinical", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } }
+    ]
+  },
+  {
+    "id": "KI3",
+    "question": "Fashion details that catch my attention most:",
+    "type": "multi",
+    "choices": [
+      { "label": "Footwear (heels, boots)", "value": "footwear", "tags": ["footwear_focus","aesthetic"], "weights": { "Connoisseur": 2 } },
+      { "label": "Gloves/hands", "value": "gloves", "tags": ["glove_focus","aesthetic"], "weights": { "Connoisseur": 1, "Catalyst": 1 } },
+      { "label": "Hosiery/tights/stockings", "value": "hosiery", "tags": ["hosiery_focus","silk_nylon"], "weights": { "Connoisseur": 2 } },
+      { "label": "Jewelry/collars/statement chokers", "value": "jewelry", "tags": ["marking_symbol","presentation"], "weights": { "Connoisseur": 1, "Oracle": 1 } }
+    ]
+  },
+  {
+    "id": "KI4",
+    "question": "Voice and sound that work on me:",
+    "type": "multi",
+    "choices": [
+      { "label": "Praise-heavy tone", "value": "praise", "tags": ["praise_focus","attention_kink"], "weights": { "Keystone": 2 } },
+      { "label": "Short, crisp direction", "value": "crisp", "tags": ["command_energy","order_prompts"], "weights": { "Vanguard": 2 } },
+      { "label": "Poetic/evocative whisper", "value": "poetic", "tags": ["poetic_voice","trance_adjacent"], "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Playful/teasing banter", "value": "tease", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KI5",
+    "question": "Scent or atmosphere cues I love:",
+    "type": "multi",
+    "choices": [
+      { "label": "Cologne/perfume and warm skin", "value": "scent_skin", "tags": ["scent_aroma","aftercare_soft"], "weights": { "Keystone": 1, "Alchemist": 1 } },
+      { "label": "Leather/oil/wood shop vibes", "value": "scent_leather", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 2 } },
+      { "label": "Incense/candle/ritual smoke", "value": "scent_ritual", "tags": ["ritual_devotion","meaning"], "weights": { "Oracle": 2 } },
+      { "label": "Clean linen/sterile/ozone", "value": "scent_clean", "tags": ["clinical_aesthetic","precision"], "weights": { "Connoisseur": 1 } }
+    ]
+  },
+  {
+    "id": "KI6",
+    "question": "Visual framing that excites me:",
+    "type": "single",
+    "choices": [
+      { "label": "Mirror play or camera angles", "value": "mirror", "tags": ["mirror_camera","self_presentation"], "weights": { "Catalyst": 2, "Connoisseur": 1 } },
+      { "label": "Being seen by an audience (big or small)", "value": "audience", "tags": ["exhibition","performance"], "weights": { "Catalyst": 2, "Vanguard": 1 } },
+      { "label": "Private, candlelit, low-light focus", "value": "private_light", "tags": ["private","attunement"], "weights": { "Keystone": 2, "Oracle": 1 } }
+    ]
+  },
+  {
+    "id": "KI7",
+    "question": "Touch/pressure palette that feels best:",
+    "type": "multi",
+    "choices": [
+      { "label": "Firm pressure/weight", "value": "firm", "tags": ["sensation_pressure","grounding"], "weights": { "Keystone": 1, "Vanguard": 1 } },
+      { "label": "Light touch/trace", "value": "light", "tags": ["sensation_light","tease_play"], "weights": { "Connoisseur": 1, "Catalyst": 1 } },
+      { "label": "Temperature contrast (hot/cold)", "value": "temp", "tags": ["temperature_contrast","sensation_temperature"], "weights": { "Explorer": 1, "Alchemist": 1 } },
+      { "label": "Rhythmic percussion patterns", "value": "rhythm", "tags": ["rhythm_thud_sting_adjacent","tempo_play"], "weights": { "Vanguard": 1, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KI8",
+    "question": "Anticipation and reveals:",
+    "type": "single",
+    "choices": [
+      { "label": "Love slow burn and delayed rewards", "value": "slow_burn", "tags": ["denial_anticipation","tease_play"], "weights": { "Alchemist": 2, "Catalyst": 1 } },
+      { "label": "Enjoy some tease, then release", "value": "moderate_tease", "tags": ["moderate_denial","tempo_play"], "weights": { "Connoisseur": 1 } },
+      { "label": "Prefer immediate payoffs", "value": "immediate", "tags": ["low_denial","momentum"], "weights": { "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KI9",
+    "question": "Roles/themes I’m drawn to (as me or from others):",
+    "type": "multi",
+    "choices": [
+      { "label": "Mentor/guide/teacher energy", "value": "mentor", "tags": ["role_mentor","devotional_focus"], "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Authority/commander energy", "value": "authority", "tags": ["role_authority","command_energy"], "weights": { "Vanguard": 2 } },
+      { "label": "Caretaker/service/care energy", "value": "caretaker", "tags": ["service_care","stability"], "weights": { "Keystone": 2 } },
+      { "label": "Scout/adventurer/playmaker", "value": "scout", "tags": ["role_scout","adventure"], "weights": { "Explorer": 2, "Catalyst": 1 } },
+      { "label": "Performer/muse", "value": "muse", "tags": ["performance","exhibition"], "weights": { "Catalyst": 2 } }
+    ]
+  },
+  {
+    "id": "KI10",
+    "question": "Rituals and symbols in everyday connection:",
+    "type": "single",
+    "choices": [
+      { "label": "Central—phrases, tokens, small ceremonies", "value": "central", "tags": ["ritual_devotion","marking_symbol"], "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Nice to have—adds flavor", "value": "nice", "tags": ["ritual_light","aesthetic"], "weights": { "Keystone": 1, "Connoisseur": 1 } },
+      { "label": "Not important to me", "value": "not_important", "tags": ["low_ritual"], "weights": { "Explorer": 2 } }
+    ]
+  },
+  {
+    "id": "KI11",
+    "question": "Games/challenges that sound fun:",
+    "type": "multi",
+    "choices": [
+      { "label": "Tasks or prompt-following (lists, signals, rules)", "value": "prompts", "tags": ["order_prompts","structure_play"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
+      { "label": "Time trials/beat-the-clock", "value": "timer", "tags": ["performance","intensity"], "weights": { "Vanguard": 1, "Catalyst": 1 } },
+      { "label": "Scavenger/clue hunts and puzzles", "value": "scavenger", "tags": ["adventure","discovery"], "weights": { "Explorer": 2 } },
+      { "label": "Improv dares and playful curveballs", "value": "improv", "tags": ["improv","tease_play"], "weights": { "Catalyst": 2 } }
+    ]
+  },
+  {
+    "id": "KI12",
+    "question": "Setting that energizes me most:",
+    "type": "single",
+    "choices": [
+      { "label": "Private sanctuary", "value": "private", "tags": ["private","attunement"], "weights": { "Keystone": 2, "Oracle": 1 } },
+      { "label": "Tasteful public setting", "value": "public_tasteful", "tags": ["public_tasteful","presentation"], "weights": { "Connoisseur": 2 } },
+      { "label": "Community buzz/being seen", "value": "community", "tags": ["exhibition","performance"], "weights": { "Catalyst": 2, "Vanguard": 1 } },
+      { "label": "Outdoor adventure", "value": "outdoor", "tags": ["outdoor","adventure"], "weights": { "Explorer": 2 } }
+    ]
+  },
+  {
+    "id": "KI13",
+    "question": "Objects and textures I’m a little obsessed with:",
+    "type": "multi",
+    "choices": [
+      { "label": "Books, paper, ink, stationery", "value": "paper", "tags": ["object_fetish_paper","aesthetic"], "weights": { "Connoisseur": 1, "Oracle": 1 } },
+      { "label": "Gadgets/tools/instruments", "value": "tools", "tags": ["object_fetish_tools","precision"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
+      { "label": "Textiles (weaves, knits, lace)", "value": "textiles", "tags": ["object_fetish_textile","sensation_texture"], "weights": { "Connoisseur": 2 } }
+    ]
+  },
+  {
+    "id": "KI14",
+    "question": "Attention dynamics I enjoy:",
+    "type": "multi",
+    "choices": [
+      { "label": "Being admired/looked at", "value": "admired", "tags": ["exhibition","attention_kink"], "weights": { "Catalyst": 2 } },
+      { "label": "Being inspected/presented (outfits, posture, polish)", "value": "inspected", "tags": ["inspection_aesthetic","presentation"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
+      { "label": "Being doted on/pampered", "value": "doted", "tags": ["pamper_care","service_care"], "weights": { "Keystone": 2 } },
+      { "label": "Being the teaser/instigator", "value": "instigator", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KI15",
+    "question": "Consent/communication style that fits me:",
+    "type": "single",
+    "choices": [
+      { "label": "Structured check-ins and clear signals", "value": "structured", "tags": ["protocol_signals","order_prompts"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
+      { "label": "Simple cues with shared understanding", "value": "simple", "tags": ["minimal_signals","attunement"], "weights": { "Keystone": 1, "Explorer": 1 } },
+      { "label": "Ritualized signals (phrases, gestures)", "value": "ritual_signals", "tags": ["ritual_devotion","meaning"], "weights": { "Oracle": 1, "Alchemist": 1 } },
+      { "label": "Playful code words", "value": "playful", "tags": ["improv","tease_play"], "weights": { "Catalyst": 1 } }
+    ]
+  },
+  {
+    "id": "KI16",
+    "question": "Symbolic marking I like (if any):",
+    "type": "single",
+    "choices": [
+      { "label": "Subtle signals (jewelry, scent, color code)", "value": "subtle", "tags": ["marking_symbol","discreet_signals"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
+      { "label": "Visible style statements (lipstick print, stamp/ink, bold accessory)", "value": "visible_style", "tags": ["marking_symbol","exhibition"], "weights": { "Catalyst": 1 } },
+      { "label": "Prefer not to mark", "value": "no_mark", "tags": ["low_marking"], "weights": { "Explorer": 1 } }
+    ]
+  },
+  {
+    "id": "KI17",
+    "question": "Playful character or creature energy:",
+    "type": "single",
+    "choices": [
+      { "label": "Mythic/heroic/magical archetypes", "value": "mythic", "tags": ["roleplay_archetypal","fantasy_lore"], "weights": { "Oracle": 2, "Alchemist": 1 } },
+      { "label": "Animal-adjacent vibes (ears/tail/collar aesthetic)", "value": "creature", "tags": ["animal_role_adjacent","costume_signal"], "weights": { "Catalyst": 1, "Explorer": 1 } },
+      { "label": "No character play for me", "value": "no_char", "tags": ["low_roleplay"], "weights": { "Keystone": 1 } }
+    ]
+  },
+  {
+    "id": "KI18",
+    "question": "Choreography vs. freestyle:",
+    "type": "single",
+    "choices": [
+      { "label": "Posture/pose and presentation cues", "value": "pose", "tags": ["pose_posture","inspection_aesthetic"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
+      { "label": "Structured routines/steps", "value": "routine", "tags": ["choreography","order_prompts"], "weights": { "Connoisseur": 1, "Keystone": 1 } },
+      { "label": "Freestyle, spontaneous flow", "value": "freestyle", "tags": ["improv","momentum"], "weights": { "Catalyst": 2, "Explorer": 1 } }
+    ]
+  },
+
+  {
+    "id": "KI19",
+    "question": "Lighting & sound palette I enjoy most:",
+    "type": "single",
+    "choices": [
+      { "label": "Warm low-light with ambient soundscapes", "value": "warm_ambient", "tags": ["private","attunement","aesthetic"], "weights": { "Keystone": 1, "Oracle": 1 } },
+      { "label": "Clean, bright minimalism with a steady beat", "value": "clean_minimal", "tags": ["clinical_aesthetic","tempo_play","precision"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
+      { "label": "Flexible—switching between modes keeps it fresh", "value": "flexible_modes", "tags": ["novelty","adventure"], "weights": { "Explorer": 1, "Catalyst": 1 } }
+    ]
+  },
+  {
+    "id": "KI20",
+    "question": "Visibility appetite (when trust is present):",
+    "type": "single",
+    "choices": [
+      { "label": "Just between us—private attention feels best", "value": "private_focus", "tags": ["private","attunement"], "weights": { "Keystone": 2 } },
+      { "label": "Small trusted audience can feel energizing", "value": "small_trusted", "tags": ["exhibition","performance"], "weights": { "Catalyst": 1, "Connoisseur": 1 } },
+      { "label": "Tasteful public vibe can be exciting to sample", "value": "tasteful_public", "tags": ["public_tasteful","presentation"], "weights": { "Vanguard": 1, "Connoisseur": 1 } }
+    ]
+  },
+  {
+    "id": "KI21",
+    "question": "Power flavor I’m most drawn to (in tone):",
+    "type": "multi",
+    "choices": [
+      { "label": "Mentor/guide—clear, kind, thoughtful", "value": "power_mentor", "tags": ["role_mentor","devotional_focus"], "weights": { "Oracle": 2 } },
+      { "label": "Playful tease—daring, momentum, mischief", "value": "power_tease", "tags": ["tease_play","momentum"], "weights": { "Catalyst": 2 } },
+      { "label": "Crisp command—decisive, clean tempo", "value": "power_command", "tags": ["command_energy","tempo_play"], "weights": { "Vanguard": 2 } },
+      { "label": "Gentle caretaker—steady, attentive presence", "value": "power_care", "tags": ["service_care","stability"], "weights": { "Keystone": 2 } }
+    ]
+  },
+  {
+    "id": "KI22",
+    "question": "Scene vibe that most appeals:",
+    "type": "single",
+    "choices": [
+      { "label": "Mission/quest energy—scouting, discovery", "value": "mission_quest", "tags": ["adventure","role_scout"], "weights": { "Explorer": 2 } },
+      { "label": "Gallery/presentation energy—staging, reveal", "value": "gallery_presentation", "tags": ["presentation","inspection_aesthetic"], "weights": { "Connoisseur": 2 } },
+      { "label": "Sanctuary energy—quiet, focused, cocooned", "value": "sanctuary", "tags": ["private","attunement"], "weights": { "Keystone": 2 } }
+    ]
+  },
+  {
+    "id": "KI23",
+    "question": "Energetic cadence I prefer most often:",
+    "type": "single",
+    "choices": [
+      { "label": "High-energy waves feel exhilarating", "value": "high_energy", "tags": ["intensity","performance"], "weights": { "Vanguard": 1, "Catalyst": 1 } },
+      { "label": "Medium, steady flow feels best", "value": "medium_steady", "tags": ["stability","grounding"], "weights": { "Keystone": 1 } },
+      { "label": "Slower, subtle shifts feel richest", "value": "slow_subtle", "tags": ["attunement","meaning"], "weights": { "Oracle": 1, "Alchemist": 1 } }
+    ]
+  },
+  {
+    "id": "KI24",
+    "question": "If props or materials are involved, I lean toward:",
+    "type": "multi",
+    "choices": [
+      { "label": "Soft textiles and textures", "value": "soft_textiles", "tags": ["sensation_texture","silk_nylon"], "weights": { "Connoisseur": 1, "Alchemist": 1 } },
+      { "label": "Leather/gear aesthetics", "value": "gear_aesthetic", "tags": ["leather_aesthetic","gear_care"], "weights": { "Connoisseur": 1 } },
+      { "label": "Minimal—just presence and connection", "value": "minimal_presence", "tags": ["private","attunement"], "weights": { "Keystone": 1 } }
+    ]
+  },
+  {
+    "id": "KI25",
+    "question": "Symbolic gestures that appeal to me:",
+    "type": "multi",
+    "choices": [
+      { "label": "Posture/pose and held attention", "value": "symbol_pose", "tags": ["pose_posture","presentation"], "weights": { "Connoisseur": 1, "Vanguard": 1 } },
+      { "label": "Tokens/objects with meaning", "value": "symbol_tokens", "tags": ["marking_symbol","ritual_devotion"], "weights": { "Oracle": 1, "Alchemist": 1 } },
+      { "label": "Short phrases or mantras", "value": "symbol_phrases", "tags": ["meaning","poetic_voice"], "weights": { "Oracle": 1 } }
+    ]
+  },
+  {
+    "id": "KI26",
+    "question": "Change over time:",
+    "type": "single",
+    "choices": [
+      { "label": "I like long arcs with repeating motifs", "value": "long_arc", "tags": ["stability","aesthetic"], "weights": { "Keystone": 1, "Connoisseur": 1 } },
+      { "label": "I like frequent switching to keep discovery alive", "value": "frequent_switch", "tags": ["novelty","adventure"], "weights": { "Explorer": 1, "Catalyst": 1 } },
+      { "label": "Either works; I follow the moment", "value": "either_follow", "tags": ["attunement","momentum"], "weights": { "Oracle": 1 } }
+    ]
+  }
+]
