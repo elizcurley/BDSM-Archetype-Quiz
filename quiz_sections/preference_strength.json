@@ -1,246 +1,111 @@
 {
-  "version": 2,
+  "version": 1,
   "section": "preference_strength",
   "title": "Preference strength",
-  "description": "Quick calibrators about what you prefer right now. These gently tilt your archetype balance; there are no right answers.",
+  "description": "How strongly these tendencies feel true for you most of the time. These lightly tilt your archetype scores (they do not dominate).",
   "questions": [
     {
-      "id": "PS01",
-      "type": "likert_scale",
-      "archetype": "Alchemist",
-      "text": "Small rituals (a phrase, breath, or token) meaningfully change my headspace.",
-      "question_text": "Small rituals (a phrase, breath, or token) meaningfully change my headspace.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS02",
-      "type": "likert_scale",
+      "id": "PS1",
       "archetype": "Catalyst",
-      "text": "Playful dares and mini-games quickly spark my energy.",
-      "question_text": "Playful dares and mini-games quickly spark my energy.",
+      "type": "likert_scale",
+      "question_text": "Playful sparks and tiny dares are a go-to way I reset energy and get moving.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
-      "id": "PS03",
+      "id": "PS2",
+      "archetype": "Catalyst",
       "type": "likert_scale",
-      "archetype": "Connoisseur",
-      "text": "Presentation and finesse (music, lighting, pacing) matter as much as the activity.",
-      "question_text": "Presentation and finesse (music, lighting, pacing) matter as much as the activity.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS04",
-      "type": "likert_scale",
-      "archetype": "Explorer",
-      "text": "Trying small, new twists excites me more than repeating the exact same script.",
-      "question_text": "Trying small, new twists excites me more than repeating the exact same script.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS05",
-      "type": "likert_scale",
-      "archetype": "Keystone",
-      "text": "Predictable rhythms and clear expectations help me relax into connection.",
-      "question_text": "Predictable rhythms and clear expectations help me relax into connection.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS06",
-      "type": "likert_scale",
-      "archetype": "Oracle",
-      "text": "Talking about meaning (what we want to feel and why) deepens my desire.",
-      "question_text": "Talking about meaning (what we want to feel and why) deepens my desire.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS07",
-      "type": "likert_scale",
-      "archetype": "Vanguard",
-      "text": "Clear invitations and decisive calls feel kinder than prolonged ambiguity.",
-      "question_text": "Clear invitations and decisive calls feel kinder than prolonged ambiguity.",
+      "question_text": "When a moment feels flat, I naturally turn it into a quick game or prompt.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
 
     {
-      "id": "PS08",
-      "type": "numeric_scale",
-      "archetype": "Alchemist",
-      "text": "How much do you want ritual and symbolism in your connection right now?",
-      "question_text": "How much do you want ritual and symbolism in your connection right now?",
-      "min": 0,
-      "max": 10
+      "id": "PS3",
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "A steady drip of novelty (small twists, new angles) matters to me week-to-week.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
-      "id": "PS09",
-      "type": "numeric_scale",
-      "archetype": "Catalyst",
-      "text": "How much do you want playful tension and pattern-breaking right now?",
-      "question_text": "How much do you want playful tension and pattern-breaking right now?",
-      "min": 0,
-      "max": 10
+      "id": "PS4",
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "If a more interesting thread appears, I enjoy pivoting mid-plan to follow curiosity.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+
+    {
+      "id": "PS5",
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Private, cozy settings with familiar rhythms are my default sweet spot.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PS6",
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Predictable pacing helps me feel grounded and present—even during excitement.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+
+    {
+      "id": "PS7",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "Clean, decisive beats (A/B calls, clear tempo) feel kinder than hovering in uncertainty.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PS8",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "Challenge and a bit of pressure bring out my best focus and enjoyment when trust is present.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+
+    {
+      "id": "PS9",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Quality and finesse (pacing, texture, presentation) meaningfully influence my desire and engagement.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS10",
-      "type": "numeric_scale",
       "archetype": "Connoisseur",
-      "text": "How much do you want polish and sensory finesse right now?",
-      "question_text": "How much do you want polish and sensory finesse right now?",
-      "min": 0,
-      "max": 10
+      "type": "likert_scale",
+      "question_text": "Symmetry, staging, and small details catch my attention and elevate the experience for me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
+
     {
       "id": "PS11",
-      "type": "numeric_scale",
-      "archetype": "Explorer",
-      "text": "How much do you want novelty and discovery right now?",
-      "question_text": "How much do you want novelty and discovery right now?",
-      "min": 0,
-      "max": 10
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "Naming what we want to feel (not just what to do) deepens my interest and connection.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS12",
-      "type": "numeric_scale",
-      "archetype": "Keystone",
-      "text": "How much do you want routine and steady rhythms right now?",
-      "question_text": "How much do you want routine and steady rhythms right now?",
-      "min": 0,
-      "max": 10
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "Mentor-style guidance (clear, kind, thoughtful) is especially attractive to me when I trust the person offering it.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
+
     {
       "id": "PS13",
-      "type": "numeric_scale",
-      "archetype": "Oracle",
-      "text": "How much do you want clarity and meaning-making right now?",
-      "question_text": "How much do you want clarity and meaning-making right now?",
-      "min": 0,
-      "max": 10
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "Small rituals or symbolic cues (a word, a look, a token) noticeably shift my headspace in a good way.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PS14",
-      "type": "numeric_scale",
-      "archetype": "Vanguard",
-      "text": "How much do you want clear guardrails and leadership right now?",
-      "question_text": "How much do you want clear guardrails and leadership right now?",
-      "min": 0,
-      "max": 10
-    },
-
-    {
-      "id": "PS15",
-      "type": "likert_scale",
       "archetype": "Alchemist",
-      "text": "Begin–middle–end structure helps me enter, deepen, and land experiences.",
-      "question_text": "Begin–middle–end structure helps me enter, deepen, and land experiences.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS16",
       "type": "likert_scale",
-      "archetype": "Alchemist",
-      "text": "Symbolic marking (phrases, tokens, gestures) makes connection feel anchored for me.",
-      "question_text": "Symbolic marking (phrases, tokens, gestures) makes connection feel anchored for me.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS17",
-      "type": "likert_scale",
-      "archetype": "Catalyst",
-      "text": "Quick resets (90-second games, playful dares) help me bounce back when energy dips.",
-      "question_text": "Quick resets (90-second games, playful dares) help me bounce back when energy dips.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS18",
-      "type": "likert_scale",
-      "archetype": "Catalyst",
-      "text": "I enjoy teasing and pattern-breaking when safety is clearly named and signals are crisp.",
-      "question_text": "I enjoy teasing and pattern-breaking when safety is clearly named and signals are crisp.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS19",
-      "type": "likert_scale",
-      "archetype": "Connoisseur",
-      "text": "Texture, symmetry, and staging meaningfully shape my experience of intimacy.",
-      "question_text": "Texture, symmetry, and staging meaningfully shape my experience of intimacy.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS20",
-      "type": "likert_scale",
-      "archetype": "Connoisseur",
-      "text": "I’d rather do fewer things with more finesse than more things with less polish.",
-      "question_text": "I’d rather do fewer things with more finesse than more things with less polish.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS21",
-      "type": "likert_scale",
-      "archetype": "Explorer",
-      "text": "A small dose of novelty most weeks keeps me energized and curious.",
-      "question_text": "A small dose of novelty most weeks keeps me energized and curious.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS22",
-      "type": "likert_scale",
-      "archetype": "Explorer",
-      "text": "I like rotating ‘same-but-fresh’ patterns instead of repeating a fixed script exactly.",
-      "question_text": "I like rotating ‘same-but-fresh’ patterns instead of repeating a fixed script exactly.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS23",
-      "type": "likert_scale",
-      "archetype": "Keystone",
-      "text": "Clear roles, rhythms, and small routines help me feel safe and present.",
-      "question_text": "Clear roles, rhythms, and small routines help me feel safe and present.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS24",
-      "type": "likert_scale",
-      "archetype": "Keystone",
-      "text": "Quiet co-regulation (water, warmth, a check-in) matters as much as the activity to me.",
-      "question_text": "Quiet co-regulation (water, warmth, a check-in) matters as much as the activity to me.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS25",
-      "type": "likert_scale",
-      "archetype": "Oracle",
-      "text": "I value being understood—sometimes as much as being agreed with—during hard moments.",
-      "question_text": "I value being understood—sometimes as much as being agreed with—during hard moments.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS26",
-      "type": "likert_scale",
-      "archetype": "Oracle",
-      "text": "Gentle, timely reflections (on request) help me orient and choose well in the moment.",
-      "question_text": "Gentle, timely reflections (on request) help me orient and choose well in the moment.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-
-    {
-      "id": "PS27",
-      "type": "likert_scale",
-      "archetype": "Vanguard",
-      "text": "I relax when boundaries, exits, and safety signals are explicit and close at hand.",
-      "question_text": "I relax when boundaries, exits, and safety signals are explicit and close at hand.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
-    },
-    {
-      "id": "PS28",
-      "type": "likert_scale",
-      "archetype": "Vanguard",
-      "text": "Decisive pacing with short feedback loops works better for me than prolonged ambiguity.",
-      "question_text": "Decisive pacing with short feedback loops works better for me than prolonged ambiguity.",
+      "question_text": "A slow-burn build and anticipation often feel richer to me than fast payoffs.",
       "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     }
   ]
