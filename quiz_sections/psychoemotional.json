@@ -1,85 +1,82 @@
 {
-  "version": 1,
-  "section": "psychoemotional",
-  "title": "Psycho-emotional style",
-  "description": "Broad, non-process signals about how you move through energy, novelty, pace, aesthetics, and meaning.",
+  "description": "Psychoemotional – behavior and interpersonal preferences that shape vibe, momentum, meaning, care, and pacing. Likert runs Strongly disagree → Strongly agree.",
   "questions": [
     {
       "id": "PE22",
       "archetype": "Catalyst",
       "type": "likert_scale",
-      "question_text": "I naturally turn routine tasks into little games or dares to bring energy back.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Turning chores or tense moments into tiny games comes naturally to me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE23",
       "archetype": "Explorer",
       "type": "likert_scale",
-      "question_text": "When something curious pops up, I enjoy taking a small detour to follow it.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Curiosity detours (little side quests) reliably make my day better.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE24",
       "archetype": "Keystone",
       "type": "likert_scale",
-      "question_text": "Packing small comforts and handling little logistics is one way I show care.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Packing care into logistics (water, snacks, timing) feels like love to me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE25",
       "archetype": "Connoisseur",
       "type": "likert_scale",
-      "question_text": "Presentation and symmetry noticeably increase my pleasure and presence.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Presentation and precision change the experience from okay to special for me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE26",
       "archetype": "Oracle",
       "type": "likert_scale",
-      "question_text": "Short, well-timed insights help me (and others) see what matters without derailing the moment.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Short, well-timed insights (one sentence) often help me and others land what’s true.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE27",
       "archetype": "Alchemist",
       "type": "likert_scale",
-      "question_text": "Tiny rituals or cues quickly shift my headspace in a good way.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Micro-rituals (a breath, a phrase, a small gesture) quickly shift my headspace.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE28",
       "archetype": "Vanguard",
       "type": "likert_scale",
-      "question_text": "I like a calm, confident pace—setting a clear tempo helps everyone relax.",
-      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
-      "weight": 1.0
+      "question_text": "Setting a calm, confident pace helps everyone relax—including me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
     },
     {
       "id": "PE29",
       "archetype": "Connoisseur",
       "type": "single",
-      "question_text": "Aesthetic pull—choose the one that draws you most right now:",
+      "question_text": "In visual setups, which balance feels most satisfying to you right now?",
+      "weight": 1.5,
       "choices": [
-        { "label": "Symmetry and staging", "value": "symmetry", "tags": ["presentation","precision"], "weights": { "Connoisseur": 1 } },
-        { "label": "Organic, improvised feel", "value": "organic", "tags": ["improv","aesthetic"], "weights": { "Explorer": 1 } },
-        { "label": "Minimal, clean lines", "value": "minimal", "tags": ["clinical_aesthetic"], "weights": { "Connoisseur": 0.5, "Vanguard": 0.5 } }
+        { "label": "Clean symmetry", "value": "symmetry" },
+        { "label": "Artful asymmetry", "value": "asymmetry" }
       ]
     },
     {
       "id": "PE30",
       "archetype": "Vanguard",
       "type": "single",
-      "question_text": "If I must pick one default approach, most days I prefer:",
+      "question_text": "When coordinating with others, what helps momentum most for you?",
+      "weight": 1.5,
       "choices": [
-        { "label": "Light plan then play", "value": "plan", "tags": ["tempo_play"], "weights": { "Vanguard": 1 } },
-        { "label": "Follow sparks with loose agreement", "value": "improv", "tags": ["improv","novelty"], "weights": { "Catalyst": 0.5, "Explorer": 0.5 } },
-        { "label": "Routine favorite then small twists", "value": "routine", "tags": ["stability"], "weights": { "Keystone": 1 } }
+        { "label": "A lightweight plan with clear roles and exits", "value": "plan" },
+        { "label": "Freeform—decide in the moment", "value": "freestyle" }
       ]
     }
   ]
