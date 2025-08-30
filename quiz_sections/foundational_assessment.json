@@ -1,18 +1,33 @@
 {
+  "version": 2,
+  "section": "foundational",
+  "title": "Foundational assessment",
+  "description": "Core tendencies that show up across contexts. These lightly inform your base archetype balance.",
   "questions": [
     {
       "id": "found_catalyst_initiative",
       "type": "likert_scale",
+      "text": "I naturally take initiative and get momentum going.",
       "question_text": "I naturally take initiative and get momentum going.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Catalyst",
       "weight": 1.2
     },
     {
       "id": "found_catalyst_social_ignition",
       "type": "likert_scale",
+      "text": "Around others, I tend to spark energy and get people engaged.",
       "question_text": "Around others, I tend to spark energy and get people engaged.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Catalyst",
+      "weight": 1.0
+    },
+    {
+      "id": "found_catalyst_pattern_break",
+      "type": "likert_scale",
+      "text": "I can shift stale moods with playful mischief or a quick challenge.",
+      "question_text": "I can shift stale moods with playful mischief or a quick challenge.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Catalyst",
       "weight": 1.0
     },
@@ -20,16 +35,27 @@
     {
       "id": "found_explorer_curiosity",
       "type": "likert_scale",
+      "text": "I actively seek out new experiences and perspectives.",
       "question_text": "I actively seek out new experiences and perspectives.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Explorer",
       "weight": 1.1
     },
     {
       "id": "found_explorer_ambiguity",
       "type": "likert_scale",
+      "text": "I feel energized—not stressed—by a bit of uncertainty or the unknown.",
       "question_text": "I feel energized—not stressed—by a bit of uncertainty or the unknown.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Explorer",
+      "weight": 1.0
+    },
+    {
+      "id": "found_explorer_experiment",
+      "type": "likert_scale",
+      "text": "I learn fastest by doing small experiments instead of long debates.",
+      "question_text": "I learn fastest by doing small experiments instead of long debates.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Explorer",
       "weight": 1.0
     },
@@ -37,33 +63,55 @@
     {
       "id": "found_keystone_reliability",
       "type": "likert_scale",
+      "text": "People rely on me to keep things grounded and steady.",
       "question_text": "People rely on me to keep things grounded and steady.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Keystone",
       "weight": 1.1
     },
     {
       "id": "found_keystone_routine_depth",
       "type": "likert_scale",
+      "text": "I prefer reliable routines that let me go deep over time.",
       "question_text": "I prefer reliable routines that let me go deep over time.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Keystone",
       "weight": 0.9
+    },
+    {
+      "id": "found_keystone_prepared",
+      "type": "likert_scale",
+      "text": "Being prepared and following through is part of how I show care.",
+      "question_text": "Being prepared and following through is part of how I show care.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Keystone",
+      "weight": 1.0
     },
 
     {
       "id": "found_vanguard_decisiveness",
       "type": "likert_scale",
+      "text": "When direction is needed, I’m comfortable making the call.",
       "question_text": "When direction is needed, I’m comfortable making the call.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Vanguard",
       "weight": 1.1
     },
     {
       "id": "found_vanguard_goal_edge",
       "type": "likert_scale",
+      "text": "Big, challenging goals bring out my best self.",
       "question_text": "Big, challenging goals bring out my best self.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+    {
+      "id": "found_vanguard_boundary",
+      "type": "likert_scale",
+      "text": "I’m good at setting clear boundaries and holding a course under pressure.",
+      "question_text": "I’m good at setting clear boundaries and holding a course under pressure.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Vanguard",
       "weight": 1.0
     },
@@ -71,16 +119,27 @@
     {
       "id": "found_oracle_patterning",
       "type": "likert_scale",
+      "text": "I notice patterns and dynamics that others might miss.",
       "question_text": "I notice patterns and dynamics that others might miss.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Oracle",
       "weight": 1.0
     },
     {
       "id": "found_oracle_meta_reflection",
       "type": "likert_scale",
+      "text": "I regularly zoom out to reflect on what’s really driving a situation.",
       "question_text": "I regularly zoom out to reflect on what’s really driving a situation.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Oracle",
+      "weight": 1.0
+    },
+    {
+      "id": "found_oracle_name_truth",
+      "type": "likert_scale",
+      "text": "I can put feelings or subtext into words in ways that land for people.",
+      "question_text": "I can put feelings or subtext into words in ways that land for people.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Oracle",
       "weight": 1.0
     },
@@ -88,33 +147,55 @@
     {
       "id": "found_connoisseur_craft",
       "type": "likert_scale",
+      "text": "I care about craft, detail, and elevating the experience for everyone involved.",
       "question_text": "I care about craft, detail, and elevating the experience for everyone involved.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Connoisseur",
       "weight": 1.1
     },
     {
       "id": "found_connoisseur_sensory",
       "type": "likert_scale",
+      "text": "The sensory quality (aesthetics, pacing, texture) matters a lot to me.",
       "question_text": "The sensory quality (aesthetics, pacing, texture) matters a lot to me.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Connoisseur",
       "weight": 0.9
+    },
+    {
+      "id": "found_connoisseur_tools_materials",
+      "type": "likert_scale",
+      "text": "I savor great tools and materials and notice small refinements.",
+      "question_text": "I savor great tools and materials and notice small refinements.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Connoisseur",
+      "weight": 1.0
     },
 
     {
       "id": "found_alchemist_change",
       "type": "likert_scale",
+      "text": "I enjoy guiding change—remixing what’s there into something new.",
       "question_text": "I enjoy guiding change—remixing what’s there into something new.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Alchemist",
       "weight": 1.1
     },
     {
       "id": "found_alchemist_adaptability",
       "type": "likert_scale",
+      "text": "When contexts shift, I adapt quickly and help others pivot too.",
       "question_text": "When contexts shift, I adapt quickly and help others pivot too.",
-      "response_options": ["Strongly agree","Somewhat agree","Neutral","Somewhat disagree","Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Alchemist",
+      "weight": 1.0
+    },
+    {
+      "id": "found_alchemist_ritual_sense",
+      "type": "likert_scale",
+      "text": "Marking beginnings and endings with small symbols or phrases feels natural to me.",
+      "question_text": "Marking beginnings and endings with small symbols or phrases feels natural to me.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Alchemist",
       "weight": 1.0
     }
