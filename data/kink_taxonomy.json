@@ -1,436 +1,393 @@
 {
   "version": 1,
+  "categories": [
+    "Ritual & Symbol",
+    "Power/Service",
+    "Aesthetic & Presentation",
+    "Sensation & Touch",
+    "Impact",
+    "Tempo & Cadence",
+    "Adventure & Setting",
+    "Communication & Voice",
+    "Objects & Materials",
+    "Care & Recovery"
+  ],
   "tags": {
     "ritual_devotion": {
       "category": "Ritual & Symbol",
-      "beginner": ["Intention card (one sentence)", "Opening breath + eye contact"],
-      "advanced": ["Call-and-response vow", "Token handover ritual"],
-      "safety": ["Agree exits up front; ritual is always optional"]
-    },
-    "meaning": {
-      "category": "Ritual & Symbol",
-      "beginner": ["Name a shared why", "One-line dedication"],
-      "advanced": ["Short guided visualization"],
-      "safety": ["Keep language invitational, never evaluative"]
+      "beginner": ["Candle + one-word intention"],
+      "advanced": ["Three-step opening/closing (breath · word · touch)"],
+      "safety": ["Opt-in only; keep rituals short; name an easy pause/stop word."]
     },
     "marking_symbol": {
       "category": "Ritual & Symbol",
-      "beginner": ["Symbolic jewelry or color cue", "Stamped card or ribbon"],
-      "advanced": ["Ceremonial presentation moment"],
-      "safety": ["Consent to visibility; agree where/when it’s worn"]
+      "beginner": ["Token with meaning (ring, ribbon, sticker)"],
+      "advanced": ["Daily micro-mark (color code, emblem) chosen together"],
+      "safety": ["Avoid permanent marks; align on privacy/visibility contexts."]
+    },
+    "poetic_voice": {
+      "category": "Ritual & Symbol",
+      "beginner": ["One evocative line to start"],
+      "advanced": ["Short guided image (30–60s) tied to a value"],
+      "safety": ["Avoid vague directives; confirm shared meaning first."]
+    },
+    "meaning": {
+      "category": "Ritual & Symbol",
+      "beginner": ["Name one feeling you want to invite"],
+      "advanced": ["Tiny ‘why card’ before you begin"],
+      "safety": ["Don’t use meaning to override boundaries or speed."]
     },
     "discreet_signals": {
       "category": "Ritual & Symbol",
-      "beginner": ["Subtle gesture code", "Low-key accessory signal"],
-      "advanced": ["Context-specific signal set"],
-      "safety": ["Avoid signals that risk outing; have removes"]
-    },
-    "roleplay_archetypal": {
-      "category": "Role & Theme",
-      "beginner": ["Pick a mythic adjective (no script)", "Name a theme to color the vibe"],
-      "advanced": ["Light scene frame with beginning–middle–end"],
-      "safety": ["Drop word to return to ordinary at any time"]
-    },
-    "fantasy_lore": {
-      "category": "Role & Theme",
-      "beginner": ["Symbol or prop from a favorite tale"],
-      "advanced": ["Mini quest prompt"],
-      "safety": ["Avoid copyrighted performance in public spaces"]
-    },
-    "animal_role_adjacent": {
-      "category": "Role & Theme",
-      "beginner": ["Ears/tail accessory or posture cue"],
-      "advanced": ["Short headspace cue + care checklist"],
-      "safety": ["No real restraint implied; keep communication open"]
-    },
-    "costume_signal": {
-      "category": "Role & Theme",
-      "beginner": ["Statement accessory", "Color code"],
-      "advanced": ["Lookbook card with dos/don’ts"],
-      "safety": ["Comfort-first fit; exit ready"]
+      "beginner": ["Subtle wearable cue (color, pin)"],
+      "advanced": ["Private gesture with shared meaning"],
+      "safety": ["Agree on contexts; no outing in public without consent."]
     },
 
-    "craftsmanship": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Prep tray with tools neatly arranged"],
-      "advanced": ["Small practice board for techniques"],
-      "safety": ["Practice slowly; never rush setup"]
-    },
-    "precision": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Micro-checklist for setup"],
-      "advanced": ["Timed polish pass (5 points)"],
-      "safety": ["Perfection not required—protect presence"]
-    },
-    "clinical_aesthetic": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Clean cloth + gloves + tidy surface"],
-      "advanced": ["Symmetry staging + reveal"],
-      "safety": ["Mind sterility claims; keep it aesthetic, not medical"]
-    },
-    "leather_aesthetic": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Leather care cloth + conditioner"],
-      "advanced": ["Curated leather tray presentation"],
-      "safety": ["Check for sensitivities"]
-    },
-    "latex_fashion": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Shine cloth + slip aid ready"],
-      "advanced": ["Quick polish reveal moment"],
-      "safety": ["Allergy check; ventilation"]
-    },
-    "shine": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Reflective surface or gloss accent"],
-      "advanced": ["Lighting angle for highlight"],
-      "safety": ["Avoid overheating lights"]
-    },
-    "hosiery_focus": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Stockings or tights laid out neatly"],
-      "advanced": ["Pattern reveal sequence"],
-      "safety": ["Snag-safe handling"]
-    },
-    "silk_nylon": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Silk scarf or soft textile"],
-      "advanced": ["Layered textures board"],
-      "safety": ["Watch skin sensitivities"]
-    },
-    "footwear_focus": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Chosen shoes staged with care"],
-      "advanced": ["Entrance/exit choreography for footwear"],
-      "safety": ["Stable footing; avoid slippery floors"]
-    },
-    "glove_focus": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Gloves as ritual cue"],
-      "advanced": ["Glove-on reveal moment"],
-      "safety": ["Material comfort; temperature"]
-    },
-    "gear_care": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Wipe-down + storage ritual"],
-      "advanced": ["Maintenance checklist"],
-      "safety": ["Inspect wear; retire damaged gear"]
-    },
-    "object_fetish_tools": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Tool lineup on cloth"],
-      "advanced": ["Numbered sequence to build anticipation"],
-      "safety": ["Tools are props; avoid unsafe misuse"]
-    },
-    "object_fetish_paper": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Handwritten card"],
-      "advanced": ["Sealed note to open later"],
-      "safety": ["Protect privacy in public"]
-    },
-    "object_fetish_textile": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Fabric swatch set to explore"],
-      "advanced": ["Texture progression board"],
-      "safety": ["Clean textiles; skin check"]
-    },
-    "presentation": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Tray + alignment pass"],
-      "advanced": ["Timed reveal and posture cue"],
-      "safety": ["Avoid shaming; celebrate effort"]
-    },
-    "inspection_aesthetic": {
-      "category": "Presentation & Attention",
-      "beginner": ["Posture cue + slow turn"],
-      "advanced": ["Checklist of 3 presentation points"],
-      "safety": ["Consent for gaze/inspection; keep it kind"]
-    },
-    "self_presentation": {
-      "category": "Presentation & Attention",
-      "beginner": ["Outfit curation mini-ritual"],
-      "advanced": ["Before/after capture for reflection"],
-      "safety": ["No sharing without explicit consent"]
-    },
-    "mirror_camera": {
-      "category": "Presentation & Attention",
-      "beginner": ["Place a mirror at a flattering angle"],
-      "advanced": ["Phone stand for framing practice"],
-      "safety": ["Media stays private by default"]
-    },
-    "exhibition": {
-      "category": "Presentation & Attention",
-      "beginner": ["Be-seen moment in a safe setting"],
-      "advanced": ["Micro performance beat (10–20s)"],
-      "safety": ["Venue-appropriate; consent to audience"]
-    },
-    "performance": {
-      "category": "Presentation & Attention",
-      "beginner": ["Entrance/exit beat + applause cue"],
-      "advanced": ["Short choreography snippet"],
-      "safety": ["Warm-up; avoid strain"]
-    },
-    "attention_kink": {
-      "category": "Presentation & Attention",
-      "beginner": ["Two specific compliments"],
-      "advanced": ["Admiration script (3 lines)"],
-      "safety": ["Compliments about choices, not bodies"]
-    },
-    "praise_focus": {
-      "category": "Communication",
-      "beginner": ["Praise-first feedback (name one win)"],
-      "advanced": ["Praise sandwich with actionable next"],
-      "safety": ["Keep praise sincere and specific"]
-    },
-    "poetic_voice": {
-      "category": "Communication",
-      "beginner": ["One evocative phrase as cue"],
-      "advanced": ["Short guided metaphor"],
-      "safety": ["Clarity stays nearby; avoid vagueness"]
-    },
-    "trance_adjacent": {
-      "category": "Communication",
-      "beginner": ["Breath pacing + soft cadence"],
-      "advanced": ["3-step drop-in script"],
-      "safety": ["Frequent check-ins; easy exits"]
-    },
-    "minimal_signals": {
-      "category": "Communication",
-      "beginner": ["One-stop sign + one pause sign"],
-      "advanced": ["Add a ‘slow down’ cue"],
-      "safety": ["Rehearse signals before intensity"]
-    },
-    "attunement": {
-      "category": "Communication",
-      "beginner": ["Name current energy in one sentence"],
-      "advanced": ["30–60s co-regulation breath"],
-      "safety": ["No pressure to share more than wanted"]
-    },
-    "protocol_signals": {
+    "command_energy": {
       "category": "Power/Service",
-      "beginner": ["Signal list card (3 items)"],
-      "advanced": ["Context rules for signals"],
-      "safety": ["Signals never override consent"]
+      "beginner": ["Three crisp prompts on a card"],
+      "advanced": ["Timed ‘follow my lead’ micro-interval (2–3 min)"],
+      "safety": ["Name exits; keep tone kind; no surprises with strangers."]
     },
     "order_prompts": {
       "category": "Power/Service",
-      "beginner": ["A/B prompts to keep flow"],
-      "advanced": ["Mini task list (3 items)"],
-      "safety": ["Tasks are invitations; easy opt-out"]
+      "beginner": ["Mini checklist (stand · breathe · return)"],
+      "advanced": ["Short sequence with a simple cadence (1–2–3)"],
+      "safety": ["Keep language neutral-to-kind; avoid shaming."]
     },
-    "command_energy": {
+    "role_authority": {
       "category": "Power/Service",
-      "beginner": ["Crisp directive with exit named"],
-      "advanced": ["Timeboxed directive with check-in"],
-      "safety": ["Tone kind; confirm consent to style"]
+      "beginner": ["Confident stance + clear A/B choices"],
+      "advanced": ["Small ‘inspection’ moment framed as celebration"],
+      "safety": ["Affirm worth; avoid criticism disguised as authority."]
     },
     "service_care": {
       "category": "Power/Service",
-      "beginner": ["Tiny care menu (water, blanket)"],
-      "advanced": ["Structured care interval (timer)"],
-      "safety": ["Capacity check before offering service"]
+      "beginner": ["Warm drink handoff ritual"],
+      "advanced": ["Coat/seat/blanket routine with eye contact"],
+      "safety": ["Treat service as a gift; not an obligation."]
     },
-    "stability": {
+    "protocol_like": {
       "category": "Power/Service",
-      "beginner": ["Plan + check-in windows"],
-      "advanced": ["Weekly rhythm card"],
-      "safety": ["Flex when capacity changes"]
+      "beginner": ["Simple entry posture or phrase"],
+      "advanced": ["Morning/evening micro-protocol (30–60s)"],
+      "safety": ["Keep it small; renegotiate if it becomes heavy."]
     },
 
-    "impact": {
-      "category": "Impact",
-      "beginner": ["Rhythm warmup with soft object"],
-      "advanced": ["Pattern ladder (3-2-1)"],
-      "safety": ["Range check; avoid joints; aftercare window"]
+    "clinical_aesthetic": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Minimal setup: clean lines + tray"],
+      "advanced": ["Staged ‘prep table’ with orderly layout"],
+      "safety": ["Aesthetic ≠ medical play; avoid medical claims."]
     },
-    "rhythm_thud_sting_adjacent": {
-      "category": "Impact",
-      "beginner": ["Metronome-style percussion warmup"],
-      "advanced": ["Directional pattern variations"],
-      "safety": ["Check-in at intensity shifts"]
+    "precision": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["One detail to refine (pace, angle, symmetry)"],
+      "advanced": ["Five-point polish pass before reveal"],
+      "safety": ["Refine without nit-picking people."]
+    },
+    "presentation": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Small reveal (jacket off, step/turn)"],
+      "advanced": ["Staged entry + pause for being seen"],
+      "safety": ["Celebrate; do not critique appearance."]
+    },
+    "inspection_aesthetic": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Posture cue + slow head-to-toe look"],
+      "advanced": ["‘Gallery’ moment with pose · turn · nod"],
+      "safety": ["Keep tone appreciative; consent to attention."]
+    },
+    "self_presentation": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Choose one signature detail (ring, scarf)"],
+      "advanced": ["Curated look with a theme (color/material)"],
+      "safety": ["Self-led; no pressure to perform."]
+    },
+    "mirror_camera": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Place a mirror for angle play"],
+      "advanced": ["Short guided posing sequence (count of 5)"],
+      "safety": ["Discuss phones/cameras, storage, and consent."]
+    },
+    "latex_fashion": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Gloss accent (gloves, belt)"],
+      "advanced": ["Full glossy look with reveal"],
+      "safety": ["Check for latex sensitivities; ventilation."]
+    },
+    "leather_aesthetic": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Leather accent (belt, cuff)"],
+      "advanced": ["Leather-forward outfit + care ritual"],
+      "safety": ["Mind scent sensitivity; gentle with skin."]
+    },
+    "shine": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Polished highlight (boots/jewelry)"],
+      "advanced": ["‘Shine’ reveal moment under light"],
+      "safety": ["Avoid bright glare; comfort first."]
+    },
+    "footwear_focus": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Footwear reveal + slow step/turn"],
+      "advanced": ["Seated spotlight + appreciative attention"],
+      "safety": ["Support ankles; no shaming."]
+    },
+    "glove_focus": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Glove on/off reveal"],
+      "advanced": ["Gesture play focusing on hands"],
+      "safety": ["Skin sensitivities; avoid face without consent."]
+    },
+    "hosiery_focus": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Hosiery accent + smooth reveal"],
+      "advanced": ["Staged look with line/sheen attention"],
+      "safety": ["No tearing/pulling; respect clothing care."]
     },
 
     "sensation_pressure": {
-      "category": "Sensation",
-      "beginner": ["Weighted blanket or firm hold"],
-      "advanced": ["Guided grounding press sequence"],
-      "safety": ["Avoid restricted breathing; ask comfort"]
-    },
-    "grounding": {
-      "category": "Sensation",
-      "beginner": ["Hand on back + breath count"],
-      "advanced": ["Body scan with steady touch"],
-      "safety": ["Opt out anytime"]
+      "category": "Sensation & Touch",
+      "beginner": ["Weighted blanket or firm hand on shoulders"],
+      "advanced": ["Progressive pressure ladder (light→medium)"],
+      "safety": ["Avoid joints/neck; check breathing/comfort."]
     },
     "sensation_light": {
-      "category": "Sensation",
-      "beginner": ["Featherlight tracing with fabric"],
-      "advanced": ["Edge-of-tickle timing game"],
-      "safety": ["Stop immediately if shielding starts"]
+      "category": "Sensation & Touch",
+      "beginner": ["Featherlight trace with fabric edge"],
+      "advanced": ["Light-to-firm contrast sequence"],
+      "safety": ["Avoid tickle overload; stay responsive."]
     },
     "sensation_texture": {
-      "category": "Sensation",
-      "beginner": ["Texture sampler (soft to coarse)"],
-      "advanced": ["Blindfolded texture guess"],
-      "safety": ["Skin check; avoid irritants"]
-    },
-    "sensation_temperature": {
-      "category": "Sensation",
-      "beginner": ["Warm/cool cloth contrast"],
-      "advanced": ["Timed alternation sequence"],
-      "safety": ["Comfortable ranges only; test first"]
+      "category": "Sensation & Touch",
+      "beginner": ["Texture sampler (silk, knit, lace)"],
+      "advanced": ["Blindfolded texture guessing game"],
+      "safety": ["Watch for abrasion; hygiene for fabrics."]
     },
     "temperature_contrast": {
-      "category": "Sensation",
-      "beginner": ["Mug of warm tea + cool ceramic"],
-      "advanced": ["Warm towel + cool airflow"],
-      "safety": ["Avoid extremes"]
+      "category": "Sensation & Touch",
+      "beginner": ["Warm mug vs. cool metal contrast"],
+      "advanced": ["Hot/cold alternation with safe household items"],
+      "safety": ["No extremes; test on forearm first."]
+    },
+    "sensation_temperature": {
+      "category": "Sensation & Touch",
+      "beginner": ["Heated towel + cool fan moment"],
+      "advanced": ["Slow warm-to-cool arc over clothing"],
+      "safety": ["Check skin conditions; avoid rapid shocks."]
     },
 
-    "tease_play": {
-      "category": "Play & Tempo",
-      "beginner": ["90-second tease game with timer"],
-      "advanced": ["Tease ladder with checkpoints"],
-      "safety": ["Exit phrase ready; watch overwhelm"]
+    "rhythm_thud_sting_adjacent": {
+      "category": "Impact",
+      "beginner": ["Rhythmic percussion over clothing (count of 10)"],
+      "advanced": ["Timed pattern: slow → steady → pause"],
+      "safety": ["Avoid spine/kidneys; use broad surfaces; check in."]
     },
+
     "tempo_play": {
-      "category": "Play & Tempo",
-      "beginner": ["Waves: build–float–land"],
-      "advanced": ["Song-length pacing experiment"],
-      "safety": ["Name the landing plan before starting"]
-    },
-    "momentum": {
-      "category": "Play & Tempo",
-      "beginner": ["Tiny win then pause"],
-      "advanced": ["Sprint + soft landing ritual"],
-      "safety": ["Don’t trade speed for safety"]
+      "category": "Tempo & Cadence",
+      "beginner": ["Song-length timebox (3–4 min)"],
+      "advanced": ["Wave structure: build · crest · soften"],
+      "safety": ["Stop while it feels good; water nearby."]
     },
     "denial_anticipation": {
-      "category": "Play & Tempo",
-      "beginner": ["Slow reveal countdown"],
-      "advanced": ["Layered delays with compliments"],
-      "safety": ["Check tolerance; offer opt-out"]
+      "category": "Tempo & Cadence",
+      "beginner": ["Slow reveal with 10-count pause"],
+      "advanced": ["Layered ‘almost’ moments across a song"],
+      "safety": ["Keep it playful; avoid frustration loops."]
     },
     "moderate_denial": {
-      "category": "Play & Tempo",
-      "beginner": ["Short tease then reward"],
-      "advanced": ["Two-step tease with signal"],
-      "safety": ["Avoid frustration; keep it playful"]
+      "category": "Tempo & Cadence",
+      "beginner": ["Short tease then release"],
+      "advanced": ["Two small teases before the main reveal"],
+      "safety": ["Align on limits; watch for tension/fatigue."]
     },
     "low_denial": {
-      "category": "Play & Tempo",
-      "beginner": ["Immediate payoff mini-game"],
-      "advanced": ["Quick win + reset"],
-      "safety": ["Don’t rush consent or checks"]
+      "category": "Tempo & Cadence",
+      "beginner": ["Quick payoff after a cue"],
+      "advanced": ["Fast arc with soft landing routine"],
+      "safety": ["Mind over-stimulation; breathe together."]
     },
-    "improv": {
-      "category": "Play & Tempo",
-      "beginner": ["A/B prompt improv"],
-      "advanced": ["Yes/and scenelet (2 minutes)"],
-      "safety": ["Stop rule trumps improv"]
+    "momentum": {
+      "category": "Tempo & Cadence",
+      "beginner": ["90-second mini-game to start"],
+      "advanced": ["Micro-sprint then gentle co-regulation"],
+      "safety": ["Don’t rush consent; protect knees/backs."]
     },
 
     "adventure": {
-      "category": "Exploration & Setting",
-      "beginner": ["New route walk with micro-missions"],
-      "advanced": ["Scavenger clue with safe reveal"],
-      "safety": ["Environment-appropriate; daylight first times"]
-    },
-    "novelty": {
-      "category": "Exploration & Setting",
-      "beginner": ["One small twist on a favorite"],
-      "advanced": ["Try one new element per session"],
-      "safety": ["Change one variable at a time"]
-    },
-    "discovery": {
-      "category": "Exploration & Setting",
-      "beginner": ["Blind bag of safe prompts"],
-      "advanced": ["Curiosity card deck"],
-      "safety": ["Skip any card—no questions asked"]
-    },
-    "role_scout": {
-      "category": "Exploration & Setting",
-      "beginner": ["Map the space; pick a corner to start"],
-      "advanced": ["Scout + report mini-mission"],
-      "safety": ["Stay in sight; phones charged"]
-    },
-
-    "private": {
-      "category": "Environment & Setting",
-      "beginner": ["Quiet nook + door cue"],
-      "advanced": ["Do-not-disturb ritual"],
-      "safety": ["Privacy check; devices off if desired"]
-    },
-    "public_tasteful": {
-      "category": "Environment & Setting",
-      "beginner": ["Subtle cue in public space"],
-      "advanced": ["Tasteful reveal moment (fully PG)"],
-      "safety": ["Venue norms; bystanders respected"]
+      "category": "Adventure & Setting",
+      "beginner": ["Tiny ‘scout’ errand or side-quest"],
+      "advanced": ["Neighborhood mission with a themed objective"],
+      "safety": ["Stay public-safe; daylight first; clear exits."]
     },
     "outdoor": {
-      "category": "Environment & Setting",
-      "beginner": ["Scenic walk + intention"],
-      "advanced": ["Picnic with curated objects"],
-      "safety": ["Weather, accessibility, privacy"]
+      "category": "Adventure & Setting",
+      "beginner": ["Nature walk + shared observation cue"],
+      "advanced": ["Scenic overlook reveal moment"],
+      "safety": ["Weather, footing, privacy laws."]
+    },
+    "public_tasteful": {
+      "category": "Adventure & Setting",
+      "beginner": ["Tasteful venue with a quiet corner"],
+      "advanced": ["Subtle ‘presentation’ moment at an event"],
+      "safety": ["Be discreet; respect venue rules and others."]
+    },
+    "exhibition": {
+      "category": "Adventure & Setting",
+      "beginner": ["Small trusted audience (one friend)"],
+      "advanced": ["Brief stage-y reveal in a private space"],
+      "safety": ["Consent of all present; no recording without agreement."]
+    },
+    "performance": {
+      "category": "Adventure & Setting",
+      "beginner": ["Short ‘show’ beat (pose, bow)"],
+      "advanced": ["Mini routine synced to music"],
+      "safety": ["Warm up; avoid slippery floors/shoes."]
+    },
+    "private": {
+      "category": "Adventure & Setting",
+      "beginner": ["Cozy corner + soft lighting"],
+      "advanced": ["Home ‘sanctuary’ setup with focal point"],
+      "safety": ["Locks/interruptions handled; temperature comfortable."]
+    },
+    "attunement": {
+      "category": "Adventure & Setting",
+      "beginner": ["One breath together before starting"],
+      "advanced": ["Silent 30-second eye-contact arrival"],
+      "safety": ["Eye contact is optional; allow looking away."]
+    },
+
+    "praise_focus": {
+      "category": "Communication & Voice",
+      "beginner": ["Three sincere compliments ready"],
+      "advanced": ["Praise ladder: effort → form → presence"],
+      "safety": ["Keep praise specific and real; avoid backhanded notes."]
+    },
+    "attention_kink": {
+      "category": "Communication & Voice",
+      "beginner": ["Named spotlight: ‘This is your moment’"],
+      "advanced": ["Scheduled spotlight beat in the arc"],
+      "safety": ["Check visibility comfort; avoid performance pressure."]
+    },
+    "trance_adjacent": {
+      "category": "Communication & Voice",
+      "beginner": ["Soft voice + paced breathing cue"],
+      "advanced": ["Light guided imagery (safe place, color)"],
+      "safety": ["Stay present; stop if dissociation appears."]
+    },
+    "minimal_signals": {
+      "category": "Communication & Voice",
+      "beginner": ["One gesture = pause"],
+      "advanced": ["Two-gesture system (pause/slow)"],
+      "safety": ["Ensure gestures are visible and remembered."]
+    },
+    "protocol_signals": {
+      "category": "Communication & Voice",
+      "beginner": ["Yes/No/Maybe card on the table"],
+      "advanced": ["Color band system for pace (green/yellow)"],
+      "safety": ["Keep it simple; review what each means."]
+    },
+
+    "object_fetish_paper": {
+      "category": "Objects & Materials",
+      "beginner": ["Nice paper + pen for one line"],
+      "advanced": ["Sealed note reveal at the end"],
+      "safety": ["Avoid personal data on paper left behind."]
+    },
+    "object_fetish_tools": {
+      "category": "Objects & Materials",
+      "beginner": ["Favorite tool as a prop/focus"],
+      "advanced": ["Tool care ritual before use"],
+      "safety": ["Non-sharp for play; store safely."]
+    },
+    "object_fetish_textile": {
+      "category": "Objects & Materials",
+      "beginner": ["Signature textile (scarf, knit)"],
+      "advanced": ["Layered textiles with reveal order"],
+      "safety": ["Clean fabrics; watch sensitivities."]
+    },
+    "gear_care": {
+      "category": "Objects & Materials",
+      "beginner": ["Quick wipe/shine ritual"],
+      "advanced": ["Care kit: cloth, balm, brush"],
+      "safety": ["Ventilate; avoid skin with solvents."]
     },
 
     "aftercare_soft": {
       "category": "Care & Recovery",
-      "beginner": ["Warm blanket + water"],
-      "advanced": ["Gentle playlist + timebox"],
-      "safety": ["No big decisions while landing"]
-    },
-    "pamper_care": {
-      "category": "Care & Recovery",
-      "beginner": ["Hand massage with lotion"],
-      "advanced": ["Tea service + snack tray"],
-      "safety": ["Ask for preferences; allergies check"]
+      "beginner": ["Water + blanket + sit together"],
+      "advanced": ["Choose a song for soft landing"],
+      "safety": ["Check temperature, hydration, and time to decompress."]
     },
 
-    "role_authority": {
+    "novelty": {
+      "category": "Tempo & Cadence",
+      "beginner": ["One tiny twist on a favorite"],
+      "advanced": ["Theme swap while keeping the frame"],
+      "safety": ["Change one variable at a time."]
+    },
+    "animal_role_adjacent": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Accessory cue (ears, tail, collar)"],
+      "advanced": ["Short ‘creature’ beat then back to baseline"],
+      "safety": ["Keep it playful; respect comfort with role cues."]
+    },
+    "costume_signal": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["One costume element as a signal"],
+      "advanced": ["Two-piece look for reveal"],
+      "safety": ["Comfortable fit; avoid masks if claustrophobic."]
+    },
+    "pose_posture": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["One held pose for a count of 5"],
+      "advanced": ["Pose · turn · pause sequence"],
+      "safety": ["Protect knees/feet; don’t lock joints."]
+    },
+    "improv": {
+      "category": "Tempo & Cadence",
+      "beginner": ["90-second improv ‘yes/and’"],
+      "advanced": ["Prompt cards: follow the next card"],
+      "safety": ["Keep prompts gentle; easy opt-outs."]
+    },
+    "aesthetic": {
+      "category": "Aesthetic & Presentation",
+      "beginner": ["Choose one focal color/material"],
+      "advanced": ["Curate a mini-set (cloth, light, object)"],
+      "safety": ["Avoid candles near fabrics; mind heat."]
+    },
+    "order": {
       "category": "Power/Service",
-      "beginner": ["Stand/step cue with tone"],
-      "advanced": ["Timeboxed direction with review"],
-      "safety": ["Authority is a hat; consent to put it on/off"]
+      "beginner": ["Neat tray with arranged items"],
+      "advanced": ["Reset station for mid-arc tidy"],
+      "safety": ["Don’t let tidiness override comfort."]
+    },
+    "focus": {
+      "category": "Adventure & Setting",
+      "beginner": ["Remove one distraction (phone in drawer)"],
+      "advanced": ["Use a single focal point (object, light)"],
+      "safety": ["If dissociation risk, keep lights friendly."]
+    },
+    "stability": {
+      "category": "Adventure & Setting",
+      "beginner": ["Set a comfortable seat/blanket before starting"],
+      "advanced": ["Plan a soft, predictable close"],
+      "safety": ["End before exhaustion; check energy levels."]
     },
     "role_mentor": {
       "category": "Power/Service",
-      "beginner": ["Guided practice with praise"],
-      "advanced": ["Teach-back moment"],
-      "safety": ["Mentor energy stays non-evaluative"]
+      "beginner": ["Offer one kind, teachy tip on feel/form"],
+      "advanced": ["Short ‘guided’ segment with reflection"],
+      "safety": ["Ask consent before offering guidance."]
     },
-
-    "bondage_rope_art_adjacent": {
-      "category": "Aesthetic & Craft",
-      "beginner": ["Single-column practice with rope/cord"],
-      "advanced": ["Symmetry pattern study (no load)"],
-      "safety": ["Circulation checks; quick-release handy"]
-    },
-
-    "intensity": {
-      "category": "Play & Tempo",
-      "beginner": ["Calibrate scale 1–5 together"],
-      "advanced": ["Intensity ladder with pauses"],
-      "safety": ["Stop or downshift on request"]
-    },
-    "endurance": {
-      "category": "Play & Tempo",
-      "beginner": ["Short intervals + rest"],
-      "advanced": ["Paced set with hydration"],
-      "safety": ["Monitor fatigue; land early if needed"]
-    },
-
-    "low_marking": {
-      "category": "Ritual & Symbol",
-      "beginner": ["No-visible-mark agreement"],
-      "advanced": ["Invisible-only signals (scent, phrase)"],
-      "safety": ["Reconfirm before social plans"]
-    },
-    "low_roleplay": {
-      "category": "Role & Theme",
-      "beginner": ["No-characters agreement"],
-      "advanced": ["Vibe-only flavor without titles"],
-      "safety": ["Name boundaries early"]
+    "role_scout": {
+      "category": "Adventure & Setting",
+      "beginner": ["Pick a new corner to explore together"],
+      "advanced": ["Design a tiny mini-quest with a reveal"],
+      "safety": ["Stay within access limits; daylight first."]
     }
   }
 }
