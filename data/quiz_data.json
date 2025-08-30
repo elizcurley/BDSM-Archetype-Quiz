@@ -3,360 +3,233 @@
   "archetypes": {
     "Explorer": {
       "description": "The Explorer is animated by curiosity and discovery. You learn by doing and enjoy turning the unknown into a shared adventure. Clear consent lanes and light structure help you improvise freely.",
-      "affirmations": ["Your curiosity is a compass—follow it and the path appears."],
+      "affirmations": [
+        "Your curiosity is a compass—follow it and the path appears.",
+        "Small detours open big doors for you.",
+        "You make discovery feel safe."
+      ],
       "insights": [
         "Tiny experiments beat long debates; momentum teaches you fastest.",
         "Alternating novelty with low-effort favorites keeps energy sustainable.",
         "Movement resets you—detours, walks, and mini-missions restore presence.",
         "You explore best when boundaries and exits are named up front.",
         "Flexible environments (music, lighting, props) help you shift gears.",
-        "A soft landing after big novelty keeps enthusiasm available tomorrow."
+        "A soft landing after big novelty keeps enthusiasm available tomorrow.",
+        "When stakes rise, one steady anchor (timebox or check-in) protects play.",
+        "Saying no clearly preserves your yes for the right adventures."
       ],
       "reflection": [
         "Which kinds of newness leave you nourished versus overstimulated?",
         "What guardrails (timeboxes, check-ins) make exploration freer for you?",
         "How do you signal curiosity without pressuring a partner?",
         "Where could a small closing ritual help you land after high novelty?",
-        "What repeatable ‘same-but-fresh’ patterns keep you engaged?"
+        "What repeatable ‘same-but-fresh’ patterns keep you engaged?",
+        "Where do you want novelty next: place, pace, or role?"
       ],
-      "strengths": [
-        "Curiosity that turns into action",
-        "Comfort with ambiguity",
-        "Momentum through small experiments",
-        "Boundary-friendly improvisation",
-        "Orientation toward discovery"
-      ],
-      "growth_edges": [
-        "Pacing novelty to protect presence",
-        "Naming exits before big leaps",
-        "Closing loops after exploration",
-        "Building rituals that help you land"
-      ],
+      "strengths": ["Curiosity", "Adaptability", "Playful risk-taking", "Energy for learning"],
+      "growth_edges": ["Overbooking yourself", "Clarity about limits", "Following through on debriefs"],
       "pairings": {
-        "Catalyst": {
-          "affirmations": [
-            "Your spark + their curiosity = new worlds in minutes.",
-            "You two make detours feel like destiny."
-          ]
-        },
-        "Keystone": {
-          "affirmations": [
-            "Your adventures rest easy in their steadiness.",
-            "You bring the map; they bring the camp."
-          ]
-        },
-        "Alchemist": {
-          "affirmations": [
-            "You find the door; they make it mean something.",
-            "Your trail becomes a ritual together."
-          ]
-        }
+        "Keystone": { "affirmation": ["Your curiosity moves; their steadiness carries it home."] },
+        "Connoisseur": { "affirmation": ["Your discovery + their craft = memorable experiences."] },
+        "Vanguard": { "affirmation": ["Your scouting and their calls make bold feel doable."] }
       }
     },
     "Oracle": {
       "description": "The Oracle orients to meaning and alignment. You track emotional currents, name what’s true with care, and turn noise into signal. Presence and clarity matter most when things get complex.",
-      "affirmations": ["Your attunement is a lantern—people see better around you."],
+      "affirmations": [
+        "Your attunement is a lantern—people see better around you.",
+        "Language is a tool you wield with kindness.",
+        "Your reflections turn feelings into north stars."
+      ],
       "insights": [
         "Stating a one-sentence intention anchors honesty during intensity.",
         "Precise language and gentle pacing de-escalate tension for you.",
         "Being understood often matters as much as being agreed with.",
         "Your reflections land deeply—ask permission before going big.",
         "Quiet connection and unhurried conversation replenish you.",
-        "You restore cohesion quickly: reflect back, pick one next step, soften the landing."
+        "You restore cohesion quickly: reflect back, pick one next step, soften the landing.",
+        "Meaning first, moves second preserves integrity.",
+        "Your calm makes brave conversations possible."
       ],
       "reflection": [
         "What phrases help you name feelings without assigning blame?",
         "Where could ‘good-enough clarity’ replace perfectionism this month?",
         "Which signals tell you a partner feels emotionally safe with you?",
         "How do you want others to invite your clarity without feeling evaluated?",
-        "What simple ritual repairs trust fastest for you?"
+        "What simple ritual repairs trust fastest for you?",
+        "What truth do you want to practice saying more simply?"
       ],
-      "strengths": [
-        "Translating feelings into clarity",
-        "Deep listening and attunement",
-        "De-escalation through language",
-        "Meaning-making under complexity"
-      ],
-      "growth_edges": [
-        "Asking consent before offering insight",
-        "Letting ‘good enough’ beat perfect",
-        "Balancing reflection with action",
-        "Keeping language simple under stress"
-      ],
+      "strengths": ["Attunement", "Precision with words", "Perspective-taking", "De-escalation"],
+      "growth_edges": ["Over-explaining under stress", "Analysis fatigue", "Letting good-enough be good"],
       "pairings": {
-        "Alchemist": {
-          "affirmations": [
-            "You bring the why; they weave the way.",
-            "Your words make their rituals glow."
-          ]
-        },
-        "Keystone": {
-          "affirmations": [
-            "Your clarity rests sweetly in their steadiness.",
-            "You name it; they hold it."
-          ]
-        },
-        "Vanguard": {
-          "affirmations": [
-            "Your north star keeps their pace humane.",
-            "Together: clear, kind, and moving."
-          ]
-        }
+        "Alchemist": { "affirmation": ["Your meaning gives their ritual roots."] },
+        "Keystone": { "affirmation": ["Your clarity settles into their steadiness."] },
+        "Vanguard": { "affirmation": ["Your naming sharpens their direction."] }
       }
     },
     "Keystone": {
       "description": "The Keystone steadies the system with warmth and reliability. Routines, clear expectations, and thoughtful follow-through help everyone exhale—and help you feel grounded, too.",
-      "affirmations": ["Your steadiness makes space for other people’s sparkle."],
+      "affirmations": [
+        "Your steadiness makes space for other people’s sparkle.",
+        "Consistency is a love language you speak fluently.",
+        "Your care turns plans into places people can rest."
+      ],
       "insights": [
         "Predictable rhythms are powerful care—tiny routines, big impact.",
         "Naming limits early deepens trust, not tension.",
         "After intensity, grounding touch and simple comforts restore you.",
         "Logistics are a love language: snacks packed, chargers charged.",
         "You notice well-being over time and value sustainable pacing.",
-        "Delegating one small task can create surprising relief."
+        "Delegating one small task can create surprising relief.",
+        "Your patience keeps the door open when emotions surge.",
+        "Order helps you relax into presence; it doesn’t have to be perfect."
       ],
       "reflection": [
         "Which daily micro-ritual keeps you most resourced?",
         "How do you like others to support you when you’re carrying a lot?",
         "Where could you delegate without losing quality?",
         "What’s your favorite way to say no while staying connected?",
-        "What does ideal ‘ordinary-day’ aftercare look like for you?"
+        "What does ideal ‘ordinary-day’ aftercare look like for you?",
+        "Where does steadiness become self-silencing for you?"
       ],
-      "strengths": [
-        "Warmth that steadies groups",
-        "Consistency and follow-through",
-        "Clear expectations and boundaries",
-        "Sustainable pacing"
-      ],
-      "growth_edges": [
-        "Delegating before depletion",
-        "Letting variety in without chaos",
-        "Naming your needs early",
-        "Ending on time to protect tomorrow"
-      ],
+      "strengths": ["Reliability", "Care logistics", "Patience", "Boundaries with warmth"],
+      "growth_edges": ["Avoiding change too long", "Carrying invisible labor", "Receiving help"],
       "pairings": {
-        "Vanguard": {
-          "affirmations": [
-            "Your ground makes their pace kinder.",
-            "Together you’re clear, fast, and safe."
-          ]
-        },
-        "Connoisseur": {
-          "affirmations": [
-            "Your care makes their craft shine brighter.",
-            "You keep the polish human."
-          ]
-        },
-        "Explorer": {
-          "affirmations": [
-            "Your anchor lets their curiosity roam.",
-            "You make detours feel safe to return from."
-          ]
-        }
+        "Explorer": { "affirmation": ["Your ground makes their adventure sustainable."] },
+        "Connoisseur": { "affirmation": ["Your steadiness lets their craft shine."] },
+        "Catalyst": { "affirmation": ["Your anchor keeps their spark kind."] }
       }
     },
     "Vanguard": {
       "description": "The Vanguard sets tempo under pressure. You’re comfortable making decisive calls, aligning people quickly, and carrying responsibility with care. Clarity is kindness in your world.",
-      "affirmations": ["Your decisiveness is a relief when it carries consent."],
+      "affirmations": [
+        "Your decisiveness is a relief when it carries consent.",
+        "You make next steps obvious.",
+        "Your backbone is made of care, not control."
+      ],
       "insights": [
         "Declare the goal, set the pace, confirm exits—people relax.",
         "Short feedback loops keep leadership adaptive, not rigid.",
         "Quick check-ins beat prolonged ambiguity for you.",
         "Standards feel supportive when shared up front, not sprung late.",
         "Recovery plans matter: intense pushes need deliberate landings.",
-        "Inviting challenge improves outcomes and preserves buy-in."
+        "Inviting challenge improves outcomes and preserves buy-in.",
+        "Firm + kind beats firm + fast.",
+        "You think best once the first clean step is taken."
       ],
       "reflection": [
         "How do you invite input without losing momentum?",
         "Which signals tell you it’s time to pause or pivot?",
         "Where might a softer tone create the same alignment?",
         "What boundaries keep leadership sustainable for you?",
-        "What does clean repair look like when a bold call misses?"
+        "What does clean repair look like when a bold call misses?",
+        "What makes you feel well-led by others?"
       ],
-      "strengths": [
-        "Calm decisiveness",
-        "Goal clarity and pacing",
-        "Adaptive feedback loops",
-        "Responsibility with care"
-      ],
-      "growth_edges": [
-        "Sharing standards early",
-        "Softening tone under stress",
-        "Ending sprints with recovery",
-        "Welcoming challenge to avoid blind spots"
-      ],
+      "strengths": ["Decisiveness", "Direction-setting", "Crisis steadiness", "High standards"],
+      "growth_edges": ["Over-functioning", "Tone under stress", "Letting others lead sometimes"],
       "pairings": {
-        "Keystone": {
-          "affirmations": [
-            "Their steadiness makes your speed a gift.",
-            "Together you’re crisp and kind."
-          ]
-        },
-        "Connoisseur": {
-          "affirmations": [
-            "Your pace + their polish = excellence without cruelty.",
-            "You make precision move."
-          ]
-        },
-        "Explorer": {
-          "affirmations": [
-            "You set the path; they find new ones.",
-            "Your calls open doors for discovery."
-          ]
-        }
+        "Explorer": { "affirmation": ["Your calls give their curiosity a path."] },
+        "Keystone": { "affirmation": ["Your pace rests well in their reliability."] },
+        "Connoisseur": { "affirmation": ["Your clarity raises the stage for their craft."] }
       }
     },
     "Connoisseur": {
       "description": "The Connoisseur elevates experiences through craft. You’re drawn to precision, aesthetics, and the feel of materials. Technique and presentation are part of the pleasure.",
-      "affirmations": ["Details are your love notes."],
+      "affirmations": [
+        "Details are your love notes.",
+        "Care with craft is how you say ‘this matters.’",
+        "Your eye turns ordinary into art."
+      ],
       "insights": [
         "Clear standards and tidy setups help you relax into presence.",
         "Texture, symmetry, and pacing shape your experience more than most.",
         "You like feedback you can implement—specific, observable, kind.",
         "Doing less, better often beats doing more for you.",
         "Curating environment is as satisfying as the activity itself.",
-        "A defined ‘good-enough’ threshold preserves spontaneity."
+        "A defined ‘good-enough’ threshold preserves spontaneity.",
+        "Your patience with technique pays off in depth.",
+        "Beauty and order help your nervous system settle."
       ],
       "reflection": [
         "Which details change everything—and which can you release?",
         "How do you signal that presentation matters without shaming effort?",
         "Where does ‘polish’ serve intimacy, and where might it block play?",
         "What kind of feedback helps you refine without overthinking?",
-        "What one craft are you excited to deepen this season?"
+        "What one craft are you excited to deepen this season?",
+        "What is your ‘done for now’ signal?"
       ],
-      "strengths": [
-        "Aesthetic curation",
-        "Attention to pacing and texture",
-        "Implementable feedback",
-        "Elevating simple moments"
-      ],
-      "growth_edges": [
-        "Choosing ‘good enough’ to protect presence",
-        "Separating standards from perfectionism",
-        "Letting warmth lead critique",
-        "Leaving room for spontaneity"
-      ],
+      "strengths": ["Aesthetic sense", "Technique", "Curation", "Pacing"],
+      "growth_edges": ["Perfectionism", "Letting spontaneity in", "Sharing standards early"],
       "pairings": {
-        "Vanguard": {
-          "affirmations": [
-            "Your finesse makes their tempo sing.",
-            "You two do crisp without cold."
-          ]
-        },
-        "Keystone": {
-          "affirmations": [
-            "Their steadiness lets your craft unfurl.",
-            "Together you’re tenderly exact."
-          ]
-        },
-        "Oracle": {
-          "affirmations": [
-            "Meaning and detail meet beautifully in your hands.",
-            "You make language feel like velvet."
-          ]
-        }
+        "Alchemist": { "affirmation": ["Your craft gives their ritual a body."] },
+        "Keystone": { "affirmation": ["Your polish rests well on their steadiness."] },
+        "Vanguard": { "affirmation": ["Your finesse meets their clarity beautifully."] }
       }
     },
     "Catalyst": {
       "description": "The Catalyst brings spark and motion. You play with pattern-breaks, humor, and dares to unstick stuck energy. Quick wins snowball into momentum when care is unmistakable.",
-      "affirmations": ["You are a permission slip for aliveness."],
+      "affirmations": [
+        "You are a permission slip for aliveness.",
+        "Your spark turns lulls into laughter and motion.",
+        "You make bold feel playful."
+      ],
       "insights": [
         "Micro-games convert lulls into connection in under two minutes.",
         "Praise-forward feedback keeps your spark generous, not defensive.",
         "Teasing works best when safety is named and signals are clear.",
         "Short sprints plus soft landings beat long grinds.",
         "Novelty bursts reset you—then you like a gentle co-regulation.",
-        "Clear yes/no in the moment keeps play crisp and kind."
+        "Clear yes/no in the moment keeps play crisp and kind.",
+        "Your improvisation shines when exits are explicit.",
+        "Energy without pressure is your superpower."
       ],
       "reflection": [
         "What are your top three 90-second reset games?",
         "How do you ensure playful edges feel undeniably safe?",
         "Where could a little slowness deepen the spark you create?",
         "What compliments land best for you—and why?",
-        "How do you want partners to ask for a downshift?"
+        "How do you want partners to ask for a downshift?",
+        "What keeps your playfulness from becoming performance?"
       ],
-      "strengths": [
-        "Creating momentum fast",
-        "Playful tension and pattern-breaks",
-        "Inviting engagement",
-        "Keeping energy light and kind"
-      ],
-      "growth_edges": [
-        "Naming safety before tease",
-        "Ending sprints with soft landings",
-        "Letting quiet be part of play",
-        "Watching for over-heat in groups"
-      ],
+      "strengths": ["Initiation", "Humor", "Improvisation", "Social ignition"],
+      "growth_edges": ["Overdoing tease", "Rest cycles", "Naming needs instead of masking them"],
       "pairings": {
-        "Explorer": {
-          "affirmations": [
-            "Your spark + their curiosity = instant adventure.",
-            "You turn detours into delight together."
-          ]
-        },
-        "Vanguard": {
-          "affirmations": [
-            "Your play keeps their pace human.",
-            "You bring smiles to sprints."
-          ]
-        },
-        "Keystone": {
-          "affirmations": [
-            "Your fizz rests in their care.",
-            "Together you’re lively and safe."
-          ]
-        }
+        "Keystone": { "affirmation": ["Your spark blooms in their steadiness."] },
+        "Explorer": { "affirmation": ["Your dares meet their curiosity in motion."] },
+        "Connoisseur": { "affirmation": ["Your play lights up their craft."] }
       }
     },
     "Alchemist": {
       "description": "The Alchemist turns ordinary moments into portals. You work with symbolism, headspace, and small rituals to shift state. You like beginnings, middles, and deliberate endings.",
-      "affirmations": ["Your rituals are bridges—small acts, big shifts."],
+      "affirmations": [
+        "Your rituals are bridges—small acts, big shifts.",
+        "Meaning first, moves second.",
+        "You make transformation feel gentle and true."
+      ],
       "insights": [
         "One cue (scent, light, phrase) can change your nervous system fast.",
         "Meaning first, moves second helps you feel aligned.",
         "Simple tokens or vows make connection feel anchored.",
         "Mystery works when clarity is close at hand—poetic, not vague.",
         "You enjoy containers that shape time and attention.",
-        "Closing rituals prevent emotional ‘whiplash’ after intensity."
+        "Closing rituals prevent emotional ‘whiplash’ after intensity.",
+        "Your pacing makes depth accessible.",
+        "Symbolism works best when it’s personal, not performative."
       ],
       "reflection": [
         "Which tiny rituals reliably open or close experiences for you?",
         "What symbols feel personal and alive—not borrowed?",
         "How do you stay grounded when transformation runs hot?",
         "Where could you simplify ritual without losing meaning?",
-        "What beginning-middle-ending pattern would you like to try next month?"
+        "What beginning-middle-ending pattern would you like to try next month?",
+        "What does ‘mystery with clarity close at hand’ look like for you?"
       ],
-      "strengths": [
-        "State-shifting through symbols",
-        "Framing time with intention",
-        "Poetic presence",
-        "Designing beginnings and endings"
-      ],
-      "growth_edges": [
-        "Keeping mystery near clarity",
-        "Simplifying ritual under stress",
-        "Grounding when energy runs hot",
-        "Closing gently to protect tomorrow"
-      ],
+      "strengths": ["Ritual design", "State-shifting", "Symbolic thinking", "Pacing arcs"],
+      "growth_edges": ["Over-ritualizing", "Avoiding vague language", "Letting simple be enough"],
       "pairings": {
-        "Oracle": {
-          "affirmations": [
-            "Their language lights your lantern.",
-            "Together you turn meaning into felt experience."
-          ]
-        },
-        "Explorer": {
-          "affirmations": [
-            "Their curiosity finds your portals.",
-            "You make detours feel sacred."
-          ]
-        },
-        "Connoisseur": {
-          "affirmations": [
-            "Their craft makes your rituals tangible.",
-            "You shape the feel; they shape the form."
-          ]
-        }
+        "Oracle": { "affirmation": ["Your symbolism rests in their clarity."] },
+        "Connoisseur": { "affirmation": ["Your ritual meets their craft with grace."] },
+        "Vanguard": { "affirmation": ["Your arc shapes their decisive momentum."] }
       }
     }
   }
