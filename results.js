@@ -211,29 +211,65 @@ async function initResults() {
     console.warn("Dynamic narrative skipped:", e);
   }
 
-  // 10.6) Kink translation (scenes, props, phrases, aftercare)
+/* ---- Kink translation builder (taxonomy-driven) ---- */
+async function buildKinkRecs(topTags, primary) {
+  let tax = {}, map = {};
   try {
-    const kink = await buildKinkRecs(topTags, primary);
-    if (kink) {
-      fillList("kink-scenes", (kink.scenes || []).map(s =>
-        `${s.title}: ${s.ideas?.[0] || "—"}${(s.stretch && s.stretch.length) ? ` (stretch: ${s.stretch[0]})` : ""}`
-      ));
-      fillList("kink-props",  kink.props);
-      fillList("kink-comms",  kink.comms);
-      fillList("kink-care",   kink.care);
+    tax = await loadJSON(`${DATA_BASE}kink_taxonomy.json?v=1`);
+    map = await loadJSON(`${DATA_BASE}kink_recs_map.json?v=1`);
+  } catch {
+    return null; // graceful skip if files missing
+  }
 
-      // Show/hide kink section AFTER we populate
-      const kinkSec = byId("kink-section");
-      if (kinkSec) {
-        const any =
-          (kink.scenes && kink.scenes.length) ||
-          (kink.props && kink.props.length) ||
-          (kink.comms && kink.comms.length) ||
-          (kink.care && kink.care.length);
-        kinkSec.style.display = any ? "" : "none";
-      }
+  const bias = new Set((map.archetype_bias && map.archetype_bias[primary]) || []);
+  const ranked = (topTags || [])
+    .map(([tag, score]) => ({ tag, score: (score || 0) + (bias.has(tag) ? 0.15 : 0) }))
+    .sort((a, b) => b.score - a.score);
+
+  const scenes = [];
+  const props  = [];
+  const comms  = [];
+  const care   = [];
+
+  // Consider the top ~14 tags to keep things snappy but diverse
+  for (const { tag } of ranked.slice(0, 14)) {
+    const m = tax.tags && tax.tags[tag];
+    if (!m) continue;
+    const cat = m.category || "Misc";
+
+    // Scene idea for every tag
+    scenes.push({
+      title: `${cat}: ${tag}`,
+      ideas: Array.isArray(m.beginner) ? m.beginner.slice(0, 1) : [],
+      stretch: Array.isArray(m.advanced) ? m.advanced.slice(0, 1) : [],
+      safety: Array.isArray(m.safety) ? m.safety.slice(0, 1) : []
+    });
+
+    // Props & materials from Objects/Materials and Aesthetic/Presentation
+    if (cat === "Objects & Materials" || cat === "Aesthetic & Presentation") {
+      if (Array.isArray(m.beginner)) props.push(...m.beginner.slice(0, 2));
     }
-  } catch(e){ console.warn("Kink recs skipped:", e); }
+
+    // Phrases from Communication & Voice AND Ritual & Symbol (language-heavy)
+    if (cat === "Communication & Voice" || cat === "Ritual & Symbol") {
+      if (Array.isArray(m.beginner)) comms.push(...m.beginner.slice(0, 2));
+    }
+
+    // Aftercare from Care & Recovery
+    if (cat === "Care & Recovery") {
+      if (Array.isArray(m.beginner)) care.push(...m.beginner.slice(0, 2));
+    }
+  }
+
+  const uniq = arr => Array.from(new Set(arr.map(s => String(s).trim()))).filter(Boolean);
+
+  return {
+    scenes: scenes.slice(0, 4),
+    props:  uniq(props).slice(0, 5),
+    comms:  uniq(comms).slice(0, 5),
+    care:   uniq(care).slice(0, 5)
+  };
+}
 
   // 10.7) Kink toggle
   byId("toggle-kink")?.addEventListener("change", e => {
@@ -612,12 +648,19 @@ function mergeBuckets(acc, add) {
   }
 }
 
-function fillList(id, items){
+/* ---- List filler that hides empty sections ---- */
+function fillList(id, items) {
   const ul = document.getElementById(id);
   if (!ul) return;
-  ul.innerHTML = (items || []).map(t => `<li>${t}</li>`).join("");
+  const list = Array.isArray(items) ? items.filter(Boolean) : [];
+  if (!list.length) {
+    ul.innerHTML = "";
+    hideParentSection(ul);
+  } else {
+    ul.innerHTML = list.map(t => `<li>${t}</li>`).join("");
+    showParentSection(ul);
+  }
 }
-
 /* ---- “Why this result?” chips ---- */
 function renderWhyChips(reasons, topTags){
   const el = byId("why-chips"); if(!el) return;
