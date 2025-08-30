@@ -1,16 +1,22 @@
 {
+  "version": 2,
+  "section": "hobby_preferences",
+  "title": "Hobby preferences",
+  "description": "How you approach hobbies and side projects. These answers gently tilt your archetype balance.",
   "questions": [
     {
       "id": "hobby_catalyst_organizer",
       "type": "likert_scale",
+      "text": "I’m the one who rallies people—planning meetups, booking courts, starting group chats.",
       "question_text": "I’m the one who rallies people—planning meetups, booking courts, starting group chats.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Catalyst",
       "weight": 1.0
     },
     {
       "id": "hobby_catalyst_initiation_rate",
       "type": "numeric_scale",
+      "text": "How often do you personally kick off a new hobby session or group activity?",
       "question_text": "How often do you personally kick off a new hobby session or group activity?",
       "min": 1,
       "max": 7,
@@ -18,16 +24,28 @@
       "weight": 0.9
     },
     {
+      "id": "hobby_catalyst_pattern_breakers",
+      "type": "likert_scale",
+      "text": "I add playful structure (timers, dares, mini-games) to keep things lively.",
+      "question_text": "I add playful structure (timers, dares, mini-games) to keep things lively.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Catalyst",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_explorer_novelty",
       "type": "likert_scale",
+      "text": "Newness energizes me—I’m excited to sample fresh skills, places, or styles.",
       "question_text": "Newness energizes me—I’m excited to sample fresh skills, places, or styles.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Explorer",
       "weight": 1.1
     },
     {
       "id": "hobby_explorer_rotation",
       "type": "numeric_scale",
+      "text": "How often do you rotate in a brand-new hobby or class?",
       "question_text": "How often do you rotate in a brand-new hobby or class?",
       "min": 1,
       "max": 7,
@@ -35,16 +53,28 @@
       "weight": 0.9
     },
     {
+      "id": "hobby_explorer_micro_adventure",
+      "type": "likert_scale",
+      "text": "I like building micro-adventures (new routes, side quests) into ordinary weeks.",
+      "question_text": "I like building micro-adventures (new routes, side quests) into ordinary weeks.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Explorer",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_keystone_depth",
       "type": "likert_scale",
+      "text": "I’d rather go deep in a few hobbies than dabble in many.",
       "question_text": "I’d rather go deep in a few hobbies than dabble in many.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Keystone",
       "weight": 1.0
     },
     {
       "id": "hobby_keystone_routine_satisfaction",
       "type": "numeric_scale",
+      "text": "How satisfying are steady routines and long-term practice in your hobbies?",
       "question_text": "How satisfying are steady routines and long-term practice in your hobbies?",
       "min": 1,
       "max": 7,
@@ -52,16 +82,28 @@
       "weight": 0.9
     },
     {
+      "id": "hobby_keystone_kit_preparedness",
+      "type": "likert_scale",
+      "text": "I keep my kits/gear prepped so it’s easy to start and follow through.",
+      "question_text": "I keep my kits/gear prepped so it’s easy to start and follow through.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Keystone",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_vanguard_competition",
       "type": "likert_scale",
+      "text": "Competitive or high-challenge environments push me to bring my best.",
       "question_text": "Competitive or high-challenge environments push me to bring my best.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Vanguard",
       "weight": 1.1
     },
     {
       "id": "hobby_vanguard_progress_metrics",
       "type": "numeric_scale",
+      "text": "How motivated are you by measurable progress (PRs, leaderboards, time trials)?",
       "question_text": "How motivated are you by measurable progress (PRs, leaderboards, time trials)?",
       "min": 1,
       "max": 7,
@@ -69,32 +111,57 @@
       "weight": 1.0
     },
     {
+      "id": "hobby_vanguard_lead_training",
+      "type": "likert_scale",
+      "text": "I enjoy setting standards or leading drills when we practice together.",
+      "question_text": "I enjoy setting standards or leading drills when we practice together.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Vanguard",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_connoisseur_refinement",
       "type": "likert_scale",
+      "text": "I care about craft and refinement—good tools, technique, and elevating the experience.",
       "question_text": "I care about craft and refinement—good tools, technique, and elevating the experience.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Connoisseur",
       "weight": 1.1
     },
     {
       "id": "hobby_connoisseur_quality_invest",
       "type": "likert_scale",
+      "text": "I’m willing to invest time and resources to improve quality in my hobbies.",
       "question_text": "I’m willing to invest time and resources to improve quality in my hobbies.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Connoisseur",
       "weight": 0.9
     },
     {
+      "id": "hobby_connoisseur_gear_care",
+      "type": "numeric_scale",
+      "text": "How often do you maintain, upgrade, or carefully store your gear?",
+      "question_text": "How often do you maintain, upgrade, or carefully store your gear?",
+      "min": 1,
+      "max": 7,
+      "archetype": "Connoisseur",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_oracle_systems",
       "type": "likert_scale",
+      "text": "I naturally analyze my hobbies—breaking skills into systems, patterns, and practice plans.",
       "question_text": "I naturally analyze my hobbies—breaking skills into systems, patterns, and practice plans.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Oracle",
       "weight": 1.0
     },
     {
       "id": "hobby_oracle_tracking",
       "type": "numeric_scale",
+      "text": "How often do you track progress (logs, spreadsheets, stats) for a hobby?",
       "question_text": "How often do you track progress (logs, spreadsheets, stats) for a hobby?",
       "min": 1,
       "max": 7,
@@ -102,18 +169,40 @@
       "weight": 0.9
     },
     {
+      "id": "hobby_oracle_teach_frameworks",
+      "type": "likert_scale",
+      "text": "I like teaching or explaining frameworks I’ve discovered to other people.",
+      "question_text": "I like teaching or explaining frameworks I’ve discovered to other people.",
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Oracle",
+      "weight": 1.0
+    },
+
+    {
       "id": "hobby_alchemist_remix",
       "type": "likert_scale",
+      "text": "I like remixing hobbies—combining ideas from different fields to create something new.",
       "question_text": "I like remixing hobbies—combining ideas from different fields to create something new.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
       "archetype": "Alchemist",
       "weight": 1.0
     },
     {
       "id": "hobby_alchemist_modding",
       "type": "likert_scale",
+      "text": "I often tweak rules, setups, or gear until they fit my vision.",
       "question_text": "I often tweak rules, setups, or gear until they fit my vision.",
-      "response_options": ["Strongly agree", "Somewhat agree", "Neutral", "Somewhat disagree", "Strongly disagree"],
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"],
+      "archetype": "Alchemist",
+      "weight": 1.0
+    },
+    {
+      "id": "hobby_alchemist_ritualize",
+      "type": "numeric_scale",
+      "text": "How often do you create small rituals or tokens around a hobby?",
+      "question_text": "How often do you create small rituals or tokens around a hobby?",
+      "min": 1,
+      "max": 7,
       "archetype": "Alchemist",
       "weight": 1.0
     }
