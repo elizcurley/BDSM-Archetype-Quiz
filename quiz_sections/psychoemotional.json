@@ -1,6 +1,190 @@
 {
-  "description": "Psychoemotional – behavior and interpersonal preferences that shape vibe, momentum, meaning, care, and pacing. Likert runs Strongly disagree → Strongly agree.",
+  "description": "Psychoemotional – behavior and interpersonal preferences that shape vibe, momentum, meaning, care, pacing, leadership, novelty, and presentation. Likert runs Strongly disagree → Strongly agree.",
   "questions": [
+    {
+      "id": "PE01",
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "Playful tension (banter, tiny dares) helps me reconnect when things feel flat.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE02",
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "Stepping into the unknown with someone I trust feels energizing, not threatening.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE03",
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "Keeping a steady rhythm helps me relax into connection and be generous with others.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE04",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "When others hesitate, I can set direction calmly and kindly without steamrolling.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE05",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Attention to pacing and texture noticeably heightens my presence and enjoyment.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE06",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "Turning feelings into simple, clear language often helps me and others de-escalate and align.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE07",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "Small symbolic acts (a phrase, a gesture) give experiences meaning for me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE08",
+      "archetype": "Explorer",
+      "type": "single",
+      "question_text": "When choosing tonight’s vibe, I tend to prefer…",
+      "weight": 1.5,
+      "choices": [
+        { "label": "A familiar favorite", "value": "favorite" },
+        { "label": "A new twist", "value": "new_twist" }
+      ]
+    },
+    {
+      "id": "PE09",
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "I enjoy being the spark in groups rather than waiting for momentum to appear.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE10",
+      "archetype": "Keystone",
+      "type": "likert_scale",
+      "question_text": "I’m good at holding boundaries without losing warmth or connection.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE11",
+      "archetype": "Vanguard",
+      "type": "likert_scale",
+      "question_text": "I stay composed and decisive under mild pressure and can adjust on the fly.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE12",
+      "archetype": "Connoisseur",
+      "type": "likert_scale",
+      "question_text": "Shaping the aesthetic of a moment (look, rhythm, reveal) meaningfully improves it for me.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE13",
+      "archetype": "Oracle",
+      "type": "likert_scale",
+      "question_text": "I notice subtle shifts in mood or dynamics before most people do, and I can name them gently.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE14",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "Beginnings and endings matter to me—I like marking transitions with intention.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE15",
+      "archetype": "Explorer",
+      "type": "likert_scale",
+      "question_text": "I’d rather try a small experiment than have a long debate about what might work.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE16",
+      "archetype": "Keystone",
+      "type": "single",
+      "question_text": "When plans wobble, I’m more likely to…",
+      "weight": 1.5,
+      "choices": [
+        { "label": "Stabilize and simplify", "value": "stabilize" },
+        { "label": "Chase a fresh option", "value": "fresh_option" }
+      ]
+    },
+    {
+      "id": "PE17",
+      "archetype": "Connoisseur",
+      "type": "single",
+      "question_text": "If quality drops mid-moment, I tend to…",
+      "weight": 1.5,
+      "choices": [
+        { "label": "Slow down to refine now", "value": "refine_now" },
+        { "label": "Keep flow and fix later", "value": "fix_later" }
+      ]
+    },
+    {
+      "id": "PE18",
+      "archetype": "Vanguard",
+      "type": "single",
+      "question_text": "In a group lull, I’m more likely to…",
+      "weight": 1.5,
+      "choices": [
+        { "label": "Assign small next steps", "value": "assign" },
+        { "label": "Wait for organic pickup", "value": "wait" }
+      ]
+    },
+    {
+      "id": "PE19",
+      "archetype": "Catalyst",
+      "type": "likert_scale",
+      "question_text": "Teasing and light dares feel connecting rather than risky for me (when trust is present).",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+    {
+      "id": "PE20",
+      "archetype": "Oracle",
+      "type": "single",
+      "question_text": "When someone vents, I default to…",
+      "weight": 1.5,
+      "choices": [
+        { "label": "Reflect feelings first", "value": "reflect" },
+        { "label": "Offer solutions first", "value": "solutions" }
+      ]
+    },
+    {
+      "id": "PE21",
+      "archetype": "Alchemist",
+      "type": "likert_scale",
+      "question_text": "I like marking transitions (arriving/leaving) with a tiny gesture or signal.",
+      "weight": 2,
+      "response_options": ["Strongly disagree","Somewhat disagree","Neutral","Somewhat agree","Strongly agree"]
+    },
+
     {
       "id": "PE22",
       "archetype": "Catalyst",
