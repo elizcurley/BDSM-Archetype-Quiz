@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "section": "tradeoffs",
+  "title": "Style trade-offs",
+  "description": "Quick A/B choices between two good options. Pick what feels most like you most of the time.",
+  "questions": [
+    {
+      "id": "T1",
+      "type": "single",
+      "question_text": "To start something when energy is low, I’d rather…",
+      "choices": [
+        { "label": "Kick it off with a playful spark and adjust as we go.", "value": "A", "weights": { "Catalyst": 1.0 }, "tags": ["momentum","improv"] },
+        { "label": "Steady everyone first so we’re grounded, then move.", "value": "B", "weights": { "Keystone": 1.0 }, "tags": ["stability","attunement"] }
+      ]
+    },
+    {
+      "id": "T2",
+      "type": "single",
+      "question_text": "What keeps me engaged over a month?",
+      "choices": [
+        { "label": "Sampling new angles and places.", "value": "A", "weights": { "Explorer": 1.0 }, "tags": ["adventure","novelty"] },
+        { "label": "Refining a favorite until it feels just right.", "value": "B", "weights": { "Connoisseur": 1.0 }, "tags": ["precision","presentation"] }
+      ]
+    },
+    {
+      "id": "T3",
+      "type": "single",
+      "question_text": "When choices are foggy, I prefer to…",
+      "choices": [
+        { "label": "Make a clean A/B call so we can move.", "value": "A", "weights": { "Vanguard": 1.0 }, "tags": ["command_energy","tempo_play"] },
+        { "label": "Name what matters and align on that first.", "value": "B", "weights": { "Oracle": 1.0 }, "tags": ["meaning","attunement"] }
+      ]
+    },
+    {
+      "id": "T4",
+      "type": "single",
+      "question_text": "For vibe and pacing, I’m more drawn to…",
+      "choices": [
+        { "label": "A slow-burn with a tiny ritual or cue.", "value": "A", "weights": { "Alchemist": 1.0 }, "tags": ["ritual_devotion","denial_anticipation"] },
+        { "label": "A quick spark that builds momentum fast.", "value": "B", "weights": { "Catalyst": 1.0 }, "tags": ["momentum","improv"] }
+      ]
+    },
+    {
+      "id": "T5",
+      "type": "single",
+      "question_text": "Attention dynamics I like more often:",
+      "choices": [
+        { "label": "A little being-seen/celebrated can be energizing.", "value": "A", "weights": { "Connoisseur": 1.0 }, "tags": ["presentation","exhibition"] },
+        { "label": "I prefer a private, cozy focus between us.", "value": "B", "weights": { "Keystone": 1.0 }, "tags": ["private","stability"] }
+      ]
+    },
+    {
+      "id": "T6",
+      "type": "single",
+      "question_text": "If I must pick one flavor:",
+      "choices": [
+        { "label": "Loose, playful improv that follows sparks.", "value": "A", "weights": { "Catalyst": 1.0 }, "tags": ["improv","tease_play"] },
+        { "label": "Intentional polish and a sense of craft.", "value": "B", "weights": { "Connoisseur": 1.0 }, "tags": ["precision","presentation"] }
+      ]
+    },
+    {
+      "id": "T7",
+      "type": "single",
+      "question_text": "Mid-flow a tempting detour appears. I’d rather…",
+      "choices": [
+        { "label": "Follow curiosity and see where it goes.", "value": "A", "weights": { "Explorer": 1.0 }, "tags": ["adventure","discovery"] },
+        { "label": "Hold the line so we finish strong.", "value": "B", "weights": { "Vanguard": 1.0 }, "tags": ["tempo_play","command_energy"] }
+      ]
+    },
+    {
+      "id": "T8",
+      "type": "single",
+      "question_text": "Guidance that lands best for me:",
+      "choices": [
+        { "label": "Mentor-style: clear, kind, thoughtful.", "value": "A", "weights": { "Oracle": 1.0 }, "tags": ["meaning","attunement"] },
+        { "label": "Playful dares/prompts that get me moving.", "value": "B", "weights": { "Catalyst": 1.0 }, "tags": ["momentum","tease_play"] }
+      ]
+    },
+    {
+      "id": "T9",
+      "type": "single",
+      "question_text": "Aesthetic feel I choose more often:",
+      "choices": [
+        { "label": "Symmetry/staging and a little reveal.", "value": "A", "weights": { "Connoisseur": 1.0 }, "tags": ["presentation","precision"] },
+        { "label": "Cozy, organic, less staged.", "value": "B", "weights": { "Keystone": 1.0 }, "tags": ["private","stability"] }
+      ]
+    },
+    {
+      "id": "T10",
+      "type": "single",
+      "question_text": "When energy builds, my body prefers…",
+      "choices": [
+        { "label": "A strong wave with decisive beats.", "value": "A", "weights": { "Vanguard": 1.0 }, "tags": ["tempo_play","intensity"] },
+        { "label": "A gentler cadence with more finesse.", "value": "B", "weights": { "Connoisseur": 1.0 }, "tags": ["precision","attunement"] }
+      ]
+    },
+    {
+      "id": "T11",
+      "type": "single",
+      "question_text": "In new terrain, I’m more often the one who…",
+      "choices": [
+        { "label": "Scouts a path and sets a first move.", "value": "A", "weights": { "Vanguard": 1.0 }, "tags": ["adventure","command_energy"] },
+        { "label": "Anchors the vibe so everyone settles in.", "value": "B", "weights": { "Keystone": 1.0 }, "tags": ["stability","grounding"] }
+      ]
+    },
+    {
+      "id": "T12",
+      "type": "single",
+      "question_text": "Signals and symbols in everyday life:",
+      "choices": [
+        { "label": "I like subtle symbolic cues that carry meaning.", "value": "A", "weights": { "Alchemist": 1.0 }, "tags": ["ritual_devotion","marking_symbol"] },
+        { "label": "I don’t need symbols; I prefer spontaneous feel.", "value": "B", "weights": { "Explorer": 1.0 }, "tags": ["improv","novelty"] }
+      ]
+    },
+    {
+      "id": "T13",
+      "type": "single",
+      "question_text": "When things get complex, my first move is to…",
+      "choices": [
+        { "label": "Name what we want to feel so choices line up.", "value": "A", "weights": { "Oracle": 1.0 }, "tags": ["meaning","attunement"] },
+        { "label": "Try a small action to learn quickly.", "value": "B", "weights": { "Catalyst": 1.0 }, "tags": ["momentum","improv"] }
+      ]
+    },
+    {
+      "id": "T14",
+      "type": "single",
+      "question_text": "For memorable moments, I lean toward…",
+      "choices": [
+        { "label": "Marking transitions so the arc is felt.", "value": "A", "weights": { "Alchemist": 1.0 }, "tags": ["ritual_devotion","meaning"] },
+        { "label": "Keeping it casual and continuous.", "value": "B", "weights": { "Explorer": 1.0 }, "tags": ["novelty","momentum"] }
+      ]
+    }
+  ]
+}
