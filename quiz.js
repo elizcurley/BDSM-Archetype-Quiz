@@ -6,19 +6,19 @@
 
   // Source files (unchanged paths)
   const FILES = [
-    "quiz_sections/foundational_assessment.json",
-    "quiz_sections/hobby_preferences.json",
-    "quiz_sections/kink_general.json",
-    "quiz_sections/kink_specific.json",
-    "quiz_sections/preference_strength.json",
-    "quiz_sections/reflection.json",
-    "quiz_sections/situational.json",
-    "quiz_sections/kink_interests.json",
-    "quiz_sections/psychoemotional.json",
-    "data/intimacy_interests.json",
-    "data/power_dynamics_general.json",
+  "data/foundational_assessment.json",
+  "data/hobby_preferences.json",
+  "data/kink_general.json",
+  "data/kink_specific.json",
+  "data/preference_strength.json",
+  "data/reflection.json",
+  "data/situational.json",
+  "data/kink_interests.json",
+  "data/psychoemotional.json",
+  "data/intimacy_interests.json",
+  "data/power_dynamics_general.json",
+];
 
-  ];
 
   const ARCHETYPES = ["Catalyst","Explorer","Keystone","Vanguard","Oracle","Connoisseur","Alchemist"];
 
